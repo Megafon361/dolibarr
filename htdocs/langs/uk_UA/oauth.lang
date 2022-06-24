@@ -1,0 +1,32 @@
+# Dolibarr language file - Source file is en_US - oauth
+ConfigOAuth=Конфігурація OAuth
+OAuthServices=Служби OAuth
+ManualTokenGeneration=Генерація маркерів вручну
+TokenManager=Менеджер токенів
+IsTokenGenerated=Чи генерується токен?
+NoAccessToken=Маркер доступу не збережено в локальній базі даних
+HasAccessToken=Токен було створено та збережено в локальній базі даних
+NewTokenStored=Токен отримано та збережено
+ToCheckDeleteTokenOnProvider=Натисніть тут, щоб перевірити/видалити авторизацію, збережену постачальником OAuth %s
+TokenDeleted=Токен видалено
+RequestAccess=Натисніть тут, щоб запитати/відновити доступ та отримати новий маркер для збереження
+DeleteAccess=Натисніть тут, щоб видалити маркер
+UseTheFollowingUrlAsRedirectURI=Використовуйте таку URL-адресу як URI переспрямування під час створення облікових даних у свого постачальника OAuth:
+ListOfSupportedOauthProviders=Введіть облікові дані, надані вашим постачальником OAuth2. Тут перелічено лише підтримуваних постачальників OAuth2. Ці служби можуть використовуватися іншими модулями, які потребують аутентифікації OAuth2.
+OAuthSetupForLogin=Сторінка для створення токена OAuth
+SeePreviousTab=Дивіться попередню вкладку
+OAuthIDSecret=Ідентифікатор та секрет OAuth
+TOKEN_REFRESH=Присутнє оновлення маркера
+TOKEN_EXPIRED=Термін дії токена закінчився
+TOKEN_EXPIRE_AT=Термін дії токена закінчується о
+TOKEN_DELETE=Видалити збережений маркер
+OAUTH_GOOGLE_NAME=Сервіс Google OAuth
+OAUTH_GOOGLE_ID=Ідентифікатор Google OAuth
+OAUTH_GOOGLE_SECRET=OAuth Google Secret
+OAUTH_GOOGLE_DESC=Перейдіть до <a class="notasortlink" href="https://console.developers.google.com/" target="_blank" rel="noopener noreferrer external"> цієї сторінки </a>, потім «Облікові дані», щоб створити облікові дані OAuth
+OAUTH_GITHUB_NAME=Служба OAuth GitHub
+OAUTH_GITHUB_ID=Ідентифікатор OAuth GitHub
+OAUTH_GITHUB_SECRET=Секрет OAuth GitHub
+OAUTH_GITHUB_DESC=Перейдіть до <a class="notasortlink" href="https://github.com/settings/developers" target="_blank" rel="noopener noreferrer external"> цієї сторінки </a>, а потім «Зареєструйте нову програму», щоб створити облікові дані OAuth
+OAUTH_STRIPE_TEST_NAME=OAuth Stripe Test
+OAUTH_STRIPE_LIVE_NAME=OAuth Stripe Live
