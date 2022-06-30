@@ -1,0 +1,80 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F221705034285046" title="oEmbed Form">
+    <link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F221705034285046" title="oEmbed Form">
+    <meta property="og:title" content="Emitir factura a cliente">
+    <title>Emitir factura a cliente</title>
+    <style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+    <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f7ed99c2c2c7240ba580251">
+    <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_styles.css?3.3.34122">
+    <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_feature.css?3.3.34122">
+    <script src="https://cdn01.jotfor.ms/static/prototype.forms.js?3.3.34122" type="text/javascript"></script>
+    <script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.34122" type="text/javascript"></script>
+    <script type="text/javascript">	JotForm.newDefaultTheme = true;
+        JotForm.extendsNewTheme = false;
+        JotForm.newPaymentUIForNewCreatedForms = true;
+        JotForm.newPaymentUI = true;
+        JotForm.clearFieldOnHide="disable";
+        JotForm.submitError="jumpToFirstError";
+    
+        JotForm.init(function(){
+        /*INIT-START*/
+          setTimeout(function() {
+              $('input_3').hint('ex: 23');
+           }, 20);
+          JotForm.alterTexts(undefined);
+        /*INIT-END*/
+        });
+    
+       JotForm.prepareCalculationsOnTheFly([null,{"name":"heading","qid":"1","text":"Emitir factura a cliente","type":"control_head"},{"name":"submit2","qid":"2","text":"Emitir","type":"control_button"},{"description":"","name":"numeroDe","qid":"3","subLabel":"","text":"Numero de cotizacion","type":"control_number"}]);
+       setTimeout(function() {
+    JotForm.paymentExtrasOnTheFly([null,{"name":"heading","qid":"1","text":"Emitir factura a cliente","type":"control_head"},{"name":"submit2","qid":"2","text":"Emitir","type":"control_button"},{"description":"","name":"numeroDe","qid":"3","subLabel":"","text":"Numero de cotizacion","type":"control_number"}]);}, 20); 
+    </script>
+</head>
+
+
+
+<body>
+  <form class="jotform-form" action="CrearFactura.php" method="post" accept-charset="utf-8" autocomplete="on" novalidate="true">
+            <div role="main" class="form-all">
+           
+            <ul class="form-section page-section">
+              <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                  <div class="header-text httal htvam">
+                    <h1 id="header_1" class="form-header" data-component="header">
+                      Emitir factura a cliente
+                    </h1>
+                  </div>
+                </div>
+              </li>
+              <li class="form-line jf-required" data-type="control_number" id="id_3">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3">
+                  Numero de cotización
+                  <span class="form-required">
+                    *
+                  </span>
+                </label>
+                <div id="cid_3" class="form-input-wide jf-required" data-layout="half">
+                  <input type="number" id="input_3" name="NumCotiz" data-type="input-number" class=" form-number-input form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="ex: 23" data-component="number" aria-labelledby="label_3" required="" step="any">
+                </div>
+              </li>
+              <li class="form-line" data-type="control_button" id="id_2">
+                <div id="cid_2" class="form-input-wide" data-layout="full">
+                  <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                    <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                      Emitir
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="">
+              </li>
+            </ul>
+          </div>
+          
+  </form>
+      
+</body>
