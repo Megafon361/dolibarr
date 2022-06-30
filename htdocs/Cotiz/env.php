@@ -1,8 +1,7 @@
 <?php
 
-$httpheader =  ['DOLAPIKEY: '];
+$httpheader =  ['DOLAPIKEY: oGSKoAlvK86K'];
 
-//$Root = "http://localhost/dolibarr/api/index.php/";
-$Root = "http://fontv.ar/htdocs/api/index.php/";
+$Root = "http://localhost/dolibarr/htdocs/api/index.php/";
 
 ?>
