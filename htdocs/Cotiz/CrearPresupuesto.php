@@ -1,17 +1,14 @@
 <?php
-//cargar  apikey 
+include "doliclass.php";
 
 //Recibir numero de cotizacion con get
-
-echo "hello";
-
 $NumCotiz = $_POST['nroCotiz2'];
 
 
-$httpheader =  ['DOLAPIKEY: mAgnV8S8vehYX2Pm3NQ56o46bgXPQu47'];
-$Root = "http://fontv.ar/htdocs/api/index.php/";
- $cotizacion = array();
+
+$cotizacion = array();
 $curl = curl_init();
+
 $url = $Root."cotizacionesapi/cotizacions/".$NumCotiz;
 
 curl_setopt($curl, CURLOPT_URL, $url);
