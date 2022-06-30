@@ -32,7 +32,7 @@ CREATE TABLE llx_cotizaciones_cotizacion(
 	import_key varchar(14), 
 	model_pdf varchar(255), 
 	status integer NOT NULL, 
-	entrega varchar(128), 
+	entrega date, 
 	trabajo varchar(128), 
 	gastos varchar(128), 
 	megafon varchar(128), 

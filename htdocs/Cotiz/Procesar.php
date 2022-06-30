@@ -1,17 +1,16 @@
 <?php
+include "doliclass.php";
 
-$httpheader =  ['DOLAPIKEY: mAgnV8S8vehYX2Pm3NQ56o46bgXPQu47'];
-//$Root = "http://localhost/dolibarr/api/index.php/";
-$Root = "http://fontv.ar/htdocs/api/index.php/";
+
 $curl = curl_init();
 $url = $Root."cotizacionesapi/cotizacions";
 
 $entrega = array();
 $Usuario = $_POST['Usuario'];
-$entrega['mes']	= $_POST['q4_entregames'];//entrega
-$entrega['dia']	= $_POST['q4_entregadia'];//
-$entrega['año']	= $_POST['q4_entregaaño'];//
-$entregastring = $entrega['mes'].$entrega['dia'].$entrega['año'];
+//$entrega['mes']	= $_POST['q4_entregames'];//entrega
+//$entrega['dia']	= $_POST['q4_entregadia'];//
+//$entrega['año']	= $_POST['q4_entregaaño'];//
+//$entregastring = $entrega['mes'].$entrega['dia'].$entrega['año'];
 $cliente		= $_POST['clientex'];
 $etiqueta		= $_POST['q19_etiqueta'];  //label
 $trabajo		= $_POST['q8_trabajo'];
@@ -24,6 +23,11 @@ $subtotal		= $_POST['q30_subtotal'];
 $iva		= $_POST['q26_iva26'];
 $total		= $_POST['q29_total29'];
 $Acotizar = Array();
+
+
+
+
+
 $Acotizar[0]['Rol']=$_POST['q3_cotizacion0Rol'];
 $Acotizar[0]['Precio']=$_POST['q3_cotizacion0Precio'];
 $Acotizar[0]['Cant']=$_POST['q3_cotizacion0Cant'];
@@ -107,9 +111,14 @@ $Acotizar[15]['Pago']=$_POST['q3_cotizacion15Pago'];
 
 
 
+
+
+
+
+
 $data = array();
 
-$data["entrega"]=$entregastring;
+$data["entrega"]='5102022';//$entregastring;
 $data["ref"]="referencia";
 $data["label"]=$etiqueta;
 $data['Usuario']=$Usuario;
@@ -193,7 +202,6 @@ $data["C15As"]=$Acotizar[15]['Asign'];
 $data["C15Pr"]=$Acotizar[15]['Precio'];
 $data["C15Ro"]=$Acotizar[15]['Rol'];
 $data["C15Ca"]=$Acotizar[15]['Cant'];
-
 $data["gastos"]=$gastos;
 $data["total"]=$total;
 $data["iva"]=$iva;
@@ -206,34 +214,15 @@ $data["note_public"]="nota publica";
 $data["note_private"]=$descripcion;
 $data["status"]="0";
 $data["fk_soc"]=$cliente;
-	
 
-
-
-
-
-
-
-	//print(json_encode($data));
-	curl_setopt($curl, CURLOPT_URL, $url);
-	curl_setopt($curl, CURLOPT_POST, 1);
-	curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-	curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 	$result = curl_exec($curl);
 	curl_close($curl);
-	
-
-function sacala($vari="ninguna variable asignada")
-	{
-    echo"<br>";
-    echo $vari;
-    //print $vari;
-    //var_dump($vari);
-    // print_r $vari;
-    //printf($vari;)
-	}
-
-echo "final";
+var_dump($result);
+//echo "final 2 ";
 ?>

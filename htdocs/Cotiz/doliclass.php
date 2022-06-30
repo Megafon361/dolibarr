@@ -1,8 +1,13 @@
 <?php
 include "env.php";
 
+if ($definite !== 1) {
+	echo "falta archivo env";
+}
+
 
 // funcion para crear items en las facturas $n Numero de facturas $Pu precio unitario $desc descripcion   $qty cantidad 
+
 
 function AddLines($n, $pu,$desc,$qty)
 	{
@@ -172,5 +177,5 @@ function getCotiz($n=1)	{
 			return($result);	
 		}
 
-		
+	
 ?>

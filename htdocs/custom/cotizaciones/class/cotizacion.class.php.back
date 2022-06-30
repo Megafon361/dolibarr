@@ -118,7 +118,7 @@ class Cotizacion extends CommonObject
 		'import_key' => array('type'=>'varchar(14)', 'label'=>'ImportId', 'enabled'=>'1', 'position'=>1000, 'notnull'=>-1, 'visible'=>-2,),
 		'model_pdf' => array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>'1', 'position'=>1010, 'notnull'=>-1, 'visible'=>0,),
 		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Validado', '2'=>'Presupuestado', '3'=>'Facturado', '9'=>'Cancelado'), 'validate'=>'1',),
-		'entrega' => array('type'=>'varchar(128)', 'label'=>'entrega', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>1,),
+		'entrega' => array('type'=>'date', 'label'=>'entrega', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>1,),
 		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>10, 'notnull'=>0, 'visible'=>-1,),
 		'gastos' => array('type'=>'varchar(128)', 'label'=>'gastos', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
 		'megafon' => array('type'=>'varchar(128)', 'label'=>'megafon', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
