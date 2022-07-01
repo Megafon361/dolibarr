@@ -159,7 +159,10 @@ function GetMegafriends()	{
 		curl_close($curl);
 		//echo $result;
 		return($result);	}
-function getCotizacion($n=1)	{
+function getCotizacion($n)	{
+	if (isset($n)) {
+		# code...
+	
 			
 			$curl = curl_init();
 			global $httpheader, $Root;
@@ -172,8 +175,16 @@ function getCotizacion($n=1)	{
 			$result = curl_exec($curl);
 			curl_close($curl);
 			$result= json_decode($result,1);
-			return($result);	
+			return($result);
+		
+		}	else {
+			
+			echo"no se especifico N de cotizacion";
+			return(false);
 		}
+		
+	
+	}
 
 	
 ?>
