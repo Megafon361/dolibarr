@@ -11,9 +11,8 @@ if ($definite !== 1) {
 
 function AddLinePresupuesto($n, $pu,$desc,$qty)
 	{
-		//var_dump($n);
+		
 		$n=strval($n);
-		//print($n);
 	$curl = curl_init();
 	global $httpheader, $Root;
 	$url = $Root."proposals/".$n."/line";
@@ -58,7 +57,6 @@ function AddInvoiceProovedores($socid,$ref,$ref_supplier,$note,$order_supplier,$
 	//$data['ref']=$ref;
 	//$data['date']=$date;
 	
-	//print(json_encode($data));
 	curl_setopt($curl, CURLOPT_URL, $url);
 	curl_setopt($curl, CURLOPT_POST, 1);
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
@@ -67,7 +65,7 @@ function AddInvoiceProovedores($socid,$ref,$ref_supplier,$note,$order_supplier,$
 
 
 	$result = curl_exec($curl);
-	print(htmlentities($response));
+	//print(htmlentities($response));
 	curl_close($curl);
 	return($result);
 	}

@@ -223,6 +223,6 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 	$result = curl_exec($curl);
 	curl_close($curl);
-var_dump($result);
+//var_dump($result);  --->se creo la cotizacion NX
 //echo "final 2 ";
 ?>
