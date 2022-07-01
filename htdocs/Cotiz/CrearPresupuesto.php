@@ -4,7 +4,15 @@ include "doliclass.php";
 //Recibir numero de cotizacion con get 
 $NumCotiz = $_POST['nroCotiz1'];
 $cotizacion = getCotizacion($NumCotiz);
+var_dump( $cotizacion);
 
+
+
+
+if (!isset($NumCotiz)) {
+    echo "fuck, la variable  numcotiz no esta seteada";
+    # code...
+}
 
 //var_dump($cotizacion);
 
@@ -80,17 +88,17 @@ $PresupuestoCreado = curl_exec($curl);
 $PresupuestoCreado= json_decode($PresupuestoCreado,1);
 curl_close($curl);
 
+//var_dump($PresupuestoCreado);
 
 
 
 
 
 
+//AGREGAR LINEAS A Presup 
 
-//AGREGAR LINEAS A INVOICE 
+#$lineaAnadida = AddLinePresupuesto($PresupuestoCreado,$total ,$description,1);
 
-$lineaAnadida = AddLinePresupuesto($PresupuestoCreado,$total ,$description,1);
-
-var_dump($lineaAnadida);
+var_dump($PresupuestoCreado);
 
 ?>
