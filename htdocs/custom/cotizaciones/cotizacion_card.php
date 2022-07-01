@@ -240,6 +240,13 @@ llxHeader('', $title, $help_url);
 
 
 
+/// ADD FOMANTIC
+print '<!-- You MUST include jQuery before Fomantic -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>';
+
+
 // Part to create
 if ($action == 'create') {
 	if (empty($permissiontoadd)) {
@@ -264,8 +271,12 @@ if ($action == 'create') {
 	// Set some default values
 	//if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
 
-	print '<table class="border centpercent tableforfieldcreate">'."\n";
+	//print '<table class="border centpercent tableforfieldcreate">'."\n";
+	//print '<table class="ui sortable celled selectable table">'."\n";
 
+
+
+	
 	// Common attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
 

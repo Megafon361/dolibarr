@@ -3,7 +3,6 @@ htdocs/conf/conf.php.old
 htdocs/conf/conf.php.sav
 htdocs/conf/conf.php.back
 documents/
-custom2/
 test/report/
 nbproject
 default.properties
@@ -57,6 +56,4 @@ package-lock.json
 doc/install.lock
 /factory/
 htdocs/Cotiz/env.php
-htdocs/Cotiz/env.php
-htdocs/Cotiz/env.php
-htdocs/Cotiz/env.php
+
