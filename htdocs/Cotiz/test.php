@@ -1,9 +1,3 @@
-
-
-
-
-
-	
-
-
-var_dump($PresupuestoCreado);
+<?php
+phpinfo();
+?>
