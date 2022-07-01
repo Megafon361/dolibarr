@@ -1,0 +1,192 @@
+2022-06-30 20:46:44 WARNING ::1             main.inc: database version 15.0.2 is lower than programs version 16.0.0-beta. Redirect to install/upgrade page.
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN birth date
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'birth'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN dateemployment date
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'dateemployment'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN dateemploymentend date
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'dateemploymentend'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN default_range integer
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'default_range'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN default_c_exp_tax_cat integer
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'default_c_exp_tax_cat'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN langs varchar(24)
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'langs'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN fieldcomputed text
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'fieldcomputed'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN fielddefault varchar(255)
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'fielddefault'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN enabled varchar(255) DEFAULT '1'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'enabled'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN help text
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'help'
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user_rights ADD COLUMN entity integer DEFAULT 1 NOT NULL
+2022-06-30 20:51:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'entity'
+2022-06-30 21:35:19 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 21:35:19 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 21:36:12 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 21:36:12 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 21:36:48 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_cotizaciones_cotizacion (ref, label, fk_soc, fk_project, description, note_public, note_private, date_creation, fk_user_creat, fk_user_modif, last_main_doc, import_key, model_pdf, status, entrega, trabajo, gastos, megafon, subtotal, iva, total, C0Ro, C0Pr, C0Ca, C0Pa, C1Ro, C1Pr, C1Ca, C1Pa, C2Ro, C2Pr, C2Ca, C2Pa, C3Ro, C3Pr, C3Ca, C3Pa, C4Ro, C4Pr, C4Ca, C4Pa, C5Ro, C5Pr, C5Ca, C5Pa, C6Ro, C6Pr, C6Ca, C6Pa, C7Ro, C7Pr, C7Ca, C7Pa, C8Ro, C8Pr, C8Ca, C8Pa, C9Ro, C9Pr, C9Ca, C9Pa, C10Ro, C10Pr, C10Ca, C10Pa, C11Ro, C11Pr, C11Ca, C11Pa, C12Ro, C12Pr, C12Ca, C12Pa, C13Ro, C13Pr, C13Ca, C13Pa, C14Ro, C14Pr, C14Ca, C14Pa, C15Ro, C15Pr, C15Ca, C15Pa, C0As, C1As, C2As, C3As, C4As, C5As, C6As, C7As, C8As, C9As, C10As, C11As, C12As, C13As, C14As, C15As, Usuario) VALUES ('referencia', 'etiq', 3, NULL, 'Descripcion', 'nota publica', 'desc', '2022-06-30 23:36:48', 2, NULL, NULL, NULL, NULL, 0, NULL, 'work', '13', '1.95', '14.95', '5.76', '20.71', 'Equipos Megafon', '1', '1', '1', 'Redes', '12', '1', '2', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', '', '', '1', '', 31, 29, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5)
+2022-06-30 21:36:48 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 21:52:15 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 21:52:15 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 21:56:08 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 21:56:08 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 21:58:24 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 21:58:24 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 22:00:44 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT t.rowid FROM llx_cotizaciones_cotizacion as t WHERE 1 = 1 ORDER BY t.rowid ASC LIMIT 101
+2022-06-30 22:00:44 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: CREATE TABLE llx_cotizaciones_cotizacion( rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, ref varchar(128) DEFAULT '(PROV)' NOT NULL, label varchar(255), fk_soc integer, fk_project integer, description text, note_public text, note_private text, date_creation datetime NOT NULL, tms timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, fk_user_creat integer NOT NULL, fk_user_modif integer, last_main_doc varchar(255), import_key varchar(14), model_pdf varchar(255), status integer NOT NULL, entrega date, trabajo varchar(128), gastos varchar(128), megafon varchar(128), subtotal varchar(128), iva varchar(128), total varchar(128), C0Ro varchar(128), C0Pr varchar(128), C0Ca varchar(128), C0Pa varchar(128), C1Ro varchar(128), C1Pr varchar(128), C1Ca varchar(128), C1Pa varchar(128), C2Ro varchar(128), C2Pr varchar(128), C2Ca varchar(128), C2Pa varchar(128), C3Ro varchar(128), C3Pr varchar(128), C3Ca varchar(128), C3Pa varchar(128), C4Ro varchar(128), C4Pr varchar(128), C4Ca varchar(128), C4Pa varchar(128), C5Ro varchar(128), C5Pr varchar(128), C5Ca varchar(128), C5Pa varchar(128), C6Ro varchar(128), C6Pr varchar(128), C6Ca varchar(128), C6Pa varchar(128), C7Ro varchar(128), C7Pr varchar(128), C7Ca varchar(128), C7Pa varchar(128), C8Ro varchar(128), C8Pr varchar(128), C8Ca varchar(128), C8Pa varchar(128), C9Ro varchar(128), C9Pr varchar(128), C9Ca varchar(128), C9Pa varchar(128), C10Ro varchar(128), C10Pr varchar(128), C10Ca varchar(128), C10Pa varchar(128), C11Ro varchar(128), C11Pr varchar(128), C11Ca varchar(128), C11Pa varchar(128), C12Ro varchar(128), C12Pr varchar(128), C12Ca varchar(128), C12Pa varchar(128), C13Ro varchar(128), C13Pr varchar(128), C13Ca varchar(128), C13Pa varchar(128), C14Ro varchar(128), C14Pr varchar(128), C14Ca varchar(128), C14Pa varchar(128), C15Ro varchar(128), C15Pr varchar(128), C15Ca varchar(128), C15Pa varchar(128), C0As integer, C1As integer, C2As integer, C3As integer, C4As integer, C5As integer, C6As integer, C7As integer, C8As integer, C9As integer, C10As integer, C11As integer, C12As integer, C13As integer, C14As integer, C15As integer, Usuario integer ) ENGINE=innodb;
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_TABLE_ALREADY_EXISTS Table 'llx_cotizaciones_cotizacion' already exists
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: create table llx_cotizaciones_cotizacion_extrafields ( rowid                     integer AUTO_INCREMENT PRIMARY KEY, tms                       timestamp, fk_object                 integer NOT NULL, import_key                varchar(14) ) ENGINE=innodb;
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_TABLE_ALREADY_EXISTS Table 'llx_cotizaciones_cotizacion_extrafields' already exists
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_rowid (rowid);
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_rowid'
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_ref (ref);
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_ref'
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_soc (fk_soc);
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_soc'
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_project (fk_project);
+2022-06-30 22:05:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_project'
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD CONSTRAINT llx_cotizaciones_cotizacion_fk_user_creat FOREIGN KEY (fk_user_creat) REFERENCES llx_user(rowid);
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_CANNOT_CREATE Can't create table `dolibarr`.`llx_cotizaciones_cotizacion` (errno: 121 "Duplicate key on write or update")
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_status (status);
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_status'
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion_extrafields ADD INDEX idx_cotizacion_fk_object(fk_object);
+2022-06-30 22:05:05 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizacion_fk_object'
+2022-06-30 22:08:32 WARNING ::1             Functions.lib::dol_print_date function called with a bad value from page /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions
+2022-06-30 22:09:04 WARNING ::1             Functions.lib::dol_print_date function called with a bad value from page /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions
+2022-06-30 22:10:44 WARNING ::1             Functions.lib::dol_print_date function called with a bad value from page /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:21 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:22 WARNING ::1             Failed to make include_once 
+2022-06-30 22:13:22 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:24 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:24 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:24 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:24 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:25 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:25 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:25 WARNING ::1             Failed to make include_once 
+2022-06-30 22:15:25 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:21:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:26:27 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:09 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:09 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:09 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:09 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:09 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:10 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:10 WARNING ::1             Failed to make include_once 
+2022-06-30 22:28:10 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:14 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:15 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:25 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:30:26 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:16 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:16 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:16 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:16 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:16 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:17 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:17 WARNING ::1             Failed to make include_once 
+2022-06-30 22:32:17 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:12 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:33:13 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:40 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:37:41 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:38:07 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:32 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:33 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:54 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:42:55 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 22:43:46 WARNING ::1             Failed to make include_once 
+2022-06-30 23:35:22 ERR     ::1             Propal::create Date of proposal is required
+2022-06-30 23:46:57 ERR     ::1             Propal::addline status of proposal must be Draft to allow use of ->addline()
+2022-07-01 00:23:11 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_propal (fk_soc, price, remise, remise_percent, remise_absolue, total_tva, total_ttc, datep, datec, ref, fk_user_author, note_private, note_public, model_pdf, fin_validite, fk_cond_reglement, deposit_percent, fk_mode_reglement, fk_account, ref_client, date_livraison, fk_shipping_method, fk_warehouse, fk_availability, fk_input_reason, fk_projet, fk_incoterms, location_incoterms, entity, fk_multicurrency, multicurrency_code, multicurrency_tx)  VALUES (, 0, 0, NULL, NULL, 0, 0, '2021-12-01 00:00:00', '2022-07-01 02:23:11', '(PROV)', 7, '', '', '', '2021-12-16 00:00:00', NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, null, 0, '', 1, 0, 'ARS', 1)
+2022-07-01 00:23:11 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_SYNTAX You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' 0, 0, NULL, NULL, 0, 0, '2021-12-01 00:00:00', '2022-07-01 02:23:11', '(PROV...' at line 1
+2022-07-01 23:14:20 ERR     ::1             DoliDBMysqli::query SQL Error query: CREATE TABLE llx_cotizaciones_cotizacion( rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, ref varchar(128) DEFAULT '(PROV)' NOT NULL, label varchar(255), fk_soc integer, fk_project integer, description text, note_public text, note_private text, date_creation datetime NOT NULL, tms timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, fk_user_creat integer NOT NULL, fk_user_modif integer, last_main_doc varchar(255), import_key varchar(14), model_pdf varchar(255), status integer NOT NULL, entrega date, trabajo varchar(128), gastos varchar(128), megafon varchar(128), subtotal varchar(128), iva varchar(128), total varchar(128), C0Ro varchar(128), C0Pr varchar(128), C0Ca varchar(128), C0Pa varchar(128), C1Ro varchar(128), C1Pr varchar(128), C1Ca varchar(128), C1Pa varchar(128), C2Ro varchar(128), C2Pr varchar(128), C2Ca varchar(128), C2Pa varchar(128), C3Ro varchar(128), C3Pr varchar(128), C3Ca varchar(128), C3Pa varchar(128), C4Ro varchar(128), C4Pr varchar(128), C4Ca varchar(128), C4Pa varchar(128), C5Ro varchar(128), C5Pr varchar(128), C5Ca varchar(128), C5Pa varchar(128), C6Ro varchar(128), C6Pr varchar(128), C6Ca varchar(128), C6Pa varchar(128), C7Ro varchar(128), C7Pr varchar(128), C7Ca varchar(128), C7Pa varchar(128), C8Ro varchar(128), C8Pr varchar(128), C8Ca varchar(128), C8Pa varchar(128), C9Ro varchar(128), C9Pr varchar(128), C9Ca varchar(128), C9Pa varchar(128), C10Ro varchar(128), C10Pr varchar(128), C10Ca varchar(128), C10Pa varchar(128), C11Ro varchar(128), C11Pr varchar(128), C11Ca varchar(128), C11Pa varchar(128), C12Ro varchar(128), C12Pr varchar(128), C12Ca varchar(128), C12Pa varchar(128), C13Ro varchar(128), C13Pr varchar(128), C13Ca varchar(128), C13Pa varchar(128), C14Ro varchar(128), C14Pr varchar(128), C14Ca varchar(128), C14Pa varchar(128), C15Ro varchar(128), C15Pr varchar(128), C15Ca varchar(128), C15Pa varchar(128), C0As integer, C1As integer, C2As integer, C3As integer, C4As integer, C5As integer, C6As integer, C7As integer, C8As integer, C9As integer, C10As integer, C11As integer, C12As integer, C13As integer, C14As integer, C15As integer, Usuario integer ) ENGINE=innodb;
+2022-07-01 23:14:20 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_TABLE_ALREADY_EXISTS Table 'llx_cotizaciones_cotizacion' already exists
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_rowid (rowid);
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_rowid'
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_ref (ref);
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_ref'
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_soc (fk_soc);
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_soc'
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_project (fk_project);
+2022-07-01 23:14:21 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_project'
+2022-07-01 23:14:22 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD CONSTRAINT llx_cotizaciones_cotizacion_fk_user_creat FOREIGN KEY (fk_user_creat) REFERENCES llx_user(rowid);
+2022-07-01 23:14:22 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_CANNOT_CREATE Can't create table `dolibarr`.`llx_cotizaciones_cotizacion` (errno: 121 "Duplicate key on write or update")
+2022-07-01 23:14:22 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_status (status);
+2022-07-01 23:14:22 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_status'
+2022-07-01 23:16:59 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT COUNT(*) as nb FROM llx_cotizaciones_cotizacion
+2022-07-01 23:16:59 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
+2022-07-01 23:17:02 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT COUNT(*) as nb FROM llx_cotizaciones_cotizacion_extrafields
+2022-07-01 23:17:02 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion_extrafields' doesn't exist

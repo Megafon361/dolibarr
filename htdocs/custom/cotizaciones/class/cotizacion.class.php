@@ -118,6 +118,7 @@ class Cotizacion extends CommonObject
 		'import_key' => array('type'=>'varchar(14)', 'label'=>'ImportId', 'enabled'=>'1', 'position'=>1000, 'notnull'=>-1, 'visible'=>-2,),
 		'model_pdf' => array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>'1', 'position'=>1010, 'notnull'=>-1, 'visible'=>0,),
 		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Validado', '2'=>'Presupuestado', '3'=>'Facturado', '9'=>'Cancelado'), 'validate'=>'1',),
+
 		'entrega' => array('type'=>'date', 'label'=>'entrega', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>1,),
 		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>10, 'notnull'=>0, 'visible'=>-1,),
 		'gastos' => array('type'=>'varchar(128)', 'label'=>'gastos', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
@@ -125,86 +126,42 @@ class Cotizacion extends CommonObject
 		'subtotal' => array('type'=>'varchar(128)', 'label'=>'subtotal', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
 		'iva' => array('type'=>'varchar(128)', 'label'=>'iva', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
 		'total' => array('type'=>'varchar(128)', 'label'=>'total', 'enabled'=>'1', 'position'=>12, 'notnull'=>0, 'visible'=>3,),
-		'C0Ro' => array('type'=>'varchar(128)', 'label'=>'Rol0', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3,),
-		'C0Pr' => array('type'=>'varchar(128)', 'label'=>'Pre0', 'enabled'=>'1', 'position'=>114, 'notnull'=>0, 'visible'=>3,),
-		'C0Ca' => array('type'=>'varchar(128)', 'label'=>'Can0', 'enabled'=>'1', 'position'=>115, 'notnull'=>0, 'visible'=>3,),
-		'C0Pa' => array('type'=>'varchar(128)', 'label'=>'Pag0', 'enabled'=>'1', 'position'=>117, 'notnull'=>0, 'visible'=>3,),
-		'C1Ro' => array('type'=>'varchar(128)', 'label'=>'Rol1', 'enabled'=>'1', 'position'=>118, 'notnull'=>0, 'visible'=>3,),
-		'C1Pr' => array('type'=>'varchar(128)', 'label'=>'Pre1', 'enabled'=>'1', 'position'=>119, 'notnull'=>0, 'visible'=>3,),
-		'C1Ca' => array('type'=>'varchar(128)', 'label'=>'Can1', 'enabled'=>'1', 'position'=>120, 'notnull'=>0, 'visible'=>3,),
-		'C1Pa' => array('type'=>'varchar(128)', 'label'=>'Pag1', 'enabled'=>'1', 'position'=>122, 'notnull'=>0, 'visible'=>3,),
-		'C2Ro' => array('type'=>'varchar(128)', 'label'=>'Rol2', 'enabled'=>'1', 'position'=>123, 'notnull'=>0, 'visible'=>3,),
-		'C2Pr' => array('type'=>'varchar(128)', 'label'=>'Pre2', 'enabled'=>'1', 'position'=>124, 'notnull'=>0, 'visible'=>3,),
-		'C2Ca' => array('type'=>'varchar(128)', 'label'=>'Can2', 'enabled'=>'1', 'position'=>125, 'notnull'=>0, 'visible'=>3,),
-		'C2Pa' => array('type'=>'varchar(128)', 'label'=>'Pag2', 'enabled'=>'1', 'position'=>127, 'notnull'=>0, 'visible'=>3,),
-		'C3Ro' => array('type'=>'varchar(128)', 'label'=>'Rol3', 'enabled'=>'1', 'position'=>128, 'notnull'=>0, 'visible'=>3,),
-		'C3Pr' => array('type'=>'varchar(128)', 'label'=>'Pre3', 'enabled'=>'1', 'position'=>129, 'notnull'=>0, 'visible'=>3,),
-		'C3Ca' => array('type'=>'varchar(128)', 'label'=>'Can3', 'enabled'=>'1', 'position'=>130, 'notnull'=>0, 'visible'=>3,),
-		'C3Pa' => array('type'=>'varchar(128)', 'label'=>'Pag3', 'enabled'=>'1', 'position'=>132, 'notnull'=>0, 'visible'=>3,),
-		'C4Ro' => array('type'=>'varchar(128)', 'label'=>'Rol4', 'enabled'=>'1', 'position'=>133, 'notnull'=>0, 'visible'=>3,),
-		'C4Pr' => array('type'=>'varchar(128)', 'label'=>'Pre4', 'enabled'=>'1', 'position'=>134, 'notnull'=>0, 'visible'=>3,),
-		'C4Ca' => array('type'=>'varchar(128)', 'label'=>'Can4', 'enabled'=>'1', 'position'=>135, 'notnull'=>0, 'visible'=>3,),
-		'C4Pa' => array('type'=>'varchar(128)', 'label'=>'Pag4', 'enabled'=>'1', 'position'=>137, 'notnull'=>0, 'visible'=>3,),
-		'C5Ro' => array('type'=>'varchar(128)', 'label'=>'Rol5', 'enabled'=>'1', 'position'=>138, 'notnull'=>0, 'visible'=>3,),
-		'C5Pr' => array('type'=>'varchar(128)', 'label'=>'Pre5', 'enabled'=>'1', 'position'=>139, 'notnull'=>0, 'visible'=>3,),
-		'C5Ca' => array('type'=>'varchar(128)', 'label'=>'Can5', 'enabled'=>'1', 'position'=>140, 'notnull'=>0, 'visible'=>3,),
-		'C5Pa' => array('type'=>'varchar(128)', 'label'=>'Pag5', 'enabled'=>'1', 'position'=>142, 'notnull'=>0, 'visible'=>3,),
-		'C6Ro' => array('type'=>'varchar(128)', 'label'=>'Rol6', 'enabled'=>'1', 'position'=>143, 'notnull'=>0, 'visible'=>3,),
-		'C6Pr' => array('type'=>'varchar(128)', 'label'=>'Pre6', 'enabled'=>'1', 'position'=>144, 'notnull'=>0, 'visible'=>3,),
-		'C6Ca' => array('type'=>'varchar(128)', 'label'=>'Can6', 'enabled'=>'1', 'position'=>145, 'notnull'=>0, 'visible'=>3,),
-		'C6Pa' => array('type'=>'varchar(128)', 'label'=>'Pag6', 'enabled'=>'1', 'position'=>147, 'notnull'=>0, 'visible'=>3,),
-		'C7Ro' => array('type'=>'varchar(128)', 'label'=>'Rol7', 'enabled'=>'1', 'position'=>148, 'notnull'=>0, 'visible'=>3,),
-		'C7Pr' => array('type'=>'varchar(128)', 'label'=>'Pre7', 'enabled'=>'1', 'position'=>149, 'notnull'=>0, 'visible'=>3,),
-		'C7Ca' => array('type'=>'varchar(128)', 'label'=>'Can7', 'enabled'=>'1', 'position'=>150, 'notnull'=>0, 'visible'=>3,),
-		'C7Pa' => array('type'=>'varchar(128)', 'label'=>'Pag7', 'enabled'=>'1', 'position'=>152, 'notnull'=>0, 'visible'=>3,),
-		'C8Ro' => array('type'=>'varchar(128)', 'label'=>'Rol8', 'enabled'=>'1', 'position'=>153, 'notnull'=>0, 'visible'=>3,),
-		'C8Pr' => array('type'=>'varchar(128)', 'label'=>'Pre8', 'enabled'=>'1', 'position'=>154, 'notnull'=>0, 'visible'=>3,),
-		'C8Ca' => array('type'=>'varchar(128)', 'label'=>'Can8', 'enabled'=>'1', 'position'=>155, 'notnull'=>0, 'visible'=>3,),
-		'C8Pa' => array('type'=>'varchar(128)', 'label'=>'Pag8', 'enabled'=>'1', 'position'=>157, 'notnull'=>0, 'visible'=>3,),
-		'C9Ro' => array('type'=>'varchar(128)', 'label'=>'Rol9', 'enabled'=>'1', 'position'=>158, 'notnull'=>0, 'visible'=>3,),
-		'C9Pr' => array('type'=>'varchar(128)', 'label'=>'Pre9', 'enabled'=>'1', 'position'=>159, 'notnull'=>0, 'visible'=>3,),
-		'C9Ca' => array('type'=>'varchar(128)', 'label'=>'Can9', 'enabled'=>'1', 'position'=>160, 'notnull'=>0, 'visible'=>3,),
-		'C9Pa' => array('type'=>'varchar(128)', 'label'=>'Pag9', 'enabled'=>'1', 'position'=>162, 'notnull'=>0, 'visible'=>3,),
-		'C10Ro' => array('type'=>'varchar(128)', 'label'=>'Rol10', 'enabled'=>'1', 'position'=>163, 'notnull'=>0, 'visible'=>3,),
-		'C10Pr' => array('type'=>'varchar(128)', 'label'=>'Pre10', 'enabled'=>'1', 'position'=>164, 'notnull'=>0, 'visible'=>3,),
-		'C10Ca' => array('type'=>'varchar(128)', 'label'=>'Can10', 'enabled'=>'1', 'position'=>165, 'notnull'=>0, 'visible'=>3,),
-		'C10Pa' => array('type'=>'varchar(128)', 'label'=>'Pag10', 'enabled'=>'1', 'position'=>167, 'notnull'=>0, 'visible'=>3,),
-		'C11Ro' => array('type'=>'varchar(128)', 'label'=>'Rol11', 'enabled'=>'1', 'position'=>168, 'notnull'=>0, 'visible'=>3,),
-		'C11Pr' => array('type'=>'varchar(128)', 'label'=>'Pre11', 'enabled'=>'1', 'position'=>169, 'notnull'=>0, 'visible'=>3,),
-		'C11Ca' => array('type'=>'varchar(128)', 'label'=>'Can11', 'enabled'=>'1', 'position'=>170, 'notnull'=>0, 'visible'=>3,),
-		'C11Pa' => array('type'=>'varchar(128)', 'label'=>'Pag11', 'enabled'=>'1', 'position'=>172, 'notnull'=>0, 'visible'=>3,),
-		'C12Ro' => array('type'=>'varchar(128)', 'label'=>'Rol12', 'enabled'=>'1', 'position'=>173, 'notnull'=>0, 'visible'=>3,),
-		'C12Pr' => array('type'=>'varchar(128)', 'label'=>'Pre12', 'enabled'=>'1', 'position'=>174, 'notnull'=>0, 'visible'=>3,),
-		'C12Ca' => array('type'=>'varchar(128)', 'label'=>'Can12', 'enabled'=>'1', 'position'=>175, 'notnull'=>0, 'visible'=>3,),
-		'C12Pa' => array('type'=>'varchar(128)', 'label'=>'Pag12', 'enabled'=>'1', 'position'=>177, 'notnull'=>0, 'visible'=>3,),
-		'C13Ro' => array('type'=>'varchar(128)', 'label'=>'Rol13', 'enabled'=>'1', 'position'=>178, 'notnull'=>0, 'visible'=>3,),
-		'C13Pr' => array('type'=>'varchar(128)', 'label'=>'Pre13', 'enabled'=>'1', 'position'=>179, 'notnull'=>0, 'visible'=>3,),
-		'C13Ca' => array('type'=>'varchar(128)', 'label'=>'Can13', 'enabled'=>'1', 'position'=>181, 'notnull'=>0, 'visible'=>3,),
-		'C13Pa' => array('type'=>'varchar(128)', 'label'=>'Pag13', 'enabled'=>'1', 'position'=>183, 'notnull'=>0, 'visible'=>3,),
-		'C14Ro' => array('type'=>'varchar(128)', 'label'=>'Rol14', 'enabled'=>'1', 'position'=>184, 'notnull'=>0, 'visible'=>3,),
-		'C14Pr' => array('type'=>'varchar(128)', 'label'=>'Pre14', 'enabled'=>'1', 'position'=>185, 'notnull'=>0, 'visible'=>3,),
-		'C14Ca' => array('type'=>'varchar(128)', 'label'=>'Can14', 'enabled'=>'1', 'position'=>186, 'notnull'=>0, 'visible'=>3,),
-		'C14Pa' => array('type'=>'varchar(128)', 'label'=>'Pag14', 'enabled'=>'1', 'position'=>188, 'notnull'=>0, 'visible'=>3,),
-		'C15Ro' => array('type'=>'varchar(128)', 'label'=>'Rol15', 'enabled'=>'1', 'position'=>189, 'notnull'=>0, 'visible'=>3,),
-		'C15Pr' => array('type'=>'varchar(128)', 'label'=>'Pre15', 'enabled'=>'1', 'position'=>190, 'notnull'=>0, 'visible'=>3,),
-		'C15Ca' => array('type'=>'varchar(128)', 'label'=>'Can15', 'enabled'=>'1', 'position'=>191, 'notnull'=>0, 'visible'=>3,),
-		'C15Pa' => array('type'=>'varchar(128)', 'label'=>'Pag15', 'enabled'=>'1', 'position'=>193, 'notnull'=>0, 'visible'=>3,),
+		
+		
+	
+
+
+		
+	  
+		'C0Ro' => array('type'=>'integer', 'label'=>'Rol', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C0Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>114, 'notnull'=>0, 'visible'=>3,),
+		'C0Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>115, 'notnull'=>0, 'visible'=>3,),
+		'C0Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>117, 'notnull'=>0, 'visible'=>3,),
+		'C1Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>118, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C1Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>119, 'notnull'=>0, 'visible'=>3,),
+		'C1Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>120, 'notnull'=>0, 'visible'=>3,),
+		'C1Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>122, 'notnull'=>0, 'visible'=>3,),
+		'C2Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>123,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C2Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>124, 'notnull'=>0, 'visible'=>3,),
+		'C2Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>125, 'notnull'=>0, 'visible'=>3,),
+		'C2Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>127, 'notnull'=>0, 'visible'=>3,),
+		'C3Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>128,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C3Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>129, 'notnull'=>0, 'visible'=>3,),
+		'C3Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>130, 'notnull'=>0, 'visible'=>3,),
+		'C3Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>132, 'notnull'=>0, 'visible'=>3,),
+		'C4Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>133,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C4Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>134, 'notnull'=>0, 'visible'=>3,),
+		'C4Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>135, 'notnull'=>0, 'visible'=>3,),
+		'C4Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>137, 'notnull'=>0, 'visible'=>3,),
+
+
+
+
 		'C0As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi0', 'enabled'=>'1', 'position'=>116, 'notnull'=>0, 'visible'=>3,),
 		'C1As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi1', 'enabled'=>'1', 'position'=>121, 'notnull'=>0, 'visible'=>3,),
 		'C2As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi2', 'enabled'=>'1', 'position'=>126, 'notnull'=>0, 'visible'=>3,),
 		'C3As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi3', 'enabled'=>'1', 'position'=>131, 'notnull'=>0, 'visible'=>3,),
 		'C4As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi4', 'enabled'=>'1', 'position'=>136, 'notnull'=>0, 'visible'=>3,),
-		'C5As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi5', 'enabled'=>'1', 'position'=>141, 'notnull'=>0, 'visible'=>3,),
-		'C6As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi6', 'enabled'=>'1', 'position'=>146, 'notnull'=>0, 'visible'=>3,),
-		'C7As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi7', 'enabled'=>'1', 'position'=>151, 'notnull'=>0, 'visible'=>3,),
-		'C8As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi8', 'enabled'=>'1', 'position'=>156, 'notnull'=>0, 'visible'=>3,),
-		'C9As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi9', 'enabled'=>'1', 'position'=>161, 'notnull'=>0, 'visible'=>3,),
-		'C10As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi10', 'enabled'=>'1', 'position'=>166, 'notnull'=>0, 'visible'=>3,),
-		'C11As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi11', 'enabled'=>'1', 'position'=>171, 'notnull'=>0, 'visible'=>3,),
-		'C12As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi12', 'enabled'=>'1', 'position'=>176, 'notnull'=>0, 'visible'=>3,),
-		'C13As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi13', 'enabled'=>'1', 'position'=>182, 'notnull'=>0, 'visible'=>3,),
-		'C14As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi14', 'enabled'=>'1', 'position'=>187, 'notnull'=>0, 'visible'=>3,),
-		'C15As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi15', 'enabled'=>'1', 'position'=>192, 'notnull'=>0, 'visible'=>3,),
 		'Usuario' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'Usuario', 'enabled'=>'1', 'position'=>50, 'notnull'=>0, 'visible'=>-1,),
 	);
 	public $rowid;
@@ -250,66 +207,11 @@ class Cotizacion extends CommonObject
 	public $C4Pr;
 	public $C4Ca;
 	public $C4Pa;
-	public $C5Ro;
-	public $C5Pr;
-	public $C5Ca;
-	public $C5Pa;
-	public $C6Ro;
-	public $C6Pr;
-	public $C6Ca;
-	public $C6Pa;
-	public $C7Ro;
-	public $C7Pr;
-	public $C7Ca;
-	public $C7Pa;
-	public $C8Ro;
-	public $C8Pr;
-	public $C8Ca;
-	public $C8Pa;
-	public $C9Ro;
-	public $C9Pr;
-	public $C9Ca;
-	public $C9Pa;
-	public $C10Ro;
-	public $C10Pr;
-	public $C10Ca;
-	public $C10Pa;
-	public $C11Ro;
-	public $C11Pr;
-	public $C11Ca;
-	public $C11Pa;
-	public $C12Ro;
-	public $C12Pr;
-	public $C12Ca;
-	public $C12Pa;
-	public $C13Ro;
-	public $C13Pr;
-	public $C13Ca;
-	public $C13Pa;
-	public $C14Ro;
-	public $C14Pr;
-	public $C14Ca;
-	public $C14Pa;
-	public $C15Ro;
-	public $C15Pr;
-	public $C15Ca;
-	public $C15Pa;
 	public $C0As;
 	public $C1As;
 	public $C2As;
 	public $C3As;
 	public $C4As;
-	public $C5As;
-	public $C6As;
-	public $C7As;
-	public $C8As;
-	public $C9As;
-	public $C10As;
-	public $C11As;
-	public $C12As;
-	public $C13As;
-	public $C14As;
-	public $C15As;
 	public $Usuario;
 	// END MODULEBUILDER PROPERTIES
 

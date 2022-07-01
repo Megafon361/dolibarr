@@ -102,7 +102,6 @@ CREATE TABLE llx_cotizaciones_cotizacion(
 	C15Ro varchar(128), 
 	C15Pr varchar(128), 
 	C15Ca varchar(128), 
-	C15Pa varchar(128), 
 	C0As integer, 
 	C1As integer, 
 	C2As integer, 
