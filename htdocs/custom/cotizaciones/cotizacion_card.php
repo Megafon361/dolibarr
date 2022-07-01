@@ -268,10 +268,10 @@ if ($action == 'create') {
 
 	print dol_get_fiche_head(array(), '');
 
-	// Set some default values
-	//if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
+	 Set some default values
+	if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
 
-	//print '<table class="border centpercent tableforfieldcreate">'."\n";
+	print '<table class="border centpercent tableforfieldcreate">'."\n";
 	//print '<table class="ui sortable celled selectable table">'."\n";
 
 
