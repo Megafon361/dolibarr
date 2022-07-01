@@ -6,16 +6,19 @@ if ($definite !== 1) {
 }
 
 
-// funcion para crear items en las facturas $n Numero de facturas $Pu precio unitario $desc descripcion   $qty cantidad 
+// funcion para crear items en las facturas $n Numero de facturas $Pu precio unitario $desc descripcion   $qty cantidad  
 
 
-function AddLines($n, $pu,$desc,$qty)
+function AddLinePresupuesto($n, $pu,$desc,$qty)
 	{
+		//var_dump($n);
 		$n=strval($n);
 		//print($n);
 	$curl = curl_init();
 	global $httpheader, $Root;
-	$url = $Root."supplierinvoices/".$n."/lines";
+	$url = $Root."proposals/".$n."/line";
+	
+	//$url = $Root."supplierinvoices/".$n."/lines";
 
 	$data=array();
 
@@ -158,21 +161,18 @@ function GetMegafriends()	{
 		curl_close($curl);
 		//echo $result;
 		return($result);	}
-function getCotiz($n=1)	{
+function getCotizacion($n=1)	{
 			
 			$curl = curl_init();
 			global $httpheader, $Root;
 			$url = $Root."cotizacionesapi/cotizacions/".$n;
 			
 			curl_setopt($curl, CURLOPT_URL, $url);
-			//curl_setopt($curl, CURLOPT_POST, 1);
-			//curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		
 			$result = curl_exec($curl);
 			curl_close($curl);
-			//echo $result;
 			$result= json_decode($result,1);
 			return($result);	
 		}

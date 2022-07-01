@@ -1,32 +1,25 @@
 <?php
 include "doliclass.php";
 
-//Recibir numero de cotizacion con get
-$NumCotiz = $_POST['nroCotiz2'];
+//Recibir numero de cotizacion con get 
+$NumCotiz = $_POST['nroCotiz1'];
+$cotizacion = getCotizacion($NumCotiz);
 
-
-
-$cotizacion = array();
-$curl = curl_init();
-
-$url = $Root."cotizacionesapi/cotizacions/".$NumCotiz;
-
-curl_setopt($curl, CURLOPT_URL, $url);
-//curl_setopt($curl, CURLOPT_POST, 1);
-//curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-$cotizacion = curl_exec($curl);
-$cotizacion = json_decode($cotizacion,1);
-curl_close($curl);
 
 //var_dump($cotizacion);
 
 ////////////tomar datos de cotizacion para hacer invoice 
 
 
- 
+
+// CREAR COTIZACION
+
+
+
+$presupuesto = array();
+$curl = curl_init();
+$url = $Root."proposals/";
+$data = array();
 $ref = $cotizacion["ref"];					
 $label = $cotizacion["label"];		
 $fk_soc = $cotizacion["fk_soc"];		
@@ -47,29 +40,33 @@ $total = $cotizacion["total"];
 
 
 
-
-// CREAR INVOICE 
-
-$cotizacion = array();
-$curl = curl_init();
-$url = $Root."proposals/";
-
-
-$data = array();
-
-$data["entrega"]=$entrega;
-$data["ref"]=$ref;
+$data["entrega"]='5102022';//$entregastring;
+$data["ref"]=$trabajo;
 $data["label"]=$label;
-$data['Usuario']=$fk_user_creat;
-$data["socid"]=$fk_soc;
+
+
+$data["total"]=$cotizacion['total'];
+//$data["iva"]=$iva;
+//$data["subtotal"]=$subtotal;
+//$data["megafon"]=$megafon;
 $data["cliente"]=$fk_soc;
+$data["description"]="Descripcion";
+$data["note_public"]="nota publica";
+$data["note_private"]=$description;
+$data["status"]="0";
+$data["fk_soc"]=$fk_soc;
+$data["ref"]=$cotizacion['ref'];
+$data["label"]=$cotizacion['label'];
+$data["socid"]=$cotizacion['fk_soc'];
 $data["trabajo"]=$trabajo;
-$data["description"]=$description;
+$data["desc"]=$description;
 $data["note_public"]=$note_public;
 $data["fk_soc"]=$fk_soc;
-	
-
-
+$data["datec"]="1638371778";
+//$data["date_creation"]="1638371778";
+$data["datev"]="1638372079";
+$data["date"]="1638313200";
+$data["qty"]= "1";
 
 
 
@@ -79,11 +76,10 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-$facturaCreada = curl_exec($curl);
-//$result = json_decode($facturaCreada,1);
+$PresupuestoCreado = curl_exec($curl);
+$PresupuestoCreado= json_decode($PresupuestoCreado,1);
 curl_close($curl);
 
-var_dump($facturaCreada);
 
 
 
@@ -93,60 +89,8 @@ var_dump($facturaCreada);
 
 //AGREGAR LINEAS A INVOICE 
 
+$lineaAnadida = AddLinePresupuesto($PresupuestoCreado,$total ,$description,1);
 
-//   /proposals/#/lines
-
-
-Implementation Notes
-Exemple of POST query : { 
-
-	"desc"								"Desc", 
-	"subprice"							"1.00000000", 
-	"qty"								"1", 
-	"tva_tx"							"20.000", 
-	"localtax1_tx"						"0.000", 
-	"localtax2_tx"						"0.000", 
-	"fk_product"						"1", 
-	"remise_percent"					"0", 
-	"date_start"						"", 
-	"date_end"							"", 
-	"fk_code_ventilation"				0, 
-	"info_bits"							"0", 
-	"fk_remise_except"					null, 
-	"product_type"						"1", 
-	"rang"								"-1", 
-	"special_code"						"0", 
-	"fk_parent_line"					null, 
-	"fk_fournprice"						null, 
-	"pa_ht"								"0.00000000", 
-	"label"								"", 
-	"array_options"						[], 
-	"situation_percent"					"100", 
-	"fk_prev_id"						null, 
-	"fk_unit"							null }
-
-
-
-
-echo "FIN";
-
-
-
-
-
-
-
-?>
-
-
-
-
-
-
-
-
-
-
-
+var_dump($lineaAnadida);
 
 ?>
