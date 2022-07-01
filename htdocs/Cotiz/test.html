@@ -1,0 +1,915 @@
+<div class="fiche">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script><select class="ui search dropdown">
+      <option value="">State</option>
+      <option value="AL">Alabama</option>
+      <option value="AK">Alaska</option>
+      <option value="AZ">Arizona</option>
+      <option value="AR">Arkansas</option>
+      <option value="CA">California</option>
+      <option value="CO">Colorado</option>
+      <option value="CT">Connecticut</option>
+      <option value="DE">Delaware</option>
+      <option value="DC">District Of Columbia</option>
+      <option value="FL">Florida</option>
+      <option value="GA">Georgia</option>
+      <option value="HI">Hawaii</option>
+      <option value="ID">Idaho</option>
+      <option value="IL">Illinois</option>
+      <option value="IN">Indiana</option>
+      <option value="IA">Iowa</option>
+      <option value="KS">Kansas</option>
+      <option value="KY">Kentucky</option>
+      <option value="LA">Louisiana</option>
+      <option value="ME">Maine</option>
+      <option value="MD">Maryland</option>
+      <option value="MA">Massachusetts</option>
+      <option value="MI">Michigan</option>
+      <option value="MN">Minnesota</option>
+      <option value="MS">Mississippi</option>
+      <option value="MO">Missouri</option>
+      <option value="MT">Montana</option>
+      <option value="NE">Nebraska</option>
+      <option value="NV">Nevada</option>
+      <option value="NH">New Hampshire</option>
+      <option value="NJ">New Jersey</option>
+      <option value="NM">New Mexico</option>
+      <option value="NY">New York</option>
+      <option value="NC">North Carolina</option>
+      <option value="ND">North Dakota</option>
+      <option value="OH">Ohio</option>
+      <option value="OK">Oklahoma</option>
+      <option value="OR">Oregon</option>
+      <option value="PA">Pennsylvania</option>
+      <option value="RI">Rhode Island</option>
+      <option value="SC">South Carolina</option>
+      <option value="SD">South Dakota</option>
+      <option value="TN">Tennessee</option>
+      <option value="TX">Texas</option>
+      <option value="UT">Utah</option>
+      <option value="VT">Vermont</option>
+      <option value="VA">Virginia</option>
+      <option value="WA">Washington</option>
+      <option value="WV">West Virginia</option>
+      <option value="WI">Wisconsin</option>
+      <option value="WY">Wyoming</option>
+    </select>
+    <table class="centpercent notopnoleftnoright table-fiche-title"><tbody><tr class="titre"><td class="nobordernopadding widthpictotitle valignmiddle col-picto"><img src="/dolifon/htdocs/custom/cotizaciones/img/object_cotizacion.png" alt="" class="valignmiddle widthpictotitle pictotitle"></td><td class="nobordernopadding valignmiddle col-title"><div class="titre inline-block">Nuevo Cotizacion</div></td></tr></tbody></table>
+    <form method="POST" action="/dolifon/htdocs/custom/cotizaciones/cotizacion_card.php"><input type="hidden" name="token" value="88eaefffaa0c2d4b0d58be947cd8e14d"><input type="hidden" name="action" value="add"><input type="hidden" name="backtopage" value="/dolifon/htdocs/custom/cotizaciones/cotizacion_card.php?id=__ID__">
+    <!-- dol_fiche_head - dol_get_fiche_head -->
+    <div class="tabBar tabBarWithBottom">
+    <table class="border centpercent tableforfieldcreate">
+    <!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
+    <tbody><tr class="field_label"><td class="titlefieldcreate"><span style="padding: 0px; padding-right: 3px !important;">Etiqueta</span><span class="classfortooltip" style="padding: 0px; padding: 0px; padding-right: 3px !important;" title="Help text"><span class="fas fa-info-circle  em088 opacityhigh" style=" vertical-align: middle; cursor: help"></span></span></td><td class="valuefieldcreate"><input type="text" class="flat minwidth300 --success" name="label" id="label" maxlength="255" value=""></td></tr><tr class="field_fk_soc"><td class="titlefieldcreate"><span style="padding: 0px; padding-right: 3px !important;">Tercero</span><span class="classfortooltip" style="padding: 0px; padding: 0px; padding-right: 3px !important;" title="LinkToThirparty"><span class="fas fa-info-circle  em088 opacityhigh" style=" vertical-align: middle; cursor: help"></span></span></td><td class="valuefieldcreate"><select id="fk_soc" class="flat maxwidth500 widthcentpercentminusxx --success widthcentpercentminusx" name="fk_soc">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = fk_soc -->
+              <script>
+                $(document).ready(function () {
+                    $('#fk_soc').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_fk_project"><td class="titlefieldcreate">Projecto</td><td class="valuefieldcreate"><select id="fk_project" class="flat maxwidth500 widthcentpercentminusxx --success widthcentpercentminusx" name="fk_project">
+    <option value="-1">&nbsp;</option>
+    <option value="1">PJ2111-0001 - Streamings</option><option value="2">PJ2111-0002 - El Demo</option><option value="3">PJ2112-0003 - Presentación Vinos de La Pampa</option><option value="4">PJ2205-0004 - Menu Folk</option><option value="5">PJ2206-0005 - Menu Folk</option><option value="6">PJ2206-0006 - Menu Folk</option><option value="7">PJ2206-0007 - Campaña del Rio Atuel</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = fk_project -->
+              <script>
+                $(document).ready(function () {
+                    $('#fk_project').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/projet/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_project%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_description"><td class="titlefieldcreate tdtop">Descripción</td><td class="valuefieldcreate"><textarea id="description" name="description" rows="5" style="margin-top: 5px; width: 90%" class="flat "></textarea></td></tr><tr class="field_entrega"><td class="titlefieldcreate">entrega</td><td class="valuefieldcreate"><script type="text/javascript">$(function(){ $('#entrega').datepicker({
+                                dateFormat: 'mm/dd/yy',
+                                autoclose: true,
+                                todayHighlight: true,
+                                    showOn: 'button',	/* both has problem with autocompletion */
+                                    buttonImage: '/dolifon/htdocs/theme/md/img/object_calendarday.png',
+                                    buttonImageOnly: true
+                                }) });</script><div class="nowrap inline-block divfordateinput"><input id="entrega" name="entrega" type="text" class="maxwidthdate" maxlength="11" value="" onchange="dpChangeDay('entrega','MM/dd/yyyy'); "></div><input type="hidden" id="entregaday" name="entregaday" value="">
+    <input type="hidden" id="entregamonth" name="entregamonth" value="">
+    <input type="hidden" id="entregayear" name="entregayear" value="">
+     <button class="dpInvisibleButtons datenowlink" id="entregaButtonNow" type="button" name="_useless" value="now" onclick="jQuery('#entrega').val('07/01/2022');jQuery('#entregaday').val('01');jQuery('#entregamonth').val('07');jQuery('#entregayear').val('2022');">Ahora</button> </td></tr><tr class="field_trabajo"><td class="titlefieldcreate">trabajo</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="trabajo" id="trabajo" maxlength="128" value=""></td></tr><tr class="field_iva"><td class="titlefieldcreate">iva</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="iva" id="iva" maxlength="128" value=""></td></tr><tr class="field_subtotal"><td class="titlefieldcreate">subtotal</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="subtotal" id="subtotal" maxlength="128" value=""></td></tr><tr class="field_megafon"><td class="titlefieldcreate">megafon</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="megafon" id="megafon" maxlength="128" value=""></td></tr><tr class="field_gastos"><td class="titlefieldcreate">gastos</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="gastos" id="gastos" maxlength="128" value=""></td></tr><tr class="field_total"><td class="titlefieldcreate">total</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="total" id="total" maxlength="128" value=""></td></tr><tr class="field_Usuario"><td class="titlefieldcreate">Usuario</td><td class="valuefieldcreate"><select id="Usuario" class="flat minwidth200imp --success" name="Usuario">
+    <option value="-1">&nbsp;</option>
+    <option value="3">Megafon</option><option value="5">Bassa Luisina</option><option value="8">Branca Nicolas</option><option value="9">Jorge Pablo</option><option value="2">nicolas</option><option value="4">Skara Alejandro</option><option value="1">SuperAdmin</option><option value="6">trashnico trash</option><option value="7">WebService webservice</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = Usuario -->
+              <script>
+                $(document).ready(function () {
+                    $('#Usuario').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    </td></tr><tr class="field_C0Ro"><td class="titlefieldcreate">Rol0</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C0Ro" id="C0Ro" maxlength="128" value=""></td></tr><tr class="field_C0Pr"><td class="titlefieldcreate">Pre0</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C0Pr" id="C0Pr" maxlength="128" value=""></td></tr><tr class="field_C0Ca"><td class="titlefieldcreate">Can0</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C0Ca" id="C0Ca" maxlength="128" value=""></td></tr><tr class="field_C0As"><td class="titlefieldcreate">Asi0</td><td class="valuefieldcreate"><select id="C0As" class="flat minwidth200imp --success widthcentpercentminusx" name="C0As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C0As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C0As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C0Pa"><td class="titlefieldcreate">Pag0</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C0Pa" id="C0Pa" maxlength="128" value=""></td></tr><tr class="field_C1Ro"><td class="titlefieldcreate">Rol1</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C1Ro" id="C1Ro" maxlength="128" value=""></td></tr><tr class="field_C1Pr"><td class="titlefieldcreate">Pre1</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C1Pr" id="C1Pr" maxlength="128" value=""></td></tr><tr class="field_C1Ca"><td class="titlefieldcreate">Can1</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C1Ca" id="C1Ca" maxlength="128" value=""></td></tr><tr class="field_C1As"><td class="titlefieldcreate">Asi1</td><td class="valuefieldcreate"><select id="C1As" class="flat minwidth200imp --success widthcentpercentminusx" name="C1As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C1As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C1As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C1Pa"><td class="titlefieldcreate">Pag1</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C1Pa" id="C1Pa" maxlength="128" value=""></td></tr><tr class="field_C2Ro"><td class="titlefieldcreate">Rol2</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C2Ro" id="C2Ro" maxlength="128" value=""></td></tr><tr class="field_C2Pr"><td class="titlefieldcreate">Pre2</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C2Pr" id="C2Pr" maxlength="128" value=""></td></tr><tr class="field_C2Ca"><td class="titlefieldcreate">Can2</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C2Ca" id="C2Ca" maxlength="128" value=""></td></tr><tr class="field_C2As"><td class="titlefieldcreate">Asi2</td><td class="valuefieldcreate"><select id="C2As" class="flat minwidth200imp --success widthcentpercentminusx" name="C2As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C2As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C2As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C2Pa"><td class="titlefieldcreate">Pag2</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C2Pa" id="C2Pa" maxlength="128" value=""></td></tr><tr class="field_C3Ro"><td class="titlefieldcreate">Rol3</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C3Ro" id="C3Ro" maxlength="128" value=""></td></tr><tr class="field_C3Pr"><td class="titlefieldcreate">Pre3</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C3Pr" id="C3Pr" maxlength="128" value=""></td></tr><tr class="field_C3Ca"><td class="titlefieldcreate">Can3</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C3Ca" id="C3Ca" maxlength="128" value=""></td></tr><tr class="field_C3As"><td class="titlefieldcreate">Asi3</td><td class="valuefieldcreate"><select id="C3As" class="flat minwidth200imp --success widthcentpercentminusx" name="C3As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C3As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C3As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C3Pa"><td class="titlefieldcreate">Pag3</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C3Pa" id="C3Pa" maxlength="128" value=""></td></tr><tr class="field_C4Ro"><td class="titlefieldcreate">Rol4</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C4Ro" id="C4Ro" maxlength="128" value=""></td></tr><tr class="field_C4Pr"><td class="titlefieldcreate">Pre4</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C4Pr" id="C4Pr" maxlength="128" value=""></td></tr><tr class="field_C4Ca"><td class="titlefieldcreate">Can4</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C4Ca" id="C4Ca" maxlength="128" value=""></td></tr><tr class="field_C4As"><td class="titlefieldcreate">Asi4</td><td class="valuefieldcreate"><select id="C4As" class="flat minwidth200imp --success widthcentpercentminusx" name="C4As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C4As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C4As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C4Pa"><td class="titlefieldcreate">Pag4</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C4Pa" id="C4Pa" maxlength="128" value=""></td></tr><tr class="field_C5Ro"><td class="titlefieldcreate">Rol5</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C5Ro" id="C5Ro" maxlength="128" value=""></td></tr><tr class="field_C5Pr"><td class="titlefieldcreate">Pre5</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C5Pr" id="C5Pr" maxlength="128" value=""></td></tr><tr class="field_C5Ca"><td class="titlefieldcreate">Can5</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C5Ca" id="C5Ca" maxlength="128" value=""></td></tr><tr class="field_C5As"><td class="titlefieldcreate">Asi5</td><td class="valuefieldcreate"><select id="C5As" class="flat minwidth200imp --success widthcentpercentminusx" name="C5As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C5As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C5As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C5Pa"><td class="titlefieldcreate">Pag5</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C5Pa" id="C5Pa" maxlength="128" value=""></td></tr><tr class="field_C6Ro"><td class="titlefieldcreate">Rol6</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C6Ro" id="C6Ro" maxlength="128" value=""></td></tr><tr class="field_C6Pr"><td class="titlefieldcreate">Pre6</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C6Pr" id="C6Pr" maxlength="128" value=""></td></tr><tr class="field_C6Ca"><td class="titlefieldcreate">Can6</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C6Ca" id="C6Ca" maxlength="128" value=""></td></tr><tr class="field_C6As"><td class="titlefieldcreate">Asi6</td><td class="valuefieldcreate"><select id="C6As" class="flat minwidth200imp --success widthcentpercentminusx" name="C6As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C6As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C6As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C6Pa"><td class="titlefieldcreate">Pag6</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C6Pa" id="C6Pa" maxlength="128" value=""></td></tr><tr class="field_C7Ro"><td class="titlefieldcreate">Rol7</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C7Ro" id="C7Ro" maxlength="128" value=""></td></tr><tr class="field_C7Pr"><td class="titlefieldcreate">Pre7</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C7Pr" id="C7Pr" maxlength="128" value=""></td></tr><tr class="field_C7Ca"><td class="titlefieldcreate">Can7</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C7Ca" id="C7Ca" maxlength="128" value=""></td></tr><tr class="field_C7As"><td class="titlefieldcreate">Asi7</td><td class="valuefieldcreate"><select id="C7As" class="flat minwidth200imp --success widthcentpercentminusx" name="C7As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C7As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C7As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C7Pa"><td class="titlefieldcreate">Pag7</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C7Pa" id="C7Pa" maxlength="128" value=""></td></tr><tr class="field_C8Ro"><td class="titlefieldcreate">Rol8</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C8Ro" id="C8Ro" maxlength="128" value=""></td></tr><tr class="field_C8Pr"><td class="titlefieldcreate">Pre8</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C8Pr" id="C8Pr" maxlength="128" value=""></td></tr><tr class="field_C8Ca"><td class="titlefieldcreate">Can8</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C8Ca" id="C8Ca" maxlength="128" value=""></td></tr><tr class="field_C8As"><td class="titlefieldcreate">Asi8</td><td class="valuefieldcreate"><select id="C8As" class="flat minwidth200imp --success widthcentpercentminusx" name="C8As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C8As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C8As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C8Pa"><td class="titlefieldcreate">Pag8</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C8Pa" id="C8Pa" maxlength="128" value=""></td></tr><tr class="field_C9Ro"><td class="titlefieldcreate">Rol9</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C9Ro" id="C9Ro" maxlength="128" value=""></td></tr><tr class="field_C9Pr"><td class="titlefieldcreate">Pre9</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C9Pr" id="C9Pr" maxlength="128" value=""></td></tr><tr class="field_C9Ca"><td class="titlefieldcreate">Can9</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C9Ca" id="C9Ca" maxlength="128" value=""></td></tr><tr class="field_C9As"><td class="titlefieldcreate">Asi9</td><td class="valuefieldcreate"><select id="C9As" class="flat minwidth200imp --success widthcentpercentminusx" name="C9As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C9As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C9As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C9Pa"><td class="titlefieldcreate">Pag9</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C9Pa" id="C9Pa" maxlength="128" value=""></td></tr><tr class="field_C10Ro"><td class="titlefieldcreate">Rol10</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C10Ro" id="C10Ro" maxlength="128" value=""></td></tr><tr class="field_C10Pr"><td class="titlefieldcreate">Pre10</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C10Pr" id="C10Pr" maxlength="128" value=""></td></tr><tr class="field_C10Ca"><td class="titlefieldcreate">Can10</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C10Ca" id="C10Ca" maxlength="128" value=""></td></tr><tr class="field_C10As"><td class="titlefieldcreate">Asi10</td><td class="valuefieldcreate"><select id="C10As" class="flat minwidth200imp --success widthcentpercentminusx" name="C10As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C10As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C10As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C10Pa"><td class="titlefieldcreate">Pag10</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C10Pa" id="C10Pa" maxlength="128" value=""></td></tr><tr class="field_C11Ro"><td class="titlefieldcreate">Rol11</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C11Ro" id="C11Ro" maxlength="128" value=""></td></tr><tr class="field_C11Pr"><td class="titlefieldcreate">Pre11</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C11Pr" id="C11Pr" maxlength="128" value=""></td></tr><tr class="field_C11Ca"><td class="titlefieldcreate">Can11</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C11Ca" id="C11Ca" maxlength="128" value=""></td></tr><tr class="field_C11As"><td class="titlefieldcreate">Asi11</td><td class="valuefieldcreate"><select id="C11As" class="flat minwidth200imp --success widthcentpercentminusx" name="C11As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C11As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C11As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C11Pa"><td class="titlefieldcreate">Pag11</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C11Pa" id="C11Pa" maxlength="128" value=""></td></tr><tr class="field_C12Ro"><td class="titlefieldcreate">Rol12</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C12Ro" id="C12Ro" maxlength="128" value=""></td></tr><tr class="field_C12Pr"><td class="titlefieldcreate">Pre12</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C12Pr" id="C12Pr" maxlength="128" value=""></td></tr><tr class="field_C12Ca"><td class="titlefieldcreate">Can12</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C12Ca" id="C12Ca" maxlength="128" value=""></td></tr><tr class="field_C12As"><td class="titlefieldcreate">Asi12</td><td class="valuefieldcreate"><select id="C12As" class="flat minwidth200imp --success widthcentpercentminusx" name="C12As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C12As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C12As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C12Pa"><td class="titlefieldcreate">Pag12</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C12Pa" id="C12Pa" maxlength="128" value=""></td></tr><tr class="field_C13Ro"><td class="titlefieldcreate">Rol13</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C13Ro" id="C13Ro" maxlength="128" value=""></td></tr><tr class="field_C13Pr"><td class="titlefieldcreate">Pre13</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C13Pr" id="C13Pr" maxlength="128" value=""></td></tr><tr class="field_C13Ca"><td class="titlefieldcreate">Can13</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C13Ca" id="C13Ca" maxlength="128" value=""></td></tr><tr class="field_C13As"><td class="titlefieldcreate">Asi13</td><td class="valuefieldcreate"><select id="C13As" class="flat minwidth200imp --success widthcentpercentminusx" name="C13As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C13As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C13As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C13Pa"><td class="titlefieldcreate">Pag13</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C13Pa" id="C13Pa" maxlength="128" value=""></td></tr><tr class="field_C14Ro"><td class="titlefieldcreate">Rol14</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C14Ro" id="C14Ro" maxlength="128" value=""></td></tr><tr class="field_C14Pr"><td class="titlefieldcreate">Pre14</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C14Pr" id="C14Pr" maxlength="128" value=""></td></tr><tr class="field_C14Ca"><td class="titlefieldcreate">Can14</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C14Ca" id="C14Ca" maxlength="128" value=""></td></tr><tr class="field_C14As"><td class="titlefieldcreate">Asi14</td><td class="valuefieldcreate"><select id="C14As" class="flat minwidth200imp --success widthcentpercentminusx" name="C14As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C14As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C14As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C14Pa"><td class="titlefieldcreate">Pag14</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C14Pa" id="C14Pa" maxlength="128" value=""></td></tr><tr class="field_C15Ro"><td class="titlefieldcreate">Rol15</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C15Ro" id="C15Ro" maxlength="128" value=""></td></tr><tr class="field_C15Pr"><td class="titlefieldcreate">Pre15</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C15Pr" id="C15Pr" maxlength="128" value=""></td></tr><tr class="field_C15Ca"><td class="titlefieldcreate">Can15</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C15Ca" id="C15Ca" maxlength="128" value=""></td></tr><tr class="field_C15As"><td class="titlefieldcreate">Asi15</td><td class="valuefieldcreate"><select id="C15As" class="flat minwidth200imp --success widthcentpercentminusx" name="C15As">
+    <option value="-1">&nbsp;</option>
+    <option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+    <option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+    <option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+    <option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+    <option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+    <option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+    <option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+    <option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+    <option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select>
+    
+    <!-- JS CODE TO ENABLE select2 for id = C15As -->
+              <script>
+                $(document).ready(function () {
+                    $('#C15As').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <a class="butActionNew" title="Nuevo" href="/dolifon/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolifon%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td></tr><tr class="field_C15Pa"><td class="titlefieldcreate">Pag15</td><td class="valuefieldcreate"><input type="text" class="flat minwidth400 --success" name="C15Pa" id="C15Pa" maxlength="128" value=""></td></tr><tr class="field_status"><td class="titlefieldcreate fieldrequired">Estado</td><td class="valuefieldcreate">
+    <!-- JS CODE TO ENABLE select2 for id = status -->
+              <script>
+                $(document).ready(function () {
+                    $('#status').select2({
+                        dir: 'ltr',
+                        width: 'resolve',		/* off or resolve */
+                        minimumInputLength: 0,
+                        language: select2arrayoflanguage,
+                        containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                        templateResult: function (data, container) {	/* Format visible output into combo list */
+                             /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                            if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                            //console.log($(data.element).attr("data-html"));
+                            if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                                return '&nbsp;';
+                            }
+                            if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                            return data.text;
+                        },
+                        templateSelection: function (selection) {		/* Format visible output of selected value */
+                            if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                            return selection.text;
+                        },
+                        escapeMarkup: function(markup) {
+                            return markup;
+                        },
+                        dropdownCssClass: 'ui-dialog'
+                    });
+    });
+    </script>
+    <select class="flat minwidth100 --success maxwidthonsmartphone" name="status" id="status"><option value="0">&nbsp;</option><option value="0">Borrador</option><option value="1">Validado</option><option value="2">Presupuestado</option><option value="3">Facturado</option><option value="9">Cancelado</option></select></td></tr><!-- END PHP TEMPLATE commonfields_add.tpl.php -->
+    <!-- BEGIN PHP TEMPLATE extrafields_add.tpl.php -->
+    <!-- END PHP TEMPLATE extrafields_add.tpl.php -->
+    </tbody></table>
+    
+    </div>
+    <div class="center"><input type="submit" class="button button-add " name="add" value="Crear"><input type="submit" class="button button-cancel " name="cancel" value="Cancelar"></div></form>
+    
+    </div>
