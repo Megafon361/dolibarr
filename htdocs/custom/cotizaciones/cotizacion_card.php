@@ -270,8 +270,12 @@ if ($action == 'create') {
 
 	// Set some default values
 	if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
-
-	print '<table class="border centpercent tableforfieldcreate">'."\n";
+	?>
+	<!-- INICIAR DIV -->
+	
+	<?php
+	print '<div class="ui segment">';
+	//print '<table class="border centpercent tableforfieldcreate">'."\n";
 	//print '<table class="ui sortable celled selectable table">'."\n";
 
 
@@ -283,7 +287,14 @@ if ($action == 'create') {
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
-	print '</table>'."\n";
+	//print '</table>'."\n";
+	print '</div>';
+	
+
+	?>
+	<!-- Termina DIV -->
+	<?php
+
 
 	print dol_get_fiche_end();
 
