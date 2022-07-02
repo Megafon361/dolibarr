@@ -272,13 +272,13 @@ if ($action == 'create') {
 	if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
 
 	print '<table class="border centpercent tableforfieldcreate">'."\n";
-	print '<table class="ui sortable celled selectable table">'."\n";
+	//print '<table class="ui sortable celled selectable table">'."\n";
 
 
 
 	
 	// Common attributes
-	include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
+	include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
 
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
@@ -291,8 +291,28 @@ if ($action == 'create') {
 
 	print '</form>';
 
-	//dol_set_focus('input[name="ref"]');
+	dol_set_focus('input[name="ref"]');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Part to edit record
 if (($id || $ref) && $action == 'edit') {
