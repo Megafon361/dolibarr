@@ -278,7 +278,7 @@ if ($action == 'create') {
 
 	
 	// Common attributes
-	include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
+	include DOL_DOCUMENT_ROOT.'/core/tpl/Coti.commonfields_add.tpl.php';
 
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
