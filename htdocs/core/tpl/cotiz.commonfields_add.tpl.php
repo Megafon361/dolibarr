@@ -38,14 +38,14 @@ foreach ($object->fields as $key => $val) {
 
 
 
-ACAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 
 
 
 
-	//print '<tr class="field_'.$key.'">';
+
+	print '<tr class="field_'.$key.'">';
 	
 	print '<td';
 	print ' class="titlefieldcreate';

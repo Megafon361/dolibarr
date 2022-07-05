@@ -282,16 +282,13 @@ if ($action == 'create') {
 
 	
 	// Common attributes
-
-include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
-//ACAAAAAAAAAAAA
-
-
+	include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
+	//ACAAAAAAAAAAAA
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
-
 	//print '</table>'."\n";
-	print '</div>';
+
+	print '</div class="nones">';
 	
 
 	?>
