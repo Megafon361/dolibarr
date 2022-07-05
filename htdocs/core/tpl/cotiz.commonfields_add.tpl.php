@@ -40,13 +40,7 @@ foreach ($object->fields as $key => $val) {
 
 
 
-
-
-
-
-
 	print '<tr class="field_'.$key.'">';
-	
 	print '<td';
 	print ' class="titlefieldcreate';
 	if (isset($val['notnull']) && $val['notnull'] > 0) {

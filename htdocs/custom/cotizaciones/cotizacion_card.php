@@ -270,30 +270,19 @@ if ($action == 'create') {
 
 	// Set some default values
 	if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
-	?>
-	<!-- INICIAR DIV -->
 	
-	<?php
-	print '<div class="ui segment">';
+
+
+
 	//print '<table class="border centpercent tableforfieldcreate">'."\n";
 	//print '<table class="ui sortable celled selectable table">'."\n";
 
-
-
-	
 	// Common attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
-	//ACAAAAAAAAAAAA
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 	//print '</table>'."\n";
 
-	print '</div class="nones">';
-	
-
-	?>
-	<!-- Termina DIV -->
-	<?php
 
 
 	print dol_get_fiche_end();
