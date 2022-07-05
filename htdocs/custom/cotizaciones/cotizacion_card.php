@@ -274,15 +274,16 @@ if ($action == 'create') {
 
 
 
-	//print '<table class="border centpercent tableforfieldcreate">'."\n";
-	//print '<table class="ui sortable celled selectable table">'."\n";
-
+//	print '<table class="border centpercent tableforfieldcreate">'."\n";
+	//print '<table class="ui celled table">'."\n";
+	print '<div class="ui segments">'."\n";
+	
 	// Common attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 	//print '</table>'."\n";
-
+	print '</div>'."\n";
 
 
 	print dol_get_fiche_end();

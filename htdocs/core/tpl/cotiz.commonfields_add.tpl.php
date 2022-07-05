@@ -15,11 +15,7 @@ if (empty($conf) || !is_object($conf)) {
 	exit;
 }
 
-
-?>
-<!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
-
-<?php
+?> <!-- BEGIN PHP TEMPLATE Cotiz.commonfields_add.tpl.php --> <?php
 
 $object->fields = dol_sort_array($object->fields, 'position');
 
@@ -32,38 +28,115 @@ foreach ($object->fields as $key => $val) {
 	if (array_key_exists('enabled', $val) && isset($val['enabled']) && !verifCond($val['enabled'])) {
 		continue; // We don't want this field
 	}
+	
 
+	switch ($key) {
+		case 'label':
+				echo '<div class="ui grid"><div class="two wide column">';
+				break;
+				case 'fk_soc':
+				case 'fk_project':
+				case 'description':
+				case 'entrega':
+					echo '</div><div class="four wide column">';
+					break;
 
+				case 'trabajo':
+					echo '</div></div><div class="four wide column">';
+					break;
 
-
-
-
-
-
-	print '<tr class="field_'.$key.'">';
-	print '<td';
-	print ' class="titlefieldcreate';
-	if (isset($val['notnull']) && $val['notnull'] > 0) {
-		print ' fieldrequired';
+				
+				
+				
+				
+				
+				
+					case 'C0Ro':
+				echo '</div></div><div class="ui green segment"><table class="ui celled table"><thead>				<tr><th>Rol</th>
+				<th>Precio</th>
+				<th>Cant</th>
+				<th>Asignado</th>
+				<th>Pago</th>
+			  	</tr></thead>
+			  	<tbody>';
+				break;
+		case 'C1Ro':
+				echo '<tbody></table></div><div class="ui green segment"><table>';
+				break;
+		case 'C2Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C3Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C4Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C5Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+	
+		case 'status':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+	
 	}
-	if ($val['type'] == 'text' || $val['type'] == 'html') {
-		print ' tdtop';
+
+
+
+//print '<table>';
+	switch ($key) {
+				case 'label':
+				case 'fk_soc':
+				case 'fk_project':
+				case 'description':
+				case 'entrega':
+				case 'trabajo':
+				case 'iva':
+				case 'subtotal':
+				case 'gastos':
+				case 'megafon':
+				case 'total':
+				case 'Usuario':
+				case 'status':
+
+
+					print '<div class="ui segment">';	
+					print '<div class="field_'.$key.'">';
+					print '<div ';
+					print ' class="titlefieldcreate';
+					if (isset($val['notnull']) && $val['notnull'] > 0) {
+						print ' fieldrequired';
+					}
+					if ($val['type'] == 'text' || $val['type'] == 'html') {
+						print ' tdtop';
+					}
+					print '"';
+					print '>';
+					if (!empty($val['help'])) {
+						print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
+					} else {
+						print $langs->trans($val['label']);
+					}
+						print '</div>'; 
+
+		
+		
+					break;
+	
+					default:
+					# code...
+					break;
 	}
-	print '"';
-	print '>';
-	if (!empty($val['help'])) {
-		print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
-	} else {
-		print $langs->trans($val['label']);
-	}
-	print '</td>';
+
+
+	
 
 
 
 
 
-
-	print '<td class="valuefieldcreate">';
+	//print '<div class="stackeable">';
 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	}
@@ -95,10 +168,50 @@ foreach ($object->fields as $key => $val) {
 		} else {
 			print $object->showInputField($val, $key, $value, '', '', '', 0);
 		}
-	}
-	print '</td>';
-	print '</tr>';
-}
 
+
+
+
+
+	}
+
+	switch ($key) {
+		case 'label':
+		case 'fk_soc':
+		case 'fk_project':
+		case 'description':
+		case 'entrega':
+		case 'trabajo':
+		case 'iva':
+		case 'subtotal':
+		case 'gastos':
+		case 'megafon':
+		case 'total':
+		case 'Usuario':
+		case 'status':
+			print '</div>';
+			break;
+		}
+
+
+	//print '</table>';
+	print '</div>';
+	print '</div>';
+
+
+	
+
+
+
+	switch ($key) {
+		case 'status':
+			echo '</div>';
+			break;
+			}
+
+
+
+}
+print '</div>';
 ?>
 <!-- END PHP TEMPLATE commonfields_add.tpl.php -->

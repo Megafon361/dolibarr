@@ -39,7 +39,7 @@ CREATE TABLE llx_cotizaciones_cotizacion(
 	subtotal varchar(128), 
 	iva varchar(128), 
 	total varchar(128), 
-	C0Ro varchar(128), 
+	C0Ro integer, 
 	C0Pr varchar(128), 
 	C0Ca varchar(128), 
 	C0Pa varchar(128), 

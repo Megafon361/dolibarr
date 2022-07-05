@@ -21,6 +21,11 @@ ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk
 ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_project (fk_project);
 ALTER TABLE llx_cotizaciones_cotizacion ADD CONSTRAINT llx_cotizaciones_cotizacion_fk_user_creat FOREIGN KEY (fk_user_creat) REFERENCES llx_user(rowid);
 ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_status (status);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C0Ro (C0Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C1Ro (C1Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C2Ro (C2Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C3Ro (C3Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C4Ro (C4Ro);
 -- END MODULEBUILDER INDEXES
 
 --ALTER TABLE llx_cotizaciones_cotizacion ADD UNIQUE INDEX uk_cotizaciones_cotizacion_fieldxy(fieldx, fieldy);

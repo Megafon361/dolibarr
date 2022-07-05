@@ -118,7 +118,6 @@ class Cotizacion extends CommonObject
 		'import_key' => array('type'=>'varchar(14)', 'label'=>'ImportId', 'enabled'=>'1', 'position'=>1000, 'notnull'=>-1, 'visible'=>-2,),
 		'model_pdf' => array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>'1', 'position'=>1010, 'notnull'=>-1, 'visible'=>0,),
 		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Validado', '2'=>'Presupuestado', '3'=>'Facturado', '9'=>'Cancelado'), 'validate'=>'1',),
-
 		'entrega' => array('type'=>'date', 'label'=>'entrega', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>1,),
 		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>10, 'notnull'=>0, 'visible'=>-1,),
 		'gastos' => array('type'=>'varchar(128)', 'label'=>'gastos', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
@@ -126,37 +125,26 @@ class Cotizacion extends CommonObject
 		'subtotal' => array('type'=>'varchar(128)', 'label'=>'subtotal', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
 		'iva' => array('type'=>'varchar(128)', 'label'=>'iva', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
 		'total' => array('type'=>'varchar(128)', 'label'=>'total', 'enabled'=>'1', 'position'=>12, 'notnull'=>0, 'visible'=>3,),
-		
-		
-	
-
-
-		
-	  
-		'C0Ro' => array('type'=>'integer', 'label'=>'Rol', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C0Ro' => array('type'=>'integer', 'label'=>'Rol', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C0Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>114, 'notnull'=>0, 'visible'=>3,),
 		'C0Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>115, 'notnull'=>0, 'visible'=>3,),
 		'C0Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>117, 'notnull'=>0, 'visible'=>3,),
-		'C1Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>118, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C1Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>118, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C1Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>119, 'notnull'=>0, 'visible'=>3,),
 		'C1Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>120, 'notnull'=>0, 'visible'=>3,),
 		'C1Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>122, 'notnull'=>0, 'visible'=>3,),
-		'C2Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>123,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C2Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>123, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C2Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>124, 'notnull'=>0, 'visible'=>3,),
 		'C2Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>125, 'notnull'=>0, 'visible'=>3,),
 		'C2Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>127, 'notnull'=>0, 'visible'=>3,),
-		'C3Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>128,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C3Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>128, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C3Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>129, 'notnull'=>0, 'visible'=>3,),
 		'C3Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>130, 'notnull'=>0, 'visible'=>3,),
 		'C3Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>132, 'notnull'=>0, 'visible'=>3,),
-		'C4Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>133,  'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),	
+		'C4Ro' => array('type'=>'varchar(128)', 'label'=>'Rol', 'enabled'=>'1', 'position'=>133, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C4Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>134, 'notnull'=>0, 'visible'=>3,),
 		'C4Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>135, 'notnull'=>0, 'visible'=>3,),
 		'C4Pa' => array('type'=>'varchar(128)', 'label'=>'Pago', 'enabled'=>'1', 'position'=>137, 'notnull'=>0, 'visible'=>3,),
-
-
-
-
 		'C0As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi0', 'enabled'=>'1', 'position'=>116, 'notnull'=>0, 'visible'=>3,),
 		'C1As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi1', 'enabled'=>'1', 'position'=>121, 'notnull'=>0, 'visible'=>3,),
 		'C2As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi2', 'enabled'=>'1', 'position'=>126, 'notnull'=>0, 'visible'=>3,),
