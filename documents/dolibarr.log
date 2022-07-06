@@ -199,3 +199,4 @@
 2022-07-04 03:05:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
 2022-07-04 03:05:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
 2022-07-04 03:06:46 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=editfile, massaction=
+2022-07-06 03:04:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
