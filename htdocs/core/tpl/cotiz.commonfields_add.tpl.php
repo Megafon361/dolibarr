@@ -33,7 +33,7 @@ if (empty($conf) || !is_object($conf)) {
 <?php
 
 $object->fields = dol_sort_array($object->fields, 'position');
-print '<div class="row"><div class="ui red inverted segment">';
+print '<div class="ui red inverted segment">';
 
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
@@ -44,21 +44,42 @@ foreach ($object->fields as $key => $val) {
 	if (array_key_exists('enabled', $val) && isset($val['enabled']) && !verifCond($val['enabled'])) {
 		continue; // We don't want this field
 	}
+		//------------------------------------------------
 
+
+
+
+/* 	Usuario		
+	fk_soc		
+	trabajo		
+	fk_project	
+	description	
+	note_public	
+	entrega		
+	label		
+	note_private
+	gastos		
+	megafon		
+	subtotal	
+	iva	 */		
 
      
      var_dump($key);
     switch ($key) {
-        case 'label':
-        case 'iva':
+		case 'Usuario':
+		case 'gastos':
         case 'C0Ro':
-        case 'C1Ro':
-        case 'C2Ro':
-        case 'C3Ro':
+		case 'C1Ro':
+		case 'C2Ro':
+		case 'C3Ro':
 		case 'C4Ro':
-        case 'status':
-            print'<div class="ui green inverted segment">';
-            break;
+		case 'status':
+			print'<div class="ui blue inverted segment">';
+			break;
+        case 'iva':
+
+            
+        break;
         
         default:
             # code...
@@ -86,12 +107,7 @@ foreach ($object->fields as $key => $val) {
 		print $langs->trans($val['label']);
 	}
 	print '</div>';
-
-
-
-
-
-
+	echo str_repeat('&nbsp;', 5);
 	print '<td class="valuefieldcreate">';
 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
@@ -126,25 +142,44 @@ foreach ($object->fields as $key => $val) {
 		}
 	}
 	print '</td>';
+    print '</div>';
 
 
+	//CERRAR AZUL
 	switch ($key) {
-        case 'trabajo':
-		case 'Usuario':
-        case 'C0Pa':
-        case 'C1Pa':
-        case 'C2Pa':
-        case 'C3Pa':
-        case 'C4Pa':
-        case 'status':
-        	print '</div>';
-			break;
+        case 'label':
+		case 'total':
+		//case 'Usuario':
+		case 'C0Pa':
+		case 'C1Pa':
+		case 'C2Pa':
+		case 'C3Pa':
+		case 'C4Pa':
+		case 'status':
+			print '</div>';
+		break;
 		default:
 			# code...
 			break;
 	}
-	print'</div>';
+	
+	
+			
+
+	
+	
+	
+	//------------------------------------------------------
+	
+
+
+
+	
 }
-print '</div></div>';
+print '</div>';
 ?>
 <!-- END PHP TEMPLATE commonfields_add.tpl.php -->
+
+
+
+
