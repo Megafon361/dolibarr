@@ -104,12 +104,20 @@ class Cotizacion extends CommonObject
 	public $fields=array(
 		'rowid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
 		'ref' => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>'1', 'position'=>2, 'notnull'=>1, 'visible'=>4, 'noteditable'=>'1', 'default'=>'(PROV)', 'index'=>1, 'searchall'=>1, 'showoncombobox'=>'1', 'validate'=>'1', 'comment'=>"Reference of object"),
-		'label' => array('type'=>'varchar(255)', 'label'=>'Label', 'enabled'=>'1', 'position'=>3, 'notnull'=>0, 'visible'=>1, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Help text", 'showoncombobox'=>'2', 'validate'=>'1',),
-		'fk_soc' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'ThirdParty', 'enabled'=>'1', 'position'=>3, 'notnull'=>-1, 'visible'=>1, 'index'=>1, 'css'=>'maxwidth500 widthcentpercentminusxx', 'help'=>"LinkToThirparty", 'validate'=>'1',),
-		'fk_project' => array('type'=>'integer:Project:projet/class/project.class.php:1', 'label'=>'Project', 'enabled'=>'1', 'position'=>4, 'notnull'=>-1, 'visible'=>-1, 'index'=>1, 'css'=>'maxwidth500 widthcentpercentminusxx', 'validate'=>'1',),
-		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>5, 'notnull'=>0, 'visible'=>3, 'validate'=>'1',),
-		'note_public' => array('type'=>'html', 'label'=>'NotePublic', 'enabled'=>'1', 'position'=>6, 'notnull'=>0, 'visible'=>0, 'cssview'=>'wordbreak', 'validate'=>'1',),
-		'note_private' => array('type'=>'html', 'label'=>'NotePrivate', 'enabled'=>'1', 'position'=>7, 'notnull'=>0, 'visible'=>0, 'cssview'=>'wordbreak', 'validate'=>'1',),
+		'Usuario' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'Usuario', 'enabled'=>'1', 'position'=>3, 'notnull'=>0, 'visible'=>-1,),
+		'fk_soc' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'ThirdParty', 'enabled'=>'1', 'position'=>5, 'notnull'=>-1, 'visible'=>1, 'index'=>1, 'css'=>'maxwidth500 widthcentpercentminusxx', 'help'=>"LinkToThirparty", 'validate'=>'1',),
+		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>6, 'notnull'=>0, 'visible'=>-1,),
+		'fk_project' => array('type'=>'integer:Project:projet/class/project.class.php:1', 'label'=>'Project', 'enabled'=>'1', 'position'=>7, 'notnull'=>-1, 'visible'=>-1, 'index'=>1, 'css'=>'maxwidth500 widthcentpercentminusxx', 'validate'=>'1',),
+		'description' => array('type'=>'text', 'label'=>'Description', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>3, 'validate'=>'1',),
+		'note_public' => array('type'=>'html', 'label'=>'NotePublic', 'enabled'=>'1', 'position'=>9, 'notnull'=>0, 'visible'=>0, 'cssview'=>'wordbreak', 'validate'=>'1',),
+		'entrega' => array('type'=>'date', 'label'=>'entrega', 'enabled'=>'1', 'position'=>10, 'notnull'=>11, 'visible'=>1,),
+		'label' => array('type'=>'varchar(255)', 'label'=>'Label', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>1, 'searchall'=>1, 'css'=>'minwidth300', 'cssview'=>'wordbreak', 'help'=>"Help text", 'showoncombobox'=>'2', 'validate'=>'1',),
+		'note_private' => array('type'=>'html', 'label'=>'NotePrivate', 'enabled'=>'1', 'position'=>15, 'notnull'=>0, 'visible'=>0, 'cssview'=>'wordbreak', 'validate'=>'1',),
+		'gastos' => array('type'=>'varchar(128)', 'label'=>'gastos', 'enabled'=>'1', 'position'=>22, 'notnull'=>0, 'visible'=>-1,),
+		'megafon' => array('type'=>'varchar(128)', 'label'=>'megafon', 'enabled'=>'1', 'position'=>23, 'notnull'=>0, 'visible'=>-1,),
+		'subtotal' => array('type'=>'varchar(128)', 'label'=>'subtotal', 'enabled'=>'1', 'position'=>24, 'notnull'=>0, 'visible'=>-1,),
+		'iva' => array('type'=>'varchar(128)', 'label'=>'iva', 'enabled'=>'1', 'position'=>25, 'notnull'=>0, 'visible'=>-1,),
+		'total' => array('type'=>'varchar(128)', 'label'=>'total', 'enabled'=>'1', 'position'=>26, 'notnull'=>0, 'visible'=>3,),
 		'date_creation' => array('type'=>'datetime', 'label'=>'DateCreation', 'enabled'=>'1', 'position'=>500, 'notnull'=>1, 'visible'=>-2,),
 		'tms' => array('type'=>'timestamp', 'label'=>'DateModification', 'enabled'=>'1', 'position'=>501, 'notnull'=>0, 'visible'=>-2,),
 		'fk_user_creat' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'UserAuthor', 'enabled'=>'1', 'position'=>510, 'notnull'=>1, 'visible'=>-2, 'foreignkey'=>'user.rowid',),
@@ -118,13 +126,6 @@ class Cotizacion extends CommonObject
 		'import_key' => array('type'=>'varchar(14)', 'label'=>'ImportId', 'enabled'=>'1', 'position'=>1000, 'notnull'=>-1, 'visible'=>-2,),
 		'model_pdf' => array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>'1', 'position'=>1010, 'notnull'=>-1, 'visible'=>0,),
 		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Validado', '2'=>'Presupuestado', '3'=>'Facturado', '9'=>'Cancelado'), 'validate'=>'1',),
-		'entrega' => array('type'=>'date', 'label'=>'entrega', 'enabled'=>'1', 'position'=>8, 'notnull'=>0, 'visible'=>1,),
-		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>10, 'notnull'=>0, 'visible'=>-1,),
-		'gastos' => array('type'=>'varchar(128)', 'label'=>'gastos', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
-		'megafon' => array('type'=>'varchar(128)', 'label'=>'megafon', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
-		'subtotal' => array('type'=>'varchar(128)', 'label'=>'subtotal', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
-		'iva' => array('type'=>'varchar(128)', 'label'=>'iva', 'enabled'=>'1', 'position'=>11, 'notnull'=>0, 'visible'=>-1,),
-		'total' => array('type'=>'varchar(128)', 'label'=>'total', 'enabled'=>'1', 'position'=>12, 'notnull'=>0, 'visible'=>3,),
 		'C0Ro' => array('type'=>'integer', 'label'=>'Rol', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C0Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>114, 'notnull'=>0, 'visible'=>3,),
 		'C0Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>115, 'notnull'=>0, 'visible'=>3,),
@@ -150,16 +151,23 @@ class Cotizacion extends CommonObject
 		'C2As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi2', 'enabled'=>'1', 'position'=>126, 'notnull'=>0, 'visible'=>3,),
 		'C3As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi3', 'enabled'=>'1', 'position'=>131, 'notnull'=>0, 'visible'=>3,),
 		'C4As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi4', 'enabled'=>'1', 'position'=>136, 'notnull'=>0, 'visible'=>3,),
-		'Usuario' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'Usuario', 'enabled'=>'1', 'position'=>50, 'notnull'=>0, 'visible'=>-1,),
 	);
 	public $rowid;
 	public $ref;
-	public $label;
+	public $Usuario;
 	public $fk_soc;
+	public $trabajo;
 	public $fk_project;
 	public $description;
 	public $note_public;
+	public $entrega;
+	public $label;
 	public $note_private;
+	public $gastos;
+	public $megafon;
+	public $subtotal;
+	public $iva;
+	public $total;
 	public $date_creation;
 	public $tms;
 	public $fk_user_creat;
@@ -168,13 +176,6 @@ class Cotizacion extends CommonObject
 	public $import_key;
 	public $model_pdf;
 	public $status;
-	public $entrega;
-	public $trabajo;
-	public $gastos;
-	public $megafon;
-	public $subtotal;
-	public $iva;
-	public $total;
 	public $C0Ro;
 	public $C0Pr;
 	public $C0Ca;
@@ -200,7 +201,6 @@ class Cotizacion extends CommonObject
 	public $C2As;
 	public $C3As;
 	public $C4As;
-	public $Usuario;
 	// END MODULEBUILDER PROPERTIES
 
 
