@@ -44,28 +44,31 @@ foreach ($object->fields as $key => $val) {
 		continue; // We don't want this field
 	}
 
-	print '<tr class="field_'.$key.'">';
-	print '<td';
-	print ' class="titlefieldcreate';
-	if (isset($val['notnull']) && $val['notnull'] > 0) {
+	function echoLabel($key,$val){
+		print '<tr class="field_'.$key.'">';
+		print '<td';
+		print ' class="titlefieldcreate';
+		if (isset($val['notnull']) && $val['notnull'] > 0) {
 		print ' fieldrequired';
-	}
-	if ($val['type'] == 'text' || $val['type'] == 'html') {
+		}
+		if ($val['type'] == 'text' || $val['type'] == 'html') {
 		print ' tdtop';
+		}
+		print '"';
+		print '>';
+		print '</td>';
 	}
-	print '"';
-	print '>';
-	if (!empty($val['help'])) {
-		print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
-	} else {
-		print $langs->trans($val['label']);
-	}
-	print '</td>';
 
 
 
 
 
+
+
+
+
+
+	function echoField($key,$val){}
 
 	print '<td class="valuefieldcreate">';
 	if (!empty($val['picto'])) {
@@ -103,18 +106,11 @@ foreach ($object->fields as $key => $val) {
 	print '</td>';
 
 
-	switch ($key) {
-		case 'fk_project':
-			print '</tr><tr>';
-			break;
-		case 'trabajo':
-			print '</tr><tr>';
-		
-		default:
-			# code...
-			break;
-	}
-	
+
+
+
+
+	print '</tr>';
 }
 
 ?>

@@ -1,19 +1,6 @@
 <?php
 /* Copyright (C) 2017  Laurent Destailleur  <eldy@users.sourceforge.net>
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
- *
  * Need to have following variables defined:
  * $object (invoice, order, ...)
  * $action
@@ -28,11 +15,17 @@ if (empty($conf) || !is_object($conf)) {
 	exit;
 }
 
-?>
-<!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
-<?php
+?> <!-- BEGIN PHP TEMPLATE Cotiz.commonfields_add.tpl.php --> <?php
 
 $object->fields = dol_sort_array($object->fields, 'position');
+
+
+
+
+
+
+
+echo '<div class="ui segment">';
 
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
@@ -43,31 +36,71 @@ foreach ($object->fields as $key => $val) {
 	if (array_key_exists('enabled', $val) && isset($val['enabled']) && !verifCond($val['enabled'])) {
 		continue; // We don't want this field
 	}
-
-	print '<tr class="field_'.$key.'">';
-	print '<td';
-	print ' class="titlefieldcreate';
-	if (isset($val['notnull']) && $val['notnull'] > 0) {
-		print ' fieldrequired';
-	}
-	if ($val['type'] == 'text' || $val['type'] == 'html') {
-		print ' tdtop';
-	}
-	print '"';
-	print '>';
-	if (!empty($val['help'])) {
-		print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
-	} else {
-		print $langs->trans($val['label']);
-	}
-	print '</td>';
+	
 
 
 
 
 
 
-	print '<td class="valuefieldcreate">';
+
+	
+	switch ($key) {
+		case 'label':
+				echo '<div class="ui blue segment"><div class="column">';
+				break;
+
+		case 'fk_soc':
+		case 'fk_project':
+		case 'description':
+		case 'entrega':
+		case 'trabajo':
+					echo '</div><div class="column">';
+					break;
+				case 'C0Ro':
+				echo '</div></div><div class="ui green segment"><table class="ui celled table"><thead>				<tr><th>Rol</th>
+				<th>Precio</th>
+				<th>Cant</th>
+				<th>Asignado</th>
+				<th>Pago</th>
+			  	</tr></thead>
+			  	<tbody>';
+				break;
+		case 'C1Ro':
+	
+			echo '<div class="ui green segment"><table class="ui celled table"><thead>				<tr><th>Rol</th>
+			<th>Precio</th>
+			<th>Cant</th>
+			<th>Asignado</th>
+			<th>Pago</th>
+			  </tr></thead>
+			  <tbody>';
+				break;
+		case 'C2Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C3Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C4Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+		case 'C5Ro':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+	
+		case 'status':
+				echo '</table></div><div class="ui green segment"><table>';
+				break;
+	
+	
+			}
+print '<table>';
+
+
+
+
+	print '<div class="column">';
 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	}
@@ -99,23 +132,50 @@ foreach ($object->fields as $key => $val) {
 		} else {
 			print $object->showInputField($val, $key, $value, '', '', '', 0);
 		}
+
+		print '<div class="column">';
+
+
+
+
+
 	}
-	print '</td>';
+
+
+
+
+	//print '</table>';
+//	print '</div>';
+//	print '</div>';
+
+
+	
+
 
 
 	switch ($key) {
-		case 'fk_project':
-			print '</tr><tr>';
+		case 'status':
+			echo '</div>';
 			break;
-		case 'trabajo':
-			print '</tr><tr>';
-		
-		default:
-			# code...
-			break;
-	}
-	
+			}
+
+
+
 }
+print '</div>';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 <!-- END PHP TEMPLATE commonfields_add.tpl.php -->

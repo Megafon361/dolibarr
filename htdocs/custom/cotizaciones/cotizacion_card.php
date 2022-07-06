@@ -240,8 +240,8 @@ llxHeader('', $title, $help_url);
 
 echo '<!-- You MUST include jQuery before Fomantic -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-<script src="/dist/semantic.min.js"></script>';
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>';
 
 
 
@@ -271,7 +271,10 @@ if ($action == 'create') {
 	// Set some default values
 	//if (! GETPOSTISSET('fieldname')) $_POST['fieldname'] = 'myvalue';
 
-	print '<table class="border centpercent tableforfieldcreate">'."\n";
+	//print '<table class="border centpercent tableforfieldcreate">'."\n";
+	//print '<table class="ui table">'."\n";
+
+	print '<div class="ui four column grid">'."\n";
 
 	// Common attributes
 	//include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
@@ -279,7 +282,8 @@ if ($action == 'create') {
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
-	print '</table>'."\n";
+	//print '</table>'."\n";
+	print '</div>'."\n";
 
 	print dol_get_fiche_end();
 
