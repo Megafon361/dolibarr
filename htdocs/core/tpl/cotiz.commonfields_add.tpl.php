@@ -18,6 +18,7 @@ if (empty($conf) || !is_object($conf)) {
 ?> <!-- BEGIN PHP TEMPLATE Cotiz.commonfields_add.tpl.php --> <?php
 
 $object->fields = dol_sort_array($object->fields, 'position');
+echo '<div class="ui red segment">';
 
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
@@ -30,28 +31,30 @@ foreach ($object->fields as $key => $val) {
 	}
 	
 
+
+
+
+
+
+
+
+	?><!-- BEGIN to put hands in --><?php
+
+
+	
 	switch ($key) {
 		case 'label':
-				echo '<div class="ui grid"><div class="two wide column">';
+				echo '<div class="ui blue segment"><div class="column">';
 				break;
-				case 'fk_soc':
-				case 'fk_project':
-				case 'description':
-				case 'entrega':
-					echo '</div><div class="four wide column">';
-					break;
 
-				case 'trabajo':
-					echo '</div></div><div class="four wide column">';
+		case 'fk_soc':
+		case 'fk_project':
+		case 'description':
+		case 'entrega':
+		case 'trabajo':
+					echo '</div><div class="column">';
 					break;
-
-				
-				
-				
-				
-				
-				
-					case 'C0Ro':
+				case 'C0Ro':
 				echo '</div></div><div class="ui green segment"><table class="ui celled table"><thead>				<tr><th>Rol</th>
 				<th>Precio</th>
 				<th>Cant</th>
@@ -60,8 +63,18 @@ foreach ($object->fields as $key => $val) {
 			  	</tr></thead>
 			  	<tbody>';
 				break;
+	}
+
+	switch ($key) {
 		case 'C1Ro':
-				echo '<tbody></table></div><div class="ui green segment"><table>';
+	
+			echo '<div class="ui green segment"><table class="ui celled table"><thead>				<tr><th>Rol</th>
+			<th>Precio</th>
+			<th>Cant</th>
+			<th>Asignado</th>
+			<th>Pago</th>
+			  </tr></thead>
+			  <tbody>';
 				break;
 		case 'C2Ro':
 				echo '</table></div><div class="ui green segment"><table>';
@@ -80,12 +93,14 @@ foreach ($object->fields as $key => $val) {
 				echo '</table></div><div class="ui green segment"><table>';
 				break;
 	
-	}
+		case 'C3Pa':
+				echo '';
+				break;
+	
+			}
+print '<table>';
 
-
-
-//print '<table>';
-	switch ($key) {
+switch ($key) {
 				case 'label':
 				case 'fk_soc':
 				case 'fk_project':
@@ -100,8 +115,8 @@ foreach ($object->fields as $key => $val) {
 				case 'Usuario':
 				case 'status':
 
-
-					print '<div class="ui segment">';	
+					echo '</div>';
+					print '<div class="column">';	
 					print '<div class="field_'.$key.'">';
 					print '<div ';
 					print ' class="titlefieldcreate';
@@ -136,7 +151,7 @@ foreach ($object->fields as $key => $val) {
 
 
 
-	//print '<div class="stackeable">';
+	print '<div class="column">';
 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	}
@@ -169,6 +184,8 @@ foreach ($object->fields as $key => $val) {
 			print $object->showInputField($val, $key, $value, '', '', '', 0);
 		}
 
+		print '<div class="column">';
+
 
 
 
@@ -189,14 +206,14 @@ foreach ($object->fields as $key => $val) {
 		case 'total':
 		case 'Usuario':
 		case 'status':
-			print '</div>';
+		//	print '</div>';
 			break;
 		}
 
 
 	//print '</table>';
-	print '</div>';
-	print '</div>';
+//	print '</div>';
+//	print '</div>';
 
 
 	
