@@ -421,3 +421,10 @@
 2022-07-06 06:16:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
 2022-07-06 06:16:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
 2022-07-06 06:19:13 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-06 06:21:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-06 06:23:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-06 12:20:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-06 12:20:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-06 12:20:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-06 12:20:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-06 12:20:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1

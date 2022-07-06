@@ -52,7 +52,10 @@ foreach ($object->fields as $key => $val) {
         case 'label':
         case 'iva':
         case 'C0Ro':
-            print ' <p>HELLO GREEN</p>';
+        case 'C1Ro':
+        case 'C2Ro':
+        case 'C3Ro':
+        case 'status':
             print'<div class="ui green inverted segment">';
             break;
         
@@ -127,6 +130,13 @@ foreach ($object->fields as $key => $val) {
 	switch ($key) {
         case 'trabajo':
 		case 'Usuario':
+            case 'C0Pa':
+                case 'C1Pa':
+                    case 'C2Pa':
+                        case 'C3Pa':
+                            case 'C4Pa':
+            case 'status':
+        
 			print '</div>';
 			break;
 		default:
