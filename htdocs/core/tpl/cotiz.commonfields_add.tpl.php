@@ -64,21 +64,62 @@ foreach ($object->fields as $key => $val) {
 	iva	 */		
 
      
-     var_dump($key);
+   //  var_dump($key);
     switch ($key) {
 		case 'Usuario':
 		case 'gastos':
-        case 'C0Ro':
-		case 'C1Ro':
-		case 'C2Ro':
-		case 'C3Ro':
-		case 'C4Ro':
-		case 'status':
-			print'<div class="ui blue inverted segment">';
+			print'<div class="ui blue inverted segment"><div class="ui four column grid"><div class="row">';
 			break;
-        case 'iva':
+			case 'C0Ro':
+			print'<div class="ui blue inverted segment"><table class="ui celled collapsing table">
+			<thead>
+			  <tr>
+			  <th>Rol</th>
+			  <th>Precio</th>
+			  <th>Cant</th>
+			  <th>Asign</th>
+			  <th>Pago</th>
+			</tr></thead>
+			<tbody><tr><td data-label="nada';
+			echo '">';
+			break;
+			case 'C1Ro':
+			case 'C2Ro':
+			case 'C3Ro':
+			case 'C4Ro':
+				echo '<tr><td data-label="nada">';
+				break;
+					case 'C0Pr':
+					case 'C0Ca':
+					case 'C0Pa':
+					case 'C1Ro':
+					case 'C1Pr':
+					case 'C1Ca':
+					case 'C1Pa':
+					case 'C2Ro':
+					case 'C2Pr':
+					case 'C2Ca':
+					case 'C2Pa':
+					case 'C3Ro':
+					case 'C3Pr':
+					case 'C3Ca':
+					case 'C3Pa':
+					case 'C4Ro':
+					case 'C4Pr':
+					case 'C4Ca':
+					case 'C4Pa':
+					case 'C0As':
+					case 'C1As':
+					case 'C2As':
+					case 'C3As':
+					case 'C4As':
+						echo '<td data-label="nada">';
+						break;
 
-            
+
+
+			case 'status':
+				print'';
         break;
         
         default:
@@ -88,27 +129,70 @@ foreach ($object->fields as $key => $val) {
 
 
 
-    print'<div class="ui yellow inverted segment">';
+   
 
 
-	print '<div';
-	print ' class="ui input';
-	if (isset($val['notnull']) && $val['notnull'] > 0) {
-		print ' fieldrequired';
-	}
-	if ($val['type'] == 'text' || $val['type'] == 'html') {
-		print ' tdtop';
-	}
-	print '"';
-	print '>';
-	if (!empty($val['help'])) {
-		print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
-	} else {
-		print $langs->trans($val['label']);
-	}
-	print '</div>';
-	echo str_repeat('&nbsp;', 5);
-	print '<td class="valuefieldcreate">';
+
+	switch ($key) {
+
+					case 'C0Ro':
+					case 'C0Pr':
+					case 'C0Ca':
+					case 'C0Pa':
+					case 'C1Ro':
+					case 'C1Pr':
+					case 'C1Ca':
+					case 'C1Pa':
+					case 'C2Ro':
+					case 'C2Pr':
+					case 'C2Ca':
+					case 'C2Pa':
+					case 'C3Ro':
+					case 'C3Pr':
+					case 'C3Ca':
+					case 'C3Pa':
+					case 'C4Ro':
+					case 'C4Pr':
+					case 'C4Ca':
+					case 'C4Pa':
+					case 'C0As':
+					case 'C1As':
+					case 'C2As':
+					case 'C3As':
+					case 'C4As':
+					break;
+					default:
+					print'<div class="ui yellow inverted segment">';
+					print '<div';
+					print ' class="ui input';
+					if (isset($val['notnull']) && $val['notnull'] > 0) {
+						print ' fieldrequired';
+					}
+					if ($val['type'] == 'text' || $val['type'] == 'html') {
+						print ' tdtop';
+					}
+					print '"';
+					print '>';
+					if (!empty($val['help'])) {
+						print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
+					} else {
+						print $langs->trans($val['label']);
+					}
+					print '</div>';
+					echo str_repeat('&nbsp;', 5);
+				
+					break;
+			}
+
+
+	
+
+
+
+
+
+
+	//print '<div class="valuefieldcreate">';
 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	}
@@ -141,23 +225,91 @@ foreach ($object->fields as $key => $val) {
 			print $object->showInputField($val, $key, $value, '', '', '', 0);
 		}
 	}
-	print '</td>';
-    //Cerrar amarillo
-	print '</div>';
 
+
+	switch ($key) {
+		case 'C0Ro':
+		case 'C0Pr':
+		case 'C0Ca':
+		case 'C0Pa':
+		case 'C1Ro':
+		case 'C1Pr':
+		case 'C1Ca':
+		case 'C1Pa':
+		case 'C2Ro':
+		case 'C2Pr':
+		case 'C2Ca':
+		case 'C2Pa':
+		case 'C3Ro':
+		case 'C3Pr':
+		case 'C3Ca':
+		case 'C3Pa':
+		case 'C4Ro':
+		case 'C4Pr':
+		case 'C4Ca':
+		case 'C4Pa':
+		case 'C0As':
+		case 'C1As':
+		case 'C2As':
+		case 'C3As':
+		case 'C4As':
+			echo '';
+			break;
+
+	//print '</div>';
+    //Cerrar amarillo
+
+		default:
+		print '</div>';
+			break;
+	}
+	
 
 	//CERRAR AZUL
 	switch ($key) {
         case 'label':
 		case 'total':
+		case 'status':
+			print '</div></div></div>';
+		break;
 		case 'C0Pa':
 		case 'C1Pa':
 		case 'C2Pa':
 		case 'C3Pa':
+			print'</td></tr>';
+			break;
 		case 'C4Pa':
-		case 'status':
-			print '</div>';
-		break;
+			print'</td> </tr>
+			</tbody>
+		  </table>';
+			break;
+
+			case 'C0Pr':
+				case 'C0Ca':
+				case 'C0Pa':
+				case 'C1Ro':
+				case 'C1Pr':
+				case 'C1Ca':
+				case 'C1Pa':
+				case 'C2Ro':
+				case 'C2Pr':
+				case 'C2Ca':
+				case 'C2Pa':
+				case 'C3Ro':
+				case 'C3Pr':
+				case 'C3Ca':
+				case 'C3Pa':
+				case 'C4Ro':
+				case 'C4Pr':
+				case 'C4Ca':
+				case 'C4Pa':
+				case 'C0As':
+				case 'C1As':
+				case 'C2As':
+				case 'C3As':
+				case 'C4As':
+				echo '</td>';
+				break;
 		default:
 			# code...
 			break;
