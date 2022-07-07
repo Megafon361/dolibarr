@@ -142,14 +142,14 @@ foreach ($object->fields as $key => $val) {
 		}
 	}
 	print '</td>';
-    print '</div>';
+    //Cerrar amarillo
+	print '</div>';
 
 
 	//CERRAR AZUL
 	switch ($key) {
         case 'label':
 		case 'total':
-		//case 'Usuario':
 		case 'C0Pa':
 		case 'C1Pa':
 		case 'C2Pa':
@@ -176,7 +176,7 @@ foreach ($object->fields as $key => $val) {
 
 	
 }
-print '</div>';
+print '</div>'; //CERRAR ROJO
 ?>
 <!-- END PHP TEMPLATE commonfields_add.tpl.php -->
 
