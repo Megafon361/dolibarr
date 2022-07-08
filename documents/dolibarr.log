@@ -712,3 +712,8 @@
 2022-07-07 22:23:54 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C4Ro'
 2022-07-07 22:23:54 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion_extrafields ADD INDEX idx_cotizacion_fk_object(fk_object);
 2022-07-07 22:23:54 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizacion_fk_object'
+2022-07-08 02:49:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-08 02:49:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-08 02:49:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-08 02:49:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-08 02:49:28 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
