@@ -105,11 +105,44 @@ div.mainmenu.cotizaciones {
 	background-image: none;
 }
 
-.chorizo input, .chorizo select{
-    background-color: #03fccf;
+
+
+
+.Precio input{
+	background-color: #03fccf;
     font-weight: bold;
-    min-width: 4; 
-	max-width: 10; 
-    
+    min-width: 0; 
+	max-width: 10px;    
 }
 
+.Asi0 select, .Asi1 select, .Asi2 select, .Asi3 select, .Asi4 select {
+	/* background-color: #03fccf; */
+    font-weight: bold;
+    min-width: 0; 
+	max-width: 1;    
+}
+
+.Cant input{
+	
+    font-weight: bold;
+    min-width: 0; 
+	max-width: 1;    
+}
+.Rol select {
+	
+    font-weight: bold;
+    min-width: 0; 
+	max-width: 1;    
+}
+.Pago input {
+	
+    font-weight: bold;
+    min-width: 0; 
+	max-width: 1;    
+}
+
+
+#C0Pr {max-width: 1;}
+#C0Ca {max-width: min-content; max-length: 2;}
+
+#fk_soc {max-width: 100px;}

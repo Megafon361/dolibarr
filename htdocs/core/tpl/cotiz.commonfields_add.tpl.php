@@ -31,9 +31,9 @@ if (empty($conf) || !is_object($conf)) {
 ?>
 <!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
 <?php
-
+//RED
 $object->fields = dol_sort_array($object->fields, 'position');
-print '<div class="ui red inverted segment">';
+print '<div class="ui  segment">';
 
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
@@ -49,29 +49,16 @@ foreach ($object->fields as $key => $val) {
 
 
 
-/* 	Usuario		
-	fk_soc		
-	trabajo		
-	fk_project	
-	description	
-	note_public	
-	entrega		
-	label		
-	note_private
-	gastos		
-	megafon		
-	subtotal	
-	iva	 */		
-
-     
+    // BLUE
    //  var_dump($key);
     switch ($key) {
 		case 'Usuario':
 		case 'gastos':
-			print'<div class="ui blue inverted segment"><div class="ui four column grid"><div class="row">';
+		case 'label':
+			print'<div class="ui  segment"><div class="ui four column grid"><div class="row">';
 			break;
 			case 'C0Ro':
-			print'<div class="ui blue inverted segment"><table class="ui celled collapsing table">
+			print'<div class="ui  segment"><table class="ui small collapsing celled table">
 			<thead>
 			  <tr>
 			  <th>Rol</th>
@@ -80,14 +67,14 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td data-label="'.$val['label'];
+			<tbody><tr><td class="collapsing" data-label="'.$val['label'].'" class="'.$val["label"];
 			echo '">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td data-label="'.$val["label"].'">';
+				echo '<tr><td class="collapsing" data-label="'.$val["label"].'" class="'.$val["label"].'">';
 				break;
 					case 'C0Pr':
 					case 'C0Ca':
@@ -113,14 +100,14 @@ foreach ($object->fields as $key => $val) {
 					case 'C2As':
 					case 'C3As':
 					case 'C4As':
-						echo '<td data-label="'.$val["label"].'" class="chorizo">';
+						echo '<td class="collapsing" data-label="'.$val["label"].'" class="'.$val["label"].'">';
 						break;
 
 
 
 			case 'status':
 				print'';
-        break;
+        		break;
         
         default:
             # code...
@@ -162,9 +149,10 @@ foreach ($object->fields as $key => $val) {
 					case 'C4As':
 					break;
 					default:
-					print'<div class="ui yellow inverted segment">';
+					//yellow
+					print'<div class="ui  segment">';
 					print '<div';
-					print ' class="ui input';
+					print ' class="ui small icon input';
 					if (isset($val['notnull']) && $val['notnull'] > 0) {
 						print ' fieldrequired';
 					}
@@ -185,17 +173,13 @@ foreach ($object->fields as $key => $val) {
 			}
 
 
-	
-
-
-
 
 
 
 	//print '<div class="valuefieldcreate">';
-	if (!empty($val['picto'])) {
+/* 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
-	}
+	} */
 	if (in_array($val['type'], array('int', 'integer'))) {
 		$value = GETPOST($key, 'int');
 	} elseif ($val['type'] == 'double') {
@@ -219,10 +203,10 @@ foreach ($object->fields as $key => $val) {
 		print $object->showOutputField($val, $key, $value, '', '', '', 0);
 	} else {
 		if ($key == 'lang') {
-			print img_picto('', 'language', 'class="pictofixedwidth"');
-			print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth300', 2);
+			//print img_picto('', 'language', 'class="pictofixedwidth"');
+			//print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
 		} else {
-			print $object->showInputField($val, $key, $value, '', '', '', 0);
+			//print $object->showInputField($val, $key, $value, '', '', '', 0);
 		}
 	}
 
@@ -281,10 +265,10 @@ foreach ($object->fields as $key => $val) {
 		case 'C4Pa':
 			print'</td> </tr>
 			</tbody>
-		  </table>';
+		  </table></div></div></div>';
 			break;
 
-			case 'C0Pr':
+				case 'C0Pr':
 				case 'C0Ca':
 				case 'C0Pa':
 				case 'C1Ro':
