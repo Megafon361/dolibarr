@@ -1530,7 +1530,7 @@ table[summary="list_of_modules"] .fa-cog {
 	.minwidth150 { min-width: 150px; }
 	.minwidth200 { min-width: 200px; }
 	.minwidth300 { min-width: 300px; }
-	.minwidth400 { min-width: 400px; }
+	.minwidth400 { min-width: 40px; }
 	.minwidth500 { min-width: 500px; }
 	.minwidth50imp  { min-width: 50px !important; }
 	.minwidth75imp  { min-width: 75px !important; }
@@ -7663,6 +7663,8 @@ if (!empty($conf->global->THEME_CUSTOM_CSS)) {
 		min-width:150px;
 	}
 
+
+	
 /* Must be at end */
 div.flot-text .flot-tick-label .tickLabel, .fa-color-unset {
 	color: unset;

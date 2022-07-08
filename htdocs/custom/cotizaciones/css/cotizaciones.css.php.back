@@ -105,11 +105,10 @@ div.mainmenu.cotizaciones {
 	background-image: none;
 }
 
-.chorizo input, .chorizo select{
+.chorizo{
     background-color: #03fccf;
     font-weight: bold;
-    min-width: 4; 
-	max-width: 10; 
-    
+    min-width: 20px; 
+    max-width: 50px; 
 }
 

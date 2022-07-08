@@ -238,13 +238,27 @@ llxHeader('', $title, $help_url);
 // });
 // </script>';
 
+
+
+
+
+
+
+
+
+
 echo '<!-- You MUST include jQuery before Fomantic -->
+
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>';
 
 
 
+
+
+ 
+//echo '   <script src="jquery-1.3.2.min.js" type="text/javascript"></script>  ';
 
 
 // Part to create
@@ -600,6 +614,37 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 		print '</div></div>';
 	}
+
+	
+print '
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+ jQuery(document).ready(function() {
+ 
+	console.log("lpm");
+	$("#C4Ro").removeClass("minwidth400",funcion(index,claseactual));
+	$("#C4Ro").removeClass("minwidth400");
+
+	$("#C3Pr").removeClass("minwidth400",funcion(index,claseactual));
+	$("#C3Pr").removeClass("minwidth400");
+	$(#C3Pr).removeClass("minwidth400",funcion(index,claseactual));
+	$(#C3Pr).removeClass("minwidth400");
+
+	#C3Pr
+	console.log("lpm");
+
+
+
+ });
+
+
+ 
+ </script>';
+
+ 
 
 	//Select mail models is same action as presend
 	if (GETPOST('modelselected')) {

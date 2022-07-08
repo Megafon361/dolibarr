@@ -80,14 +80,14 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td data-label="nada';
+			<tbody><tr><td data-label="'.$val['label'];
 			echo '">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td data-label="nada">';
+				echo '<tr><td data-label="'.$val["label"].'">';
 				break;
 					case 'C0Pr':
 					case 'C0Ca':
@@ -113,7 +113,7 @@ foreach ($object->fields as $key => $val) {
 					case 'C2As':
 					case 'C3As':
 					case 'C4As':
-						echo '<td data-label="nada">';
+						echo '<td data-label="'.$val["label"].'" class="chorizo">';
 						break;
 
 
