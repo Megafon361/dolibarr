@@ -146,3 +146,12 @@ div.mainmenu.cotizaciones {
 #C0Ca {max-width: min-content; max-length: 2;}
 
 #fk_soc {max-width: 100px;}
+
+
+[tipo="Cant"] {
+  background-color: #30c959; 
+}
+
+.Cant { background-color: #30c959;
+
+}

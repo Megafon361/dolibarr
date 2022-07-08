@@ -67,14 +67,14 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td class="collapsing" data-label="'.$val['label'].'" class="'.$val["label"];
+			<tbody><tr><td class="collapsing" label="'.$val['label'].'" class="'.$val["label"];
 			echo '">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td class="collapsing" data-label="'.$val["label"].'" class="'.$val["label"].'">';
+				echo '<tr><td class="collapsing" label="'.$val["label"].'" class="'.$val["label"].'">';
 				break;
 					case 'C0Pr':
 					case 'C0Ca':
@@ -100,7 +100,7 @@ foreach ($object->fields as $key => $val) {
 					case 'C2As':
 					case 'C3As':
 					case 'C4As':
-						echo '<td class="collapsing" data-label="'.$val["label"].'" class="'.$val["label"].'">';
+						echo '<td class="collapsing" label="'.$val["label"].'" class="'.$val["label"].'">';
 						break;
 
 
@@ -173,7 +173,7 @@ foreach ($object->fields as $key => $val) {
 			}
 
 
-
+				$tipo=' tipo="'.$val['label'].'" ';
 
 
 	//print '<div class="valuefieldcreate">';
@@ -203,10 +203,10 @@ foreach ($object->fields as $key => $val) {
 		print $object->showOutputField($val, $key, $value, '', '', '', 0);
 	} else {
 		if ($key == 'lang') {
-			//print img_picto('', 'language', 'class="pictofixedwidth"');
-			//print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
+			print img_picto('', 'language', 'class="pictofixedwidth"');
+			print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
 		} else {
-			//print $object->showInputField($val, $key, $value, '', '', '', 0);
+			print $object->showInputField($val, $key, $value, $tipo, '', '', 0);
 		}
 	}
 

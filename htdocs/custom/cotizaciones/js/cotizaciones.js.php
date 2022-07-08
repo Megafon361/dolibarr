@@ -5,15 +5,7 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
+
  * Library javascript to enable Browser notifications
  */
 
@@ -92,9 +84,52 @@ if (empty($dolibarr_nocache)) {
 } else {
 	header('Cache-Control: no-cache');
 }
-?>
+
+echo '
 console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
-*/console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
-/* 	console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
 
 
+//alert("total");
+
+  $( document ).ready(function() {
+    console.log( "ready! cotizacard.css.php" );
+	
+	$("[tipo=\'Cant\']").removeClass("minwidth400 flat --success");
+	$("[tipo=\'Cant\']").addClass("Cant");
+		$("#C0Pr").removeClass("rojo").addClass("verde");
+
+
+}); 
+
+
+function sumar() {
+
+	var total = 0;
+  
+	$("#total").each(function() {
+  
+	  if (isNaN(parseFloat($(this).val()))) {
+  
+		total += 0;
+  
+	  } else {
+  
+		total += parseFloat($(this).val());
+  
+	  }
+  
+	});
+  
+	
+	document.getElementById("spTotal").innerHTML = total;
+  
+  }
+
+
+ 
+
+
+';
+
+
+?>
