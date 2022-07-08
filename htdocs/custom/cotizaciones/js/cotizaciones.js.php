@@ -96,7 +96,25 @@ console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
 	
 	$("[tipo=\'Cant\']").removeClass("minwidth400 flat --success");
 	$("[tipo=\'Cant\']").addClass("Cant");
-		$("#C0Pr").removeClass("rojo").addClass("verde");
+	$("[tipo=\'Cant\']").removeAttr("maxlength");
+	$("[tipo=\'Cant\']").attr("maxlength","2");
+
+
+	$("[tipo=\'Precio\']").removeClass("flat minwidth400 --success");
+	$("[tipo=\'Precio\']").addClass("Precio");
+	$("[tipo=\'Precio\']").removeAttr("maxlength");
+	$("[tipo=\'Precio\']").attr("maxlength","12");
+
+	$("[tipo=\'Pago\']").removeClass("flat minwidth400 --success");
+	$("[tipo=\'Pago\']").addClass("Pago");
+	$("[tipo=\'Pago\']").removeAttr("maxlength");
+	$("[tipo=\'Pago\']").attr("maxlength","12");
+
+
+
+	 
+
+
 
 
 }); 
@@ -106,7 +124,7 @@ function sumar() {
 
 	var total = 0;
   
-	$("#total").each(function() {
+	$(".Precio").each(function() {
   
 	  if (isNaN(parseFloat($(this).val()))) {
   

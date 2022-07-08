@@ -58,7 +58,7 @@ foreach ($object->fields as $key => $val) {
 			print'<div class="ui  segment"><div class="ui four column grid"><div class="row">';
 			break;
 			case 'C0Ro':
-			print'<div class="ui  segment"><table class="ui small collapsing celled table">
+			print'<div class="ui collapsing segment"><table class="ui celled collapsing single line table" >
 			<thead>
 			  <tr>
 			  <th>Rol</th>
@@ -67,7 +67,7 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td class="collapsing" label="'.$val['label'].'" class="'.$val["label"];
+			<tbody><tr><td class="collapsing"  label="'.$val['label'].'" class="'.$val["label"];
 			echo '">';
 			break;
 			case 'C1Ro':
@@ -100,7 +100,7 @@ foreach ($object->fields as $key => $val) {
 					case 'C2As':
 					case 'C3As':
 					case 'C4As':
-						echo '<td class="collapsing" label="'.$val["label"].'" class="'.$val["label"].'">';
+						echo '<td  label="'.$val["label"].'" class="'.$val["label"].'">';
 						break;
 
 
@@ -167,13 +167,13 @@ foreach ($object->fields as $key => $val) {
 						print $langs->trans($val['label']);
 					}
 					print '</div>';
-					echo str_repeat('&nbsp;', 5);
+					//echo str_repeat('&nbsp;', 5);
 				
 					break;
 			}
 
 
-				$tipo=' tipo="'.$val['label'].'" ';
+				$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
 
 
 	//print '<div class="valuefieldcreate">';
@@ -265,6 +265,15 @@ foreach ($object->fields as $key => $val) {
 		case 'C4Pa':
 			print'</td> </tr>
 			</tbody>
+			<tfoot>
+    <tr>
+	<th></th>
+    <th><span>Total: $</span><span id="spTotal"></span></th>
+    <th></th>
+	<th></th>
+	<th>Pago</th>
+  </tr></tfoot>
+
 		  </table></div></div></div>';
 			break;
 

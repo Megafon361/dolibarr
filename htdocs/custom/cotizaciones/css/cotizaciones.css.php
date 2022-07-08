@@ -108,19 +108,8 @@ div.mainmenu.cotizaciones {
 
 
 
-.Precio input{
-	background-color: #03fccf;
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 10px;    
-}
 
-.Asi0 select, .Asi1 select, .Asi2 select, .Asi3 select, .Asi4 select {
-	/* background-color: #03fccf; */
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
-}
+
 
 .Cant input{
 	
@@ -136,22 +125,26 @@ div.mainmenu.cotizaciones {
 }
 .Pago input {
 	
+	
     font-weight: bold;
     min-width: 0; 
-	max-width: 1;    
+	max-width: 120px;    
+	maxlength: "12";   
+}
+.Precio input{
+
+    font-weight: bold;
+    min-width: 0; 
+	max-width: 120px;    
+	maxlength: "12";
+
 }
 
-
-#C0Pr {max-width: 1;}
-#C0Ca {max-width: min-content; max-length: 2;}
-
-#fk_soc {max-width: 100px;}
-
-
-[tipo="Cant"] {
-  background-color: #30c959; 
-}
-
-.Cant { background-color: #30c959;
+#fk_soc {max-width: 150px;}
+.Cant { 	
+	
+    font-weight: bold;
+ 	max-width: 40px;    
+	maxlength: "2";
 
 }
