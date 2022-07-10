@@ -252,10 +252,35 @@ foreach ($object->fields as $key => $val) {
 	//CERRAR AZUL
 	switch ($key) {
         case 'label':
-		case 'total':
+		//case 'total':
 		case 'status':
 			print '</div></div></div>';
 		break;
+		case 'total':
+			print '      <div class="ui form">
+			<div class="inline fields">
+			  <label>?</label>
+			  <div class="field">
+				<div class="ui radio checkbox">
+				  <input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
+				  <label>con IVA</label>
+				</div>
+			  </div>
+			  <div class="field">
+				<div class="ui radio checkbox">
+				  <input type="radio" id="check2" onchange="sumar();" name="frequency">
+				  <label>Sin IVA</label>
+				</div>
+			  </div>
+			  <div class="field">
+				<div class="ui radio checkbox">
+				  <input type="radio" id="check3" onchange="sumar();" name="frequency">
+				  <label>Contado</label>
+				</div>
+			  </div>
+			</div>
+		  </div>';
+		  break;
 		case 'C0Pa':
 		case 'C1Pa':
 		case 'C2Pa':

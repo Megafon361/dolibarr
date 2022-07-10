@@ -1,1 +1,50 @@
 
+2022-07-10 12:13:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:13:53 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:15:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:15:20 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:15:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:15:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-10 12:15:24 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-10 12:15:24 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-10 12:15:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-10 12:15:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-10 12:15:32 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=reset, massaction=
+2022-07-10 12:15:32 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-10 12:15:34 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=set, massaction=
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: CREATE TABLE llx_cotizaciones_cotizacion( rowid integer AUTO_INCREMENT PRIMARY KEY NOT NULL, ref varchar(128) DEFAULT '(PROV)' NOT NULL, Usuario integer, fk_soc integer, trabajo varchar(128), fk_project integer, description text, note_public text, entrega date NOT NULL, label varchar(255), note_private text, gastos varchar(128), megafon varchar(128), subtotal varchar(128), iva varchar(128), total varchar(128), date_creation datetime NOT NULL, tms timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, fk_user_creat integer NOT NULL, fk_user_modif integer, last_main_doc varchar(255), import_key varchar(14), model_pdf varchar(255), status integer NOT NULL, C0Ro integer, C0Pr varchar(128), C0Ca varchar(128), C0Pa varchar(128), C1Ro varchar(128), C1Pr varchar(128), C1Ca varchar(128), C1Pa varchar(128), C2Ro varchar(128), C2Pr varchar(128), C2Ca varchar(128), C2Pa varchar(128), C3Ro varchar(128), C3Pr varchar(128), C3Ca varchar(128), C3Pa varchar(128), C4Ro varchar(128), C4Pr varchar(128), C4Ca varchar(128), C4Pa varchar(128), C0As integer, C1As integer, C2As integer, C3As integer, C4As integer ) ENGINE=innodb;
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_TABLE_ALREADY_EXISTS Table 'llx_cotizaciones_cotizacion' already exists
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: create table llx_cotizaciones_cotizacion_extrafields ( rowid                     integer AUTO_INCREMENT PRIMARY KEY, tms                       timestamp, fk_object                 integer NOT NULL, import_key                varchar(14) ) ENGINE=innodb;
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_TABLE_ALREADY_EXISTS Table 'llx_cotizaciones_cotizacion_extrafields' already exists
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_rowid (rowid);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_rowid'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_ref (ref);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_ref'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_soc (fk_soc);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_soc'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_fk_project (fk_project);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_fk_project'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD CONSTRAINT llx_cotizaciones_cotizacion_fk_user_creat FOREIGN KEY (fk_user_creat) REFERENCES llx_user(rowid);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Can't write; duplicate key in table '#sql-2873_2d3'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_status (status);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_status'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C0Ro (C0Ro);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C0Ro'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C1Ro (C1Ro);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C1Ro'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C2Ro (C2Ro);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C2Ro'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C3Ro (C3Ro);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C3Ro'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C4Ro (C4Ro);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizaciones_cotizacion_C4Ro'
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_cotizaciones_cotizacion_extrafields ADD INDEX idx_cotizacion_fk_object(fk_object);
+2022-07-10 12:15:34 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_KEY_NAME_ALREADY_EXISTS Duplicate key name 'idx_cotizacion_fk_object'
+2022-07-10 12:15:34 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-10 12:15:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-10 12:15:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:21:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:21:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-10 12:21:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:22:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-10 12:38:55 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
