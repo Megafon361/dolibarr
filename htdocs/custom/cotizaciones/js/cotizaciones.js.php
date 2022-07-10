@@ -95,13 +95,13 @@ console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
     console.log( "ready! cotizacard.css.php" );
 	
 	$("[tipo=\'Cant\']").removeClass("minwidth400 flat --success");
-	$("[tipo=\'Cant\']").addClass("Cant");
+	$("input [tipo=\'Cant\']").addClass("Cant");
 	$("[tipo=\'Cant\']").removeAttr("maxlength");
 	$("[tipo=\'Cant\']").attr("maxlength","2");
-
-
-	$("[tipo=\'Precio\']").removeClass("flat minwidth400 --success");
-	$("[tipo=\'Precio\']").addClass("Precio");
+	
+	$("#C0Pr").removeClass("flat minwidth400 --success");	
+	$("*[tipo=\'Precio\']").removeClass("flat minwidth400 --success");
+	$("input [tipo=\'Precio\']").addClass("Precio");
 	$("[tipo=\'Precio\']").removeAttr("maxlength");
 	$("[tipo=\'Precio\']").attr("maxlength","12");
 
@@ -110,38 +110,35 @@ console.log("WOOOOOOOOOOOOOOOOOOOOOOOOOOOOW!");
 	$("[tipo=\'Pago\']").removeAttr("maxlength");
 	$("[tipo=\'Pago\']").attr("maxlength","12");
 
-
-
-	 
-
-
-
-
 }); 
 
+function var_dump(array){
 
+	console.log(JSON.stringify(array));
+	
+		alert(JSON.stringify(array));
+	
+	};
+
+var gastos = 0
 function sumar() {
 
-	var total = 0;
-  
-	$(".Precio").each(function() {
-  
-	  if (isNaN(parseFloat($(this).val()))) {
-  
-		total += 0;
-  
-	  } else {
-  
-		total += parseFloat($(this).val());
-  
-	  }
-  
-	});
-  
-	
-	document.getElementById("spTotal").innerHTML = total;
-  
-  }
+  var suma =    0;
+    for (let i = 0; i < 5; i++)
+    {
+        
+        var cantidad = document.getElementsByClassName("Cant")[i].value;
+        var precio = document.getElementsByClassName("Precio")[i].value;
+        
+        cantidad = parseFloat (cantidad);
+        precio = parseFloat (precio);
+         
+        suma += parseInt(cantidad * precio);
+		console.log(suma);
+	   
+
+    }
+};
 
 
  

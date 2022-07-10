@@ -67,14 +67,14 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td class="collapsing"  label="'.$val['label'].'" class="'.$val["label"];
+			<tbody><tr><td class="collapsing"  label="'.$val['label'].'"' ;
 			echo '">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td class="collapsing" label="'.$val["label"].'" class="'.$val["label"].'">';
+				echo '<tr><td class="collapsing" label="'.$val["label"].'" >';
 				break;
 					case 'C0Pr':
 					case 'C0Ca':

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var numero1 = 21;
+        var numero2 = 3;
+        console.log(numero1*numero2);
+    </script>
+</head>
+<body>
+    
+    <div class="ui  segment"><div class="ui four column grid"><div class="row"><div class="ui  segment"><div class="ui small icon input">gastos</div><input type="text" class="flat minwidth400 --success" name="gastos" id="gastos" maxlength="128" value="" onkeyup="sumar();" tipo="gastos"></div><div class="ui  segment"><div class="ui small icon input">megafon</div><input type="text" class="flat minwidth400 --success" name="megafon" id="megafon" maxlength="128" value="" onkeyup="sumar();" tipo="megafon"></div><div class="ui  segment"><div class="ui small icon input">subtotal</div><input type="text" class="flat minwidth400 --success" name="subtotal" id="subtotal" maxlength="128" value="" onkeyup="sumar();" tipo="subtotal"></div><div class="ui  segment"><div class="ui small icon input">iva</div><input type="text" class="flat minwidth400 --success" name="iva" id="iva" maxlength="128" value="" onkeyup="sumar();" tipo="iva"></div><div class="ui  segment"><div class="ui small icon input">total</div><input type="text" class="flat minwidth400 --success" name="total" id="total" maxlength="128" value="" onkeyup="sumar();" tipo="total"></div></div></div></div>
+
+    <div class="ui collapsing segment"><table class="ui celled collapsing single line table">
+        <thead>
+          <tr>
+          <th>Rol</th>
+          <th>Precio</th>
+          <th>Cant</th>
+          <th>Asign</th>
+          <th>Pago</th>
+        </tr></thead>
+        <tbody><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C0Ro -->
+      <script>
+        $(document).ready(function () {
+            $('#C0Ro').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<select class="flat minwidth100 --success maxwidthonsmartphone select2-hidden-accessible" name="C0Ro" id="C0Ro" onkeyup="sumar();" tipo="Rol" data-select2-id="C0Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="8">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="7" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth100 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C0Ro-container"><span class="select2-selection__rendered" id="select2-C0Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" class="Precio"><input type="text" class="Precio" name="C0Pr" id="C0Pr" value="" onkeyup="sumar();" tipo="Precio" maxlength="12"></td><td label="Cant" class="Cant"><input type="text" class="Cant" name="C0Ca" id="C0Ca" value="" onkeyup="sumar();" tipo="Cant" maxlength="2"></td><td label="Asi0" class="Asi0"><select id="C0As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible" onkeyup="sumar();" tipo="Asi0" name="C0As" data-select2-id="C0As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="10">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="9" style="width: 886.229px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C0As-container"><span class="select2-selection__rendered" id="select2-C0As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<!-- JS CODE TO ENABLE select2 for id = C0As -->
+      <script>
+        $(document).ready(function () {
+            $('#C0As').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C0Pa" id="C0Pa" value="" onkeyup="sumar();" tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C1Ro -->
+      <script>
+        $(document).ready(function () {
+            $('#C1Ro').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C1Ro" id="C1Ro" onkeyup="sumar();" tipo="Rol" data-select2-id="C1Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="12">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="11" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C1Ro-container"><span class="select2-selection__rendered" id="select2-C1Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" class="Precio"><input type="text" class="Precio" name="C1Pr" id="C1Pr" value="" onkeyup="sumar();" tipo="Precio" maxlength="12"></td><td label="Cant" class="Cant"><input type="text" class="Cant" name="C1Ca" id="C1Ca" value="" onkeyup="sumar();" tipo="Cant" maxlength="2"></td><td label="Asi1" class="Asi1"><select id="C1As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible" onkeyup="sumar();" tipo="Asi1" name="C1As" data-select2-id="C1As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="14">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="13" style="width: 893.875px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C1As-container"><span class="select2-selection__rendered" id="select2-C1As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<!-- JS CODE TO ENABLE select2 for id = C1As -->
+      <script>
+        $(document).ready(function () {
+            $('#C1As').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C1Pa" id="C1Pa" value="" onkeyup="sumar();" tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C2Ro -->
+      <script>
+        $(document).ready(function () {
+            $('#C2Ro').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C2Ro" id="C2Ro" onkeyup="sumar();" tipo="Rol" data-select2-id="C2Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="16">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="15" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C2Ro-container"><span class="select2-selection__rendered" id="select2-C2Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" class="Precio"><input type="text" class="Precio" name="C2Pr" id="C2Pr" value="" onkeyup="sumar();" tipo="Precio" maxlength="12"></td><td label="Cant" class="Cant"><input type="text" class="Cant" name="C2Ca" id="C2Ca" value="" onkeyup="sumar();" tipo="Cant" maxlength="2"></td><td label="Asi2" class="Asi2"><select id="C2As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible" onkeyup="sumar();" tipo="Asi2" name="C2As" data-select2-id="C2As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="18">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="17" style="width: 901.542px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C2As-container"><span class="select2-selection__rendered" id="select2-C2As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<!-- JS CODE TO ENABLE select2 for id = C2As -->
+      <script>
+        $(document).ready(function () {
+            $('#C2As').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C2Pa" id="C2Pa" value="" onkeyup="sumar();" tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C3Ro -->
+      <script>
+        $(document).ready(function () {
+            $('#C3Ro').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C3Ro" id="C3Ro" onkeyup="sumar();" tipo="Rol" data-select2-id="C3Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="20">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="19" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C3Ro-container"><span class="select2-selection__rendered" id="select2-C3Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" class="Precio"><input type="text" class="Precio" name="C3Pr" id="C3Pr" value="" onkeyup="sumar();" tipo="Precio" maxlength="12"></td><td label="Cant" class="Cant"><input type="text" class="Cant" name="C3Ca" id="C3Ca" value="" onkeyup="sumar();" tipo="Cant" maxlength="2"></td><td label="Asi3" class="Asi3"><select id="C3As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible" onkeyup="sumar();" tipo="Asi3" name="C3As" data-select2-id="C3As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="22">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="21" style="width: 909.208px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C3As-container"><span class="select2-selection__rendered" id="select2-C3As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<!-- JS CODE TO ENABLE select2 for id = C3As -->
+      <script>
+        $(document).ready(function () {
+            $('#C3As').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C3Pa" id="C3Pa" value="" onkeyup="sumar();" tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C4Ro -->
+      <script>
+        $(document).ready(function () {
+            $('#C4Ro').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C4Ro" id="C4Ro" onkeyup="sumar();" tipo="Rol" data-select2-id="C4Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="24">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="23" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C4Ro-container"><span class="select2-selection__rendered" id="select2-C4Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" class="Precio"><input type="text" class="Precio" name="C4Pr" id="C4Pr" value="" onkeyup="sumar();" tipo="Precio" maxlength="12"></td><td label="Cant" class="Cant"><input type="text" class="Cant" name="C4Ca" id="C4Ca" value="" onkeyup="sumar();" tipo="Cant" maxlength="2"></td><td label="Asi4" class="Asi4"><select id="C4As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible" onkeyup="sumar();" tipo="Asi4" name="C4As" data-select2-id="C4As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="26">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="25" style="width: 916.854px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C4As-container"><span class="select2-selection__rendered" id="select2-C4As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<!-- JS CODE TO ENABLE select2 for id = C4As -->
+      <script>
+        $(document).ready(function () {
+            $('#C4As').select2({
+                dir: 'ltr',
+                width: 'resolve',		/* off or resolve */
+                minimumInputLength: 0,
+                language: select2arrayoflanguage,
+                containerCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                selectionCssClass: ':all:',					/* Line to add class of origin SELECT propagated to the new <span class="select2-selection...> tag */
+                templateResult: function (data, container) {	/* Format visible output into combo list */
+                     /* Code to add class of origin OPTION propagated to the new select2 <li> tag */
+                    if (data.element) { $(container).addClass($(data.element).attr("class")); }
+                    //console.log($(data.element).attr("data-html"));
+                    if (data.id == -1 && $(data.element).attr("data-html") == undefined) {
+                        return '&nbsp;';
+                    }
+                    if ($(data.element).attr("data-html") != undefined) return htmlEntityDecodeJs($(data.element).attr("data-html"));		// If property html set, we decode html entities and use this
+                    return data.text;
+                },
+                templateSelection: function (selection) {		/* Format visible output of selected value */
+                    if (selection.id == -1) return '<span class="placeholder">'+selection.text+'</span>';
+                    return selection.text;
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                dropdownCssClass: 'ui-dialog'
+            });
+});
+</script>
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C4Pa" id="C4Pa" value="" onkeyup="sumar();" tipo="Pago" maxlength="12"></td> </tr>
+        </tbody>
+        <tfoot>
+<tr>
+<th></th>
+<th><span>Total: $</span><span id="spTotal"></span></th>
+<th></th>
+<th></th>
+<th>Pago</th>
+</tr></tfoot>
+
+      </table></div>
+
+      
+</body>
+</html>

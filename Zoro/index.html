@@ -1,199 +1,162 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html class="supernova"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
-<title>Cotización</title>
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="js/prototype.forms.js" type="text/javascript"></script>
-<script src="js/jotform.forms.js" type="text/javascript"></script>
-<script src="js/math-processor.js" type="text/javascript"></script>
-
-
-
-
-
-
-
-<script type="text/javascript">	JotForm.newDefaultTheme = false;
-	JotForm.extendsNewTheme = true;
-	JotForm.newPaymentUIForNewCreatedForms = false;
-	JotForm.newPaymentUI = true;
-
-   JotForm.setCalculations([{"decimalPlaces":"2","equation":"[{3_0_0}*{3_0_1}+{3_1_0}*{3_1_1}+{3_2_0}*{3_2_1}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"3","readOnly":"0","replaceText":"","resultField":"25","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"},{"decimalPlaces":"2","equation":"[{30}*{27}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"30,27","readOnly":"0","replaceText":"","resultField":"26","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"},{"decimalPlaces":"2","equation":"[{25}+{28}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"25,28","readOnly":"0","replaceText":"","resultField":"30","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"},{"decimalPlaces":"2","equation":"[{30}+{26}]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"30,26","readOnly":"0","replaceText":"","resultField":"29","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"},{"decimalPlaces":"2","equation":"[{25}*0.3]","ignoreHiddenFields":"0","insertAsText":"0","newCalculationType":"1","operands":"25","readOnly":"0","replaceText":"","resultField":"28","showBeforeInput":"0","showEmptyDecimals":"0","useCommasForDecimals":"0"},{"replaceText":"","readOnly":false,"newCalculationType":true,"useCommasForDecimals":false,"operands":"3","equation":"[({3_0_0}*{3_0_1})+({3_1_0}*{3_1_1})+({3_2_0}*{3_2_1})]","showBeforeInput":false,"showEmptyDecimals":false,"ignoreHiddenFields":false,"insertAsText":false,"id":"action_0_1657323069588","resultField":"25","decimalPlaces":"2","isError":false,"conditionId":"1655315133433","conditionTrue":false,"baseField":"3"}]);
-   JotForm.setConditions([{"action":[{"replaceText":"","readOnly":false,"newCalculationType":true,"useCommasForDecimals":false,"operands":"3","equation":"[({3_0_0}*{3_0_1})+({3_1_0}*{3_1_1})+({3_2_0}*{3_2_1})]","showBeforeInput":false,"showEmptyDecimals":false,"ignoreHiddenFields":false,"insertAsText":false,"id":"action_0_1657323069588","resultField":"25","decimalPlaces":"2","isError":false,"conditionId":"1655315133433","conditionTrue":false,"baseField":"3"}],"id":"1655315133433","index":"0","link":"Any","priority":"0","terms":[{"id":"term_0_1657323069588","field":"3","operator":"isFilled","value":"","isError":false}],"type":"calculation"}]);	JotForm.clearFieldOnHide="disable";
-
-	JotForm.init(function(){
-	/*INIT-START*/
-JotForm.handleSingleChoiceWithMultiTypeColumns();
-      JotForm.alterTexts({"ageVerificationError":"You must be older than {minAge} years old to submit this form.","alphabetic":"This field can only contain letters","alphanumeric":"This field can only contain letters and numbers.","appointmentSelected":"You’ve selected {time} on {date}","ccDonationMinLimitError":"Minimum amount is {minAmount} {currency}","ccInvalidCVC":"CVC number is invalid.","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidNumber":"Credit Card Number is invalid.","ccMissingDetails":"Please fill up the Credit Card details.","ccMissingDonation":"Please enter numeric values for donation amount.","ccMissingProduct":"Please select at least one product.","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","confirmClearForm":"Are you sure you want to clear the form?","confirmEmail":"E-mail does not match","currency":"This field can only contain currency values.","cyrillic":"This field can only contain cyrillic characters","dateInvalid":"This date is not valid. The date format is {format}","dateInvalidSeparate":"This date is not valid. Enter a valid {element}.","dateLimited":"This date is unavailable.","disallowDecimals":"Please enter a whole number.","doneButton":"Done","doneMessage":"Well done! All errors are fixed.","dragAndDropFilesHere_infoMessage":"Drag and drop files here","email":"Enter a valid e-mail address","fillMask":"Field value must fill mask.","freeEmailError":"Free email accounts are not allowed","generalError":"There are errors on the form. Please fix them before continuing.","generalPageError":"There are errors on this page. Please fix them before continuing.","gradingScoreError":"Score total should only be less than or equal to","incompleteFields":"There are incomplete required fields. Please complete them.","inputCarretErrorA":"Input should not be less than the minimum value:","inputCarretErrorB":"Input should not be greater than the maximum value:","justSoldOut":"Just Sold Out","lessThan":"Your score should be less than or equal to","maxDigitsError":"The maximum digits allowed is","maxFileSize_infoMessage":"Max. file size","maxSelectionsError":"The maximum number of selections allowed is ","minCharactersError":"The number of characters should not be less than the minimum value:","minSelectionsError":"The minimum required number of selections is ","multipleError":"There are {count} errors in this page. Please correct them before moving on.","multipleFileUploads_emptyError":"{file} is empty, please select files again without it.","multipleFileUploads_fileLimitError":"Only {fileLimit} file uploads allowed.","multipleFileUploads_minSizeError":"{file} is too small, minimum file size is {minSizeLimit}.","multipleFileUploads_onLeave":"The files are being uploaded, if you leave now the upload will be cancelled.","multipleFileUploads_sizeError":"{file} is too large, maximum file size is {sizeLimit}.","multipleFileUploads_typeError":"{file} has invalid extension. Only {extensions} are allowed.","nextButtonText":"Next","noSlotsAvailable":"No slots available","notEnoughStock":"Not enough stock for the current selection","notEnoughStock_remainedItems":"Not enough stock for the current selection ({count} items left)","numeric":"This field can only contain numeric values","oneError":"There is {count} error in this page. Please correct it before moving on.","pastDatesDisallowed":"Date must not be in the past.","pleaseWait":"Please wait...","prevButtonText":"Previous","progressMiddleText":"of","required":"This field is required.","requiredLegend":"All fields marked with * are required and must be filled.","requireEveryCell":"Every cell is required.","requireEveryRow":"Every row is required.","requireOne":"At least one field required.","reviewBackText":"Back to Form","reviewSubmitText":"Review and Submit","seeAllText":"See All","seeErrorsButton":"See Errors","selectionSoldOut":"Selection Sold Out","slotUnavailable":"{time} on {date} has been taken. Please select another slot.","soldOut":"Sold Out","submissionLimit":"Sorry! Only one entry is allowed. &lt;br&gt; Multiple submissions are disabled for this form.","submitButtonText":"Submit","subProductItemsLeft":"({count} items left)","uploadExtensions":"You can only upload following files:","uploadFilesize":"File size cannot be bigger than:","uploadFilesizemin":"File size cannot be smaller than:","url":"This field can only contain a valid URL","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is"});
-      JotForm.alterTexts(undefined, true);
-	/*INIT-END*/
-	});
-
-   JotForm.prepareCalculationsOnTheFly([null,null,{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"description":"","name":"cotizacion","qid":"3","text":"","type":"control_matrix"},null,null,null,null,null,null,null,null,{"name":"divider","qid":"12","text":"Divider","type":"control_divider"},null,null,null,null,null,null,null,null,null,null,null,null,{"description":"","name":"gastos25","qid":"25","subLabel":"","text":"Gastos","type":"control_calculation"},{"description":"","name":"iva26","qid":"26","subLabel":"","text":"Impuestos","type":"control_calculation"},{"description":"","name":"opcionesDe","qid":"27","text":"Opciones de facturacion","type":"control_radio"},{"description":"","name":"megafon","qid":"28","subLabel":"","text":"Megafon","type":"control_calculation"},{"description":"","name":"total29","qid":"29","subLabel":"","text":"Total","type":"control_calculation"},{"description":"","name":"subtotal","qid":"30","subLabel":"","text":"Subtotal","type":"control_calculation"}]);
-   setTimeout(function() {
-JotForm.paymentExtrasOnTheFly([null,null,{"name":"submit2","qid":"2","text":"Submit","type":"control_button"},{"description":"","name":"cotizacion","qid":"3","text":"","type":"control_matrix"},null,null,null,null,null,null,null,null,{"name":"divider","qid":"12","text":"Divider","type":"control_divider"},null,null,null,null,null,null,null,null,null,null,null,null,{"description":"","name":"gastos25","qid":"25","subLabel":"","text":"Gastos","type":"control_calculation"},{"description":"","name":"iva26","qid":"26","subLabel":"","text":"Impuestos","type":"control_calculation"},{"description":"","name":"opcionesDe","qid":"27","text":"Opciones de facturacion","type":"control_radio"},{"description":"","name":"megafon","qid":"28","subLabel":"","text":"Megafon","type":"control_calculation"},{"description":"","name":"total29","qid":"29","subLabel":"","text":"Total","type":"control_calculation"},{"description":"","name":"subtotal","qid":"30","subLabel":"","text":"Subtotal","type":"control_calculation"}]);}, 20); 
-</script>
+    <script src="js.js"></script>
 </head>
 <body>
-<form class="jotform-form" action="https://" method="post" name="form_221887342113655" id="221887342113655" accept-charset="utf-8" autocomplete="on">
-  <input type="hidden" name="formID" value="221887342113655" />
-  <input type="hidden" id="JWTContainer" value="" />
-  <input type="hidden" id="cardinalOrderNumber" value="" />
-  <div role="main" class="form-all">
-   
-    <ul class="form-section page-section">
-      <li class="form-line" data-type="control_matrix" id="id_3">
-        <label class="form-label form-label-top" id="label_3" for="input_3">  </label>
-        <div id="cid_3" class="form-input-wide" data-layout="full">
-          <table summary="" aria-labelledby="label_3" cellPadding="4" cellSpacing="0" class="form-matrix-table" data-component="matrix" data-dynamic="true">
-            <tr class="form-matrix-tr form-matrix-header-tr">
-              <th class="form-matrix-th" style="border:none">
-                 
-              </th>
-              <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_0">
-                <label id="label_3_col_0"> Precio </label>
-              </th>
-              <th scope="col" class="form-matrix-headers form-matrix-column-headers form-matrix-column_1">
-                <label id="label_3_col_1"> cantidad </label>
-              </th>
-            </tr>
-            <tr class="form-matrix-tr form-matrix-value-tr" aria-labelledby="label_3 label_3_row_0">
-              <th scope="row" class="form-matrix-headers form-matrix-row-headers">
-                <label id="label_3_row_0"> 1 </label>
-              </th>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_0_0" class="form-textbox" size="5" name="q3_cotizacion[0][0]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_0 label_3_row_0" />
-              </td>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_0_1" class="form-textbox" size="5" name="q3_cotizacion[0][1]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_1 label_3_row_0" />
-              </td>
-            </tr>
-            <tr class="form-matrix-tr form-matrix-value-tr" aria-labelledby="label_3 label_3_row_1">
-              <th scope="row" class="form-matrix-headers form-matrix-row-headers">
-                <label id="label_3_row_1"> 2 </label>
-              </th>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_1_0" class="form-textbox" size="5" name="q3_cotizacion[1][0]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_0 label_3_row_1" />
-              </td>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_1_1" class="form-textbox" size="5" name="q3_cotizacion[1][1]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_1 label_3_row_1" />
-              </td>
-            </tr>
-            <tr class="form-matrix-tr form-matrix-value-tr" aria-labelledby="label_3 label_3_row_2">
-              <th scope="row" class="form-matrix-headers form-matrix-row-headers">
-                <label id="label_3_row_2"> 3 </label>
-              </th>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_2_0" class="form-textbox" size="5" name="q3_cotizacion[2][0]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_0 label_3_row_2" />
-              </td>
-              <td class="form-matrix-values">
-                <input type="text" id="input_3_2_1" class="form-textbox" size="5" name="q3_cotizacion[2][1]" style="width:100%;box-sizing:border-box" value="" aria-labelledby="label_3_col_1 label_3_row_2" />
-              </td>
-            </tr>
-          </table>
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-1 jf-required" data-type="control_radio" id="id_27">
-        <label class="form-label form-label-top" id="label_27" for="input_27">
-          Opciones de facturacion
-          <span class="form-required">
-            *
-          </span>
-        </label>
-        <div id="cid_27" class="form-input-wide jf-required" data-layout="full">
-          <div class="form-single-column" role="group" aria-labelledby="label_27" data-component="radio">
-            <span class="form-radio-item" style="clear:left">
-              <span class="dragger-item">
-              </span>
-              <input type="radio" aria-describedby="label_27" class="form-radio validate[required]" id="input_27_0" name="q27_opcionesDe" checked="" value="IVA + IIBB+GAN" data-calcvalue="0.385" required="" />
-              <label id="label_input_27_0" for="input_27_0"> IVA + IIBB+GAN </label>
-            </span>
-            <span class="form-radio-item" style="clear:left">
-              <span class="dragger-item">
-              </span>
-              <input type="radio" aria-describedby="label_27" class="form-radio validate[required]" id="input_27_1" name="q27_opcionesDe" value="IVA + IIBB" data-calcvalue="0.235" required="" />
-              <label id="label_input_27_1" for="input_27_1"> IVA + IIBB </label>
-            </span>
-            <span class="form-radio-item" style="clear:left">
-              <span class="dragger-item">
-              </span>
-              <input type="radio" aria-describedby="label_27" class="form-radio validate[required]" id="input_27_2" name="q27_opcionesDe" value="IIBB" data-calcvalue="0.025" required="" />
-              <label id="label_input_27_2" for="input_27_2"> IIBB </label>
-            </span>
-            <span class="form-radio-item" style="clear:left">
-              <span class="dragger-item">
-              </span>
-              <input type="radio" aria-describedby="label_27" class="form-radio validate[required]" id="input_27_3" name="q27_opcionesDe" value="Contado" data-calcvalue="0" required="" />
-              <label id="label_input_27_3" for="input_27_3"> Contado </label>
-            </span>
-            <span class="form-radio-item formRadioOther" style="clear:left">
-              <input type="radio" data-calcvalue="" class="form-radio-other form-radio validate[required]" name="q27_opcionesDe" id="other_27" value="other" tabindex="0" aria-label="Other" />
-              <label id="label_other_27" style="text-indent:0" for="other_27"> Other </label>
-              <span id="other_27_input" class="other-input-container" style="display:none">
-                <input type="text" class="form-radio-other-input form-textbox" name="q27_opcionesDe[other]" data-otherhint="Other" size="15" id="input_27" data-placeholder="Please type another option here" placeholder="Please type another option here" />
-              </span>
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="form-line" data-type="control_divider" id="id_12">
-        <div id="cid_12" class="form-input-wide" data-layout="full">
-          <div class="divider" aria-label="Divider" data-component="divider" style="border-bottom-width:1px;border-bottom-style:solid;border-color:#FFFFFF;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
-          </div>
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-1" data-type="control_calculation" id="id_25">
-        <label class="form-label form-label-top" id="label_25" for="input_25"> Gastos </label>
-        <div id="cid_25" class="form-input-wide" data-layout="half">
-          <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_25" name="q25_gastos25" value="0" size="20" />
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-2" data-type="control_calculation" id="id_28">
-        <label class="form-label form-label-top" id="label_28" for="input_28"> Megafon </label>
-        <div id="cid_28" class="form-input-wide" data-layout="half">
-          <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_28" name="q28_megafon" value="0" size="20" />
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-3" data-type="control_calculation" id="id_30">
-        <label class="form-label form-label-top" id="label_30" for="input_30"> Subtotal </label>
-        <div id="cid_30" class="form-input-wide" data-layout="half">
-          <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_30" name="q30_subtotal" value="0" size="20" />
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-4" data-type="control_calculation" id="id_26">
-        <label class="form-label form-label-top" id="label_26" for="input_26"> Impuestos </label>
-        <div id="cid_26" class="form-input-wide" data-layout="half">
-          <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_26" name="q26_iva26" value="0" size="20" />
-        </div>
-      </li>
-      <li class="form-line form-line-column form-col-5" data-type="control_calculation" id="id_29">
-        <label class="form-label form-label-top" id="label_29" for="input_29"> Total </label>
-        <div id="cid_29" class="form-input-wide" data-layout="half">
-          <input type="text" data-component="calculation" data-defaultvalue="0" class="form-textbox" data-type="input-textbox" id="input_29" name="q29_total29" value="0" size="20" />
-        </div>
-      </li>
-      <li class="form-line" data-type="control_button" id="id_2">
-        <div id="cid_2" class="form-input-wide" data-layout="full">
-          <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
-            <button id="input_2" type="submit" class="form-submit-button form-submit-button-cool_grey_rounded submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-              Submit
-            </button>
-          </div>
-        </div>
-      </li>
-      
-</form></body>
-</html>
+    
+    <div class="ui  segment"><div class="ui four column grid"><div class="row"><div class="ui  segment"><div class="ui small icon input">gastos</div><input type="text" class="flat minwidth400 --success" name="gastos" id="gastos" maxlength="128" value=""  tipo="gastos"></div><div class="ui  segment"><div class="ui small icon input">megafon</div><input type="text" class="flat minwidth400 --success" name="megafon" id="megafon" maxlength="128" value=""  tipo="megafon"></div><div class="ui  segment"><div class="ui small icon input">subtotal</div><input type="text" class="flat minwidth400 --success" name="subtotal" id="subtotal" maxlength="128" value=""  tipo="subtotal"></div><div class="ui  segment"><div class="ui small icon input">iva</div><input type="text" class="flat minwidth400 --success" name="iva" id="iva" maxlength="128" value=""  tipo="iva"></div><div class="ui  segment"><div class="ui small icon input">total</div><input type="text" class="flat minwidth400 --success" name="total" id="total" maxlength="128" value=""  tipo="total"></div></div></div></div>
 
+    <div class="ui collapsing segment"><table class="ui celled collapsing single line table">
+        <thead>
+          <tr>
+          <th>Rol</th>
+          <th>Precio</th>
+          <th>Cant</th>
+          <th>Asign</th>
+          <th>Pago</th>
+        </tr></thead>
+        <tbody><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C0Ro -->
+
+<select class="flat minwidth100 --success maxwidthonsmartphone select2-hidden-accessible" name="C0Ro" id="C0Ro" tipo="Rol" data-select2-id="C0Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="8">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="7" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth100 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C0Ro-container"><span class="select2-selection__rendered" id="select2-C0Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" ><input type="text" class="Precio" name="C0Pr" id="C0Pr" value=""  tipo="Precio" maxlength="12" onclick="sumar();"></td><td label="Cant" onkeyup="sumar();" ><input type="text" class="Cant" name="C0Ca" id="C0Ca" value=""  tipo="Cant" maxlength="2"></td><td label="Asi0" class="Asi0"><select id="C0As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible"  tipo="Asi0" name="C0As" data-select2-id="C0As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="10">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="9" style="width: 886.229px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C0As-container"><span class="select2-selection__rendered" id="select2-C0As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C0Pa" id="C0Pa" value=""  tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C1Ro" id="C1Ro"  tipo="Rol" data-select2-id="C1Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="12">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="11" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C1Ro-container"><span class="select2-selection__rendered" id="select2-C1Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" onkeyup="sumar();" ><input type="text" class="Precio" name="C1Pr" id="C1Pr" value=""  tipo="Precio" maxlength="12" onclick="sumar();"></td><td label="Cant" ><input type="text" class="Cant" name="C1Ca" id="C1Ca" value=""  tipo="Cant" maxlength="2"></td><td label="Asi1" class="Asi1"><select id="C1As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible"  tipo="Asi1" name="C1As" data-select2-id="C1As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="14">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="13" style="width: 893.875px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C1As-container"><span class="select2-selection__rendered" id="select2-C1As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C1Pa" id="C1Pa" value=""  tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+<!-- JS CODE TO ENABLE select2 for id = C2Ro -->
+      
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C2Ro" id="C2Ro"  tipo="Rol" data-select2-id="C2Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="16">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="15" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C2Ro-container"><span class="select2-selection__rendered" id="select2-C2Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" ><input type="text" class="Precio" name="C2Pr" id="C2Pr" value=""  tipo="Precio" maxlength="12" onclick="sumar();"></td><td label="Cant" ><input type="text" class="Cant" name="C2Ca" id="C2Ca" value=""  tipo="Cant" maxlength="2"></td><td label="Asi2" class="Asi2"><select id="C2As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible"  tipo="Asi2" name="C2As" data-select2-id="C2As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="18">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="17" style="width: 901.542px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C2As-container"><span class="select2-selection__rendered" id="select2-C2As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C2Pa" id="C2Pa" value=""  tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C3Ro" id="C3Ro"  tipo="Rol" data-select2-id="C3Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="20">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="19" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C3Ro-container"><span class="select2-selection__rendered" id="select2-C3Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" ><input type="text" class="Precio" name="C3Pr" id="C3Pr" value=""  tipo="Precio" maxlength="12" onclick="sumar();"></td><td label="Cant" ><input type="text" class="Cant" name="C3Ca" id="C3Ca" value=""  tipo="Cant" maxlength="2"></td><td label="Asi3" class="Asi3"><select id="C3As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible"  tipo="Asi3" name="C3As" data-select2-id="C3As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="22">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="21" style="width: 909.208px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C3As-container"><span class="select2-selection__rendered" id="select2-C3As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C3Pa" id="C3Pa" value=""  tipo="Pago" maxlength="12"></td></tr><tr><td class="collapsing" label="Rol">
+
+<select class="flat minwidth400 --success maxwidthonsmartphone select2-hidden-accessible" name="C4Ro" id="C4Ro"  tipo="Rol" data-select2-id="C4Ro" tabindex="-1" aria-hidden="true"><option value="0" data-select2-id="24">&nbsp;</option><option value="0">Stock</option><option value="1">Produccion</option><option value="2">Camara</option><option value="3">Edicion</option><option value="4">Locucion</option><option value="9">Dron</option></select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="23" style="width: 103.333px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth400 --success maxwidthonsmartphone" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C4Ro-container"><span class="select2-selection__rendered" id="select2-C4Ro-container" role="textbox" aria-readonly="true" title="&nbsp;">&nbsp;</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></td><td label="Precio" ><input type="text" class="Precio" name="C4Pr" id="C4Pr" value=""  tipo="Precio" maxlength="12" onclick="sumar();" ></td><td label="Cant" ><input type="text" class="Cant" name="C4Ca" id="C4Ca" value=""  tipo="Cant" maxlength="2"></td><td label="Asi4" class="Asi4"><select id="C4As" class="flat minwidth200imp --success widthcentpercentminusx select2-hidden-accessible"  tipo="Asi4" name="C4As" data-select2-id="C4As" tabindex="-1" aria-hidden="true">
+<option value="-1" data-select2-id="26">&nbsp;</option>
+<option value="55">AFIP</option><option value="40">Aguatero - Aguatero</option><option value="85">Alejandro Skara - Megafon Audiovisual</option><option value="52">Alquiler de Local</option><option value="44">Alquiler FNT - Alquiler</option><option value="50">Andrea Barrios - Andrea</option><option value="65">AQUINO ALFREDO - Carpintero</option><option value="16">ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS - ASOCIACION CIVIL ASAMBLEA POR LO RIOS PAMPEANOS</option><option value="59">ASOCIACION PAMPEANA DE ANESTESIA, ANALGESIA Y REANIMACION (APAAR) - ANESTESIÓLOGOS</option><option value="18">ASOCIACION PAMPEANA DE DANZA</option>
+<option value="15">ASOCIACION TRABAJADORES DEL TEATRO - ATTP</option><option value="89">Banco de la Pampa - BDLP</option><option value="37">Betina Tueros - Batina Tueros</option><option value="61">Brian Carballo</option><option value="22">BUCCOLO CAROLINA SOLEDAD</option><option value="21">CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA - CAMARA DE COMERCIO INDUSTRIA Y PRODUCCION DE LA PAMPA</option><option value="76">Camara de expendedores de combustible de la pampa - CECLA</option><option value="80">Camila Donatti - Camilinda</option><option value="31">CAMILA Mendy Tueros - Cami</option><option value="2">Canal 3 - DIRECCION GENERAL DE RADIO Y TELEVISION L U 89 T V CANAL 3</option>
+<option value="48">Carly &amp; Marco - Carly</option><option value="25">Combustible</option><option value="12">CONSEJO FEDERAL DE INVERSIONES - CFI</option><option value="20">CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA - CONSEJO PROFESIONAL DE INGENIEROS Y TECNICOS DE LA PAMPA</option><option value="41">Contador - contador</option><option value="39">Cooperativa de electricidad Santa Rosa - CPE</option><option value="77">DONWEB - DonWeb</option><option value="82">Eli Rivero - Eli Valkiria</option><option value="53">Emiliano Fernandez Quintana - Emi Fernandez Quintana</option><option value="5">EMPATEL S.A.P.E.M. - EMPATEL</option>
+<option value="33">Empresa Argentina de navegacion aerea sociedad del estado - EANA</option><option value="58">ESCUADRA ECUESTRE PAMPA MÍA - ESCUADRA</option><option value="46">Fabricio Alejo - Fabri</option><option value="35">Facu ballesteros - Facu ballesteros</option><option value="30">Fede Camiletti - Fede Camiletti</option><option value="68">Fede Insausti - Fede insausti</option><option value="45">Ferreteria Gonzales</option><option value="10">Festival cuerpo en escena</option><option value="67">FIDEICOMISO DE GARANTIAS PAMPEANAS - FOGAPAM</option><option value="81">Flor Galmes - Flor Galmes</option>
+<option value="4">Flor Santillan - Flor</option><option value="9">Fundacion Banco de la Pampa - Fundacion Banco de la Pampa</option><option value="26">Gastos varios - Gastos varios</option><option value="60">Gente de la pampa - GDLP</option><option value="72">Gerardo alines - gera audiovisuales drone</option><option value="17">GIGENA ALINA MAGALI</option><option value="1">ICOMEX - ICOMEX</option><option value="32">Iconicas - Iconicas</option><option value="71">IIBB Rentas La Pampa - Rentas Ingresos Brutos</option><option value="51">INGRESOS BRUTOS</option>
+<option value="6">INT - INT</option><option value="64">Inta - INTA</option><option value="79">ISTMO Consultores - Guido Rovatti</option><option value="43">Jere - Jere</option><option value="70">Jesica Tantucci y Diego Benitez - Jesi&amp;Diego</option><option value="88">Juan Muñoz Chef - Juan Muñoz Chef</option><option value="78">La Bodega - La Bodega</option><option value="36">Leonela skara - Leonela skara</option><option value="49">Lucas Mateo Montigel - Lucas</option><option value="28">Luciana Gómez arzani</option>
+<option value="34">Lula - Lula</option><option value="84">Manterola Bustos Fernando Arturo - gasista</option><option value="75">Marcelo Gaido - Mg Sistemas</option><option value="23">Megafon Sociedad</option><option value="62">Mercadolibre - Mercado libre</option><option value="11">MINISTERIO DE CONECTIVIDAD Y MODERNIZACION - MINISTERIO DE CONECTIVIDAD Y MODERNIZACION</option><option value="19">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - MINISTERIO DEDESARROLLO SOCIAL PROVINCIA DE LA PAMPA</option><option value="83">MINISTERIO DE DESARROLLO SOCIAL PROVINCIA DE LA PAMPA - SEC DEPORTES</option><option value="14">MINISTERIO DE LA PRODUCCION PROVINCIA DE LA PAMPA - PRODUCCION</option><option value="24">MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM - MINISTERIO DE OBRAS Y SERVICIOS PUBLICOS PROVINCIA DE LA PAM</option>
+<option value="13">MUNICIPALIDAD DE SANTA ROSA - MUNICIPALIDAD DE SANTA ROSA</option><option value="8">Municipalidad de Telèn - Municipalidad de Telèn</option><option value="87">Municipalidad de Toay</option><option value="29">Naty Dominicci - Naty</option><option value="56">Nicolas Branca - Megafon Audiovisual</option><option value="27">Pablo Bilbao Cartas a Japón.</option><option value="69">Pablo Jorge - Contador</option><option value="66">PERAZZI MARIA VICTORIA - vicky</option><option value="63">Rentas DGR LA Pampa - Rentas DGR LA Pampa</option><option value="3">Santiago Geringer - Santi</option>
+<option value="73">Secretaria de Cultura y Educación - Municipalidad de Santa Rosa - Sec Cultura - Santa Rosa</option><option value="54">SECRETARIA DE TURISMO DE LA PROVINCIA DE LA PAMPA - Turismo LP</option><option value="90">SECRETARIA GENERAL DE LA GOBERNACION</option><option value="57">UNIDAD EJECUTORA PROVINCIAL DEL PROGRAMA MEJORAMIENTO DE BARRIOS - PROMEBA</option><option value="47">Z Electricidad</option></select><span onkeyup="sumar();" class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="25" style="width: 916.854px;"><span class="selection"><span class="select2-selection select2-selection--single flat minwidth200imp --success widthcentpercentminusx" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-C4As-container"><span class="select2-selection__rendered" id="select2-C4As-container" role="textbox" aria-readonly="true" title="&nbsp;"><span class="placeholder">&nbsp;</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<a class="butActionNew" title="Nuevo" href="/dolibarr/htdocs/societe/card.php?action=create&amp;backtopage=%2Fdolibarr%2Fhtdocs%2Fcustom%2Fcotizaciones%2Fcotizacion_card.php%3F%26action%3Dcreate%26fk_societe%3D--IDFORBACKTOPAGE--"><span class="fa fa-plus-circle valignmiddle"></span></a></td><td label="Pago" class="Pago"><input type="text" class="Pago" name="C4Pa" id="C4Pa" value=""  tipo="Pago" maxlength="12"></td> </tr>
+        </tbody>
+        <tfoot>
+<tr>
+<th></th>
+<th><span>Total: $</span><span id="spTotal"></span></th>
+<th></th>
+<th></th>
+<th>Pago</th>
+</tr></tfoot>
+
+      </table></div>
+
+
+     
+
+      <div class="ui form">
+        <div class="inline fields">
+          <label>?</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
+              <label>con IVA</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id="check2" onchange="sumar();" name="frequency">
+              <label>Sin IVA</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id="check3" onchange="sumar();" name="frequency">
+              <label>Contado</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" id="check4" onchange="sumar();" name="frequency">
+              <label>otro</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+<button class="ui button" onclick="sumar();">
+    Follow
+</button>
+      
+</body>
+</html>
