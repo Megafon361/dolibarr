@@ -1,0 +1,5 @@
+// planilla ingreso 
+en inputs agregar  sugerencias 
+formatear textos
+·en entrega sugerir fechas 1 semana etc 
+en cantidad autocompletar 1 cuando se empieza a escribir en el campo precio

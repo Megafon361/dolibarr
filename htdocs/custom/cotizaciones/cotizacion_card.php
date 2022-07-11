@@ -207,8 +207,6 @@ if (empty($reshook)) {
 }
 
 
-
-
 /*
  * View
  *
@@ -255,11 +253,30 @@ echo '<!-- You MUST include jQuery before Fomantic -->
 
 
 
-
-
- 
-//echo '   <script src="jquery-1.3.2.min.js" type="text/javascript"></script>  ';
-
+#
+#
+#
+####
+#
+####
+#
+#
+#
+#
+#
+####
+#
+####
+#
+#
+#
+#
+#
+####
+#
+####
+#
+#
 
 // Part to create
 if ($action == 'create') {
@@ -269,6 +286,9 @@ if ($action == 'create') {
 	}
 
 	print load_fiche_titre($langs->trans("NewObject", $langs->transnoentitiesnoconv("Cotizacion")), '', 'object_'.$object->picto);
+	
+	#1  YEllow
+	print'<div class="ui inverted yellow collapsing segment">';
 
 	print '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">';
 	print '<input type="hidden" name="token" value="'.newToken().'">';
@@ -288,25 +308,74 @@ if ($action == 'create') {
 	//print '<table class="border centpercent tableforfieldcreate">'."\n";
 	//print '<table class="ui table">'."\n";
 
+	#2  GRID
 	print '<div class="ui four column grid">'."\n";
+	//print '<div class="ui grid">'."\n";
+	
 
 	// Common attributes
 	//include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
-	include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
+	  include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
 	// Other attributes
-	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
+	  include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
-	//print '</table>'."\n";
-	print '</div>'."\n";
+	//print '</div>'."\n";
+	
 
 	print dol_get_fiche_end();
 
+	//print'<div class="ui inverted green collapsing segment">';
 	print $form->buttonsSaveCancel("Create");
-
+	//print '</div>';
+	
+	# 2 GRID
+	print '<!-- cierra div -->';
+	print '</div>';
+	//print '</table>';
 	print '</form>';
-
+	
+	# 1 Yellow
+	print '<!-- cierra Yellow -->';
+	print '</div>';
+	
+	print '</div>'; //CERRAR ROJO
+	
 	//dol_set_focus('input[name="ref"]');
 }
+
+
+
+
+#
+#
+#
+####
+#
+####
+#
+#
+#
+#
+#
+####
+#
+####
+#
+#
+#
+#
+#
+####
+#
+####
+#
+#
+
+
+
+
+
+
 
 // Part to edit record
 if (($id || $ref) && $action == 'edit') {
@@ -332,7 +401,7 @@ if (($id || $ref) && $action == 'edit') {
 
 	// Other attributes
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_edit.tpl.php';
-
+	
 	print '</table>';
 
 	print dol_get_fiche_end();
@@ -340,7 +409,22 @@ if (($id || $ref) && $action == 'edit') {
 	print $form->buttonsSaveCancel();
 
 	print '</form>';
+	print '</div>';
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Part to show record
 if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'create'))) {
@@ -443,7 +527,9 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 	print '<div class="fichecenter">';
 	print '<div class="fichehalfleft">';
 	print '<div class="underbanner clearboth"></div>';
-	print '<table class="border centpercent tableforfield">'."\n";
+
+
+	//print '<table class="border centpercent tableforfield">'."\n";
 
 	// Common attributes
 	//$keyforbreak='fieldkeytoswitchonsecondcolumn';	// We change column just before this field
@@ -454,7 +540,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 	// Other attributes. Fields from hook formObjectOptions and Extrafields.
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_view.tpl.php';
 
-	print '</table>';
+	//print '</table>';
 	print '</div>';
 	print '</div>';
 
@@ -509,8 +595,9 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			print '</table>';
 		}
 		print '</div>';
-
+		//print '</div>';
 		print "</form>\n";
+		
 	}
 
 
@@ -635,16 +722,8 @@ print '
 
 	#C3Pr
 	console.log("lpm");
-
-
-
  });
-
-
- 
  </script>';
-
- 
 
 	//Select mail models is same action as presend
 	if (GETPOST('modelselected')) {

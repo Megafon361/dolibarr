@@ -74,6 +74,7 @@ var gastos = 0
        document.getElementById("megafon").value = megafon;
        subtotal = megafon + suma;
        document.getElementById("subtotal").value = subtotal;
+       document.getElementsByClassName("subtotal").value = subtotal;
        var_dump(suma);
         
         var iva = 0.21;

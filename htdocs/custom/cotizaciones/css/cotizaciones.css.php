@@ -105,46 +105,56 @@ div.mainmenu.cotizaciones {
 	background-image: none;
 }
 
+.Precio input {
+	
+background-color: blue;
 
-
-
-
+}
 
 
 .Cant input{
-	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
+
+ background-color: aqua;  
+ max-width: "6";
 }
+td.Cant {
+	background-color: blueviolet;
+	max-width: "6";
+}
+
+.total{
+	font-weight: bolder;
+}
+/* *{padding: 0;}
+
+
+
+
+
+
 .Rol select {
 	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
+  
 }
+
+
 .Pago input {
 	
-	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 120px;    
-	maxlength: "12";   
+	padding: 0;
+	margin: 0%;
+ 
 }
-.Precio input{
 
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 120px;    
-	maxlength: "12";
-
-}
 
 #fk_soc {max-width: 150px;}
-.Cant { 	
-	
-    font-weight: bold;
- 	max-width: 40px;    
-	maxlength: "2";
+td {
+	padding: 0;
 
 }
+td.Pago {
+	padding-left: 0%;
+	padding-right: 0%;
+	background-color: blue;
+	margin: 0px;
+}
+ */

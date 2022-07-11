@@ -31,9 +31,19 @@ if (empty($conf) || !is_object($conf)) {
 ?>
 <!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
 <?php
-//RED
+
+
 $object->fields = dol_sort_array($object->fields, 'position');
-print '<div class="ui  segment">';
+
+#1Red
+print '<div class="ui inverted red segment">';
+
+$boton = 0;
+
+
+
+
+
 
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
@@ -47,18 +57,20 @@ foreach ($object->fields as $key => $val) {
 		//------------------------------------------------
 
 
+	
 
-
-    // BLUE
+    # BLUE
    //  var_dump($key);
     switch ($key) {
 		case 'Usuario':
 		case 'gastos':
-		case 'label':
-			print'<div class="ui  segment"><div class="ui four column grid"><div class="row">';
+		case 'status':
+			print'<div class="ui inverted blue segment">
+			';//<div class="ui four column grid"><div class="row">';
 			break;
+			#tabla
 			case 'C0Ro':
-			print'<div class="ui collapsing segment"><table class="ui celled collapsing single line table" >
+			print'<div class="ui inverted violet segment"><table class="ui celled collapsing single line table" >
 			<thead>
 			  <tr>
 			  <th>Rol</th>
@@ -67,48 +79,40 @@ foreach ($object->fields as $key => $val) {
 			  <th>Asign</th>
 			  <th>Pago</th>
 			</tr></thead>
-			<tbody><tr><td class="collapsing"  label="'.$val['label'].'"' ;
-			echo '">';
+			<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td class="collapsing" label="'.$val["label"].'" >';
+				echo '<tr><td class="collapsing" label="'.$val["label"].'">';
 				break;
-					case 'C0Pr':
-					case 'C0Ca':
-					case 'C0Pa':
-					case 'C1Ro':
-					case 'C1Pr':
-					case 'C1Ca':
-					case 'C1Pa':
-					case 'C2Ro':
-					case 'C2Pr':
-					case 'C2Ca':
-					case 'C2Pa':
-					case 'C3Ro':
-					case 'C3Pr':
-					case 'C3Ca':
-					case 'C3Pa':
-					case 'C4Ro':
-					case 'C4Pr':
-					case 'C4Ca':
-					case 'C4Pa':
-					case 'C0As':
-					case 'C1As':
-					case 'C2As':
-					case 'C3As':
-					case 'C4As':
-						echo '<td  label="'.$val["label"].'" class="'.$val["label"].'">';
-						break;
-
-
-
-			case 'status':
-				print'';
-        		break;
-        
+			case 'C0Pr':
+			case 'C0Ca':
+			case 'C0Pa':
+			case 'C1Ro':
+			case 'C1Pr':
+			case 'C1Ca':
+			case 'C1Pa':
+			case 'C2Ro':
+			case 'C2Pr':
+			case 'C2Ca':
+			case 'C2Pa':
+			case 'C3Ro':
+			case 'C3Pr':
+			case 'C3Ca':
+			case 'C3Pa':
+			case 'C4Ro':
+			case 'C4Pr':
+			case 'C4Ca':
+			case 'C4Pa':
+			case 'C0As':
+			case 'C1As':
+			case 'C2As':
+			case 'C3As':
+			case 'C4As':
+				echo '<td class="collapsing" label="'.$val["label"].'">';
+				break;        
         default:
             # code...
             break;
@@ -117,9 +121,6 @@ foreach ($object->fields as $key => $val) {
 
 
    
-
-
-
 	switch ($key) {
 
 					case 'C0Ro':
@@ -150,9 +151,18 @@ foreach ($object->fields as $key => $val) {
 					break;
 					default:
 					//yellow
-					print'<div class="ui  segment">';
+
+					if ($boton==0) {
+						print'<div class="ui inverted olive segment">';
+						$boton = 1;
+					}else {
+						print'<div class="ui inverted yellow segment">';
+						$boton=0;
+					}
+					
+
 					print '<div';
-					print ' class="ui small icon input';
+					print ' class="ui small icon input ';
 					if (isset($val['notnull']) && $val['notnull'] > 0) {
 						print ' fieldrequired';
 					}
@@ -166,18 +176,19 @@ foreach ($object->fields as $key => $val) {
 					} else {
 						print $langs->trans($val['label']);
 					}
-					print '</div>';
+					       print '</div>';
+					//     print '<!-- Cierra Amarillo -->';
 					//echo str_repeat('&nbsp;', 5);
 				
 					break;
 			}
 
 
-				$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
+			$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
 
 
 	//print '<div class="valuefieldcreate">';
-/* 	if (!empty($val['picto'])) {
+	/* 	if (!empty($val['picto'])) {
 		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	} */
 	if (in_array($val['type'], array('int', 'integer'))) {
@@ -240,11 +251,12 @@ foreach ($object->fields as $key => $val) {
 			echo '';
 			break;
 
-	//print '</div>';
-    //Cerrar amarillo
+		//print '</div>';
+    	//print '<!-- Cierra Amarillo -->';
 
 		default:
 		print '</div>';
+		print '<!-- Cierra Amarillo -->';
 			break;
 	}
 	
@@ -254,32 +266,37 @@ foreach ($object->fields as $key => $val) {
         case 'label':
 		//case 'total':
 		case 'status':
-			print '</div></div></div>';
+			print '</div>';
 		break;
 		case 'total':
-			print '      <div class="ui form">
-			<div class="inline fields">
-			  <label>?</label>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
-				  <label>con IVA</label>
+			print '      
+			<div class="ui form">
+				<div class="inline fields">
+					<div class="ui inverted pink segment">
+				  		<div class="field">
+							<div class="ui radio checkbox">
+						  		<input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
+				  				<label>con IVA</label>
+							</div>
+			  			</div>
+			  		<div class="field">
+						<div class="ui radio checkbox">
+				  			<input type="radio" id="check2" onchange="sumar();" name="frequency">
+				  			<label>Sin IVA</label>
+						</div>
+			  		</div>
+			  	<div class="field">
+					<div class="ui radio checkbox">
+				  		<input type="radio" id="check3" onchange="sumar();" name="frequency">
+				  		<label>Contado</label>
+					</div>
 				</div>
-			  </div>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" id="check2" onchange="sumar();" name="frequency">
-				  <label>Sin IVA</label>
-				</div>
-			  </div>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" id="check3" onchange="sumar();" name="frequency">
-				  <label>Contado</label>
-				</div>
-			  </div>
 			</div>
-		  </div>';
+		</div>';
+		#####FIJATE ESTA
+
+
+
 		  break;
 		case 'C0Pa':
 		case 'C1Pa':
@@ -291,13 +308,13 @@ foreach ($object->fields as $key => $val) {
 			print'</td> </tr>
 			</tbody>
 			<tfoot>
-    <tr>
-	<th></th>
-    <th><span>Total: $</span><span id="spTotal"></span></th>
-    <th></th>
-	<th></th>
-	<th>Pago</th>
-  </tr></tfoot>
+    	<tr>
+		<th></th>
+	   	<th><span>Subotal: $</span><input class="subtotal2" id="subtotal2"></input></th>
+	  	 <th></th>
+		<th></th>
+		<th>Pago</th>
+		 </tr></tfoot>
 
 		  </table></div></div></div>';
 			break;
@@ -346,9 +363,11 @@ foreach ($object->fields as $key => $val) {
 
 	
 }
-print '</div>'; //CERRAR ROJO
+
+#print '</div>'; //CERRAR ROJO
+
 ?>
-<!-- END PHP TEMPLATE commonfields_add.tpl.php -->
+<!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 
 
 
