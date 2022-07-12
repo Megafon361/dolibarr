@@ -41,10 +41,6 @@ print '<div class="ui inverted red segment">';
 $boton = 0;
 
 
-
-
-
-
 foreach ($object->fields as $key => $val) {
 	// Discard if extrafield is a hidden field on form
 	if (abs($val['visible']) != 1 && abs($val['visible']) != 3) {
@@ -55,12 +51,8 @@ foreach ($object->fields as $key => $val) {
 		continue; // We don't want this field
 	}
 		//------------------------------------------------
-
-
-	
-
-    # BLUE
-   //  var_dump($key);
+		 # BLUE
+   		//  var_dump($key);
     switch ($key) {
 		case 'Usuario':
 		case 'gastos':
@@ -294,9 +286,6 @@ foreach ($object->fields as $key => $val) {
 			</div>
 		</div>';
 		#####FIJATE ESTA
-
-
-
 		  break;
 		case 'C0Pa':
 		case 'C1Pa':
@@ -349,23 +338,11 @@ foreach ($object->fields as $key => $val) {
 			# code...
 			break;
 	}
-	
-	
-			
-
-	
-	
-	
+		
 	//------------------------------------------------------
 	
-
-
-
-	
 }
-
 #print '</div>'; //CERRAR ROJO
-
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 

@@ -154,15 +154,6 @@ foreach ($object->fields as $key => $val) {
 					print'<div class="ui  segment">';
 					print '<div';
 					
-					
-				
-					
-
-
-
-
-
-
 /* 					
 					if ($boton==0) {
 						print'<div class="ui inverted olive segment">';
