@@ -98,7 +98,7 @@ print load_fiche_titre($langs->trans("CotizacionesArea"), '', 'cotizaciones.png@
 print '<div class="fichecenter"><div class="fichethirdleft">';
 
 
-/* BEGIN MODULEBUILDER DRAFT MYOBJECT
+// BEGIN MODULEBUILDER DRAFT MYOBJECT
 // Draft MyObject
 if (! empty($conf->cotizaciones->enabled) && $user->rights->cotizaciones->read)
 {
@@ -170,7 +170,7 @@ if (! empty($conf->cotizaciones->enabled) && $user->rights->cotizaciones->read)
 		dol_print_error($db);
 	}
 }
-END MODULEBUILDER DRAFT MYOBJECT */
+//END MODULEBUILDER DRAFT MYOBJECT */
 
 
 print '</div><div class="fichetwothirdright">';
@@ -179,8 +179,8 @@ print '</div><div class="fichetwothirdright">';
 $NBMAX = $conf->global->MAIN_SIZE_SHORTLIST_LIMIT;
 $max = $conf->global->MAIN_SIZE_SHORTLIST_LIMIT;
 
-/* BEGIN MODULEBUILDER LASTMODIFIED MYOBJECT
-// Last modified myobject
+ //BEGIN MODULEBUILDER LASTMODIFIED MYOBJECT
+/*// Last modified myobject
 if (! empty($conf->cotizaciones->enabled) && $user->rights->cotizaciones->read)
 {
 	$sql = "SELECT s.rowid, s.ref, s.label, s.date_creation, s.tms";
