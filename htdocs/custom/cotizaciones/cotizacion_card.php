@@ -409,7 +409,7 @@ if (($id || $ref) && $action == 'edit') {
 	print $form->buttonsSaveCancel();
 
 	print '</form>';
-	print '</div>';
+	//print '</div>';
 	
 }
 
@@ -527,9 +527,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 	print '<div class="fichecenter">';
 	print '<div class="fichehalfleft">';
 	print '<div class="underbanner clearboth"></div>';
-
-
-	//print '<table class="border centpercent tableforfield">'."\n";
+	print '<table class="border centpercent tableforfield">'."\n";
 
 	// Common attributes
 	//$keyforbreak='fieldkeytoswitchonsecondcolumn';	// We change column just before this field
@@ -540,7 +538,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 	// Other attributes. Fields from hook formObjectOptions and Extrafields.
 	include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_view.tpl.php';
 
-	//print '</table>';
+	print '</table>';
 	print '</div>';
 	print '</div>';
 
@@ -595,9 +593,8 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			print '</table>';
 		}
 		print '</div>';
-		//print '</div>';
-		print "</form>\n";
 		
+		print "</form>\n";
 	}
 
 
@@ -701,29 +698,6 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 		print '</div></div>';
 	}
-
-	
-print '
-
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-
-<script type="text/javascript">
- jQuery(document).ready(function() {
- 
-	console.log("lpm");
-	$("#C4Ro").removeClass("minwidth400",funcion(index,claseactual));
-	$("#C4Ro").removeClass("minwidth400");
-
-	$("#C3Pr").removeClass("minwidth400",funcion(index,claseactual));
-	$("#C3Pr").removeClass("minwidth400");
-	$(#C3Pr).removeClass("minwidth400",funcion(index,claseactual));
-	$(#C3Pr).removeClass("minwidth400");
-
-	#C3Pr
-	console.log("lpm");
- });
- </script>';
 
 	//Select mail models is same action as presend
 	if (GETPOST('modelselected')) {

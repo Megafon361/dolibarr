@@ -36,7 +36,7 @@ if (empty($conf) || !is_object($conf)) {
 $object->fields = dol_sort_array($object->fields, 'position');
 
 #1Red
-print '<div class="ui inverted red segment">';
+print '<div class="ui red segment">';
 
 $boton = 0;
 
@@ -58,12 +58,15 @@ foreach ($object->fields as $key => $val) {
 		case 'gastos':
 		case 'status':
 		//NOVA case 'label':
-			print'<div class="ui inverted blue segment">
+			//print'<div class="ui inverted blue segment">
+			print'<div class="ui segment">
 			';//print'<div class="ui  segment"><div class="ui four column grid"><div class="row">';
 		break;
 		#tabla
 			case 'C0Ro':
-			print'<div class="ui inverted violet segment"><table class="ui celled collapsing single line table" >
+			print'<div class="ui violet segment">';
+			//print'<div class="ui inverted violet segment">';
+			print'<table class="ui celled collapsing single line table" >
 			<thead>
 			  <tr>
 			  <th>Rol</th>
@@ -145,7 +148,7 @@ foreach ($object->fields as $key => $val) {
 					break;
 					default:
 					//yellow
-					print'<div class="ui inverted yellow segment">';
+					print'<div class="ui yellow segment">';
 					
 					/* 
  					
@@ -272,7 +275,7 @@ foreach ($object->fields as $key => $val) {
 			print '      
 			<div class="ui form">
 			<div class="inline fields">
-			<div class="ui inverted pink segment"> <label>?</label>
+			<div class="ui pink segment"> <label>?</label>
 			  <div class="field">
 				<div class="ui radio checkbox">
 				  <input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
