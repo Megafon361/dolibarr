@@ -145,10 +145,10 @@ foreach ($object->fields as $key => $val) {
 					break;
 					default:
 					//yellow
-					print'<div class="ui  segment">';
-					print '<div';
+					print'<div class="ui inverted yellow segment">';
 					
-/* 					
+					/* 
+ 					
 					if ($boton==0) {
 						print'<div class="ui inverted olive segment">';
 						$boton = 1;
@@ -156,10 +156,12 @@ foreach ($object->fields as $key => $val) {
 						print'<div class="ui inverted yellow segment">';
 						$boton=0;
 					}
-					
-					
+					 */
+					//print '<div';
 					print '<div'; 
-					*/	
+					
+					
+					
 					print ' class="ui small icon input';
 					if (isset($val['notnull']) && $val['notnull'] > 0) {
 						print ' fieldrequired';
