@@ -22,8 +22,18 @@ $url = $Root."cotizacionesapi/cotizacions?sortfield=t.rowid&sortorder=DEC&limit=
 
 $cotizaciones = json_decode($cotizaciones,"1");
 
-echo ('<div class="table-responsive"><table class="ui sortable celled selectable table"><thead><tr><th> N</th><th> Etiqueta</th><th> Cliente</th><th> Fecha</th><th> Trabajo</th><th> Total</th><th> Estado</th></tr></thead>
-  <tbody>');
+echo '<div class="table-responsive">
+        <table class="ui sortable celled selectable table">
+        <thead><tr>
+        <th> N</th>
+        <th> Etiqueta</th>
+        <th> Cliente</th>
+        <th> Fecha</th>
+        <th> Trabajo</th>
+        <th> Total</th>
+        <th> Estado</th>
+        </tr></thead>
+  <tbody>';
 $n=1;
 
   foreach ($cotizaciones as $key => $value) {
@@ -32,7 +42,7 @@ $n=1;
 
     $nombre = getname($value["fk_soc"]);
     echo '<tr><td data-label="N">';
-    echo $n;
+    echo ($value["id"]);
     echo("</td><td data-label='etiqueta'>");
     echo($value["label"]);
     echo("</td><td data-label='cliente'>");
