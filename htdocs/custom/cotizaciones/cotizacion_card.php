@@ -627,16 +627,23 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 				
 			}
 			
-			//Crear PFactura a Proovedores
+			#####################//Crear Factura a Proovedores
 			if ($object->status == $object::STATUS_VALIDATED) {
 				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setdraft&confirm=yes&token='.newToken(), '', $permissiontoadd);
+			}
+
+			if ($object->status == $object::STATUS_VALIDATED) {
+				//print ($_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setdraft&confirm=yes&token=');
+			
+	
+				print dolGetButtonAction($langs->trans('Prueba'), '', 'default', '/dolibarr/htdocs/custom/cotizaciones/CreaPresupuesto.php'.'?id='.$object->id.'&action=CreaPresupuesto&origin=CreaPresup&ref=ertoerij&confirm=yes&token='.newToken(), '', $permissiontoadd);
 			}
 
 
 
 			print dolGetButtonAction($langs->trans('Modify'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=edit&token='.newToken(), '', $permissiontoadd);
 
-			// Validate
+			#################// Validate / Crear Presupuesto
 			if ($object->status == $object::STATUS_DRAFT) {
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
 					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
@@ -668,6 +675,35 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 			// Delete (need delete permission, or if draft, just need create/modify permission)
 			print dolGetButtonAction($langs->trans('Delete'), '', 'delete', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=delete&token='.newToken(), '', $permissiontodelete || ($object->status == $object::STATUS_DRAFT && $permissiontoadd));
+
+			/*
+			*function dolGetButtonAction
+			1@param string    $label      label of button without HTML : use in alt attribute for accessibility $html is not empty
+			2@param string    $html       optional : content with html
+			3@param string    $actionType default, delete, danger
+			4@param string    $url        the url for link
+ 			5@param string    $id         attribute id of button
+ 			6@param int       $userRight  user action right
+ 			// phpcs:disable
+ 			7@param array 	$params = [ // Various params for future : recommended rather than adding more function arguments
+ 			*                          'attr' => [ // to add or override button attributes
+ 			*                          'xxxxx' => '', // your xxxxx attribute you want
+ 			*                          'class' => '', // to add more css class to the button class attribute
+ 			*                          'classOverride' => '' // to replace class attribute of the button
+ 			*                          ],
+ 			*                          'confirm' => [
+ 			*                          'url' => 'http://', // Overide Url to go when user click on action btn, if empty default url is $url.?confirm=yes, for no js compatibility use $url for fallback confirm.
+ 			*                          'title' => '', // Overide title of modal,  if empty default title use "ConfirmBtnCommonTitle" lang key
+ 			*                          'action-btn-label' => '', // Overide label of action button,  if empty default label use "Confirm" lang key
+ 			*                          'cancel-btn-label' => '', // Overide label of cancel button,  if empty default label use "CloseDialog" lang key
+ 			*                          'content' => '', // Overide text of content,  if empty default content use "ConfirmBtnCommonContent" lang key
+ 			*                          'modal' => true, // true|false to display dialog as a modal (with dark background)
+ 			*                          ],
+ 			*                          ]
+ 			* // phpcs:enable
+ 			* @return string               html button
+ 			* 
+ 			* */
 		}
 		print '</div>'."\n";
 	}

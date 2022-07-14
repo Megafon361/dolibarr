@@ -10337,7 +10337,7 @@ function dolGetStatus($statusLabel = '', $statusLabelShort = '', $html = '', $st
 
 /**
  * Function dolGetButtonAction
- *
+ *function dolGetButtonAction($label, $html = '', $actionType = 'default', $url = '', $id = '', $userRight = 1, $params = array())
  * @param string    $label      label of button without HTML : use in alt attribute for accessibility $html is not empty
  * @param string    $html       optional : content with html
  * @param string    $actionType default, delete, danger
