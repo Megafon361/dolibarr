@@ -697,7 +697,7 @@ class Cotizacion extends CommonObject
 		 $this->error='Permission denied';
 		 return -1;
 		 }*/
-
+		#setStatusCommon($user, $status, $notrigger = 0, $triggercode = '')
 		return $this->setStatusCommon($user, self::STATUS_DRAFT, $notrigger, 'COTIZACION_UNVALIDATE');
 	}
 

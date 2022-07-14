@@ -107,3 +107,4 @@
 2022-07-13 03:29:47 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
 2022-07-13 03:32:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
 2022-07-13 03:35:10 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-14 14:52:43 WARNING ::1             Cotizacion::validate action abandonned: already validated
