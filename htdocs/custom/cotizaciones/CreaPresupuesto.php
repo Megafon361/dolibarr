@@ -320,12 +320,63 @@ include "../../Cotiz/doliclass.php";
 
 echo "hello";
 echo $object->id;
+
+
 /*
 $NumCotiz = $_POST['nroCotiz2'];
 $cotizacion= getCotiz($NumCotiz);	
 //var_dump($cotizacion);
 
 ////////////tomar datos de cotizacion para hacer invoice 
+
+$object[rowid]			
+$object[ref]			
+$object[Usuario]		
+$object[fk_soc]			
+$object[trabajo]			
+$object[fk_project]		
+$object[description]	
+$object[note_public]	
+$object[entrega]			
+$object[label]		
+$object[note_private]		
+$object[gastos]			
+$object[megafon]		
+$object[subtotal]		
+$object[iva]			
+$object[total]			
+$object[date_creation]	
+$object[tms]			
+$object[fk_user_creat]	
+$object[fk_user_modif]	
+$object[import_key]		
+$object[model_pdf]		
+$object[status]			
+$object[C0Ro]			
+$object[C0Pr]			
+$object[C0Ca]			
+$object[C0Pa]			
+$object[C1Ro]			
+$object[C1Pr]			
+$object[C1Ca]			
+$object[C1Pa]			
+$object[C2Ro]			
+$object[C2Pr]			
+$object[C2Ca]			
+$object[C2Pa]			
+$object[C3Ro]			
+$object[C3Pr]			
+$object[C3Ca]			
+$object[C3Pa]			
+$object[C4Ro]			
+$object[C4Pr]			
+$object[C4Ca]			
+$object[C4Pa]			
+$object[C0As]			
+$object[C1As]			
+$object[C2As]			
+$object[C3As]			
+$object[C4As]			
 
 
  
@@ -346,9 +397,6 @@ $megafon = $cotizacion["megafon"];
 $subtotal = $cotizacion["subtotal"];		
 $iva = $cotizacion["iva"];	
 $total = $cotizacion["total"];		
-
-
-
 
 // CREAR INVOICE 
 
@@ -458,10 +506,10 @@ foreach ($cotizacion as $key => $value) {
 
 
 
-$LineasFActura = curl_exec($curl);
+/* $LineasFActura = curl_exec($curl);
 $LineasFActura = json_decode($cotizacion,1);
 curl_close($curl);
-
+ */
 
 
 
