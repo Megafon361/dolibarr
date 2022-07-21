@@ -645,17 +645,24 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 			#################// Validate / Crear Presupuesto
 			if ($object->status == $object::STATUS_DRAFT) {
+				//if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
+				//	print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
-					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
-				} else {
+					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', 'http://localhost:8888/dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&token='.newToken(), '', $permissiontoadd);
+				
+			
+	
+			
+			} else {
 					$langs->load("errors");
 					print dolGetButtonAction($langs->trans("ErrorAddAtLeastOneLineFirst"), $langs->trans("Validate"), 'default', '#', '', 0);
 				}
 			}
 
 			// Clone
-			print dolGetButtonAction($langs->trans('ToClone'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.(!empty($object->socid)?'&socid='.$object->socid:'').'&action=clone&token='.newToken(), '', $permissiontoadd);
-
+			//print dolGetButtonAction($langs->trans('ToClone'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.(!empty($object->socid)?'&socid='.$object->socid:'').'&action=clone&token='.newToken(), '', $permissiontoadd);
+		
 			/*
 			if ($permissiontoadd) {
 				if ($object->status == $object::STATUS_ENABLED) {

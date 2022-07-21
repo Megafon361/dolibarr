@@ -7,3 +7,141 @@
 2022-07-14 17:55:39 WARNING 127.0.0.1       Facture::fetchInvoice with id=5 or ref= or ref_ext= not found
 2022-07-14 17:55:45 WARNING 127.0.0.1       Facture::fetchInvoice with id=5 or ref= or ref_ext= not found
 2022-07-14 17:56:45 WARNING 127.0.0.1       Facture::fetchInvoice with id=5 or ref=ertoerij or ref_ext= not found
+2022-07-20 02:33:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-20 02:33:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 02:33:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 02:33:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 02:33:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 02:33:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 02:33:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-20 02:33:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 02:33:47 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-20 02:43:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 02:43:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-20 02:43:51 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=add, massaction=
+2022-07-20 02:43:59 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=add, massaction=
+2022-07-20 02:43:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 02:44:05 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=confirm_validate, massaction=
+2022-07-20 02:44:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/compta/index.php - action=, massaction=
+2022-07-20 02:44:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/index.php - action=, massaction=
+2022-07-20 02:44:28 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/list.php - action=, massaction=
+2022-07-20 02:44:43 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/list.php - action=list, massaction=0
+2022-07-20 02:45:11 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/list.php - action=list, massaction=predelete
+2022-07-20 02:45:17 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/list.php - action=delete, massaction=
+2022-07-20 02:45:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=create, massaction=
+2022-07-20 02:45:28 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/card.php - action=create, massaction=
+2022-07-20 02:45:35 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/card.php - action=add, massaction=
+2022-07-20 02:45:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=, massaction=
+2022-07-20 02:45:42 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/card.php - action=addline, massaction=
+2022-07-20 02:45:44 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=validate, massaction=
+2022-07-20 02:45:46 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=confirm_validate, massaction=
+2022-07-20 02:45:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/list.php - action=, massaction=
+2022-07-20 02:45:58 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/comm/propal/list.php - action=list, massaction=0
+2022-07-20 02:46:17 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=confirm_setdraft, massaction=
+2022-07-20 02:47:10 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-20 02:47:15 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-20 02:47:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-20 02:47:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-20 02:47:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=editfile, massaction=
+2022-07-20 02:47:46 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-20 12:31:05 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=, massaction=
+2022-07-20 12:31:06 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 12:31:06 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 12:31:06 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 12:31:06 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 12:31:07 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 12:31:13 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=modif, massaction=
+2022-07-20 12:31:19 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-20 12:31:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 12:31:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 12:34:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 12:35:31 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:15:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-20 13:16:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-20 13:16:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 13:16:29 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:17:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:17 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:29 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 13:18:44 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:18:50 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php/myStuff - action=confirm_validate, massaction=
+2022-07-20 13:19:12 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php/myStuff - action=confirm_setdraft, massaction=
+2022-07-20 13:21:02 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php/myStuff - action=confirm_setdraft, massaction=
+2022-07-20 13:21:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php/myStuff - action=confirm_setdraft, massaction=
+2022-07-20 13:21:39 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 13:21:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:21:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=edit, massaction=
+2022-07-20 13:21:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:23:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-20 13:24:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:24:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:24:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:24:53 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:24:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:24:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:24:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:24:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:24:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:24:55 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:25:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 13:25:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:27:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:27:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/thirdparties/44 - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:28:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-20 13:29:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-20 13:29:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-20 13:29:04 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:30:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:30:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-20 13:30:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:30:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:30:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:30:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:30:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:30:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:31:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions - action=, massaction= NOTOKENRENEWAL=1
+2022-07-20 13:31:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/thirdparties/44 - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:55 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-21 10:39:55 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:56 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:56 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:56 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:56 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:39:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:40:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:40:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/thirdparties/44 - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:41:28 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:41:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/cotizacionesapi/cotizacions - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:41:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/api/index.php/thirdparties/44 - action=, massaction= NOTOKENRENEWAL=1
+2022-07-21 10:44:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:44:56 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:45:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=edit, massaction=
+2022-07-21 10:45:04 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-21 10:45:06 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:49:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-21 10:49:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=confirm_setdraft, massaction=
+2022-07-21 10:49:26 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-21 10:49:29 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-21 10:49:31 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-21 10:49:33 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:49:37 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=edit, massaction=
+2022-07-21 10:49:39 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-21 10:49:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-21 10:49:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:49:52 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=edit, massaction=
+2022-07-21 10:50:01 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=update, massaction=
+2022-07-21 10:50:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:50:13 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:53:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=edit, massaction=
+2022-07-21 10:53:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-21 10:53:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:54:10 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:54:14 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:55:32 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:55:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:55:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=, massaction=
+2022-07-21 10:56:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-21 10:56:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=, massaction=
