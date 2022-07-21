@@ -704,6 +704,26 @@ class Cotizacion extends CommonObject
 		return $this->setStatusCommon($user, self::STATUS_DRAFT, $notrigger, 'COTIZACION_UNVALIDATE');
 	}
 
+	public function setFacturadoProv($user, $notrigger = 0)
+	{
+		// Protection
+		if ($this->status <= self::Facturado_Prov) {
+			return 0;
+		}
+
+		/*if (! ((empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->write))
+		 || (! empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->cotizaciones_advance->validate))))
+		 {
+		 $this->error='Permission denied';
+		 return -1;
+		 }*/
+
+		return $this->setStatusCommon($user, self::Facturado_Prov, $notrigger, 'COTIZACION_UNVALIDATE');
+	}
+
+
+
+
 	/**
 	 *	Set cancel status
 	 *

@@ -629,11 +629,11 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			
 			#####################//Crear Factura a Proovedores
 			if ($object->status == $object::STATUS_VALIDATED) {
-				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setdraft&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturadoProv&confirm=yes&token='.newToken(), '', $permissiontoadd);
 			}
 
 			if ($object->status == $object::STATUS_VALIDATED) {
-				//print ($_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setdraft&confirm=yes&token=');
+				//print ($_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturado_Prov&confirm=yes&token=');
 			
 	
 				print dolGetButtonAction($langs->trans('Prueba'), '', 'default', '/dolibarr/htdocs/custom/cotizaciones/CreaPresupuesto.php'.'?id='.$object->id.'&action=CreaPresupuesto&origin=CreaPresup&ref=ertoerij&confirm=yes&token='.newToken(), '', $permissiontoadd);
@@ -649,7 +649,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 				//	print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
-					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', 'http://localhost:8888/dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&token='.newToken(), '', $permissiontoadd);
+					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', 'http://localhost/dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 			
 	

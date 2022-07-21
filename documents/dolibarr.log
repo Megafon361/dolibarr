@@ -145,3 +145,32 @@
 2022-07-21 10:55:40 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=, massaction=
 2022-07-21 10:56:27 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
 2022-07-21 10:56:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=, massaction=
+2022-07-21 13:21:36 ERR     ::1             Propal::create Date of proposal is required
+2022-07-21 13:25:40 ERR     ::1             Propal::create Date of proposal is required
+2022-07-21 13:29:10 ERR     ::1             Propal::create Date of proposal is required
+2022-07-21 13:30:52 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:31:53 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:32:14 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:36:41 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:43:42 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:45:42 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:46:00 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:53:01 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 13:53:06 ERR     ::1             Facture::addline status of invoice must be Draft to allow use of ->addline()
+2022-07-21 15:05:47 WARNING ::1             Failed to make include_once 
+2022-07-21 15:13:11 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_propal (fk_soc, price, remise, remise_percent, remise_absolue, total_tva, total_ttc, datep, datec, ref, fk_user_author, note_private, note_public, model_pdf, fin_validite, fk_cond_reglement, deposit_percent, fk_mode_reglement, fk_account, ref_client, date_livraison, fk_shipping_method, fk_warehouse, fk_availability, fk_input_reason, fk_projet, fk_incoterms, location_incoterms, entity, fk_multicurrency, multicurrency_code, multicurrency_tx)  VALUES (, 0, 0, NULL, NULL, 0, 0, '2021-12-01 00:00:00', '2022-07-21 17:13:11', '(PROV)', 7, '', '', '', '2021-12-16 00:00:00', NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, null, 0, '', 1, 0, 'ARS', 1)
+2022-07-21 15:13:11 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_SYNTAX You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' 0, 0, NULL, NULL, 0, 0, '2021-12-01 00:00:00', '2022-07-21 17:13:11', '(PROV...' at line 1
+2022-07-21 15:13:21 WARNING ::1             Failed to make include_once 
+2022-07-21 15:13:29 WARNING ::1             Failed to make include_once 
+2022-07-21 15:14:21 WARNING ::1             Failed to make include_once 
+2022-07-21 15:15:41 WARNING ::1             Failed to make include_once 
+2022-07-21 15:48:11 WARNING ::1             Failed to make include_once 
+2022-07-21 16:01:38 WARNING ::1             Failed to make include_once 
+2022-07-21 16:03:06 WARNING ::1             Failed to make include_once 
+2022-07-21 16:05:20 WARNING ::1             Failed to make include_once 
+2022-07-21 16:06:56 WARNING ::1             Failed to make include_once 
+2022-07-21 16:28:36 WARNING ::1             Failed to make include_once 
+2022-07-21 16:29:59 WARNING ::1             Failed to make include_once 
+2022-07-21 16:30:02 WARNING ::1             Failed to make include_once 
+2022-07-21 16:32:11 WARNING ::1             Failed to make include_once 
+2022-07-21 16:38:52 WARNING ::1             Failed to make include_once 

@@ -211,4 +211,274 @@ print ($object->id);
 
 
 
+
+include "doliclass.php";
+
+//Recibir numero de cotizacion con get 
+//$NumCotiz = $_POST['nroCotiz1'];
+//var_dump($NumCotiz);
+
+
+//var_dump($object);
+
+
+
+if (!isset($NumCotiz)) {
+    //echo "fuck, la variable  numcotiz no esta seteada";
+    # code...
+}
+
+echo "<br>";
+
+
+echo "hello";
+
+/* 
+
+
+////////////tomar datos de cotizacion para hacer invoice 
+/* $object["C0Ro"]	; */
+/* $object["C0Pr"]	; */
+/* $object["C0Ca"]	; */
+/* $object["C0Pa"]	; */
+/* $object["C1Ro"]	; */
+/* $object["C1Pr"]	; */
+/* $object["C1Ca"]	; */
+/* $object["C1Pa"]	; */
+/* $object["C2Ro"]	; */
+/* $object["C2Pr"]	; */
+/* $object["C2Ca"]	; */
+/* $object["C2Pa"]	; */
+/* $object["C3Ro"]	; */
+/* $object["C3Pr"]	; */
+/* $object["C3Ca"]	; */
+/* $object["C3Pa"]	; */
+/* $object["C4Ro"]	; */
+/* $object["C4Pr"]	; */
+/* $object["C4Ca"]	; */
+/* $object["C4Pa"]	; */
+/* $object["C0As"]	; */
+/* $object["C1As"]	; */
+/* $object["C2As"]	; */
+/* $object["C3As"]	; */
+/* $object["C4As"]	; */
+
+// CREAR Prosposal
+
+
+$curl = curl_init();
+$url = $Root."proposals/";
+$data = array();
+
+//$object->lines
+$data["cliente"]=$object->fk_soc;
+$data["date_creation"] =$object->date_creation;
+echo print '<br> dtodecreacion   ---->'.$object->date_creation.'<br>';
+$data['datec']="12331212";
+$data['datep']= "1638313200";
+$data["date_creation"] ="12331212";
+$data["description"]= $object->description;
+$data["entrega"]=  $object->entrega;
+$data["fk_project"] = $object->fk_project;
+$data["fk_soc"]=   $object->fk_soc;
+$data["gastos"] =  $object->gastos;
+$data["iva"] = $object->iva;
+$data["label"]=   "detalle";//$object->label;
+$data["megafon"] =  $object->megafon;
+$data["note_private"] = $object->note_private;
+$data["note_public"]= $object->note_public;
+$data["ref"]= $object->ref;
+$data["socid"]=  $object->fk_soc;
+$data["status"] = $object->status;
+$data["subtotal"] = $object->subtotal;
+$data["total"] =  $object->total;
+$data["trabajo"]= $object->trabajo;
+$data["Usuario"]= $object->fk_user_creat;
+	
+
+
+
+
+
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$PresupuestoCreado = curl_exec($curl);
+//$result = json_decode($facturaCreada,1);
+curl_close($curl);
+
+var_dump($PresupuestoCreado);
+
+
+
+//AGREGAR LINEAS A INVOICE 
+
+
+
+
+
+$curl = curl_init();
+$url = $Root."proposals/".$PresupuestoCreado."/line";
+echo $url;
+
+/* 
+$data["array_languages"] = null;
+$data["array_options"] = [];
+$data["barcode_type_coder"] = null;
+$data["barcode_type"] = null;
+$data["canvas"] = null;
+$data["contacts_ids"] = null;
+$data["date_creation"] = null;
+$data["date_debut_prevue"] = null;
+$data["date_debut_reel"] = null;
+$data["date_end"] = "";
+$data["date_fin_prevue"] = null;
+$data["date_fin_reel"] = null;
+$data["date_modification"] = null;
+$data["date_start"] = "";
+$data["date_validation"] = null;
+$data["demand_reason_id"] = null; */
+
+
+$data["desc"] = "DESC" ;
+$data["description"] = "DESCRIPTionTTTTT";
+$data["desc"]= $object->description;
+
+/* 
+$data["duree"] = null;
+$data["entity"] = null;
+$data["fk_account"] = null;
+$data["fk_bank"] = null;
+$data["fk_fournprice"] = null;
+$data["fk_parent_line"] = null;
+$data["fk_product_type"] = null;
+$data["fk_product"] = null; 
+$data["fk_remise_except"] = null;
+$data["fk_unit"] = null;
+$data["height_units"] = null;
+$data["height"] = null;
+$data["import_key"] = null;
+$data["label"] = null;
+$data["last_main_doc"] = null;
+$data["length_units"] = null;
+$data["length"] = null;
+$data["libelle"] = null;
+$data["lines"] = null;
+$data["linked_objects"] = null;
+$data["linkedObjectsFullLoaded"] = [];
+$data["linkedObjectsIds"] = null;
+$data["multilangs"] = null;
+$data["origin_id"] = null;
+$data["origin"] = null;
+$data["price"] = null;
+$data["product_barcode"] = null;
+$data["product_desc"] = null;
+$data["product_label"] = null;
+$data["product_ref"] = null;
+$data["product_tobatch"] = null;
+$data["product"] = null ;
+$data["ref_ext"] = null;
+$data["ref"] = null;
+$data["region_id"] = null;
+$data["remise"] = null;
+$data["surface_units"] = null;
+$data["surface"] = null;
+$data["state_id"] = null;
+$data["status"] = null;
+$data["volume_units"] = null;
+$data["volume"] = null;
+$data["weight_units"] = null;
+$data["weight"] = null;
+$data["width_units"] = null;
+$data["width"] = null;
+//$data["localtax1_tx"] = "0.000" ;
+//$data["localtax1_type"] = "0";
+//$data["localtax2_tx"] = "0.000" ;
+//$data["localtax2_type"] = "0" ;
+//$data["marge_tx"] = "" ;
+//$data["pa_ht"] = "0.00000000";
+//$data["pa_t"] = "0.00000000" ;
+//$data["remise_percent"] = "0" ;
+//$data["rowid"] = "65";
+//$data["special_code"] = "0" ;
+//$data["total_localtax1"] = "0.00000000";
+//$data["total_localtax2"] = "0.00000000";
+//$data["subprice"] = "100.00000000" ;
+//$data["transport_mode_id"] = null;
+//$data["validateFieldsErrors"] = [];
+//$data["vat_src_code"] = "";
+
+
+*/
+
+
+$data["fk_propal"] = "75" ;
+//$data["id"] = "65";
+//$data["info_bits"] = "0" ;
+$data["marque_tx"] = 100 ;
+$data["multicurrency_subprice"] = "100.00000000" ;
+$data["multicurrency_total_ht"] = "1000.00000000";
+$data["multicurrency_total_t"] = "1000.00000000" ;
+$data["multicurrency_total_ttc"] = "1210.00000000" ;
+$data["multicurrency_total_tva"] = "210.00000000" ;
+$data["product_type"] = "0" ;
+$data["qty"] = "1" ;
+//$data["rang"] = "1" ;
+$data["specimen"] = 0 ;
+$data["subprice"]= $object->total;
+$data["total_ht"] = $object->total; //"1000.00000000";
+$data["total_t"] = "1000.00000000" ;
+//$data["total_ttc"] = "1210.00000000";
+//$data["total_tva"] = "210.00000000";
+$data["tva_tx"] = "21.000";
+
+
+
+
+
+
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $httpheader);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+$AgregarLineas = curl_exec($curl);
+//$result = json_decode($facturaCreada,1);
+curl_close($curl);
+echo "<br>";
+
+echo "agregarlineas  ====>";
+var_dump($Agregarlineas);
+
+
+			
+
+
+
+
+
+
+/* $LineasFActura = curl_exec($curl);
+$LineasFActura = json_decode($cotizacion,1);
+curl_close($curl);
+ */
+
+
+
+
+
+echo "FIN";
+
+
+
+
+
+
+
+
+
 ?>
