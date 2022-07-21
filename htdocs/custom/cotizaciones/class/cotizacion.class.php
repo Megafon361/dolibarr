@@ -63,9 +63,11 @@ class Cotizacion extends CommonObject
 	 */
 	public $picto = 'cotizacion@cotizaciones';
 
-
+	//..."0":"Borrador","1":"Presupuestado","2":"Facturado_Clientes","3":"Facturado_Prov","9":"Cancelado"}
 	const STATUS_DRAFT = 0;
 	const STATUS_VALIDATED = 1;
+	const STATUS_Facturado_Clientes = 2;
+	const STATUS_Facturado_Prov = 3;
 	const STATUS_CANCELED = 9;
 
 
@@ -125,7 +127,7 @@ class Cotizacion extends CommonObject
 		'last_main_doc' => array('type'=>'varchar(255)', 'label'=>'LastMainDoc', 'enabled'=>'1', 'position'=>600, 'notnull'=>0, 'visible'=>0,),
 		'import_key' => array('type'=>'varchar(14)', 'label'=>'ImportId', 'enabled'=>'1', 'position'=>1000, 'notnull'=>-1, 'visible'=>-2,),
 		'model_pdf' => array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>'1', 'position'=>1010, 'notnull'=>-1, 'visible'=>0,),
-		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>1, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Validado', '2'=>'Presupuestado', '3'=>'Facturado', '9'=>'Cancelado'), 'validate'=>'1',),
+		'status' => array('type'=>'integer', 'label'=>'Status', 'enabled'=>'1', 'position'=>1000, 'notnull'=>1, 'visible'=>4, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Borrador', '1'=>'Presupuestado', '2'=>'Facturado_Cliente', '3'=>'Facturado_Prov', '9'=>'Cancelado'), 'validate'=>'1',),
 		'C0Ro' => array('type'=>'integer', 'label'=>'Rol', 'enabled'=>'1', 'position'=>113, 'notnull'=>0, 'visible'=>3, 'index'=>1, 'arrayofkeyval'=>array('0'=>'Stock', '1'=>'Produccion', '2'=>'Camara', '3'=>'Edicion', '4'=>'Locucion', '9'=>'Dron'), 'validate'=>'1',),
 		'C0Pr' => array('type'=>'varchar(128)', 'label'=>'Precio', 'enabled'=>'1', 'position'=>114, 'notnull'=>0, 'visible'=>3,),
 		'C0Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>115, 'notnull'=>0, 'visible'=>3,),
@@ -683,6 +685,7 @@ class Cotizacion extends CommonObject
 	 *	@param	User	$user			Object user that modify
 	 *  @param	int		$notrigger		1=Does not execute triggers, 0=Execute triggers
 	 *	@return	int						<0 if KO, >0 if OK
+	 *  "0":"Borrador","1":"Presupuestado","2":"Facturado_Clientes","3":"Facturado_Prov","9":"Cancelado"}</span>
 	 */
 	public function setDraft($user, $notrigger = 0)
 	{
@@ -700,6 +703,26 @@ class Cotizacion extends CommonObject
 
 		return $this->setStatusCommon($user, self::STATUS_DRAFT, $notrigger, 'COTIZACION_UNVALIDATE');
 	}
+
+	public function setFacturadoProv($user, $notrigger = 0)
+	{
+		// Protection
+		if ($this->status <= self::Facturado_Prov) {
+			return 0;
+		}
+
+		/*if (! ((empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->write))
+		 || (! empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->cotizaciones_advance->validate))))
+		 {
+		 $this->error='Permission denied';
+		 return -1;
+		 }*/
+
+		return $this->setStatusCommon($user, self::Facturado_Prov, $notrigger, 'COTIZACION_UNVALIDATE');
+	}
+
+
+
 
 	/**
 	 *	Set cancel status
@@ -724,6 +747,38 @@ class Cotizacion extends CommonObject
 
 		return $this->setStatusCommon($user, self::STATUS_CANCELED, $notrigger, 'COTIZACION_CANCEL');
 	}
+
+
+	/**
+	 *	Set Facturado 
+	 *
+	 *	@param	User	$user			Object user that modify
+	 *  @param	int		$notrigger		1=Does not execute triggers, 0=Execute triggers
+	 *	@return	int						<0 if KO, >0 if OK
+	 *  "0":"Borrador","1":"Presupuestado","2":"Facturado_Clientes","3":"Facturado_Prov","9":"Cancelado"}</span>
+	 */
+	
+	
+	 public function Facturado_Clientes($user, $notrigger = 0)
+	{
+		// Protection
+		if ($this->status <= self::STATUS_Facturado_Clientes) {
+			return 0;
+		}
+
+		/*if (! ((empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->write))
+		 || (! empty($conf->global->MAIN_USE_ADVANCED_PERMS) && ! empty($user->rights->cotizaciones->cotizaciones_advance->validate))))
+		 {
+		 $this->error='Permission denied';
+		 return -1;
+		 }*/
+		 ##setStatusCommon($user, $status, $notrigger = 0, $triggercode = '')
+		return $this->setStatusCommon($user, self::STATUS_Facturado_Clientes, $notrigger, 'COTIZACION_facturadaAClientes');
+	}
+
+
+
+
 
 	/**
 	 *	Set back to validated status
@@ -897,15 +952,30 @@ class Cotizacion extends CommonObject
 	public function LibStatut($status, $mode = 0)
 	{
 		// phpcs:enable
+
+/* 		const STATUS_DRAFT = 0;
+		const STATUS_VALIDATED = 1;
+		const STATUS_Facturado_Clientes = 2;
+		const STATUS_Facturado_Prov = 3;
+		const STATUS_CANCELED = 9; */
+
+
+
 		if (empty($this->labelStatus) || empty($this->labelStatusShort)) {
 			global $langs;
 			//$langs->load("cotizaciones@cotizaciones");
 			$this->labelStatus[self::STATUS_DRAFT] = $langs->transnoentitiesnoconv('Draft');
-			$this->labelStatus[self::STATUS_VALIDATED] = $langs->transnoentitiesnoconv('Enabled');
+			$this->labelStatus[self::STATUS_Facturado_Clientes] = $langs->transnoentitiesnoconv('F.Cliente');#
+			$this->labelStatus[self::STATUS_Facturado_Prov] = $langs->transnoentitiesnoconv('F.Prov'); #
+			$this->labelStatus[self::STATUS_VALIDATED] = $langs->transnoentitiesnoconv('Presupuestado');
 			$this->labelStatus[self::STATUS_CANCELED] = $langs->transnoentitiesnoconv('Disabled');
+
 			$this->labelStatusShort[self::STATUS_DRAFT] = $langs->transnoentitiesnoconv('Draft');
-			$this->labelStatusShort[self::STATUS_VALIDATED] = $langs->transnoentitiesnoconv('Enabled');
+			$this->labelStatusShort[self::STATUS_VALIDATED] = $langs->transnoentitiesnoconv('Presupuestado');
 			$this->labelStatusShort[self::STATUS_CANCELED] = $langs->transnoentitiesnoconv('Disabled');
+
+			$this->labelStatusShort[self::STATUS_Facturado_Clientes] = $langs->transnoentitiesnoconv('Facturado a Client');#
+			$this->labelStatusShort[self::STATUS_Facturado_Prov] = $langs->transnoentitiesnoconv('Facturado a Prov');#
 		}
 
 		$statusType = 'status'.$status;

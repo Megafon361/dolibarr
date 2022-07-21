@@ -9534,7 +9534,7 @@ abstract class CommonObject
 
 	/**
 	 *	Set to a status
-	 *
+	 * ..."0":"Borrador","1":"Presupuestado","2":"Facturado_Clientes","3":"Facturado_Prov","9":"Cancelado"}
 	 *	@param	User	$user			Object user that modify
 	 *  @param	int		$status			New status to set (often a constant like self::STATUS_XXX)
 	 *  @param	int		$notrigger		1=Does not execute triggers, 0=Execute triggers

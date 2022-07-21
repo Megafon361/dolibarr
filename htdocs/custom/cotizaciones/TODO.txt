@@ -1,6 +1,7 @@
 
+
 en cotiz.commonfields add tpl 
-habilitar inter filas 
+
 
 // planilla ingreso 
 en inputs agregar  sugerencias 

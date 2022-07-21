@@ -155,7 +155,7 @@ if ($id > 0 || !empty($ref)) {
 
 	print dol_get_fiche_head($head, 'note', $langs->trans("Cotizacion"), -1, $object->picto);
 
-	// Object card
+	// Object card 
 	// ------------------------------------------------------------
 	$linkback = '<a href="'.dol_buildpath('/cotizaciones/cotizacion_list.php', 1).'?restore_lastsearch_values=1'.(!empty($socid) ? '&socid='.$socid : '').'">'.$langs->trans("BackToList").'</a>';
 

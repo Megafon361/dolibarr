@@ -599,6 +599,13 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 
 	// Buttons for actions
+		//..."0":"Borrador","1":"Presupuestado","2":"Facturado_Clientes","3":"Facturado_Prov","9":"Cancelado"}
+	/*	const STATUS_DRAFT = 0;  --> VALIDAR (CREAR PRESUPUESTO)
+		const STATUS_VALIDATED = 1;   --> (CREAR FACTURA A PROV) 
+		const STATUS_Facturado_Clientes = 2; --> CREAR FACTURA A PROV
+		const STATUS_Facturado_Prov = 3;  
+		const STATUS_CANCELED = 9;
+		 */
 
 	if ($action != 'presend' && $action != 'editline') {
 		print '<div class="tabsAction">'."\n";
@@ -617,23 +624,45 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			// Back to draft
 			if ($object->status == $object::STATUS_VALIDATED) {
 				print dolGetButtonAction($langs->trans('SetToDraft'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setdraft&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				
 			}
+			
+			#####################//Crear Factura a Proovedores
+			if ($object->status == $object::STATUS_VALIDATED) {
+				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturadoProv&confirm=yes&token='.newToken(), '', $permissiontoadd);
+			}
+
+			if ($object->status == $object::STATUS_VALIDATED) {
+				//print ($_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturado_Prov&confirm=yes&token=');
+			
+	
+				print dolGetButtonAction($langs->trans('Prueba'), '', 'default', '/dolibarr/htdocs/custom/cotizaciones/CreaPresupuesto.php'.'?id='.$object->id.'&action=CreaPresupuesto&origin=CreaPresup&ref=ertoerij&confirm=yes&token='.newToken(), '', $permissiontoadd);
+			}
+
+
 
 			print dolGetButtonAction($langs->trans('Modify'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=edit&token='.newToken(), '', $permissiontoadd);
 
-			// Validate
+			#################// Validate / Crear Presupuesto
 			if ($object->status == $object::STATUS_DRAFT) {
+				//if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
+				//	print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
-					print dolGetButtonAction($langs->trans('Validate'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
-				} else {
+					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', 'http://localhost/dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				
+			
+	
+			
+			} else {
 					$langs->load("errors");
 					print dolGetButtonAction($langs->trans("ErrorAddAtLeastOneLineFirst"), $langs->trans("Validate"), 'default', '#', '', 0);
 				}
 			}
 
 			// Clone
-			print dolGetButtonAction($langs->trans('ToClone'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.(!empty($object->socid)?'&socid='.$object->socid:'').'&action=clone&token='.newToken(), '', $permissiontoadd);
-
+			//print dolGetButtonAction($langs->trans('ToClone'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.(!empty($object->socid)?'&socid='.$object->socid:'').'&action=clone&token='.newToken(), '', $permissiontoadd);
+		
 			/*
 			if ($permissiontoadd) {
 				if ($object->status == $object::STATUS_ENABLED) {
@@ -653,6 +682,35 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 
 			// Delete (need delete permission, or if draft, just need create/modify permission)
 			print dolGetButtonAction($langs->trans('Delete'), '', 'delete', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=delete&token='.newToken(), '', $permissiontodelete || ($object->status == $object::STATUS_DRAFT && $permissiontoadd));
+
+			/*
+			*function dolGetButtonAction
+			1@param string    $label      label of button without HTML : use in alt attribute for accessibility $html is not empty
+			2@param string    $html       optional : content with html
+			3@param string    $actionType default, delete, danger
+			4@param string    $url        the url for link
+ 			5@param string    $id         attribute id of button
+ 			6@param int       $userRight  user action right
+ 			// phpcs:disable
+ 			7@param array 	$params = [ // Various params for future : recommended rather than adding more function arguments
+ 			*                          'attr' => [ // to add or override button attributes
+ 			*                          'xxxxx' => '', // your xxxxx attribute you want
+ 			*                          'class' => '', // to add more css class to the button class attribute
+ 			*                          'classOverride' => '' // to replace class attribute of the button
+ 			*                          ],
+ 			*                          'confirm' => [
+ 			*                          'url' => 'http://', // Overide Url to go when user click on action btn, if empty default url is $url.?confirm=yes, for no js compatibility use $url for fallback confirm.
+ 			*                          'title' => '', // Overide title of modal,  if empty default title use "ConfirmBtnCommonTitle" lang key
+ 			*                          'action-btn-label' => '', // Overide label of action button,  if empty default label use "Confirm" lang key
+ 			*                          'cancel-btn-label' => '', // Overide label of cancel button,  if empty default label use "CloseDialog" lang key
+ 			*                          'content' => '', // Overide text of content,  if empty default content use "ConfirmBtnCommonContent" lang key
+ 			*                          'modal' => true, // true|false to display dialog as a modal (with dark background)
+ 			*                          ],
+ 			*                          ]
+ 			* // phpcs:enable
+ 			* @return string               html button
+ 			* 
+ 			* */
 		}
 		print '</div>'."\n";
 	}
