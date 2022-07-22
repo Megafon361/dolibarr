@@ -630,7 +630,8 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			
 			#####################//Crear Factura a Proovedores
 			if ($object->status == $object::STATUS_VALIDATED) {
-				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturadoProv&confirm=yes&token='.newToken(), '', $permissiontoadd);
+				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default',  $Rooo.'myStuff/FacturaProv.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+																//								"http://localhost/dolibarr/htdocs/myStuff/FacturaProv.php
 			}
 
 
