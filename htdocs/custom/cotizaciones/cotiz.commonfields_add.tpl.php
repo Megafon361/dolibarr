@@ -200,6 +200,7 @@ foreach ($object->fields as $key => $val) {
 		$value = price2num(GETPOST($key, 'alphanohtml'));
 	} elseif ($val['type'] == 'text' || $val['type'] == 'html') {
 		$value = GETPOST($key, 'restricthtml');
+		echo $value;
 	} elseif ($val['type'] == 'date') {
 		$value = dol_mktime(12, 0, 0, GETPOST($key.'month', 'int'), GETPOST($key.'day', 'int'), GETPOST($key.'year', 'int'));
 	} elseif ($val['type'] == 'datetime') {
@@ -220,6 +221,8 @@ foreach ($object->fields as $key => $val) {
 			print img_picto('', 'language', 'class="pictofixedwidth"');
 			print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
 		} else {
+			print '<script>console.log('.$value.');</script>';
+			print $value;
 			print $object->showInputField($val, $key, $value, $tipo, '', '', 0);
 		}
 	}

@@ -67,6 +67,7 @@ class AssetModel extends CommonObject
 	const STATUS_DRAFT = 0;
 	const STATUS_VALIDATED = 1;
 	const STATUS_CANCELED = 9;
+	const STATUS_FacturadoProv = 3;
 
 
 	/**
@@ -513,6 +514,29 @@ class AssetModel extends CommonObject
 
 		return $this->setStatusCommon($user, self::STATUS_DRAFT, $notrigger, 'ASSETMODEL_UNVALIDATE');
 	}
+
+
+
+		/**
+	 *	Set STATUS_Facturado_Prov = 3;  status
+	 *
+	 *	@param	User	$user			Object user that modify
+	 *  @param	int		$notrigger		1=Does not execute triggers, 0=Execute triggers
+	 *	@return	int						<0 if KO, >0 if OK
+	 */
+	public function setFacturadoProv($user, $notrigger = 0)
+	{
+		// Protection
+		if ($this->status <= self::STATUS_FacturadoProv) {
+			return 0;
+		}
+
+		return $this->setStatusCommon($user, self::STATUS_FacturadoProv, $notrigger, 'Facturadoapro');
+	}
+
+
+
+
 
 	/**
 	 *	Set cancel status

@@ -207,7 +207,7 @@ if (empty($reshook)) {
 }
 
 
-print ($object->id);
+//print ($object->id);
 
 
 
@@ -231,7 +231,6 @@ if (!isset($NumCotiz)) {
 echo "<br>";
 
 
-echo "hello";
 
 /* 
 
@@ -273,7 +272,7 @@ $data = array();
 //$object->lines
 $data["cliente"]=$object->fk_soc;
 $data["date_creation"] =$object->date_creation;
-echo print '<br> dtodecreacion   ---->'.$object->date_creation.'<br>';
+//echo print '<br> dtodecreacion   ---->'.$object->date_creation.'<br>';
 $data['datec']="12331212";
 $data['datep']= "1638313200";
 $data["date_creation"] ="12331212";
@@ -310,7 +309,7 @@ $PresupuestoCreado = curl_exec($curl);
 //$result = json_decode($facturaCreada,1);
 curl_close($curl);
 
-var_dump($PresupuestoCreado);
+//var_dump($PresupuestoCreado);
 
 
 
@@ -322,7 +321,7 @@ var_dump($PresupuestoCreado);
 
 $curl = curl_init();
 $url = $Root."proposals/".$PresupuestoCreado."/line";
-echo $url;
+//echo $url;
 
 /* 
 $data["array_languages"] = null;
@@ -451,8 +450,8 @@ $AgregarLineas = curl_exec($curl);
 curl_close($curl);
 echo "<br>";
 
-echo "agregarlineas  ====>";
-var_dump($Agregarlineas);
+//echo "agregarlineas  ====>";
+//var_dump($AgregarLineas);
 
 
 			
@@ -469,13 +468,21 @@ curl_close($curl);
 
 
 
+//$irA = http://localhost:8888/dolibarr/htdocs/comm/propal/card.php?id=54&save_lastsearch_values=1
+//$Rooo= "http://localhost:8888/dolibarr/htdocs/"
+//echo '<script type="text/javascript"> window.location.rel="noopener" target="_blank" href = '.$Rooo.'comm/propal/card.php?id='.$AgregarLineas.'</script>';
+//&save_lastsearch_values=1
 
 
-echo "FIN";
 
 
+if (isSet($AgregarLineas) & $AgregarLineas != null) {
 
-
+		print dolGetButtonAction($langs->trans('ir al presupuesto'), '', 'default', $Rooo.'comm/propal/card.php?id='.$PresupuestoCreado, '', $permissiontoadd);
+		
+	
+	# code...
+}
 
 
 
