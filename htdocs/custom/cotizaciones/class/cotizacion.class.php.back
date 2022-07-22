@@ -149,10 +149,10 @@ class Cotizacion extends CommonObject
 		'C4Ca' => array('type'=>'varchar(128)', 'label'=>'Cant', 'enabled'=>'1', 'position'=>135, 'notnull'=>0, 'visible'=>3,),
 		'C4Pa' => array('type'=>'price', 'label'=>'Pago', 'enabled'=>'1', 'position'=>137, 'notnull'=>0, 'visible'=>3,),
 		'C0As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi0', 'enabled'=>'1', 'position'=>116, 'notnull'=>0, 'visible'=>3,),
-		'C1As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi1', 'enabled'=>'1', 'position'=>121, 'notnull'=>0, 'visible'=>3,),
-		'C2As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi2', 'enabled'=>'1', 'position'=>126, 'notnull'=>0, 'visible'=>3,),
-		'C3As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi3', 'enabled'=>'1', 'position'=>131, 'notnull'=>0, 'visible'=>3,),
-		'C4As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi4', 'enabled'=>'1', 'position'=>136, 'notnull'=>0, 'visible'=>3,),
+		'C1As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi1', 'enabled'=>'1', 'position'=>121, 'notnull'=>0, 'visible'=>3,),
+		'C2As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi2', 'enabled'=>'1', 'position'=>126, 'notnull'=>0, 'visible'=>3,),
+		'C3As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi3', 'enabled'=>'1', 'position'=>131, 'notnull'=>0, 'visible'=>3,),
+		'C4As' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'Asi4', 'enabled'=>'1', 'position'=>136, 'notnull'=>0, 'visible'=>3,),
 	);
 	public $rowid;
 	public $ref;
@@ -707,7 +707,7 @@ class Cotizacion extends CommonObject
 	public function setFacturadoProv($user, $notrigger = 0)
 	{
 		// Protection
-		if ($this->status <= self::FacturadoProv) {
+		if ($this->status <= self::STATUS_FacturadoProv) {
 			return 0;
 		}
 
@@ -718,7 +718,7 @@ class Cotizacion extends CommonObject
 		 return -1;
 		 }*/
 
-		return $this->setStatusCommon($user, self::FacturadoProv, $notrigger, 'COTIZACION_UNVALIDATE');
+		return $this->setStatusCommon($user, self::STATUS_FacturadoProv, $notrigger, 'STATUS_FacturadoProv');
 	}
 
 
