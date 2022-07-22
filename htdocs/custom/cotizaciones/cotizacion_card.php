@@ -315,7 +315,8 @@ if ($action == 'create') {
 
 	// Common attributes
 	//include DOL_DOCUMENT_ROOT.'/core/tpl/commonfields_add.tpl.php';
-	  include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
+	//include DOL_DOCUMENT_ROOT.'/core/tpl/cotiz.commonfields_add.tpl.php';
+	  include DOL_DOCUMENT_ROOT.'/custom/cotizaciones/cotiz.commonfields_add.tpl.php';
 	// Other attributes
 	  include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
@@ -632,14 +633,9 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturadoProv&confirm=yes&token='.newToken(), '', $permissiontoadd);
 			}
 
-			if ($object->status == $object::STATUS_VALIDATED) {
-				//print ($_SERVER["PHP_SELF"].'?id='.$object->id.'&action=confirm_setFacturado_Prov&confirm=yes&token=');
-			
-	
-				print dolGetButtonAction($langs->trans('Prueba'), '', 'default', '/dolibarr/htdocs/custom/cotizaciones/CreaPresupuesto.php'.'?id='.$object->id.'&action=CreaPresupuesto&origin=CreaPresup&ref=ertoerij&confirm=yes&token='.newToken(), '', $permissiontoadd);
-			}
 
 
+			include "myStuff/env.php";
 
 			print dolGetButtonAction($langs->trans('Modify'), '', 'default', $_SERVER["PHP_SELF"].'?id='.$object->id.'&action=edit&token='.newToken(), '', $permissiontoadd);
 
@@ -649,7 +645,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 				//	print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
-					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', 'http://localhost/dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $Rooo.'custom/cotizaciones/myStuff/catcher.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 			
 	
