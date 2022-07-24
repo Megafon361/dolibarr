@@ -19,3 +19,15 @@ si el proovedor ya agrego una linea.. no crear otra factura, sino que agregar li
 
 Due date = now + 15 dias
 
+
+en cotiz.commonfields add tpl 
+
+// planilla ingreso 
+en inputs agregar  sugerencias 
+formatear textos
+·en entrega sugerir fechas 1 semana etc 
+en cantidad autocompletar 1 cuando se empieza a escribir en el campo precio
+
+EN AGREGAR COTIZACION
+AGREGAR GRAFICOS
+IF ESTAN VACIOS / NO AGREGAR  oo... crear funcion para tomar los datos y crear un array

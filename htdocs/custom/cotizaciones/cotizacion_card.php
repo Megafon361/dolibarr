@@ -309,7 +309,7 @@ if ($action == 'create') {
 	//print '<table class="ui table">'."\n";
 
 	#2  GRID
-	print '<div class="ui four column grid">'."\n";
+	//print '<div class="ui four column grid">'."\n";
 	//print '<div class="ui grid">'."\n";
 	
 
@@ -413,19 +413,6 @@ if (($id || $ref) && $action == 'edit') {
 	//print '</div>';
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Part to show record
 if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'create'))) {
