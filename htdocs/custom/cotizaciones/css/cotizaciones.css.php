@@ -125,7 +125,7 @@ td.Cant {
 .total{
 	font-weight: bolder;
 }
-/* *{padding: 0;}
+{padding: 0;}
 
 
 
@@ -157,4 +157,3 @@ td.Pago {
 	background-color: blue;
 	margin: 0px;
 }
- */

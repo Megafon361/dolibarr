@@ -1007,3 +1007,117 @@
 2022-07-22 18:04:51 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion' doesn't exist
 2022-07-22 18:04:55 ERR     ::1             DoliDBMysqli::query SQL Error query: SELECT COUNT(*) as nb FROM llx_cotizaciones_cotizacion_extrafields
 2022-07-22 18:04:55 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_cotizaciones_cotizacion_extrafields' doesn't exist
+2022-07-23 13:05:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-23 13:05:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:05:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:05:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:05:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:05:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:06:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-23 13:06:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:07:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:09:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:09:08 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:09:09 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:09:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:10:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:11:11 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:11:15 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:11:15 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:16 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:11:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:12:43 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:13:14 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:14:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:15:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:19:35 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:35:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:35:29 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-23 13:35:31 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-23 13:35:33 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-23 13:35:58 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=editproperty, massaction=
+2022-07-23 13:36:11 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/modulebuilder/index.php - action=addproperty, massaction=
+2022-07-23 13:36:11 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-23 13:36:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=editproperty, massaction=
+2022-07-23 13:36:30 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/modulebuilder/index.php - action=addproperty, massaction=
+2022-07-23 13:36:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/modulebuilder/index.php - action=, massaction=
+2022-07-23 13:36:33 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:40:07 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:42:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-23 13:42:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:42:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:42:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:42:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:42:50 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-23 13:42:50 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:44 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-24 04:06:45 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:45 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:45 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:45 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:47 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:06:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-24 04:06:53 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-24 04:08:18 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=add, massaction=
+2022-07-24 04:08:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-24 04:08:30 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=confirm_validate, massaction=
+2022-07-24 04:08:30 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/proposals/ - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:08:30 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/proposals/66/line - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:08:33 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/propal/card.php - action=, massaction=
+2022-07-24 04:08:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-24 04:08:51 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-07-24 04:08:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/FacturaProv.php - action=confirm_validate, massaction=
+2022-07-24 04:09:00 WARNING ::1             Cotizacion::validate action abandonned: already validated
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices/160/lines - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:00 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:00 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices/161/lines - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:00 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:00 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:00 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:01 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices/162/lines - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:01 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:01 WARNING ::1              Price.lib::calcul_price_total Warning: function is called with parameter seller that is missing
+2022-07-24 04:09:01 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:01 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 0, '2022-07-24 04:09:01', '2022-07-24 04:09:01', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 04:09:01 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_1452 Cannot add or update a child row: a foreign key constraint fails (`dolibarr`.`llx_facture_fourn`, CONSTRAINT `fk_facture_fourn_fk_soc` FOREIGN KEY (`fk_soc`) REFERENCES `llx_societe` (`rowid`))
+2022-07-24 04:09:01 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 04:09:01 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 0, '2022-07-24 04:09:01', '2022-07-24 04:09:01', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 04:09:01 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_1452 Cannot add or update a child row: a foreign key constraint fails (`dolibarr`.`llx_facture_fourn`, CONSTRAINT `fk_facture_fourn_fk_soc` FOREIGN KEY (`fk_soc`) REFERENCES `llx_societe` (`rowid`))
+2022-07-24 04:09:10 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/index.php - action=, massaction=
+2022-07-24 04:09:15 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/commande/list.php - action=, massaction=
+2022-07-24 04:09:22 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/compta/index.php - action=, massaction=
+2022-07-24 04:09:29 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/fourn/facture/list.php - action=, massaction=
+2022-07-24 04:09:38 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/fourn/facture/card.php - action=, massaction=
+2022-07-24 04:09:44 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-24 11:31:00 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-07-24 11:31:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:01 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:02 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacionesindex.php - action=, massaction=
+2022-07-24 11:31:04 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:10 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/FacturaProv.php - action=confirm_validate, massaction=
+2022-07-24 11:31:10 WARNING ::1             Cotizacion::validate action abandonned: already validated
+2022-07-24 11:31:11 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:11 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 82, '2022-07-24 11:31:11', '2022-07-24 11:31:11', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 11:31:12 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_RECORD_ALREADY_EXISTS Duplicate entry 'sdf-82-1' for key 'uk_facture_fourn_ref_supplier'
+2022-07-24 11:31:12 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:12 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 53, '2022-07-24 11:31:12', '2022-07-24 11:31:12', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 11:31:12 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_RECORD_ALREADY_EXISTS Duplicate entry 'sdf-53-1' for key 'uk_facture_fourn_ref_supplier'
+2022-07-24 11:31:12 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:13 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 35, '2022-07-24 11:31:13', '2022-07-24 11:31:13', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 11:31:13 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_RECORD_ALREADY_EXISTS Duplicate entry 'sdf-35-1' for key 'uk_facture_fourn_ref_supplier'
+2022-07-24 11:31:13 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:13 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 0, '2022-07-24 11:31:13', '2022-07-24 11:31:13', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 11:31:13 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_1452 Cannot add or update a child row: a foreign key constraint fails (`dolibarr`.`llx_facture_fourn`, CONSTRAINT `fk_facture_fourn_fk_soc` FOREIGN KEY (`fk_soc`) REFERENCES `llx_societe` (`rowid`))
+2022-07-24 11:31:13 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/api/index.php/supplierinvoices - action=, massaction= NOTOKENRENEWAL=1
+2022-07-24 11:31:14 ERR     ::1              DoliDBMysqli::query SQL Error query: INSERT INTO llx_facture_fourn (ref, ref_supplier, ref_ext, entity, type, libelle, fk_soc, datec, datef, fk_projet, fk_cond_reglement, fk_mode_reglement, fk_account, note_private, note_public, fk_user_author, date_lim_reglement, fk_incoterms, location_incoterms, fk_multicurrency, multicurrency_code, multicurrency_tx, fk_facture_source, fk_fac_rec_source) VALUES ('(PROV)', 'sdf', '', 1, '0', '', 0, '2022-07-24 11:31:14', '2022-07-24 11:31:14', null, null, null, NULL, '', '', 7,null, 0, '', 0, 'ARS', 1, NULL, NULL)
+2022-07-24 11:31:14 ERR     ::1              DoliDBMysqli::query SQL Error message: DB_ERROR_1452 Cannot add or update a child row: a foreign key constraint fails (`dolibarr`.`llx_facture_fourn`, CONSTRAINT `fk_facture_fourn_fk_soc` FOREIGN KEY (`fk_soc`) REFERENCES `llx_societe` (`rowid`))
