@@ -36,7 +36,7 @@ if (empty($conf) || !is_object($conf)) {
 $object->fields = dol_sort_array($object->fields, 'position');
 
 #1Red
-print '<div class="ui red segment">';
+# print '<div class="ui red segment">';
 
 $boton = 0;
 
@@ -55,18 +55,21 @@ foreach ($object->fields as $key => $val) {
    		//  var_dump($key);
     switch ($key) {
 		case 'Usuario':
+		case 'fk_soc':
 		case 'gastos':
 		case 'status':
 		//NOVA case 'label':
-			//print'<div class="ui inverted blue segment">
-			print'<div class="ui segment">
-			';//print'<div class="ui  segment"><div class="ui four column grid"><div class="row">';
+			//print'<div class="ui inverted blue segment">';
+			//print'<div class="ui segment">';
+			print'<div class="ui  segment">';
+			print' <div class="ui four column grid"><div class="row">';
 		break;
 		#tabla
 			case 'C0Ro':
 			print'<div class="ui violet segment">';
 			//print'<div class="ui inverted violet segment">';
-			print'<table class="ui celled collapsing single line table" >
+			//print'<table class="ui celled collapsing single line table" >
+			print'<table class="ui celled single line table" >
 			<thead>
 			  <tr>
 			  <th>Rol</th>
@@ -74,14 +77,17 @@ foreach ($object->fields as $key => $val) {
 			  <th>Cant</th>
 			  <th>Asign</th>
 			  <th>Pago</th>
-			</tr></thead>
-			<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
+			</tr></thead>';
+			
+			#print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
+			print '<tbody><tr><td label="'.$val["label"].'">';
 			break;
 			case 'C1Ro':
 			case 'C2Ro':
 			case 'C3Ro':
 			case 'C4Ro':
-				echo '<tr><td class="collapsing" label="'.$val["label"].'">';
+				#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
+				echo '<tr><td label="'.$val["label"].'">';
 				break;
 					case 'C0Pr':
 					case 'C0Ca':
@@ -107,7 +113,8 @@ foreach ($object->fields as $key => $val) {
 					case 'C2As':
 					case 'C3As':
 					case 'C4As':
-						echo '<td class="collapsing" label="'.$val["label"].'">';
+						#echo '<td class="collapsing" label="'.$val["label"].'">';
+						echo '<td label="'.$val["label"].'">';
 						break;
 					/*NOVA case 'status':
 						print'';
@@ -160,7 +167,7 @@ foreach ($object->fields as $key => $val) {
 						$boton=0;
 					}
 					 */
-					//print '<div';
+				
 					print '<div'; 
 					
 					
@@ -221,8 +228,7 @@ foreach ($object->fields as $key => $val) {
 			print img_picto('', 'language', 'class="pictofixedwidth"');
 			print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
 		} else {
-			print '<script>console.log('.$value.');</script>';
-			print $value;
+		
 			print $object->showInputField($val, $key, $value, $tipo, '', '', 0);
 		}
 	}
@@ -354,7 +360,7 @@ foreach ($object->fields as $key => $val) {
 	}
 	//------------------------------------------------------
 }
-print '</div>'; //CERRAR ROJO
+#RED print '</div>'; //CERRAR ROJO
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 
