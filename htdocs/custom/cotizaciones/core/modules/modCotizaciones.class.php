@@ -111,7 +111,8 @@ class modCotizaciones extends DolibarrModules
 			),
 			// Set this to relative path of js file if module must load a js on all pages
 			'js' => array(
-				'/cotizaciones/js/cotizaciones.js.php',
+				'',
+				//'/cotizaciones/js/cotizaciones.js.php',
 			),
 			// Set here all hooks context managed by module. To find available hook context, make a "grep -r '>initHooks(' *" on source code. You can also set hook context to 'all'
 			'hooks' => array(

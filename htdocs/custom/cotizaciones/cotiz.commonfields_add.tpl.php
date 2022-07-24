@@ -32,6 +32,7 @@ if (empty($conf) || !is_object($conf)) {
 <!-- BEGIN PHP TEMPLATE commonfields_add.tpl.php -->
 <?php
 
+include 'myStuff/js/sumador.js.php';
 
 $object->fields = dol_sort_array($object->fields, 'position');
 
