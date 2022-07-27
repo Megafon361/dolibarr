@@ -309,7 +309,9 @@ for ($i=0; $i < $LINEAS; $i++) {
 		$data["desc"] = "DESC" ;
 		$data["note_private"] = $object->note_private;
 		$descripcion1 = 'descripcion '.$object->description.' / Rol:'.$Rol; 
+		
 		$data["description"] = $descripcion1;
+		$data['array_options']["options_recepciondefactura"] = "1";
 		
 		$data["desc"]= $object->description;
 		$data["fk_propal"] = "75" ;
