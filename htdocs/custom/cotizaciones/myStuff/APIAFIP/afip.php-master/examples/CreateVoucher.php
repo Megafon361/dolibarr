@@ -3,20 +3,20 @@ include '../src/Afip.php';
 
 $data = array(
 	'CantReg' 		=> 1, // Cantidad de comprobantes a registrar
-	'PtoVta' 		=> 1, // Punto de venta
-	'CbteTipo' 		=> 6, // Tipo de comprobante (ver tipos disponibles) 
+	'PtoVta' 		=> 2, // Punto de venta
+	'CbteTipo' 		=> 11, // Tipo de comprobante (ver tipos disponibles) 
 	'Concepto' 		=> 1, // Concepto del Comprobante: (1)Productos, (2)Servicios, (3)Productos y Servicios
 	'DocTipo' 		=> 80, // Tipo de documento del comprador (ver tipos disponibles)
-	'DocNro' 		=> 20111111112, // Numero de documento del comprador
+	'DocNro' 		=> 20321189173, // Numero de documento del comprador
 	'CbteDesde' 	=> 1, // Numero de comprobante o numero del primer comprobante en caso de ser mas de uno
 	'CbteHasta' 	=> 1, // Numero de comprobante o numero del ultimo comprobante en caso de ser mas de uno
 	'CbteFch' 		=> intval(date('Ymd')), // (Opcional) Fecha del comprobante (yyyymmdd) o fecha actual si es nulo
-	'ImpTotal' 		=> 184.05, // Importe total del comprobante
+	'ImpTotal' 		=> 10.05, // Importe total del comprobante
 	'ImpTotConc' 	=> 0, // Importe neto no gravado
-	'ImpNeto' 		=> 150, // Importe neto gravado
+	'ImpNeto' 		=> 10, // Importe neto gravado
 	'ImpOpEx' 		=> 0, // Importe exento de IVA
-	'ImpIVA' 		=> 26.25, //Importe total de IVA
-	'ImpTrib' 		=> 7.8, //Importe total de tributos
+	'ImpIVA' 		=> 0, //Importe total de IVA
+	'ImpTrib' 		=> 1.8, //Importe total de tributos
 	'FchServDesde' 	=> NULL, // (Opcional) Fecha de inicio del servicio (yyyymmdd), obligatorio para Concepto 2 y 3
 	'FchServHasta' 	=> NULL, // (Opcional) Fecha de fin del servicio (yyyymmdd), obligatorio para Concepto 2 y 3
 	'FchVtoPago' 	=> NULL, // (Opcional) Fecha de vencimiento del servicio (yyyymmdd), obligatorio para Concepto 2 y 3
@@ -24,17 +24,17 @@ $data = array(
 	'MonCotiz' 		=> 1, // Cotización de la moneda usada (1 para pesos argentinos)  
 	'CbtesAsoc' 	=> array( // (Opcional) Comprobantes asociados
 		array(
-			'Tipo' 		=> 6, // Tipo de comprobante (ver tipos disponibles) 
-			'PtoVta' 	=> 1, // Punto de venta
+			'Tipo' 		=> 11, // Tipo de comprobante (ver tipos disponibles) 
+			'PtoVta' 	=> 2, // Punto de venta
 			'Nro' 		=> 1, // Numero de comprobante
-			'Cuit' 		=> 20111111112 // (Opcional) Cuit del emisor del comprobante
+			'Cuit' 		=> 20321189173 // (Opcional) Cuit del emisor del comprobante
 			)
 		),
 	'Tributos' 		=> array( // (Opcional) Tributos asociados al comprobante
 		array(
 			'Id' 		=>  99, // Id del tipo de tributo (ver tipos disponibles) 
 			'Desc' 		=> 'Ingresos Brutos', // (Opcional) Descripcion
-			'BaseImp' 	=> 150, // Base imponible para el tributo
+			'BaseImp' 	=> 15, // Base imponible para el tributo
 			'Alic' 		=> 5.2, // Alícuota
 			'Importe' 	=> 7.8 // Importe del tributo
 		)
@@ -55,14 +55,15 @@ $data = array(
 	'Compradores' 	=> array( // (Opcional) Detalles de los clientes del comprobante 
 		array(
 			'DocTipo' 		=> 80, // Tipo de documento (ver tipos disponibles) 
-			'DocNro' 		=> 20111111112, // Numero de documento
+			'DocNro' 		=> 20321189173, // Numero de documento
 			'Porcentaje' 	=> 100 // Porcentaje de titularidad del comprador
 		)
 	)
 );
 
-$afip = new Afip(array('CUIT' => 20111111112));
+$afip = new Afip(array('CUIT' => 20321189173));
 
-$afip->ElectronicBilling->CreateVoucher($data);
+$res = $afip->ElectronicBilling->CreateVoucher($data);
+var_dump($res);
 
 ?>

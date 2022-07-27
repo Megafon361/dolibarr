@@ -1524,3 +1524,8 @@
 2022-07-27 13:54:45 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/index.php - action=, massaction=
 2022-07-27 13:54:54 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/modules.php - action=, massaction=
 2022-07-27 13:56:20 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/modulehelp.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-27 14:57:07 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-27 14:57:09 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/viewimage.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-27 15:02:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/index.php - action=, massaction=
+2022-07-27 15:02:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/compta/index.php - action=, massaction=
+2022-07-27 15:02:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/fourn/facture/list.php - action=, massaction=

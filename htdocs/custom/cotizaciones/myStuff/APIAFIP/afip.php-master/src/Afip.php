@@ -460,7 +460,7 @@ class AfipWebService
 				'trace'          => 1,
 				'exceptions'     => $this->afip->options['exceptions'],
 				'stream_context' => stream_context_create(['ssl'=> ['ciphers'=> 'AES256-SHA','verify_peer'=> false,'verify_peer_name'=> false]])
-			));
+			));     
 		}
 
 		$results = $this->soap_client->{$operation}($params);
