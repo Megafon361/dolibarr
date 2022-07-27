@@ -36,8 +36,8 @@ include 'myStuff/js/sumador.js.php';
 
 $object->fields = dol_sort_array($object->fields, 'position');
 
-#1Red
-# print '<div class="ui red segment">';
+#----------------->RED
+ print '<div class="ui inverted red segment">';
 
 $boton = 0;
 
@@ -51,156 +51,154 @@ foreach ($object->fields as $key => $val) {
 	if (array_key_exists('enabled', $val) && isset($val['enabled']) && !verifCond($val['enabled'])) {
 		continue; // We don't want this field
 	}
-		//------------------------------------------------
-	    # BLUE
-   		//  var_dump($key);
-    switch ($key) {
-		case 'Usuario':
+	//------------------------------------------------
+    # OPEN BLUE
+	switch ($key) {
+		//case 'Usuario':
 		case 'fk_soc':
+			print'<div class="ui inverted teal segment p-0 m-0">';
+			//print'<div class="ui  segment">';
+			print' <div class="ui two column grid p-0 m-0">';
+			//<div class="row">';
+			break;
 		case 'gastos':
-		case 'status':
-		//NOVA case 'label':
-			//print'<div class="ui inverted blue segment">';
-			//print'<div class="ui segment">';
-			print'<div class="ui  segment">';
-			print' <div class="ui four column grid"><div class="row">';
-		break;
+			//case 'status':
+			print'<div class="ui inverted blue segment p-0 m-0">';
+			//print'<div class="ui  segment">';
+			print' <div class="ui three column grid p-0 m-0">';
+			//<div class="row">';
+			break;
 		#tabla
-			case 'C0Ro':
+		case 'C0Ro':
 			print'<div class="ui violet segment">';
 			//print'<div class="ui inverted violet segment">';
 			//print'<table class="ui celled collapsing single line table" >
 			print'<table class="ui celled single line table" >
 			<thead>
-			  <tr>
-			  <th>Rol</th>
-			  <th>Precio</th>
-			  <th>Cant</th>
-			  <th>Asign</th>
-			  <th>Pago</th>
-			</tr></thead>';
-			
+				<tr>
+			  		<th>Rol</th>
+			  		<th>Precio</th>
+			  		<th>Cant</th>
+			  		<th>Asign</th>
+			  		<th>Pago</th>
+			  	</tr>
+			</thead>';
+		
 			#print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
 			print '<tbody><tr><td label="'.$val["label"].'">';
 			break;
-			case 'C1Ro':
-			case 'C2Ro':
-			case 'C3Ro':
-			case 'C4Ro':
-				#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
-				echo '<tr><td label="'.$val["label"].'">';
-				break;
-					case 'C0Pr':
-					case 'C0Ca':
-					case 'C0Pa':
-					case 'C1Ro':
-					case 'C1Pr':
-					case 'C1Ca':
-					case 'C1Pa':
-					case 'C2Ro':
-					case 'C2Pr':
-					case 'C2Ca':
-					case 'C2Pa':
-					case 'C3Ro':
-					case 'C3Pr':
-					case 'C3Ca':
-					case 'C3Pa':
-					case 'C4Ro':
-					case 'C4Pr':
-					case 'C4Ca':
-					case 'C4Pa':
-					case 'C0As':
-					case 'C1As':
-					case 'C2As':
-					case 'C3As':
-					case 'C4As':
-						#echo '<td class="collapsing" label="'.$val["label"].'">';
-						echo '<td label="'.$val["label"].'">';
-						break;
-					/*NOVA case 'status':
-						print'';
-        			break;
-				NOVA */
-        
-        default:
-            # code...
-            break;    
-		}
-		switch ($key) {
-
-					case 'C0Ro':
-					case 'C0Pr':
-					case 'C0Ca':
-					case 'C0Pa':
-					case 'C1Ro':
-					case 'C1Pr':
-					case 'C1Ca':
-					case 'C1Pa':
-					case 'C2Ro':
-					case 'C2Pr':
-					case 'C2Ca':
-					case 'C2Pa':
-					case 'C3Ro':
-					case 'C3Pr':
-					case 'C3Ca':
-					case 'C3Pa':
-					case 'C4Ro':
-					case 'C4Pr':
-					case 'C4Ca':
-					case 'C4Pa':
-					case 'C0As':
-					case 'C1As':
-					case 'C2As':
-					case 'C3As':
-					case 'C4As':
-					break;
-					default:
-					//yellow
-					print'<div class="ui yellow segment">';
-					
-					/* 
- 					
-					if ($boton==0) {
-						print'<div class="ui inverted olive segment">';
-						$boton = 1;
-					}else {
-						print'<div class="ui inverted yellow segment">';
-						$boton=0;
-					}
-					 */
-				
-					print '<div'; 
-					
-					
-					
-					print ' class="ui small icon input';
-					if (isset($val['notnull']) && $val['notnull'] > 0) {
-						print ' fieldrequired';
-					}
-					if ($val['type'] == 'text' || $val['type'] == 'html') {
-						print ' tdtop';
-					}
-					print '"';
-					print '>';
-					if (!empty($val['help'])) {
-						print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
-					} else {
-						print $langs->trans($val['label']);
-					}
-					print '</div>';
-					//     print '<!-- Cierra Amarillo -->';
-					//echo str_repeat('&nbsp;', 5);
-				
-					break;
+		case 'C1Ro':
+		case 'C2Ro':
+		case 'C3Ro':
+		case 'C4Ro':
+			#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
+			echo '<tr><td label="'.$val["label"].'">';
+			break;
+				case 'C0Pr':
+		case 'C0Ca':
+		case 'C0Pa':
+		case 'C1Ro':
+		case 'C1Pr':
+		case 'C1Ca':
+		case 'C1Pa':
+		case 'C2Ro':
+		case 'C2Pr':
+		case 'C2Ca':
+		case 'C2Pa':
+		case 'C3Ro':
+		case 'C3Pr':
+		case 'C3Ca':
+		case 'C3Pa':
+		case 'C4Ro':
+		case 'C4Pr':
+		case 'C4Ca':
+		case 'C4Pa':
+		case 'C0As':
+		case 'C1As':
+		case 'C2As':
+		case 'C3As':
+		case 'C4As':
+			#echo '<td class="collapsing" label="'.$val["label"].'">';
+			echo '<td label="'.$val["label"].'">';
+			break;	
+    	default:
+        	# code...
+        	break;    
+	}
+	switch ($key) {
+		case 'C0Ro':
+		case 'C0Pr':
+		case 'C0Ca':
+		case 'C0Pa':
+		case 'C1Ro':
+		case 'C1Pr':
+		case 'C1Ca':
+		case 'C1Pa':
+		case 'C2Ro':
+		case 'C2Pr':
+		case 'C2Ca':
+		case 'C2Pa':
+		case 'C3Ro':
+		case 'C3Pr':
+		case 'C3Ca':
+		case 'C3Pa':
+		case 'C4Ro':
+		case 'C4Pr':
+		case 'C4Ca':
+		case 'C4Pa':
+		case 'C0As':
+		case 'C1As':
+		case 'C2As':
+		case 'C3As':
+		case 'C4As':
+		break;
+		default:
+			//yellow
+			//print'<div class="ui yellow segment">';
+			print'<div class="ui orange segment">';
+			/* 
+			
+			if ($boton==0) {
+				print'<div class="ui inverted olive segment">';
+				$boton = 1;
+			}else {
+				print'<div class="ui inverted yellow segment">';
+				$boton=0;
 			}
+			 */
+		
+			print '<div'; 
+			
+			
+			
+			print ' class="ui small icon input';
+			if (isset($val['notnull']) && $val['notnull'] > 0) {
+				print ' fieldrequired';
+			}
+			if ($val['type'] == 'text' || $val['type'] == 'html') {
+				print ' tdtop';
+			}
+			print '"';
+			print '>';
+			if (!empty($val['help'])) {
+				print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
+			} else {
+				print $langs->trans($val['label']);
+			}
+			print '</div>';
+			//     print '<!-- Cierra Amarillo -->';
+			//echo str_repeat('&nbsp;', 5);
+		
+			break;
+	}
 
 
-				$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
+	$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
 
 
 	//print '<div class="valuefieldcreate">';
-/* 	if (!empty($val['picto'])) {
-		print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
+	/* 	if (!empty($val['picto'])) {
+	print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
 	} */
 	if (in_array($val['type'], array('int', 'integer'))) {
 		$value = GETPOST($key, 'int');
@@ -233,8 +231,6 @@ foreach ($object->fields as $key => $val) {
 			print $object->showInputField($val, $key, $value, $tipo, '', '', 0);
 		}
 	}
-
-
 	switch ($key) {
 		case 'C0Ro':
 		case 'C0Pr':
@@ -263,51 +259,51 @@ foreach ($object->fields as $key => $val) {
 		case 'C4As':
 			echo '';
 			break;
-
-	//print '</div>';
-	//print '<!-- Cierra Amarillo -->';
-			
+		//print '</div>';
+		//print '<!-- Cierra Amarillo -->';			
 		default:
-		print '</div>';
-		print '<!-- Cierra Amarillo -->';
+			print '</div>';
+			print '<!-- Cierra Amarillo -->';
 			break;
 	}
 	
 
 	//CERRAR AZUL
 	switch ($key) {
-        case 'label':
+	    case 'label':
 		//case 'total':
 		case 'status':
 			print '</div>'; //</div></div>';
-		break;
+			break;
 		case 'total':
 			print '      
 			<div class="ui form">
-			<div class="inline fields">
-			<div class="ui pink segment"> <label>?</label>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
-				  <label>con IVA</label>
+				<div class="inline fields">
+					<div class="ui pink segment"> 
+						<label>?</label>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
+								<label>con IVA</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" id="check2" onchange="sumar();" name="frequency">
+								<label>Sin IVA</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" id="check3" onchange="sumar();" name="frequency">
+								<label>Contado</label>
+							</div>
+						</div>
+					</div>
 				</div>
-			  </div>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" id="check2" onchange="sumar();" name="frequency">
-				  <label>Sin IVA</label>
-				</div>
-			  </div>
-			  <div class="field">
-				<div class="ui radio checkbox">
-				  <input type="radio" id="check3" onchange="sumar();" name="frequency">
-				  <label>Contado</label>
-				</div>
-			  </div>
-			</div>
-		  </div>';
+		  	</div>';
 		  	#####FIJATE ESTA
-		  break;
+			break;
 		case 'C0Pa':
 		case 'C1Pa':
 		case 'C2Pa':
@@ -318,50 +314,50 @@ foreach ($object->fields as $key => $val) {
 			print'</td> </tr>
 			</tbody>
 			<tfoot>
-    <tr>
-	<th></th>
-    <th><span>Subotal: $</span><input class="subtotal2" id="subtotal2"></input></th>
-    <th></th>
-	<th></th>
-	<th>Pago</th>
-  </tr></tfoot>
-
-		  </table></div></div></div>';
+				<tr>
+					<th></th>
+					<th><span>Subotal: $</span><input class="subtotal2" id="subtotal2"></input></th>
+					<th></th>
+					<th></th>
+					<th>Pago</th>
+				</tr>
+			</tfoot>
+		  	</table></div></div></div>';
 			break;
-
-				case 'C0Pr':
-				case 'C0Ca':
-				case 'C0Pa':
-				case 'C1Ro':
-				case 'C1Pr':
-				case 'C1Ca':
-				case 'C1Pa':
-				case 'C2Ro':
-				case 'C2Pr':
-				case 'C2Ca':
-				case 'C2Pa':
-				case 'C3Ro':
-				case 'C3Pr':
-				case 'C3Ca':
-				case 'C3Pa':
-				case 'C4Ro':
-				case 'C4Pr':
-				case 'C4Ca':
-				case 'C4Pa':
-				case 'C0As':
-				case 'C1As':
-				case 'C2As':
-				case 'C3As':
-				case 'C4As':
-				echo '</td>';
-				break;
+		case 'C0Pr':
+		case 'C0Ca':
+		case 'C0Pa':
+		case 'C1Ro':
+		case 'C1Pr':
+		case 'C1Ca':
+		case 'C1Pa':
+		case 'C2Ro':
+		case 'C2Pr':
+		case 'C2Ca':
+		case 'C2Pa':
+		case 'C3Ro':
+		case 'C3Pr':
+		case 'C3Ca':
+		case 'C3Pa':
+		case 'C4Ro':
+		case 'C4Pr':
+		case 'C4Ca':
+		case 'C4Pa':
+		case 'C0As':
+		case 'C1As':
+		case 'C2As':
+		case 'C3As':
+		case 'C4As':
+			echo '</td>';
+			break;
 		default:
 			# code...
 			break;
 	}
-	//------------------------------------------------------
+	
 }
-#RED print '</div>'; //CERRAR ROJO
+#----------------->RED 
+print '</div>'; //CERRAR ROJO
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 

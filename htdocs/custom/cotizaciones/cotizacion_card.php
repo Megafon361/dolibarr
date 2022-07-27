@@ -288,7 +288,7 @@ if ($action == 'create') {
 	print load_fiche_titre($langs->trans("NewObject", $langs->transnoentitiesnoconv("Cotizacion")), '', 'object_'.$object->picto);
 	
 	#1  YEllow
-	print'<div class="ui inverted yellow collapsing segment">';
+	//print'<div class="ui inverted yellow collapsing segment">';
 
 	print '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">';
 	print '<input type="hidden" name="token" value="'.newToken().'">';
@@ -330,16 +330,16 @@ if ($action == 'create') {
 	//print '</div>';
 	
 	# 2 GRID
-	print '<!-- cierra div -->';
-	print '</div>';
+	//print '<!-- cierra div -->';
+	//print '</div>';
 	//print '</table>';
 	print '</form>';
 	
 	# 1 Yellow
-	print '<!-- cierra Yellow -->';
-	print '</div>';
+	//print '<!-- cierra Yellow -->';
+	//print '</div>';
 	
-	print '</div>'; //CERRAR ROJO
+	//print '</div>'; //CERRAR ROJO
 	
 	//dol_set_focus('input[name="ref"]');
 }
