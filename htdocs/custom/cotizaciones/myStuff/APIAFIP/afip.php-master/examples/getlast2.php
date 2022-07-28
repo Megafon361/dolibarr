@@ -60,16 +60,36 @@ $data = array(
 		)
 	)
 );
-
+echo 'start<br>';
 $afip = new Afip(array('CUIT' => 20321189173));
 
 //$last= $afip->ElectronicBilling->GetLastVoucher($data['CbteTipo'], $data['PtoVta']);
 
 //$last = GetSalesPoints();
-$sales_points = $afip->ElectronicBilling->GetSalesPoints(); 
-var_dump($salespoints);
+//$sales_points = $afip->ElectronicBilling->GetSalesPoints(); 
+//var_dump($salespoints);
 echo 'FIN';
 //echo $data['CbteTipo'];
 //echo $data['PtoVta'];
 
+$server_status = $afip->ElectronicBilling->GetServerStatus();
+
+echo 'Este es el estado del servidor:';
+echo '<pre>';
+print_r($server_status);
+echo '</pre>'; 
+
+
+/* $voucher_types = $afip->ElectronicBilling->GetVoucherTypes();
+echo 'Este tipos de factura:';
+echo '<pre>';
+foreach ($voucher_types as $key => $value) {
+
+	echo $key.'--->'.$value;
+}
+
+echo '</pre>'; 
+
+print_r($voucher_types);
+ */
 ?>
