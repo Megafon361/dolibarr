@@ -196,7 +196,7 @@ if (GETPOST('button_removefilter_x', 'alpha') || GETPOST('button_removefilter.x'
 	$search_datereceipt_start = '';
 	$search_datereceipt_end = '';
 	$search_status = '';
-	$toselect = array();
+	$toselect = '';
 	$search_array_options = array();
 	$search_categ_cus = 0;
 }
@@ -211,34 +211,6 @@ if (empty($reshook)) {
 	include DOL_DOCUMENT_ROOT.'/core/actions_massactions.inc.php';
 }
 
-// If massaction is close
-if ($massaction == 'classifyclose') {
-	$error=0;
-	$selectids = GETPOST('toselect', 'array');
-	foreach ($selectids as $selectid) {
-		//	$object->fetch($selectid);
-		$object->fetch($selectid);
-		$result = $object->setClosed();
-	}
-
-	$massaction = $action = 'classifyclose';
-
-	if ($result < 0) {
-		$error++;
-	}
-
-
-	if (!$error) {
-		$db->commit();
-
-		setEventMessage($langs->trans("Close Done"));
-		header('Location: '.$_SERVER["PHP_SELF"]);
-		exit;
-	} else {
-		$db->rollback();
-		exit;
-	}
-}
 
 /*
  * View
@@ -517,7 +489,7 @@ $param .= $hookmanager->resPrint;
 
 $arrayofmassactions = array(
 	'builddoc' => img_picto('', 'pdf', 'class="pictofixedwidth"').$langs->trans("PDFMerge"),
-	'classifyclose'=>$langs->trans("Close"),
+	//'classifyclose'=>$langs->trans("Close"), TODO massive close shipment ie: when truck is charged
 	'presend'  => img_picto('', 'email', 'class="pictofixedwidth"').$langs->trans("SendByMail"),
 );
 if (in_array($massaction, array('presend'))) {
@@ -560,11 +532,11 @@ if ($sall) {
 $moreforfilter = '';
 
 // If the user can view prospects other than his'
-if ($user->rights->user->user->lire) {
+if ($user->rights->societe->client->voir || $socid) {
 	$langs->load("commercial");
 	$moreforfilter .= '<div class="divsearchfield">';
 	$tmptitle = $langs->trans('ThirdPartiesOfSaleRepresentative');
-	$moreforfilter .= img_picto($tmptitle, 'user', 'class="pictofixedwidth"');
+	$moreforfilter .= img_picto($tmptitle, 'user');
 	$moreforfilter .= $formother->select_salesrepresentatives($search_sale, 'search_sale', $user, 0, $tmptitle, 'maxwidth200');
 	$moreforfilter .= '</div>';
 }
@@ -572,7 +544,7 @@ if ($user->rights->user->user->lire) {
 if ($user->rights->user->user->lire) {
 	$moreforfilter .= '<div class="divsearchfield">';
 	$tmptitle = $langs->trans('LinkedToSpecificUsers');
-	$moreforfilter .= img_picto($tmptitle, 'user', 'class="pictofixedwidth"');
+	$moreforfilter .= img_picto($tmptitle, 'user');
 	$moreforfilter .= $form->select_dolusers($search_user, 'search_user', $tmptitle, '', 0, '', '', 0, 0, 0, '', 0, '', 'maxwidth200');
 	$moreforfilter .= '</div>';
 }

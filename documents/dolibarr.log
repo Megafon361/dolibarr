@@ -1312,3 +1312,33 @@
 2022-07-27 04:40:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/modules.php - action=, massaction=
 2022-07-27 04:40:59 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/supplier_order.php - action=, massaction=
 2022-07-27 04:41:03 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/admin/supplierinvoice_extrafields.php - action=, massaction=
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN birth date
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'birth'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN dateemployment date
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'dateemployment'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN dateemploymentend date
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'dateemploymentend'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN default_range integer
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'default_range'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user ADD COLUMN default_c_exp_tax_cat integer
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'default_c_exp_tax_cat'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN langs varchar(24)
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'langs'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN fieldcomputed text
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'fieldcomputed'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN fielddefault varchar(255)
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'fielddefault'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN enabled varchar(255) DEFAULT '1'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'enabled'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_extrafields ADD COLUMN help text
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'help'
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_user_rights ADD COLUMN entity integer DEFAULT 1 NOT NULL
+2022-07-29 14:24:23 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_COLUMN_ALREADY_EXISTS Duplicate column name 'entity'
+2022-07-29 14:24:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_head.js.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-29 14:24:41 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-29 14:24:42 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-29 14:24:47 NOTICE  ::1             --- Access to POST /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-29 14:24:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/css/cotizaciones.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-29 14:24:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/theme/md/style.css.php - action=, massaction= NOTOKENRENEWAL=1
+2022-07-29 14:24:48 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-07-29 14:24:49 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/core/js/lib_foot.js.php - action=, massaction= NOTOKENRENEWAL=1

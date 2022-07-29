@@ -31,7 +31,7 @@
 // $parameters, $object, $action must be defined for the hook.
 
 // $permissiontoread, $permissiontoadd, $permissiontodelete, $permissiontoclose may be defined
-// $uploaddir may be defined (example to $conf->project->dir_output."/";)
+// $uploaddir may be defined (example to $conf->projet->dir_output."/";)
 // $toselect may be defined
 // $diroutputmassaction may be defined
 
@@ -111,7 +111,7 @@ if (!$error && $massaction == 'confirm_presend_attendees') {
 		$massaction = 'presend_attendees';
 	}
 
-	$receiver = GETPOST('receiver', 'alphawithlgt');
+	$receiver = $_POST['receiver'];
 	if (!is_array($receiver)) {
 		if (empty($receiver) || $receiver == '-1') {
 			$receiver = array();
@@ -143,7 +143,7 @@ if (!$error && $massaction == 'confirm_presend_attendees') {
 			$sendto = $attendees->thirdparty->name . '<' . trim($attendees->email) . '>';
 
 			// Define $sendtocc
-			$receivercc = GETPOST('receivercc', 'alphawithlgt');
+			$receivercc = $_POST['receivercc'];
 			if (!is_array($receivercc)) {
 				if ($receivercc == '-1') {
 					$receivercc = array();
@@ -153,7 +153,7 @@ if (!$error && $massaction == 'confirm_presend_attendees') {
 			}
 			$tmparray = array();
 			if (trim($_POST['sendtocc'])) {
-				$tmparray[] = trim(GETPOST('sendtocc', 'alphawithlgt'));
+				$tmparray[] = trim($_POST['sendtocc']);
 			}
 			$sendtocc = implode(',', $tmparray);
 
@@ -177,17 +177,17 @@ if (!$error && $massaction == 'confirm_presend_attendees') {
 				$resql = $db->query($sql);
 				$obj = $db->fetch_object($resql);
 				if ($obj) {
-					$from = dol_string_nospecial($obj->label, ' ', array(",")) . ' <' . $obj->email . '>';
+					$from = $obj->label . ' <' . $obj->email . '>';
 				}
 			} else {
-				$from = dol_string_nospecial(GETPOST('fromname'), ' ', array(",")) . ' <' . GETPOST('frommail') . '>';
+				$from = $_POST['fromname'] . ' <' . $_POST['frommail'] . '>';
 			}
 
 			$replyto = $from;
 			$subject = GETPOST('subject', 'restricthtml');
 			$message = GETPOST('message', 'restricthtml');
 
-			$sendtobcc = GETPOST('sendtoccc', 'alphawithlgt');
+			$sendtobcc = GETPOST('sendtoccc');
 
 			// $objecttmp is a real object or an empty object if we choose to send one email per thirdparty instead of one per object
 			// Make substitution in email content

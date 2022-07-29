@@ -99,12 +99,12 @@ $sql .= " WHERE t.entity IN (".getEntity('member_type').")";
 $sql .= " GROUP BY t.rowid, t.libelle, t.subscription, d.statut";
 
 dol_syslog("index.php::select nb of members per type", LOG_DEBUG);
-$resql = $db->query($sql);
-if ($resql) {
-	$num = $db->num_rows($resql);
+$result = $db->query($sql);
+if ($result) {
+	$num = $db->num_rows($result);
 	$i = 0;
 	while ($i < $num) {
-		$objp = $db->fetch_object($resql);
+		$objp = $db->fetch_object($result);
 
 		$adhtype = new AdherentType($db);
 		$adhtype->id = $objp->rowid;
@@ -127,7 +127,7 @@ if ($resql) {
 
 		$i++;
 	}
-	$db->free($resql);
+	$db->free($result);
 }
 
 $now = dol_now();
@@ -143,16 +143,16 @@ $sql .= " AND t.rowid = d.fk_adherent_type";
 $sql .= " GROUP BY d.fk_adherent_type";
 
 dol_syslog("index.php::select nb of uptodate members by type", LOG_DEBUG);
-$resql = $db->query($sql);
-if ($resql) {
-	$num = $db->num_rows($resql);
+$result = $db->query($sql);
+if ($result) {
+	$num = $db->num_rows($result);
 	$i = 0;
 	while ($i < $num) {
-		$objp = $db->fetch_object($resql);
+		$objp = $db->fetch_object($result);
 		$MembersUpToDate[$objp->fk_adherent_type] = $objp->somme;
 		$i++;
 	}
-	$db->free($resql);
+	$db->free();
 }
 
 /*
