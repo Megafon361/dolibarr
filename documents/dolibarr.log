@@ -1529,6 +1529,3 @@
 2022-07-27 15:02:18 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/comm/index.php - action=, massaction=
 2022-07-27 15:02:23 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/compta/index.php - action=, massaction=
 2022-07-27 15:02:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/fourn/facture/list.php - action=, massaction=
-2022-07-28 20:50:08 WARNING ::1             A module ask to load sql files into /budgetreport/sql/ but this directory was not found.
-2022-07-28 20:56:04 ERR     ::1             DoliDBMysqli::query SQL Error query: ALTER TABLE llx_facturadian_myobject_extrafields ADD INDEX idx_fk_object(fk_object);
-2022-07-28 20:56:04 ERR     ::1             DoliDBMysqli::query SQL Error message: DB_ERROR_NOSUCHTABLE Table 'dolibarr.llx_facturadian_myobject_extrafields' doesn't exist
