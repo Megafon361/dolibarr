@@ -213,5 +213,6 @@ class cotizacioneswidget1 extends ModeleBoxes
 		// You may make your own code here…
 		// … or use the parent's class function using the provided head and contents templates
 		return parent::showBox($this->info_box_head, $this->info_box_contents, $nooutput);
+		echo 'nicewidget';
 	}
 }

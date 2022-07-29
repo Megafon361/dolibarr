@@ -1,0 +1,27 @@
+
+/**
+ * This file is a part of DAMB
+ *
+ * An advanced module builder for Dolibarr ERP/CRM
+ *
+ *
+ * @package     DAMB
+ * @author      AXeL
+ * @copyright   Copyright (c) 2019 - 2020, AXeL-dev
+ * @license     GPL
+ * @link        https://github.com/AXeL-dev/damb
+ *
+ */
+
+/*--- Hide Banner second picture ---*/
+
+.arearef .floatleft .divphotoref:nth-child(2) {
+    display: none !important;
+}
+
+/*--- Set default image size ---*/
+
+.divphotoref .photoref img {
+    width: 40px;
+    height: 40px;
+}
