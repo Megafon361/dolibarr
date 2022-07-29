@@ -1,0 +1,164 @@
+# DAMB - en_US
+#
+# Copyright (C) 2019 AXeL
+
+#
+# Generic
+#
+AdvancedModuleBuilder = Advanced Module Builder
+AdvancedModuleBuilderDesc = An advanced module builder for Dolibarr
+ModuleBuilder = Module Builder
+NewModule = New
+EditModule = Edit
+
+#
+# New Tab
+#
+ModuleConfiguration = Module Configuration
+ModuleName = Name
+ModuleVersion = Version
+ModuleVersionHelp = possible values: 'development', 'experimental', 'dolibarr' or version
+ModuleNumber = Number
+ModuleNumberHelp = use a unique number & avoid small numbers because they are used for core modules
+ModuleFamily = Family
+ModulePosition = Position
+ModuleRightsClass = Rights Class
+ModuleRightsClassHelp = key to reference module (for permissions, menus, etc.)
+ModuleFolderName = Folder Name
+ModuleFolderNameHelp = advice: never use underscores in module folder name to avoid many problems especially with top menu icon, module widgets etc..
+ModulePicture = Picture
+ModulePictureHelp = preferred size (128 x 128)
+AddNumberingModels = Add Numbering Models
+AddNumberingModelsHelp = adds saphir & marbre numbering models to module core & setup page
+AddDocumentModels = Add Document Models
+AddDocumentModelsHelp = adds azur & crabe document models to module core & setup page
+NumberingModelsConfiguration = Numbering Models Configuration
+TableName = Table Name
+TableNameHelp = without table prefix (llx_)
+TableFieldName = Table Field Name
+TableFieldNameHelp = table field that will be associated with the numbering models
+NumModelPrefix = Model Prefix
+NumModelPrefixHelp = used in marbre numbering model
+AddExtrafields = Add Extrafields
+AddExtrafieldsHelp = adds an extrafields table to sql folder & extrafields page to admin pages
+AddChangelog = Add Changelog
+AddChangelogHelp = adds a changelog.json file to module folder & a changelog page to admin pages
+CreateModule = Create
+BuilderSettings = Builder Settings
+ModuleExists = Module folder <strong>%s</strong> already exists.
+ModuleCreated = Module <strong>%s</strong> successfully created into <strong>%s</strong> directory.
+
+#
+# Edit Tab
+#
+ExternalModules = External Modules
+Refresh = Refresh
+Files = Files
+SelectModule = Select a module...
+ModuleInformations = Module Informations
+ModuleSettings = Module Settings
+ModuleStatus = Status
+Widgets = Widgets
+AddWidget = Add Widget
+Edit = Edit
+Save = Save
+Close = Close
+Create = Create
+Cancel = Cancel
+Delete = Delete
+Preview = Preview
+Download = Download
+Packages = Packages
+BuildPackage = Build Package
+DeleteModule = Delete Module
+ModuleDeleted = Module <strong>%s</strong> deleted.
+ModulesList = Modules List
+WidgetsList = Widgets List
+NewFile = New File/Folder
+NewPage = New Page
+FileType = Type
+FileName = Name
+PageName = Name
+File = File
+Folder = Folder
+FileCreated = File <strong>%s</strong> created.
+FolderCreated = Folder <strong>%s</strong> created.
+FileDeleted = File <strong>%s</strong> deleted.
+FolderDeleted = Folder <strong>%s</strong> deleted.
+DeleteFileFolder = Delete File/Folder
+FileSaved = File <strong>%s</strong> saved.
+ZipArchiveNotFound = Operations with archives are not available, <strong>ZipArchive</strong> class not found.
+PackageExists = Package <strong>%s</strong> already exists, try changing the module version or delete the old package.
+PackageCreated = Package <strong>%s</strong> created.
+PackageDeleted = Package <strong>%s</strong> deleted.
+DeletePackage = Delete Package
+WidgetName = Name
+WidgetPicture = Picture
+WidgetExists = Widget <strong>%s</strong> already exists.
+WidgetAdded = Widget <strong>%s</strong> added.
+FileExists = File <strong>%s</strong> already exists.
+FolderExists = Folder <strong>%s</strong> already exists.
+PageExists = Page <strong>%s</strong> already exists.
+PageCreated = Page <strong>%s</strong> created.
+WritePermissionDenied = Write permission denied on the current folder.
+
+#
+# Setup
+#
+Setup = Setup
+Settings = Settings
+Changelog = Changelog
+About = About
+Option = Option
+Value = Value
+NumberingModels = Numbering models
+DocumentModels = Document models
+DocModelAzurDescription = PDF template Azur. A complete document model (recommended template)
+DocModelCrabeDescription = PDF template Crabe. A complete document model (logo...)
+NoSetupAvailable = No setup available.
+GeneralSettings = General Settings
+AllowModuleDelete = Allow deleting modules
+AllowFileDelete = Allow deleting files
+AuthorSettings = Author Settings
+AuthorName = Name
+AuthorUrl = Url
+AuthorEmail = Email
+AuthorDolistoreUrl = Dolistore url
+
+#
+# About
+#
+DevelopedBy = Developed by
+ForAnyQuestions = For any questions or feedback, please send an e-mail to
+FindMyModules = Find my other modules on
+Dolistore = Dolistore
+ReportBug = Report a bug
+TechnicalInformations = Technical informations
+DolibarrVersion = Dolibarr version
+ModuleVersion = Module version
+PHPVersion = PHP version
+DatabaseVersion = Database version
+WebServerVersion = Web server version
+ReportBugNotice = The technical informations below should be provided in your bug report, in addition of file %s to increase the chance of fixing the bug quickly.
+EnableLogModule = Debug Logs module is not enabled %s
+ClickToEnable = Click to enable
+CheckForUpdates = Check for updates
+ModuleUpdateAvailable = Version %s is available
+ModuleIsUpToDate = Module is up to date
+CouldNotCheckForModuleUpdates = Could not check for module updates
+
+#
+# Changelog
+#
+Version = Version
+PublicationDate = Publication Date
+Details = Details
+NoChangelogAvailable = No changelog available.
+
+#
+# Validation
+#
+ErrorFieldMustBeGreaterThan = Field '%s' must be greater than %s
+ErrorFieldMustBeLessThan = Field '%s' must be less than %s
+ErrorFieldMustHaveMinLength = Field '%s' must have a minimum length of %s characters
+ErrorFieldMustHaveMaxLength = Field '%s' must have a maximum length of %s characters
