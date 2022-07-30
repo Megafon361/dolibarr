@@ -407,7 +407,7 @@ foreach ($object->fields as $key => $val) {
 	
 }
 #----------------->RED  
-print '</div>'; //CERRAR ROJO
+//print '</div>'; //CERRAR ROJO
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 
