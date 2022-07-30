@@ -37,8 +37,8 @@ include 'myStuff/js/sumador.js.php';
 $object->fields = dol_sort_array($object->fields, 'position');
 
 #----------------->RED  
-#print '<div class="ui inverted red segment">';
-print '<div class="ui segment">';
+#print '<div class="ui inverted grey segment">';
+print '<div class="ui red segment">';
 
 $boton = 0;
 
@@ -69,7 +69,7 @@ foreach ($object->fields as $key => $val) {
 			break;
 		case 'gastos':
 			###ABRO primer BLUE
-			print'<div class="ui segment">';
+			#print'<div class="ui segment">';
 			#print'<div class="ui inverted blue segment">';
 			#GRID 1
 			
@@ -100,15 +100,15 @@ foreach ($object->fields as $key => $val) {
 			break;
 		case 'label':
 		case 'description':
-		case 'subtotal':
+		#case 'subtotal':
 		case 'total':
 			#Row 2 
-			print '<div class="row">';
+			#print '<div class="row">';
 			break;
 		#tabla
 		case 'C0Ro':
 			#print'<div class="ui inverted violet segment">';
-			print'<div class="ui segment">';
+			#print'<div class="ui segment">';
 			#print'<table class="ui celled collapsing single line table" >';
 			print'<table class="ui celled single line table" >';
 			print '
@@ -301,14 +301,13 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
-			//echo '';
-			break;
-		//print '</div>';
-		//print '<!-- Cierra Amarillo -->';			
+
+			break;		
 		default:
-			print '</div>';
-			//print '</div>';
+			
+		
 			print '<!-- Cierra Amarillo -->';
+			print '</div>';
 			#cierro columna
 			#print '</div>';
 
@@ -325,7 +324,7 @@ foreach ($object->fields as $key => $val) {
 		case 'megafon':
 		case 'iva':
 			#Cierra row 1
-			print '</div>';
+			#print '</div>';
 			break;
 	    case 'fk_project':
 			#Cierra row 2
@@ -336,17 +335,18 @@ foreach ($object->fields as $key => $val) {
 			#cierro Row
 			print '</div>';
 			#cierro blue
-			print '</div>';
+			#print '</div>';
 			#cierra Grid
 			print '</div>';
 			break;
 		case 'note_private':
-			#Cierra Row 3
-			print '</div>';
+			
+			print '<!-- Cierra Row 3 --></div>';
+			#print '</div>';
 			#cierra Grid
-			print '</div>';
+			print '<!-- Cierra GRID --></div>';
 			#Cierra BLUE 1
-			print '</div>';
+			#print '</div>';
 
 		
 			break;
@@ -363,7 +363,7 @@ foreach ($object->fields as $key => $val) {
 			<tfoot>
 				<tr>
 					<th></th>
-					<th><span>Sub: $</span><input class="subtotal2" max-width: 5px; id="subtotal2"></input></th>
+					<th><span>Sub: $</span><output class="subtotal2" max-width: 5px; id="subtotal2"></output></th>
 					<th></th>
 					<th></th>
 					<th>Pago</th>
@@ -407,7 +407,9 @@ foreach ($object->fields as $key => $val) {
 	
 }
 #----------------->RED  
-//print '</div>'; //CERRAR ROJO
+
+
+print '</div>'; //CERRAR ROJO
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
 

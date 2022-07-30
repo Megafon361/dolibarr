@@ -139,14 +139,11 @@ td.Cant {
 
 #fk_soc {max-width: 150px;}
 td {
-	padding: 0;
+	
 
 }
 td.Pago {
-	padding-left: 0%;
-	padding-right: 0%;
-	background-color: blue;
-	margin: 0px;
+
 }
 
 
@@ -167,6 +164,6 @@ td.Pago {
 
 
 td {
-	padding: 0;
+
 
 }

@@ -107,7 +107,7 @@ class Cotizacion extends CommonObject
 		'rowid' => array('type'=>'integer', 'label'=>'TechnicalID', 'enabled'=>'1', 'position'=>1, 'notnull'=>1, 'visible'=>0, 'noteditable'=>'1', 'index'=>1, 'css'=>'left', 'comment'=>"Id"),
 		'ref' => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>'1', 'position'=>2, 'notnull'=>1, 'visible'=>4, 'noteditable'=>'1', 'default'=>'(PROV)', 'index'=>1, 'searchall'=>1, 'validate'=>'1', 'comment'=>"Reference of object"),
 		'Usuario' => array('type'=>'integer:User:user/class/user.class.php', 'label'=>'Usuario', 'enabled'=>'1', 'position'=>3, 'notnull'=>0, 'visible'=>4,),
-		'fk_soc' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND client=3 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'ThirdParty', 'enabled'=>'1', 'position'=>5, 'notnull'=>-1, 'visible'=>1, 'index'=>1, 'css'=>'maxwidth300 widthcentpercentminusxx', 'help'=>"LinkToThirparty", 'validate'=>'1',),
+		'fk_soc' => array('type'=>'integer:Societe:societe/class/societe.class.php:1:status=1 AND entity IN (__SHARED_ENTITIES__)', 'label'=>'ThirdParty', 'enabled'=>'1', 'position'=>5, 'notnull'=>-1, 'visible'=>1, 'index'=>1, 'css'=>'maxwidth300 widthcentpercentminusxx', 'help'=>"LinkToThirparty", 'validate'=>'1',),
 		'trabajo' => array('type'=>'varchar(128)', 'label'=>'trabajo', 'enabled'=>'1', 'position'=>6, 'notnull'=>0, 'visible'=>-1,),
 		'fk_project' => array('type'=>'integer:Project:projet/class/project.class.php:1', 'label'=>'Project', 'enabled'=>'1', 'position'=>9, 'notnull'=>-1, 'visible'=>-1, 'index'=>1, 'css'=>'maxwidth300 widthcentpercentminusxx', 'validate'=>'1',),
 		'description' => array('type'=>'html', 'label'=>'Description', 'enabled'=>'1', 'position'=>10, 'notnull'=>0, 'visible'=>3, 'validate'=>'1',),
