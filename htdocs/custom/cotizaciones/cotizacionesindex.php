@@ -100,6 +100,14 @@ print '<div class="fichecenter"><div class="fichethirdleft">';
 
 // BEGIN MODULEBUILDER DRAFT MYOBJECT
 // Draft MyObject
+
+#start add list
+
+
+
+
+
+#end
 if (! empty($conf->cotizaciones->enabled) && $user->rights->cotizaciones->read)
 {
 	$langs->load("orders");

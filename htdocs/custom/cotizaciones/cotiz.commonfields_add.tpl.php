@@ -36,8 +36,8 @@ include 'myStuff/js/sumador.js.php';
 
 $object->fields = dol_sort_array($object->fields, 'position');
 
-#----------------->RED
- print '<div class="ui inverted red segment">';
+#----------------->RED  
+print '<div class="ui inverted red segment">';
 
 $boton = 0;
 
@@ -56,24 +56,37 @@ foreach ($object->fields as $key => $val) {
 	switch ($key) {
 		//case 'Usuario':
 		case 'fk_soc':
-			print'<div class="ui inverted teal segment p-0 m-0">';
+			###ABRO primer green 
+			print'<div class="ui inverted teal segment">';
+			print' <div class="ui grid">';
 			//print'<div class="ui  segment">';
-			print' <div class="ui two column grid p-0 m-0">';
-			//<div class="row">';
+			print '<div class="row">';
 			break;
+		case 'descripcion':
+			#cierro tree column
+			print '</div></div>';
+			break;
+
 		case 'gastos':
 			//case 'status':
-			print'<div class="ui inverted blue segment p-0 m-0">';
+				print '</div>';
+				###ABRO segundo Green
+				//print' <div class="ui three column grid ">';
+				print'<div class="ui inverted blue segment ">';
 			//print'<div class="ui  segment">';
-			print' <div class="ui three column grid p-0 m-0">';
+			
 			//<div class="row">';
 			break;
 		#tabla
 		case 'C0Ro':
-			print'<div class="ui violet segment">';
+			print'<div class="ui inverted violet segment">';
+			//print '<div class="table-responsive">';
+			//print '<code>overflow: hidden;</code>';
 			//print'<div class="ui inverted violet segment">';
-			//print'<table class="ui celled collapsing single line table" >
-			print'<table class="ui celled single line table" >
+			print'<table class="ui celled collapsing single line table" >';
+			//print '<table class="table table-hover table-bordered">';
+			//print'<table class="ui celled single line table" >';
+			print '
 			<thead>
 				<tr>
 			  		<th>Rol</th>
@@ -84,15 +97,15 @@ foreach ($object->fields as $key => $val) {
 			  	</tr>
 			</thead>';
 		
-			#print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
-			print '<tbody><tr><td label="'.$val["label"].'">';
+			print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
+			#print '<tbody><tr><td label="'.$val["label"].'">';
 			break;
 		case 'C1Ro':
 		case 'C2Ro':
 		case 'C3Ro':
 		case 'C4Ro':
-			#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
-			echo '<tr><td label="'.$val["label"].'">';
+			echo '<tr><td class="collapsing" label="'.$val["label"].'">';
+			#echo '<tr><td label="'.$val["label"].'">';
 			break;
 				case 'C0Pr':
 		case 'C0Ca':
@@ -118,8 +131,8 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
-			#echo '<td class="collapsing" label="'.$val["label"].'">';
-			echo '<td label="'.$val["label"].'">';
+			echo '<td class="collapsing" label="'.$val["label"].'">';
+			#echo '<td label="'.$val["label"].'">';
 			break;	
     	default:
         	# code...
@@ -155,7 +168,7 @@ foreach ($object->fields as $key => $val) {
 		default:
 			//yellow
 			//print'<div class="ui yellow segment">';
-			print'<div class="ui orange segment">';
+			print'<div class="ui inverted orange segment">';
 			/* 
 			
 			if ($boton==0) {
@@ -273,13 +286,15 @@ foreach ($object->fields as $key => $val) {
 	    case 'label':
 		//case 'total':
 		case 'status':
-			print '</div>'; //</div></div>';
+			print '</div>'; 
 			break;
 		case 'total':
-			print '      
-			<div class="ui form">
-				<div class="inline fields">
-					<div class="ui pink segment"> 
+			#Cierro segundo azul 
+			print ' </div>';
+			print '     
+			<div class="ui inverted pink segment"> 	
+				<div class="ui form">
+					<div class="inline fields">					
 						<label>?</label>
 						<div class="field">
 							<div class="ui radio checkbox">
@@ -300,7 +315,7 @@ foreach ($object->fields as $key => $val) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>	
 		  	</div>';
 		  	#####FIJATE ESTA
 			break;
@@ -322,7 +337,10 @@ foreach ($object->fields as $key => $val) {
 					<th>Pago</th>
 				</tr>
 			</tfoot>
-		  	</table></div></div></div>';
+		  	</table>
+			</div>
+			</div>
+			</div>';
 			break;
 		case 'C0Pr':
 		case 'C0Ca':
@@ -356,7 +374,7 @@ foreach ($object->fields as $key => $val) {
 	}
 	
 }
-#----------------->RED 
+#----------------->RED  
 print '</div>'; //CERRAR ROJO
 ?>
 <!-- cerrar rojo END PHP TEMPLATE commonfields_add.tpl.php -->
