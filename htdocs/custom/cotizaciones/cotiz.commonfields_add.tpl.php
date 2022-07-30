@@ -37,7 +37,8 @@ include 'myStuff/js/sumador.js.php';
 $object->fields = dol_sort_array($object->fields, 'position');
 
 #----------------->RED  
-print '<div class="ui inverted red segment">';
+#print '<div class="ui inverted red segment">';
+print '<div class="ui segment">';
 
 $boton = 0;
 
@@ -54,38 +55,62 @@ foreach ($object->fields as $key => $val) {
 	//------------------------------------------------
     # OPEN BLUE
 	switch ($key) {
-		//case 'Usuario':
+		
 		case 'fk_soc':
-			###ABRO primer green 
-			print'<div class="ui inverted teal segment">';
-			print' <div class="ui grid">';
+			###ABRO primer BLUE
+			#print'<div class="ui inverted blue segment">';
+			print'<div class="ui segment">';
+			#GRID 1
+		  print' <div class="ui three grid">';
+							  
 			//print'<div class="ui  segment">';
+			#Row 1
 			print '<div class="row">';
 			break;
-		case 'descripcion':
-			#cierro tree column
-			print '</div></div>';
-			break;
-
 		case 'gastos':
-			//case 'status':
-				print '</div>';
-				###ABRO segundo Green
-				//print' <div class="ui three column grid ">';
-				print'<div class="ui inverted blue segment ">';
-			//print'<div class="ui  segment">';
+			###ABRO primer BLUE
+			print'<div class="ui segment">';
+			#print'<div class="ui inverted blue segment">';
+			#GRID 1
 			
-			//<div class="row">';
+							#Imprimo o checkbox 
+							print '     
+							<div class="ui segment"> 	
+								<div class="ui form">
+									<div class="ui radio checkbox">
+										<input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
+										<label>con IVA</label>
+									</div>
+									<div class="ui radio checkbox">
+										<input type="radio" id="check2" onchange="sumar();" name="frequency">
+										<label>Sin IVA</label>
+									</div>	
+									<div class="ui radio checkbox">
+										<input type="radio" id="check3" onchange="sumar();" name="frequency">
+										<label>Contado</label>
+									</div>						
+								</div>	
+							</div>';
+							  #####FIJATE ESTA
+							  print' <div class="ui three grid">';
+							  
+			//print'<div class="ui  segment">';
+			#Row 1
+			print '<div class="row">';
+			break;
+		case 'label':
+		case 'description':
+		case 'subtotal':
+		case 'total':
+			#Row 2 
+			print '<div class="row">';
 			break;
 		#tabla
 		case 'C0Ro':
-			print'<div class="ui inverted violet segment">';
-			//print '<div class="table-responsive">';
-			//print '<code>overflow: hidden;</code>';
-			//print'<div class="ui inverted violet segment">';
-			print'<table class="ui celled collapsing single line table" >';
-			//print '<table class="table table-hover table-bordered">';
-			//print'<table class="ui celled single line table" >';
+			#print'<div class="ui inverted violet segment">';
+			print'<div class="ui segment">';
+			#print'<table class="ui celled collapsing single line table" >';
+			print'<table class="ui celled single line table" >';
 			print '
 			<thead>
 				<tr>
@@ -97,17 +122,17 @@ foreach ($object->fields as $key => $val) {
 			  	</tr>
 			</thead>';
 		
-			print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
-			#print '<tbody><tr><td label="'.$val["label"].'">';
+			#print '<tbody><tr><td class="collapsing"  label="'.$val["label"].'">';
+			print '<tbody><tr><td label="'.$val["label"].'">';
 			break;
 		case 'C1Ro':
 		case 'C2Ro':
 		case 'C3Ro':
 		case 'C4Ro':
-			echo '<tr><td class="collapsing" label="'.$val["label"].'">';
-			#echo '<tr><td label="'.$val["label"].'">';
+			#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
+			echo '<tr><td label="'.$val["label"].'">';
 			break;
-				case 'C0Pr':
+		case 'C0Pr':
 		case 'C0Ca':
 		case 'C0Pa':
 		case 'C1Ro':
@@ -131,13 +156,17 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
-			echo '<td class="collapsing" label="'.$val["label"].'">';
-			#echo '<td label="'.$val["label"].'">';
+			#echo '<td class="collapsing" label="'.$val["label"].'">';
+			echo '<td label="'.$val["label"].'">';
 			break;	
     	default:
         	# code...
         	break;    
 	}
+
+
+
+
 	switch ($key) {
 		case 'C0Ro':
 		case 'C0Pr':
@@ -166,24 +195,18 @@ foreach ($object->fields as $key => $val) {
 		case 'C4As':
 		break;
 		default:
-			//yellow
-			//print'<div class="ui yellow segment">';
-			print'<div class="ui inverted orange segment">';
-			/* 
-			
-			if ($boton==0) {
-				print'<div class="ui inverted olive segment">';
-				$boton = 1;
-			}else {
-				print'<div class="ui inverted yellow segment">';
-				$boton=0;
-			}
-			 */
-		
+			#ORANGE/Yellow
+			//print'<div class="ui inverted orange segment">';		
+			//print ''
+			//echo str_repeat('&nbsp;', 2);
+			#ABRO COLUMNA
+			#print '<div class="column">';
+
+			#agrego separador 1
+			echo str_repeat('&nbsp;', 2);
+			print '   <div class="separador">';
+
 			print '<div'; 
-			
-			
-			
 			print ' class="ui small icon input';
 			if (isset($val['notnull']) && $val['notnull'] > 0) {
 				print ' fieldrequired';
@@ -193,15 +216,23 @@ foreach ($object->fields as $key => $val) {
 			}
 			print '"';
 			print '>';
+
+			#cierro separador 1
+			print '</div>';
+			#agrego separador 2
+			print '<div class="separador">';
+
 			if (!empty($val['help'])) {
 				print $form->textwithpicto($langs->trans($val['label']), $langs->trans($val['help']));
 			} else {
 				print $langs->trans($val['label']);
 			}
-			print '</div>';
+			#ACA NO CIERRA EL AMARILLO O SI?  
+			//print '</div>';
 			//     print '<!-- Cierra Amarillo -->';
-			//echo str_repeat('&nbsp;', 5);
-		
+
+			echo str_repeat('&nbsp;', 2);
+			
 			break;
 	}
 
@@ -210,9 +241,9 @@ foreach ($object->fields as $key => $val) {
 
 
 	//print '<div class="valuefieldcreate">';
-	/* 	if (!empty($val['picto'])) {
-	print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
-	} */
+	// 	if (!empty($val['picto'])) {
+	//print img_picto('', $val['picto'], '', false, 0, 0, '', 'pictofixedwidth');
+	//} 
 	if (in_array($val['type'], array('int', 'integer'))) {
 		$value = GETPOST($key, 'int');
 	} elseif ($val['type'] == 'double') {
@@ -270,55 +301,56 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
-			echo '';
+			//echo '';
 			break;
 		//print '</div>';
 		//print '<!-- Cierra Amarillo -->';			
 		default:
 			print '</div>';
+			//print '</div>';
 			print '<!-- Cierra Amarillo -->';
+			#cierro columna
+			#print '</div>';
+
+
+			#cierro separador 2
+			print '</div>'; 
 			break;
 	}
 	
 
 	//CERRAR AZUL
 	switch ($key) {
-	    case 'label':
-		//case 'total':
-		case 'status':
-			print '</div>'; 
+		case 'entrega':
+		case 'megafon':
+		case 'iva':
+			#Cierra row 1
+			print '</div>';
+			break;
+	    case 'fk_project':
+			#Cierra row 2
+			print '</div>';
 			break;
 		case 'total':
-			#Cierro segundo azul 
-			print ' </div>';
-			print '     
-			<div class="ui inverted pink segment"> 	
-				<div class="ui form">
-					<div class="inline fields">					
-						<label>?</label>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="frequency" onchange="sumar();" id="check1" checked="checked">
-								<label>con IVA</label>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" id="check2" onchange="sumar();" name="frequency">
-								<label>Sin IVA</label>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" id="check3" onchange="sumar();" name="frequency">
-								<label>Contado</label>
-							</div>
-						</div>
-					</div>
-				</div>	
-		  	</div>';
-		  	#####FIJATE ESTA
+
+			#cierro Row
+			print '</div>';
+			#cierro blue
+			print '</div>';
+			#cierra Grid
+			print '</div>';
 			break;
+		case 'note_private':
+			#Cierra Row 3
+			print '</div>';
+			#cierra Grid
+			print '</div>';
+			#Cierra BLUE 1
+			print '</div>';
+
+		
+			break;
+		
 		case 'C0Pa':
 		case 'C1Pa':
 		case 'C2Pa':
@@ -331,7 +363,7 @@ foreach ($object->fields as $key => $val) {
 			<tfoot>
 				<tr>
 					<th></th>
-					<th><span>Subotal: $</span><input class="subtotal2" id="subtotal2"></input></th>
+					<th><span>Sub: $</span><input class="subtotal2" max-width: 5px; id="subtotal2"></input></th>
 					<th></th>
 					<th></th>
 					<th>Pago</th>

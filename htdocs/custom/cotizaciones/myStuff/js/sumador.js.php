@@ -8,58 +8,55 @@ console.log("WOOOOOOOOOOOOOOOOW!");
 //alert("total");
 
   $( document ).ready(function() {
-    console.log( "ready! cotizacard.css.php" );
-	
-	/* $("[tipo=\'Cant\']").removeClass("minwidth400 flat --success");
-	$("input [tipo=\'Cant\']").addClass("Cant");
-	$("[tipo=\'Cant\']").removeAttr("maxlength");
+    console.log( "ready! cotizacard.css.php jkjkjk" );
+
+	$("*[tipo=\'Precio\']").removeClass();
 	$("[tipo=\'Cant\']").attr("maxlength","2");
-		
-	
-	$("td.Precio").removeClass();	
-	$("td.Cant").removeClass();	
-
-
-	$("*[tipo=\'Precio\']").removeClass("flat minwidth400 --success");
-	$("input [tipo=\'Precio\']").addClass("Precio");
-	$("[tipo=\'Precio\']").removeAttr("maxlength");
-	$("[tipo=\'Precio\']").attr("maxlength","12");
-
-	$("[tipo=\'Pago\']").removeClass("flat minwidth400 --success");
-	$("[tipo=\'Pago\']").addClass("Pago");
-	$("[tipo=\'Pago\']").removeAttr("maxlength");
-	$("[tipo=\'Pago\']").attr("maxlength","12");
-
-
-
-	*/
-	//$("form *").removeClass();	
-	/*
-$("#C0Pr").removeClass();
-$("#C1Pr").removeClass();
-$("#C2Pr").removeClass();
-$("#C3Pr").removeClass();
-$("#C4Pr").removeClass();
-
-$("#C0Ca").removeClass();
-$("#C1Ca").removeClass();
-$("#C2Ca").removeClass();
-$("#C3Ca").removeClass();
-$("#C4Ca").removeClass();
-*/
+	//
 
 $("#C0Pr").addClass("Precio");
-$("#C1Pr").addClass("Precio");
-$("#C2Pr").addClass("Precio");
-$("#C3Pr").addClass("Precio");
-$("#C4Pr").addClass("Precio");
-
-
 $("#C0Ca").addClass("Cant");
+$("#C1Pr").addClass("Precio");
 $("#C1Ca").addClass("Cant");
+$("#C2Pr").addClass("Precio");
 $("#C2Ca").addClass("Cant");
+$("#C3Pr").addClass("Precio");
 $("#C3Ca").addClass("Cant");
+$("#C4Pr").addClass("Precio");
 $("#C4Ca").addClass("Cant");
+
+
+//$("#C0Pr").removeClass();
+
+
+//$("[tipo=\'Cant\']").removeClass("minwidth400 flat --success");
+//$("input [tipo=\'Cant\']").addClass("Cant");
+//$("[tipo=\'Cant\']").removeAttr("maxlength");
+//$("[tipo=\'Cant\']").attr("maxlength","2");
+		
+	
+	//$("td.Precio").removeClass();	
+	//$("td.Cant").removeClass();	
+
+
+	//$("*[tipo=\'Precio\']").removeClass("flat minwidth400 --success");
+	
+	
+	//$("input [tipo=\'Precio\']").addClass("Precio");
+	//$("[tipo=\'Precio\']").removeAttr("maxlength");
+	//$("[tipo=\'Precio\']").attr("maxlength","12");
+	//$("[tipo=\'Precio\']").attr("with","2px");
+
+	//$("[tipo=\'Pago\']").removeClass("flat minwidth400 --success");
+	//$("[tipo=\'Pago\']").addClass("Pago");
+	//$("[tipo=\'Pago\']").removeAttr("maxlength");
+	//$("[tipo=\'Pago\']").attr("maxlength","12");
+
+
+
+	
+	//$("form *").removeClass();	
+	
 
 	
 	

@@ -105,11 +105,7 @@ div.mainmenu.cotizaciones {
 	background-image: none;
 }
 
-.Precio input {
-	
-background-color: blue;
 
-}
 
 
 .Cant input{
@@ -125,7 +121,7 @@ td.Cant {
 .total{
 	font-weight: bolder;
 }
-{padding: 0;}
+
 
 
 
@@ -138,12 +134,7 @@ td.Cant {
 }
 
 
-.Pago input {
-	
-	padding: 0;
-	margin: 0%;
- 
-}
+
 
 
 #fk_soc {max-width: 150px;}
@@ -156,4 +147,26 @@ td.Pago {
 	padding-right: 0%;
 	background-color: blue;
 	margin: 0px;
+}
+
+
+
+#C0Pr {max-width: 80px;}
+#C1Pr {max-width: 80px;}
+#C2Pr {max-width: 80px;}
+#C3Pr {max-width: 80px;}
+#C4Pr {max-width: 80px;}
+
+#C0Ca {max-width: 40px;}
+#C1Ca {max-width: 40px;}
+#C2Ca {max-width: 40px;}
+#C3Ca {max-width: 50px;}
+#C4Ca {max-width: 40px;}
+
+#subtotal2 {max-width: 40px;}
+
+
+td {
+	padding: 0;
+
 }
