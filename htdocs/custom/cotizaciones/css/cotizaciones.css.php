@@ -153,12 +153,22 @@ td.Pago {
 #C2Pr {max-width: 80px;}
 #C3Pr {max-width: 80px;}
 #C4Pr {max-width: 80px;}
+#C5Pr {max-width: 80px;}
+#C6Pr {max-width: 80px;}
+#C7Pr {max-width: 80px;}
+#C8Pr {max-width: 80px;}
+#C9Pr {max-width: 80px;}
 
 #C0Ca {max-width: 40px;}
 #C1Ca {max-width: 40px;}
 #C2Ca {max-width: 40px;}
 #C3Ca {max-width: 50px;}
 #C4Ca {max-width: 40px;}
+#C5Ca {max-width: 40px;}
+#C6Ca {max-width: 40px;}
+#C7Ca {max-width: 40px;}
+#C8Ca {max-width: 50px;}
+#C9Ca {max-width: 40px;}
 
 #subtotal2 {max-width: 40px;}
 

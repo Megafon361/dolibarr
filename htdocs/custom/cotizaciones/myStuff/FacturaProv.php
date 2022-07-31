@@ -209,7 +209,7 @@ if (empty($reshook)) {
 
 include "doliclass.php";
 $Message = "";
-$LINEAS = 5;
+$LINEAS = 10;
 
 if (!isset($NumCotiz)) {
     //echo "fuck, la variable  numcotiz no esta seteada";
@@ -230,9 +230,10 @@ for ($i=0; $i < $LINEAS; $i++) {
 	$Cant = 	'C'.$i.'Ca';
 	$Pago = 	'C'.$i.'Pa';
 
+ print '<br>';
+ 
 
-
-	if ($Asign != null) {
+	if ($Asign != null ) {
 		# code...
 	
 
@@ -248,7 +249,7 @@ for ($i=0; $i < $LINEAS; $i++) {
 		$Rol = 			$object->$Rol;
 		$Rol = getRol($Rol);
 		
-		
+		//echo 'Provedor: '.$Provedor.' - Precio:'.$Precio.' - Asign: '.$Asign.' - Cant: '.$Cant.'Pago '.$Pago.' ROL: '.$Rol;
 
 		/* 
 		$data['datec']="12331212";
@@ -305,6 +306,7 @@ for ($i=0; $i < $LINEAS; $i++) {
 		$data["label"]=   "1";//$object->label;
 		$data["ref"]= $object->ref;
 		$data["socid"]=  $object->$Provedor;//$object->fk_soc;
+		
 		$data["trabajo"]= $object->trabajo;
 		$data["desc"] = "DESC" ;
 		$data["note_private"] = $object->note_private;
@@ -329,23 +331,40 @@ for ($i=0; $i < $LINEAS; $i++) {
 
 
 
+		#### COMPROBAR QUE EXISTA EL PROOVEDOR
+		$comprobar = $object->$Asign;
+		switch ($comprobar) {
+			case '':
+			case NULL:
+			case 'null':
+			case 'NULL':
+			case null:
+				Print 'Provedor nulo    --->'.$comproobar;
+				# code...
+				break;
+			
+			default:
+			Print 'Provedor VALIDO    --->'.$comproobar;
+				//$FacturaCreada = AddInvoiceProovedores($socid,$ref,$ref_supplier,$note,$order_supplier,$date, $label);
+				$FacturaCreada = AddInvoiceProovedores($object->$Asign , $object->ref ,$object->trabajo ,$descripcion1,$object->order_supplier,$object->date, $object->label, $object->note_private);
+				#AÑADIR LINEAS
+				//function addLinesProv($FacturaCreada, $pu, $desc, $qty="1",$iva="0.00")
+				$AgregarLineas = addLinesProv($FacturaCreada, $Pago, $descripcion1,"1","0.00", $object->note_private);
+				break;
+		}
+		
+		
 		
 
+
+
 		
-		
-		//$FacturaCreada = AddInvoiceProovedores($socid,$ref,$ref_supplier,$note,$order_supplier,$date, $label);
-		$FacturaCreada = AddInvoiceProovedores($object->$Asign , $object->ref ,$object->trabajo ,$descripcion1,$object->order_supplier,$object->date, $object->label, $object->note_private);
-
-
-
-		#AÑADIR LINEAS
-		//function addLinesProv($FacturaCreada, $pu, $desc, $qty="1",$iva="0.00")
-		$AgregarLineas = addLinesProv($FacturaCreada, $Pago, $descripcion1,"1","0.00", $object->note_private);
 	
 	}
 	else{ 
 		$Message .= '<br> Error: Asign = '.$Asign. ' en el numero '.$i; 
 		echo '<br> ELSE';
+		echo $Message;
 	}
 
 

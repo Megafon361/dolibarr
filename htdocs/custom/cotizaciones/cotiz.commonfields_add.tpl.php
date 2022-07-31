@@ -129,6 +129,12 @@ foreach ($object->fields as $key => $val) {
 		case 'C2Ro':
 		case 'C3Ro':
 		case 'C4Ro':
+		case 'C5Ro':
+		case 'C6Ro':
+		case 'C7Ro':
+		case 'C8Ro':
+		case 'C9Ro':
+
 			#echo '<tr><td class="collapsing" label="'.$val["label"].'">';
 			echo '<tr><td label="'.$val["label"].'">';
 			break;
@@ -156,6 +162,37 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
+
+		case 'C5Pr':
+		case 'C6Pr':
+		case 'C7Pr':
+		case 'C8Pr':
+		case 'C9Pr':
+
+		case 'C5Ca':
+		case 'C6Ca':
+		case 'C7Ca':
+		case 'C8Ca':
+		case 'C9Ca':
+
+		case 'C5Ro':
+		case 'C6Ro':
+		case 'C7Ro':
+		case 'C8Ro':
+		case 'C9Ro':
+		
+		case 'C5As':
+		case 'C6As':
+		case 'C7As':
+		case 'C8As':
+		case 'C9As':
+		case 'C5Pa':
+		case 'C6Pa':
+		case 'C7Pa':
+		case 'C8Pa':
+		case 'C9Pa':
+
+
 			#echo '<td class="collapsing" label="'.$val["label"].'">';
 			echo '<td label="'.$val["label"].'">';
 			break;	
@@ -193,6 +230,33 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
+		case 'C5Pr':
+		case 'C6Pr':
+		case 'C7Pr':
+		case 'C8Pr':
+		case 'C9Pr':
+		case 'C5Ca':
+		case 'C6Ca':
+		case 'C7Ca':
+		case 'C8Ca':
+		case 'C9Ca':
+		case 'C5Ro':
+		case 'C6Ro':
+		case 'C7Ro':
+		case 'C8Ro':
+		case 'C9Ro':
+		case 'C5As':
+		case 'C6As':
+		case 'C7As':
+		case 'C8As':
+		case 'C9As':
+		case 'C5Pa':
+		case 'C6Pa':
+		case 'C7Pa':
+		case 'C8Pa':
+		case 'C9Pa':
+
+
 		break;
 		default:
 			#ORANGE/Yellow
@@ -301,6 +365,32 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
+		case 'C5Pr':
+		case 'C6Pr':
+		case 'C7Pr':
+		case 'C8Pr':
+		case 'C9Pr':
+		case 'C5Ca':
+		case 'C6Ca':
+		case 'C7Ca':
+		case 'C8Ca':
+		case 'C9Ca':
+		case 'C5Ro':
+		case 'C6Ro':
+		case 'C7Ro':
+		case 'C8Ro':
+		case 'C9Ro':
+		case 'C5As':
+		case 'C6As':
+		case 'C7As':
+		case 'C8As':
+		case 'C9As':
+		case 'C5Pa':
+		case 'C6Pa':
+		case 'C7Pa':
+		case 'C8Pa':
+		case 'C9Pa':
+		
 
 			break;		
 		default:
@@ -355,9 +445,15 @@ foreach ($object->fields as $key => $val) {
 		case 'C1Pa':
 		case 'C2Pa':
 		case 'C3Pa':
+		case 'C4Pa':
+		case 'C5Pa':
+		case 'C6Pa':
+		case 'C7Pa':
+		case 'C8Pa':
+		
 			print'</td></tr>';
 			break;
-		case 'C4Pa':
+		case 'C9Pa':
 			print'</td> </tr>
 			</tbody>
 			<tfoot>
@@ -398,6 +494,39 @@ foreach ($object->fields as $key => $val) {
 		case 'C2As':
 		case 'C3As':
 		case 'C4As':
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+		case 'C5PAs':
+		case 'C6PAs':
+		case 'C7PAs':
+		case 'C8PAs':
+		case 'C9PAs':
+
+						
 			echo '</td>';
 			break;
 		default:

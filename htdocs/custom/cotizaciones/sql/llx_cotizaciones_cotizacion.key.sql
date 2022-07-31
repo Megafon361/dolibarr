@@ -26,6 +26,11 @@ ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C1
 ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C2Ro (C2Ro);
 ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C3Ro (C3Ro);
 ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C4Ro (C4Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C5Ro (C5Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C6Ro (C6Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C7Ro (C7Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C8Ro (C8Ro);
+ALTER TABLE llx_cotizaciones_cotizacion ADD INDEX idx_cotizaciones_cotizacion_C9Ro (C9Ro);
 -- END MODULEBUILDER INDEXES
 
 --ALTER TABLE llx_cotizaciones_cotizacion ADD UNIQUE INDEX uk_cotizaciones_cotizacion_fieldxy(fieldx, fieldy);

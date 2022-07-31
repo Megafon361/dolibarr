@@ -309,7 +309,7 @@ $PresupuestoCreado = curl_exec($curl);
 //$result = json_decode($facturaCreada,1);
 curl_close($curl);
 
-//var_dump($PresupuestoCreado);
+var_dump($PresupuestoCreado);
 
 
 
@@ -321,6 +321,7 @@ curl_close($curl);
 
 $curl = curl_init();
 $url = $Root."proposals/".$PresupuestoCreado."/line";
+var_dump($url);
 //echo $url;
 
 /* 
@@ -451,7 +452,7 @@ curl_close($curl);
 echo "<br>";
 
 //echo "agregarlineas  ====>";
-//var_dump($AgregarLineas);
+var_dump($AgregarLineas);
 
 
 			
@@ -482,7 +483,7 @@ if (isSet($AgregarLineas) & $AgregarLineas != null) {
 		
 	
 	# code...
-}
+}else{print 'algo fallo';}
 
 
 

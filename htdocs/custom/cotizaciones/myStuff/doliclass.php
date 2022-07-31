@@ -184,7 +184,7 @@ function getCotizacion($n)	{
 	
 	}
 
-	
+	//,","Artistica","Guion","DF","Dron"]
 
 
 function getRol($n){
@@ -207,21 +207,32 @@ function getRol($n){
 		$resultado = "Locucion";
 	break;
 	case '5':
-		$resultado = "";
+		$resultado = "Sonido";
 	break;
 	case '6':
-		$resultado = "";
+		$resultado = "Color";
 	break;
 	case '7':
-		$resultado = "";
+		$resultado = "Equipos";
 	break;
 	case '8':
-		$resultado = "";
+		$resultado = "Asistente";
 	break;
 	case '9':
-		$resultado = "Dron";
+		$resultado = "Viaticos";
 		break;
-	
+		case '10':
+			$resultado = "Artistica";
+			break;
+		case '11':
+			$resultado = "Guion";
+			break;
+		case '12':
+			$resultado = "DF";
+					break;
+	case '13':
+						$resultado = "Dron";
+						break;
 	default:
 		# code...
 		break;
