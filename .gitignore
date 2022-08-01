@@ -55,6 +55,7 @@ package-lock.json
 doc/install.lock
 /factory/
 htdocs/Cotiz/env.php
+htdocs\custom\cotizaciones\myStuff\env.php
 documents/dolibarr.log
 documents/users/temp/PropaleStats_getNbByMonthWithPrevYear_es_AR_entity.1_user2.cache
 documents/users/temp/FactureStats_getAllByProductEntry_customer_es_ES_entity.1_user9.cache
