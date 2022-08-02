@@ -328,5 +328,20 @@ function addLinesProv($FacturaCreada, $pu, $desc, $qty="1",$iva="0.00", $note_pr
       "date_fin_prevue */
 
 
+	  function consolog($data) {
+		$output = $data;
+		if (is_array($output))
+			$output = implode(',', $output);
+	
+		echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+	}
 
+	function hopen($content,$notas,$tag){
+		if (!isset($tag)){
+			$tag = 'div';
+		}
+		if(isset($notas)){$print = '<-- '.$notas.'-->';}
+			if (isset($content){$print .= '<'.$tag.'>'.$content;}
+		}
+	
 ?>

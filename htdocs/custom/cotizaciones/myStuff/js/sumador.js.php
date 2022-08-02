@@ -8,7 +8,7 @@ console.log("WOOOOOOOOOOOOOOOOW!");
 //alert("total");
 
   $( document ).ready(function() {
-    console.log( "ready! cotizacard.css.php jkjkjk" );
+    console.log( "ready! cotizacard.css.php" );
 
 	$("*[tipo=\'Precio\']").removeClass();
 	$("[tipo=\'Cant\']").attr("maxlength","2");
@@ -24,6 +24,17 @@ $("#C3Pr").addClass("Precio");
 $("#C3Ca").addClass("Cant");
 $("#C4Pr").addClass("Precio");
 $("#C4Ca").addClass("Cant");
+$("#C5Pr").addClass("Precio");
+$("#C5Ca").addClass("Cant");
+$("#C6Pr").addClass("Precio");
+$("#C6Ca").addClass("Cant");
+$("#C7Pr").addClass("Precio");
+$("#C7Ca").addClass("Cant");
+$("#C8Pr").addClass("Precio");
+$("#C8Ca").addClass("Cant");
+$("#C9Pr").addClass("Precio");
+$("#C9Ca").addClass("Cant");
+
 
 
 //$("#C0Pr").removeClass();
