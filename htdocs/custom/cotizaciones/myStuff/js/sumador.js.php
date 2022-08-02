@@ -35,6 +35,16 @@ $("#C8Ca").addClass("Cant");
 $("#C9Pr").addClass("Precio");
 $("#C9Ca").addClass("Cant");
 
+$("#C5Ca").addClass("Cant");
+$("#C5Pr").addClass("Precio");
+$("#C6Ca").addClass("Cant");
+$("#C6Pr").addClass("Precio");
+$("#C7Ca").addClass("Cant");
+$("#C7Pr").addClass("Precio");
+$("#C8Ca").addClass("Cant");
+$("#C8Pr").addClass("Precio");
+$("#C9Ca").addClass("Cant");
+$("#C9Pr").addClass("Precio");
 
 
 //$("#C0Pr").removeClass();
@@ -91,7 +101,8 @@ function sumar() {
 	 {
 	  var cantidad = document.getElementsByClassName("Cant")[i].value;
 	  var precio = document.getElementsByClassName("Precio")[i].value;
-	  
+	  console.log(cantidad);
+	  console.log(precio);
 	  if (isNaN(parseFloat(cantidad))) {
 		  
 		 
