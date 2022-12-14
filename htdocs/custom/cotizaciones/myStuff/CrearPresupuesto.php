@@ -15,7 +15,7 @@ $cotizacion = getCotizacion($NumCotiz);
 if (!isset($NumCotiz)) {
     echo "fuck, la variable  numcotiz no esta seteada";
     # code...
-}
+} 
 
 
 ?>
