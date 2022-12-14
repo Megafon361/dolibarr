@@ -14,12 +14,12 @@ console.log("WOOOOOOOOOOOOOOOOW!");
 	$("[tipo=\'Cant\']").attr("maxlength","2");
 	//
 
-$("#C0Pr").addClass("Precio");
-$("#C0Ca").addClass("Cant");
+//$("#C0Pr").addClass("Precio");
+//$("#C0Ca").addClass("Cant");
 $("#C1Pr").addClass("Precio");
 $("#C1Ca").addClass("Cant");
-$("#C2Pr").addClass("Precio");
-$("#C2Ca").addClass("Cant");
+//$("#C2Pr").addClass("Precio");
+//$("#C2Ca").addClass("Cant");
 $("#C3Pr").addClass("Precio");
 $("#C3Ca").addClass("Cant");
 $("#C4Pr").addClass("Precio");
@@ -97,7 +97,7 @@ var gastos = 0
 function sumar() {
 
 	var suma =    0;
-	for (let i = 0; i < 5; i++)
+	for (let i = 0; i < 10; i++)
 	 {
 	  var cantidad = document.getElementsByClassName("Cant")[i].value;
 	  var precio = document.getElementsByClassName("Precio")[i].value;
