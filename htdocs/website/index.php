@@ -885,7 +885,6 @@ if ($action == 'addcontainer' && $usercanedit) {
 					} else {
 						// Clean some comment
 						//$tmpgeturl['content'] = dol_string_is_good_iso($tmpgeturl['content'], 1);
-						//$tmpgeturl['content'] = utf8_encode(utf8_decode($tmpgeturl['content']));
 						//$tmpgeturl['content'] = mb_convert_encoding($tmpgeturl['content'], 'UTF-8', 'UTF-8');
 						//$tmpgeturl['content'] = remove_bs($tmpgeturl['content']);
 						//$tmpgeturl['content'] = str_replace('$screen-md-max', 'auto', $tmpgeturl['content']);
@@ -2308,6 +2307,7 @@ if ($action == 'importsiteconfirm' && $usercanedit) {
 
 			if (!$error) {
 				$result = $object->importWebSite($fileofzip);
+
 				if ($result < 0) {
 					setEventMessages($object->error, $object->errors, 'errors');
 					$action = 'importsite';
@@ -2741,7 +2741,12 @@ if (!GETPOST('hide_websitemenu')) {
 
 			print '<input type="submit" class="button bordertransp"'.$disabled.' value="'.dol_escape_htmltag($langs->trans("CloneSite")).'" name="createfromclone">';
 
-			print '<input type="submit" class="buttonDelete bordertransp" name="deletesite" value="'.$langs->trans("Delete").'"'.($atleastonepage ? ' disabled="disabled"' : '').'>';
+			// Delete website
+			if ($website->status == $website::STATUS_VALIDATED) {
+				print '<input type="submit" class="buttonDelete bordertransp" name="deletesite" value="'.$langs->trans("Delete").'" disabled="disabled" title="'.dol_escape_htmltag($langs->trans("WebsiteMustBeDisabled")).'">';
+			} else {
+				print '<input type="submit" class="buttonDelete bordertransp" name="deletesite" value="'.$langs->trans("Delete").'"'.($atleastonepage ? ' disabled="disabled"' : '').'>';
+			}
 
 			// Regenerate all pages
 			print '<a href="'.$_SERVER["PHP_SELF"].'?action=regeneratesite&token='.newToken().'&website='.urlencode($website->ref).'" class="button bordertransp"'.$disabled.' title="'.dol_escape_htmltag($langs->trans("RegenerateWebsiteContent")).'"><span class="far fa-hdd"></span></a>';
@@ -3415,7 +3420,7 @@ if ($action == 'editcss') {
 	$maxfilesizearray = getMaxFileSizeArray();
 	$maxmin = $maxfilesizearray['maxmin'];
 	if ($maxmin > 0) {
-		$texte .= '<input type="hidden" name="MAX_FILE_SIZE" value="'.($maxmin * 1024).'">';	// MAX_FILE_SIZE must precede the field type=file
+		print '<input type="hidden" name="MAX_FILE_SIZE" value="'.($maxmin * 1024).'">';	// MAX_FILE_SIZE must precede the field type=file
 	}
 	print '<input type="file" class="flat minwidth300" name="addedfile" id="addedfile"/>';
 	print '</tr></td>';
@@ -3742,7 +3747,17 @@ if ($action == 'editmeta' || $action == 'createcontainer') {	// Edit properties 
 		$pagestatus = $objectpage->status;
 	} else {
 		$type_container = 'page';
+		$pageurl = '';
+		$pagealiasalt = '';
+		$pagetitle = '';
+		$pagedescription = '';
+		$pageimage = '';
+		$pagekeywords = '';
+		$pagelang = '';
+		$pageallowedinframes = 0;
+		$pagehtmlheader = '';
 		$pagedatecreation = dol_now();
+		$pagedatemodification = '';
 		$pageauthorid = $user->id;
 		$pageusermodifid = 0;
 		$pageauthoralias = '';
@@ -3798,7 +3813,7 @@ if ($action == 'editmeta' || $action == 'createcontainer') {	// Edit properties 
 		print '<tr><td class="titlefield fieldrequired">';
 		print $langs->trans('WEBSITE_PAGE_EXAMPLE');
 		print '</td><td>';
-		print $formwebsite->selectSampleOfContainer('sample', (GETPOSTISSET('sample') ? GETPOST('sample', 'alpha') : 'empty'), 0, '', 1);
+		print $formwebsite->selectSampleOfContainer('sample', (GETPOSTISSET('sample') ? GETPOST('sample', 'alpha') : 'empty'), 0, '', 1, 'minwidth300');
 		print '</td></tr>';
 	}
 
@@ -3989,7 +4004,7 @@ if ($action == 'editmeta' || $action == 'createcontainer') {	// Edit properties 
 	print '<tr><td>';
 	print $langs->trans('PublicAuthorAlias');
 	print '</td><td>';
-	print '<input type="text" class="flat minwidth300" name="WEBSITE_AUTHORALIAS" value="'.dol_escape_htmltag($pageauthoralias).'">';
+	print '<input type="text" class="flat minwidth300" name="WEBSITE_AUTHORALIAS" value="'.dol_escape_htmltag($pageauthoralias).'" placeholder="Anonymous">';
 	print '</td></tr>';
 
 	print '<tr><td>';
@@ -4687,7 +4702,7 @@ if ($action == 'preview' || $action == 'createfromclone' || $action == 'createpa
 			try {
 				$res = include $filephp;
 				if (empty($res)) {
-					print "ERROR: Failed to include file '".$filephp."'. Try to edit and save page.";
+					print "ERROR: Failed to include file '".$filephp."'. Try to edit and re-save page ith this ID.";
 				}
 			} catch (Exception $e) {
 				print $e->getMessage();

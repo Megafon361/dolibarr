@@ -1933,10 +1933,8 @@ class Product extends CommonObject
 		$sql = "SELECT pfp.rowid, pfp.price as price, pfp.quantity as quantity, pfp.remise_percent,";
 		$sql .= " pfp.fk_product, pfp.ref_fourn, pfp.desc_fourn, pfp.fk_soc, pfp.tva_tx, pfp.fk_supplier_price_expression,";
 		$sql .= " pfp.default_vat_code,";
-		$sql .= " pfp.multicurrency_price, pfp.multicurrency_unitprice, pfp.multicurrency_tx, pfp.fk_multicurrency, pfp.multicurrency_code";
-		if (!empty($conf->global->PRODUCT_USE_SUPPLIER_PACKAGING)) {
-			$sql .= ", pfp.packaging";
-		}
+		$sql .= " pfp.multicurrency_price, pfp.multicurrency_unitprice, pfp.multicurrency_tx, pfp.fk_multicurrency, pfp.multicurrency_code,";
+		$sql .= " pfp.packaging";
 		$sql .= " FROM ".$this->db->prefix()."product_fournisseur_price as pfp";
 		$sql .= " WHERE pfp.rowid = ".((int) $prodfournprice);
 		if ($qty > 0) {
@@ -3493,7 +3491,7 @@ class Product extends CommonObject
 		global $db, $conf, $user, $hookmanager;
 
 		$sql = "SELECT COUNT(DISTINCT f.fk_soc) as nb_customers, COUNT(DISTINCT f.rowid) as nb,";
-		$sql .= " COUNT(fd.rowid) as nb_rows, SUM('fd.qty') as qty";
+		$sql .= " COUNT(fd.rowid) as nb_rows, SUM(fd.qty) as qty";
 		$sql .= " FROM ".MAIN_DB_PREFIX."facturedet_rec as fd";
 		$sql .= ", ".MAIN_DB_PREFIX."facture_rec as f";
 		$sql .= ", ".MAIN_DB_PREFIX."societe as s";
@@ -4633,7 +4631,7 @@ class Product extends CommonObject
 				);
 
 				// Recursive call if there is childs to child
-				if (is_array($desc_pere['childs'])) {
+				if (isset($desc_pere['childs']) && is_array($desc_pere['childs'])) {
 					//print 'YYY We go down for '.$desc_pere[3]." -> \n";
 					$this->fetch_prod_arbo($desc_pere['childs'], $compl_path.$desc_pere[3]." -> ", $desc_pere[1] * $multiply, $level + 1, $id, $ignore_stock_load);
 				}
@@ -4793,9 +4791,10 @@ class Product extends CommonObject
 	 * @param  int $id             		Id of product to search childs of
 	 * @param  int $firstlevelonly 		Return only direct child
 	 * @param  int $level          		Level of recursing call (start to 1)
+	 * @param  array $parents   	    Array of all parents of $id
 	 * @return array                    Return array(prodid=>array(0=prodid, 1=>qty, 2=>product type, 3=>label, 4=>incdec, 5=>product ref)
 	 */
-	public function getChildsArbo($id, $firstlevelonly = 0, $level = 1)
+	public function getChildsArbo($id, $firstlevelonly = 0, $level = 1, $parents = array())
 	{
 		global $alreadyfound;
 
@@ -4813,7 +4812,7 @@ class Product extends CommonObject
 		$sql .= " AND pa.fk_product_fils <> ".((int) $id); // This should not happens, it is to avoid infinite loop if it happens
 		$sql.= " ORDER BY pa.rang";
 
-		dol_syslog(get_class($this).'::getChildsArbo id='.$id.' level='.$level, LOG_DEBUG);
+		dol_syslog(get_class($this).'::getChildsArbo id='.$id.' level='.$level. ' parents='.(is_array($parents)?implode(',', $parents):$parents), LOG_DEBUG);
 
 		if ($level == 1) {
 			$alreadyfound = array($id=>1); // We init array of found object to start of tree, so if we found it later (should not happened), we stop immediatly
@@ -4829,7 +4828,9 @@ class Product extends CommonObject
 			while ($rec = $this->db->fetch_array($res)) {
 				if (!empty($alreadyfound[$rec['rowid']])) {
 					dol_syslog(get_class($this).'::getChildsArbo the product id='.$rec['rowid'].' was already found at a higher level in tree. We discard to avoid infinite loop', LOG_WARNING);
-					continue;
+					if (in_array($rec['id'], $parents)) {
+						continue; // We discard this child if it is already found at a higher level in tree in the same branch.
+					}
 				}
 				$alreadyfound[$rec['rowid']] = 1;
 				$prods[$rec['rowid']] = array(
@@ -4845,7 +4846,7 @@ class Product extends CommonObject
 				//$prods[$this->db->escape($rec['label'])]= array(0=>$rec['id'],1=>$rec['qty'],2=>$rec['fk_product_type']);
 				//$prods[$this->db->escape($rec['label'])]= array(0=>$rec['id'],1=>$rec['qty']);
 				if (empty($firstlevelonly)) {
-					$listofchilds = $this->getChildsArbo($rec['rowid'], 0, $level + 1);
+					$listofchilds = $this->getChildsArbo($rec['rowid'], 0, $level + 1, array_push($parents, $rec['rowid']));
 					foreach ($listofchilds as $keyChild => $valueChild) {
 						$prods[$rec['rowid']]['childs'][$keyChild] = $valueChild;
 					}

@@ -1353,7 +1353,7 @@ if ($source == 'contractline') {
 
 	// Object
 	$text = '<b>'.$langs->trans("PaymentRenewContractId", $contract->ref, $contractline->ref).'</b>';
-	if ($contractline->fk_product) {
+	if ($contractline->fk_product > 0) {
 		$contractline->fetch_product();
 		$text .= '<br>'.$contractline->product->ref.($contractline->product->label ? ' - '.$contractline->product->label : '');
 	}
@@ -1364,8 +1364,8 @@ if ($source == 'contractline') {
 	//	$text.='<br>'.$langs->trans("DateEndPlanned").': ';
 	//	$text.=dol_print_date($contractline->date_fin_validite);
 	//}
-	if ($contractline->date_fin_validite) {
-		$text .= '<br>'.$langs->trans("ExpiredSince").': '.dol_print_date($contractline->date_fin_validite);
+	if ($contractline->date_end) {
+		$text .= '<br>'.$langs->trans("ExpiredSince").': '.dol_print_date($contractline->date_end);
 	}
 	if (GETPOST('desc', 'alpha')) {
 		$text = '<b>'.$langs->trans(GETPOST('desc', 'alpha')).'</b>';
@@ -2390,7 +2390,17 @@ if (preg_match('/^dopayment/', $action)) {			// If we choosed/click on the payme
 			   // Code for payment with option STRIPE_USE_NEW_CHECKOUT set
 
 			// Create a Stripe client.
+				<?php
+				if (empty($stripeacc)) {
+					?>
 			var stripe = Stripe('<?php echo $stripearrayofkeys['publishable_key']; // Defined into config.php ?>');
+					<?php
+				} else {
+					?>
+			var stripe = Stripe('<?php echo $stripearrayofkeys['publishable_key']; // Defined into config.php ?>', { stripeAccount: '<?php echo $stripeacc; ?>' });
+					<?php
+				}
+				?>
 
 			// Create an instance of Elements
 			var elements = stripe.elements();
@@ -2433,9 +2443,19 @@ if (preg_match('/^dopayment/', $action)) {			// If we choosed/click on the payme
 			} elseif (!empty($conf->global->STRIPE_USE_INTENT_WITH_AUTOMATIC_CONFIRMATION)) {
 				?>
 			// Code for payment with option STRIPE_USE_INTENT_WITH_AUTOMATIC_CONFIRMATION set to 1 or 2
-
+			
 			// Create a Stripe client.
+				<?php
+				if (empty($stripeacc)) {
+					?>
 			var stripe = Stripe('<?php echo $stripearrayofkeys['publishable_key']; // Defined into config.php ?>');
+					<?php
+				} else {
+					?>
+			var stripe = Stripe('<?php echo $stripearrayofkeys['publishable_key']; // Defined into config.php ?>', { stripeAccount: '<?php echo $stripeacc; ?>' });
+					<?php
+				}
+				?>
 
 				<?php
 				if (getDolGlobalInt('STRIPE_USE_INTENT_WITH_AUTOMATIC_CONFIRMATION') == 2) {

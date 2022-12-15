@@ -456,8 +456,8 @@ class Reception extends CommonObject
 					$this->brouillon = 1;
 				}
 
-				$file = $conf->reception->dir_output."/".get_exdir($this->id, 2, 0, 0, $this, 'reception')."/".$this->id.".pdf";
-				$this->pdf_filename = $file;
+				//$file = $conf->reception->dir_output."/".get_exdir(0, 0, 0, 1, $this, 'reception')."/".$this->id.".pdf";
+				//$this->pdf_filename = $file;
 
 				// Tracking url
 				$this->getUrlTrackingStatus($obj->tracking_number);
@@ -583,7 +583,7 @@ class Reception extends CommonObject
 
 					$qty = $obj->qty;
 
-					if ($qty <= 0) {
+					if ($qty == 0 || ($qty < 0 && !getDolGlobalInt('RECEPTION_ALLOW_NEGATIVE_QTY'))) {
 						continue;
 					}
 					dol_syslog(get_class($this)."::valid movement index ".$i." ed.rowid=".$obj->rowid." edb.rowid=".$obj->edbrowid);
@@ -846,6 +846,21 @@ class Reception extends CommonObject
 			}
 		}
 
+		// Check batch is set
+		$product = new Product($this->db);
+		$product->fetch($fk_product);
+		if (!empty($conf->productbatch->enabled)) {
+			$langs->load("errors");
+			if (!empty($product->status_batch) && empty($batch)) {
+				$this->error = $langs->trans('ErrorProductNeedBatchNumber', $product->ref);
+				return -1;
+			} elseif (empty($product->status_batch) && !empty($batch)) {
+				$this->error = $langs->trans('ErrorProductDoesNotNeedBatchNumber', $product->ref);
+				return -1;
+			}
+		}
+		unset($product);
+
 		// extrafields
 		$line->array_options = $supplierorderline->array_options;
 		if (empty($conf->global->MAIN_EXTRAFIELDS_DISABLED) && is_array($array_options) && count($array_options) > 0) {
@@ -864,6 +879,7 @@ class Reception extends CommonObject
 		$line->status = 1;
 		$line->cost_price = $cost_price;
 		$line->fk_reception = $this->id;
+
 		$this->lines[$num] = $line;
 
 		return $num;
@@ -1161,6 +1177,8 @@ class Reception extends CommonObject
 				$line = new CommandeFournisseurDispatch($this->db);
 
 				$line->fetch($obj->rowid);
+
+				// TODO Remove or keep this ?
 				$line->fetch_product();
 
 				$sql_commfourndet = 'SELECT qty, ref,  label, description, tva_tx, vat_src_code, subprice, multicurrency_subprice, remise_percent';

@@ -359,6 +359,7 @@ if (empty($reshook)) {
 				$batch = "batch".$i;
 				$cost_price = "cost_price".$i;
 
+				//if (GETPOST($qty, 'int') > 0 || (GETPOST($qty, 'int') == 0 && getDolGlobalString('RECEPTION_GETS_ALL_ORDER_PRODUCTS')) || (GETPOST($qty, 'int') < 0 && getDolGlobalString('RECEPTION_ALLOW_NEGATIVE_QTY'))) {
 				if (GETPOST($qty, 'int') > 0 || (GETPOST($qty, 'int') == 0 && $conf->global->RECEPTION_GETS_ALL_ORDER_PRODUCTS)) {
 					$ent = "entl".$i;
 
@@ -1454,7 +1455,7 @@ if ($action == 'create') {
 
 		// Date creation
 		print '<tr><td class="titlefield">'.$langs->trans("DateCreation").'</td>';
-		print '<td colspan="3">'.dol_print_date($object->date_creation, "dayhour")."</td>\n";
+		print '<td colspan="3">'.dol_print_date($object->date_creation, "dayhour", "tzuserrel")."</td>\n";
 		print '</tr>';
 
 		// Delivery date planned

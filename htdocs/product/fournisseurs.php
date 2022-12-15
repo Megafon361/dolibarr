@@ -269,10 +269,13 @@ if (empty($reshook)) {
 				if ($ret == -3) {
 					$error++;
 
-					$object->fetch($object->product_id_already_linked);
-					$productLink = $object->getNomUrl(1, 'supplier');
+					$tmpobject = new Product($db);
+					$tmpobject->fetch($object->product_id_already_linked);
+					$productLink = $tmpobject->getNomUrl(1, 'supplier');
 
-					setEventMessages($langs->trans("ReferenceSupplierIsAlreadyAssociatedWithAProduct", $productLink), null, 'errors');
+					$texttoshow = $langs->trans("ReferenceSupplierIsAlreadyAssociatedWithAProduct", '{s1}');
+					$texttoshow = str_replace('{s1}', $productLink, $texttoshow);
+					setEventMessages($texttoshow, null, 'errors');
 				} elseif ($ret < 0) {
 					$error++;
 					setEventMessages($object->error, $object->errors, 'errors');
@@ -464,6 +467,9 @@ if ($id > 0 || $ref) {
 			if (($action == 'add_price' || $action == 'update_price') && $usercancreate) {
 				$langs->load("suppliers");
 
+				print "<!-- form to add a supplier price -->\n";
+				print '<br>';
+
 				if ($rowid) {
 					$object->fetch_product_fournisseur_price($rowid, 1); //Ignore the math expression when getting the price
 					print load_fiche_titre($langs->trans("ChangeSupplierPrice"));
@@ -480,7 +486,7 @@ if ($id > 0 || $ref) {
 				print '<table class="border centpercent">';
 
 				// Supplier
-				print '<tr><td class="titlefieldcreate fieldrequired">'.$langs->trans("Supplier").'</td><td>';
+				print '<tr><td class="titlefield fieldrequired">'.$langs->trans("Supplier").'</td><td>';
 				if ($rowid) {
 					$supplier = new Fournisseur($db);
 					$supplier->fetch($socid);
@@ -510,15 +516,15 @@ if ($id > 0 || $ref) {
 				print '<tr><td class="fieldrequired">'.$langs->trans("SupplierRef").'</td><td>';
 				if ($rowid) {
 					print '<input type="hidden" name="ref_fourn_old" value="'.$object->ref_supplier.'">';
-					print '<input class="flat width150" maxlength="30" name="ref_fourn" value="'.$object->ref_supplier.'">';
+					print '<input class="flat width150" maxlength="128" name="ref_fourn" value="'.$object->ref_supplier.'">';
 				} else {
-					print '<input class="flat width150" maxlength="30" name="ref_fourn" value="'.(GETPOST("ref_fourn") ? GETPOST("ref_fourn") : '').'">';
+					print '<input class="flat width150" maxlength="128" name="ref_fourn" value="'.(GETPOST("ref_fourn") ? GETPOST("ref_fourn") : '').'">';
 				}
 				print '</td>';
 				print '</tr>';
 
 				// Availability
-				if (!empty($conf->global->FOURN_PRODUCT_AVAILABILITY)) {
+				if (getDolGlobalInt('FOURN_PRODUCT_AVAILABILITY')) {
 					$langs->load("propal");
 					print '<tr><td>'.$langs->trans("Availability").'</td><td>';
 					$form->selectAvailabilityDelay($object->fk_availability, "oselDispo", 1);
@@ -546,7 +552,7 @@ if ($id > 0 || $ref) {
 				print '</td></tr>';
 
 				if (!empty($conf->global->PRODUCT_USE_SUPPLIER_PACKAGING)) {
-					// Packaging
+					// Packaging/Conditionnement
 					print '<tr>';
 
 					print '<td class="fieldrequired">'.$form->textwithpicto($langs->trans("PackagingForThisProduct"), $langs->trans("PackagingForThisProductDesc")).'</td>';
@@ -636,7 +642,7 @@ if ($id > 0 || $ref) {
 						$currencycodetouse = $conf->currency;
 					}
 					print $form->selectMultiCurrency($currencycodetouse, "multicurrency_code", 1);
-					print ' &nbsp; '.$langs->trans("CurrencyRate").' ';
+					print ' &nbsp; &nbsp; '.$langs->trans("CurrencyRate").' ';
 					print '<input class="flat" name="multicurrency_tx" size="4" value="'.vatrate(GETPOST('multicurrency_tx') ? GETPOST('multicurrency_tx') : (isset($object->fourn_multicurrency_tx) ? $object->fourn_multicurrency_tx : '')).'">';
 					print '</td>';
 					print '</tr>';
@@ -904,16 +910,16 @@ END;
 				$arrayfields = array(
 					'pfp.datec'=>array('label'=>$langs->trans("AppliedPricesFrom"), 'checked'=>1, 'position'=>1),
 					's.nom'=>array('label'=>$langs->trans("Suppliers"), 'checked'=>1, 'position'=>2),
-					'pfp.fk_availability'=>array('label'=>$langs->trans("Availability"), 'enabled' => !empty($conf->global->FOURN_PRODUCT_AVAILABILITY), 'checked'=>0, 'position'=>4),
+					'pfp.fk_availability'=>array('label'=>$langs->trans("Availability"), 'enabled' => getDolGlobalInt('FOURN_PRODUCT_AVAILABILITY'), 'checked'=>0, 'position'=>4),
 					'pfp.quantity'=>array('label'=>$langs->trans("QtyMin"), 'checked'=>1, 'position'=>5),
 					'pfp.unitprice'=>array('label'=>$langs->trans("UnitPriceHT"), 'checked'=>1, 'position'=>9),
-					'pfp.multicurrency_unitprice'=>array('label'=>$langs->trans("UnitPriceHTCurrency"), 'enabled' => (!empty($conf->multicurrency->enabled)), 'checked'=>0, 'position'=>10),
+					'pfp.multicurrency_unitprice'=>array('label'=>$langs->trans("UnitPriceHTCurrency"), 'enabled' => isModEnabled('multicurrency'), 'checked'=>0, 'position'=>10),
 					'pfp.delivery_time_days'=>array('label'=>$langs->trans("NbDaysToDelivery"), 'checked'=>1, 'position'=>13),
 					'pfp.supplier_reputation'=>array('label'=>$langs->trans("ReputationForThisProduct"), 'checked'=>1, 'position'=>14),
-					'pfp.fk_barcode_type'=>array('label'=>$langs->trans("BarcodeType"), 'enabled' => $conf->barcode->enabled, 'checked'=>0, 'position'=>15),
-					'pfp.barcode'=>array('label'=>$langs->trans("BarcodeValue"), 'enabled' => $conf->barcode->enabled, 'checked'=>0, 'position'=>16),
-					'pfp.packaging'=>array('label'=>$langs->trans("PackagingForThisProduct"), 'enabled' => !empty($conf->global->PRODUCT_USE_SUPPLIER_PACKAGING), 'checked'=>0, 'position'=>17),
-					'pfp.tms'=>array('label'=>$langs->trans("DateModification"), 'enabled' => $conf->barcode->enabled, 'checked'=>1, 'position'=>18),
+					'pfp.fk_barcode_type'=>array('label'=>$langs->trans("BarcodeType"), 'enabled' => isModEnabled('barcode'), 'checked'=>0, 'position'=>15),
+					'pfp.barcode'=>array('label'=>$langs->trans("BarcodeValue"), 'enabled' => isModEnabled('barcode'), 'checked'=>0, 'position'=>16),
+					'pfp.packaging'=>array('label'=>$langs->trans("PackagingForThisProduct"), 'enabled' => getDolGlobalInt('PRODUCT_USE_SUPPLIER_PACKAGING'), 'checked'=>0, 'position'=>17),
+					'pfp.tms'=>array('label'=>$langs->trans("DateModification"), 'enabled' => isModEnabled('barcode'), 'checked'=>1, 'position'=>18),
 				);
 
 				// fetch optionals attributes and labels
@@ -954,52 +960,72 @@ END;
 
 				$param = "&id=".$object->id;
 
+				$nbfields = 0;
+
 				print '<tr class="liste_titre">';
 				if (!empty($arrayfields['pfp.datec']['checked'])) {
 					print_liste_field_titre("AppliedPricesFrom", $_SERVER["PHP_SELF"], "pfp.datec", "", $param, "", $sortfield, $sortorder, '', '', 1);
+					$nbfields++;
 				}
 				if (!empty($arrayfields['s.nom']['checked'])) {
 					print_liste_field_titre("Suppliers", $_SERVER["PHP_SELF"], "s.nom", "", $param, "", $sortfield, $sortorder, '', '', 1);
+					$nbfields++;
 				}
 				print_liste_field_titre("SupplierRef", $_SERVER["PHP_SELF"], "", "", $param, "", $sortfield, $sortorder, '', '', 1);
+				$nbfields++;
 				if (!empty($arrayfields['pfp.fk_availability']['checked'])) {
 					print_liste_field_titre("Availability", $_SERVER["PHP_SELF"], "pfp.fk_availability", "", $param, "", $sortfield, $sortorder);
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.quantity']['checked'])) {
 					print_liste_field_titre("QtyMin", $_SERVER["PHP_SELF"], "pfp.quantity", "", $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				print_liste_field_titre("VATRate", $_SERVER["PHP_SELF"], '', '', $param, '', $sortfield, $sortorder, 'right ');
+				$nbfields++;
 				print_liste_field_titre("PriceQtyMinHT", $_SERVER["PHP_SELF"], '', '', $param, '', $sortfield, $sortorder, 'right ');
+				$nbfields++;
 				if (!empty($conf->multicurrency->enabled)) {
 					print_liste_field_titre("PriceQtyMinHTCurrency", $_SERVER["PHP_SELF"], '', '', $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.unitprice']['checked'])) {
 					print_liste_field_titre("UnitPriceHT", $_SERVER["PHP_SELF"], "pfp.unitprice", "", $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.multicurrency_unitprice']['checked'])) {
 					print_liste_field_titre("UnitPriceHTCurrency", $_SERVER["PHP_SELF"], "pfp.multicurrency_unitprice", "", $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				if (!empty($conf->multicurrency->enabled)) {
 					print_liste_field_titre("Currency", $_SERVER["PHP_SELF"], "", "", $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				print_liste_field_titre("DiscountQtyMin", $_SERVER["PHP_SELF"], '', '', $param, '', $sortfield, $sortorder, 'right ');
+				$nbfields++;
 				if (!empty($arrayfields['pfp.delivery_time_days']['checked'])) {
 					print_liste_field_titre("NbDaysToDelivery", $_SERVER["PHP_SELF"], "pfp.delivery_time_days", "", $param, '', $sortfield, $sortorder, 'right ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.supplier_reputation']['checked'])) {
 					print_liste_field_titre("ReputationForThisProduct", $_SERVER["PHP_SELF"], "pfp.supplier_reputation", "", $param, '', $sortfield, $sortorder, 'center ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.fk_barcode_type']['checked'])) {
 					print_liste_field_titre("BarcodeType", $_SERVER["PHP_SELF"], "pfp.fk_barcode_type", "", $param, '', $sortfield, $sortorder, 'center ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.barcode']['checked'])) {
 					print_liste_field_titre("BarcodeValue", $_SERVER["PHP_SELF"], "pfp.barcode", "", $param, '', $sortfield, $sortorder, 'center ');
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.packaging']['checked'])) {
 					print_liste_field_titre("PackagingForThisProduct", $_SERVER["PHP_SELF"], "pfp.packaging", "", $param, 'align="center"', $sortfield, $sortorder);
+					$nbfields++;
 				}
 				if (!empty($arrayfields['pfp.tms']['checked'])) {
 					print_liste_field_titre("DateModification", $_SERVER["PHP_SELF"], "pfp.tms", "", $param, '', $sortfield, $sortorder, 'right ', '', 1);
+					$nbfields++;
 				}
 
 				// fetch optionals attributes and labels
@@ -1021,6 +1047,7 @@ END;
 								}
 								if (!empty($arrayfields['ef.' . $key]['checked'])) {
 									print_liste_field_titre($extratitle, $_SERVER["PHP_SELF"], 'ef.' . $key, '', $param, '', $sortfield, $sortorder, 'right ');
+									$nbfields++;
 								}
 							}
 						}
@@ -1028,10 +1055,11 @@ END;
 				}
 
 				if (is_object($hookmanager)) {
-					$parameters = array('id_fourn'=>(!empty($id_fourn)?$id_fourn:''), 'prod_id'=>$object->id);
+					$parameters = array('id_fourn'=>(!empty($id_fourn)?$id_fourn:''), 'prod_id'=>$object->id, 'nbfields'=>$nbfields);
 					$reshook = $hookmanager->executeHooks('printFieldListTitle', $parameters, $object, $action);
 				}
 				print_liste_field_titre($selectedfields, $_SERVER["PHP_SELF"], "", '', '', '', $sortfield, $sortorder, 'center maxwidthsearch ');
+				$nbfields++;
 				print "</tr>\n";
 
 				if (is_array($product_fourn_list)) {
@@ -1212,6 +1240,10 @@ END;
 						print '</td>';
 
 						print '</tr>';
+					}
+
+					if (empty($product_fourn_list)) {
+						print '<tr><td colspan="'.$nbfields.'"><span class="opacitymedium">'.$langs->trans("None").'</span></td></tr>';
 					}
 				} else {
 					dol_print_error($db);
