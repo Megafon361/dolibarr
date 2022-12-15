@@ -1,7 +1,7 @@
 <?php
 echo '
 <script type="text/javascript">
-console.log("WOOOOOOOOOOOOOOOOW!");
+console.log("WOOOOOOOOOOOOOOOOW2!");
 
 
 
