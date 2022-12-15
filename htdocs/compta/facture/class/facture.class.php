@@ -15,7 +15,7 @@
  * Copyright (C) 2013       Cedric Gross            <c.gross@kreiz-it.fr>
  * Copyright (C) 2013       Florian Henry           <florian.henry@open-concept.pro>
  * Copyright (C) 2016-2022  Ferran Marcet           <fmarcet@2byte.es>
- * Copyright (C) 2018       Alexandre Spangaro		<aspangaro@open-dsi.fr>
+ * Copyright (C) 2018-2022  Alexandre Spangaro		<aspangaro@open-dsi.fr>
  * Copyright (C) 2018       Nicolas ZABOURI         <info@inovea-conseil.com>
  * Copyright (C) 2022       Sylvain Legrand         <contact@infras.fr>
  * Copyright (C) 2022      	Gauthier VERDOL       	<gauthier.verdol@atm-consulting.fr>
@@ -47,10 +47,10 @@ require_once DOL_DOCUMENT_ROOT.'/societe/class/client.class.php';
 require_once DOL_DOCUMENT_ROOT.'/margin/lib/margins.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/multicurrency/class/multicurrency.class.php';
 
-if (!empty($conf->accounting->enabled)) {
+if (isModEnabled('accounting')) {
 	require_once DOL_DOCUMENT_ROOT.'/core/class/html.formaccounting.class.php';
 }
-if (!empty($conf->accounting->enabled)) {
+if (isModEnabled('accounting')) {
 	require_once DOL_DOCUMENT_ROOT.'/accountancy/class/accountingaccount.class.php';
 }
 
@@ -124,27 +124,44 @@ class Facture extends CommonInvoice
 	 */
 	public $fk_user_valid;
 
+	/**
+	 * @var int ID
+	 */
+	public $fk_user_modif;
+
+
 	public $date; // Date invoice
 	public $datem;
 
 	/**
 	 * @var int	Date expected for delivery
 	 * @deprecated
+	 * @see delivery_date
 	 */
-	public $date_livraison; // deprecated; Use delivery_date instead.
+	public $date_livraison;
 
+	/**
+	 * @var int	Date expected for delivery
+	 */
 	public $delivery_date; // Date expected of shipment (date starting shipment, not the reception that occurs some days after)
 
 	/**
 	 * @var string customer ref
+	 * @deprecated
+	 * @see ref_customer
 	 */
 	public $ref_client;
+
+	/**
+	 * @var string customer ref
+	 */
+	public $ref_customer;
 
 	/**
 	 * @var int Ref Int
 	 * @deprecated
 	 */
-	public $ref_int; // deprecated
+	public $ref_int;
 
 	//Check constants for types
 	public $type = self::TYPE_STANDARD;
@@ -161,7 +178,7 @@ class Facture extends CommonInvoice
 	public $revenuestamp;
 
 	/**
-	 * ! Closing after partial payment: discount_vat, badsupplier, abandon
+	 * ! Closing after partial payment: discount_vat, badcustomer or badsupplier, bankcharge, other
 	 * ! Closing when no payment: replaced, abandoned
 	 * @var string Close code
 	 */
@@ -329,8 +346,8 @@ class Facture extends CommonInvoice
 		'fk_currency' =>array('type'=>'varchar(3)', 'label'=>'CurrencyCode', 'enabled'=>1, 'visible'=>-1, 'position'=>185),
 		'fk_cond_reglement' =>array('type'=>'integer', 'label'=>'PaymentTerm', 'enabled'=>1, 'visible'=>-1, 'notnull'=>1, 'position'=>190),
 		'fk_mode_reglement' =>array('type'=>'integer', 'label'=>'PaymentMode', 'enabled'=>1, 'visible'=>-1, 'position'=>195),
-		'note_private' =>array('type'=>'text', 'label'=>'NotePublic', 'enabled'=>1, 'visible'=>0, 'position'=>205),
-		'note_public' =>array('type'=>'text', 'label'=>'NotePrivate', 'enabled'=>1, 'visible'=>0, 'position'=>210),
+		'note_private' =>array('type'=>'text', 'label'=>'NotePrivate', 'enabled'=>1, 'visible'=>0, 'position'=>205),
+		'note_public' =>array('type'=>'text', 'label'=>'NotePublic', 'enabled'=>1, 'visible'=>0, 'position'=>210),
 		'model_pdf' =>array('type'=>'varchar(255)', 'label'=>'Model pdf', 'enabled'=>1, 'visible'=>0, 'position'=>215),
 		'extraparams' =>array('type'=>'varchar(255)', 'label'=>'Extraparams', 'enabled'=>1, 'visible'=>-1, 'position'=>225),
 		'situation_cycle_ref' =>array('type'=>'smallint(6)', 'label'=>'Situation cycle ref', 'enabled'=>'$conf->global->INVOICE_USE_SITUATION', 'visible'=>-1, 'position'=>230),
@@ -418,7 +435,10 @@ class Facture extends CommonInvoice
 	const STATUS_ABANDONED = 3;
 
 	const CLOSECODE_DISCOUNTVAT = 'discount_vat'; // Abandonned remain - escompte
-	const CLOSECODE_BADDEBT = 'badcustomer'; // Abandonned - bad
+	const CLOSECODE_BADDEBT = 'badcustomer'; // Abandonned remain - bad customer
+	const CLOSECODE_BANKCHARGE = 'bankcharge'; // Abandonned remain - bank charge
+	const CLOSECODE_OTHER = 'other'; // Abandonned remain - other
+
 	const CLOSECODE_ABANDONED = 'abandon'; // Abandonned - other
 	const CLOSECODE_REPLACED = 'replaced'; // Closed after doing a replacement invoice
 
@@ -862,7 +882,7 @@ class Facture extends CommonInvoice
 						);
 
 						// Defined the new fk_parent_line
-						if ($result > 0) {
+						if ($result > 0 && $newinvoiceline->product_type == 9) {
 							$fk_parent_line = $result;
 						}
 					}
@@ -1935,7 +1955,7 @@ class Facture extends CommonInvoice
 		$sql .= ', f.datec as datec';
 		$sql .= ', f.date_valid as datev';
 		$sql .= ', f.tms as datem';
-		$sql .= ', f.note_private, f.note_public, f.fk_statut, f.paye, f.close_code, f.close_note, f.fk_user_author, f.fk_user_valid, f.model_pdf, f.last_main_doc';
+		$sql .= ', f.note_private, f.note_public, f.fk_statut, f.paye, f.close_code, f.close_note, f.fk_user_author, f.fk_user_valid, f.fk_user_modif, f.model_pdf, f.last_main_doc';
 		$sql .= ', f.fk_facture_source, f.fk_fac_rec_source';
 		$sql .= ', f.fk_mode_reglement, f.fk_cond_reglement, f.fk_projet as fk_project, f.extraparams';
 		$sql .= ', f.situation_cycle_ref, f.situation_counter, f.situation_final';
@@ -1976,8 +1996,9 @@ class Facture extends CommonInvoice
 				$this->id = $obj->rowid;
 				$this->entity = $obj->entity;
 
-				$this->ref = $obj->ref;
-				$this->ref_client = $obj->ref_client;
+				$this->ref					= $obj->ref;
+				$this->ref_client			= $obj->ref_client;
+				$this->ref_customer			= $obj->ref_client;
 				$this->ref_ext				= $obj->ref_ext;
 				$this->type					= $obj->type;
 				$this->date					= $this->db->jdate($obj->df);
@@ -2023,8 +2044,10 @@ class Facture extends CommonInvoice
 				$this->note_public			= $obj->note_public;
 				$this->user_author			= $obj->fk_user_author; // deprecated
 				$this->user_valid           = $obj->fk_user_valid; // deprecated
-				$this->fk_user_author = $obj->fk_user_author;
+				$this->user_modification    = $obj->fk_user_modif; // deprecated
+				$this->fk_user_author       = $obj->fk_user_author;
 				$this->fk_user_valid        = $obj->fk_user_valid;
+				$this->fk_user_modif        = $obj->fk_user_modif;
 				$this->model_pdf = $obj->model_pdf;
 				$this->modelpdf = $obj->model_pdf; // deprecated
 				$this->last_main_doc = $obj->last_main_doc;
@@ -3129,6 +3152,7 @@ class Facture extends CommonInvoice
 		} else {
 			$num = $this->ref;
 		}
+
 		$this->newref = dol_sanitizeFileName($num);
 
 		if ($num) {
@@ -3136,7 +3160,7 @@ class Facture extends CommonInvoice
 
 			// Validate
 			$sql = 'UPDATE '.MAIN_DB_PREFIX.'facture';
-			$sql .= " SET ref='".$num."', fk_statut = ".self::STATUS_VALIDATED.", fk_user_valid = ".($user->id > 0 ? $user->id : "null").", date_valid = '".$this->db->idate($now)."'";
+			$sql .= " SET ref = '".$this->db->escape($num)."', fk_statut = ".self::STATUS_VALIDATED.", fk_user_valid = ".($user->id > 0 ? $user->id : "null").", date_valid = '".$this->db->idate($now)."'";
 			if (!empty($conf->global->FAC_FORCE_DATE_VALIDATION)) {	// If option enabled, we force invoice date
 				$sql .= ", datef='".$this->db->idate($this->date)."'";
 				$sql .= ", date_lim_reglement='".$this->db->idate($this->date_lim_reglement)."'";
@@ -3267,6 +3291,25 @@ class Facture extends CommonInvoice
 							}
 						}
 					}
+				}
+			}
+
+			/*
+			 * Set situation_final to 0 if is a credit note and the invoice source is a invoice situation (case when invoice situation is at 100%)
+			 * So we can continue to create new invoice situation
+			 */
+			if (!$error && $this->type == self::TYPE_CREDIT_NOTE && $this->fk_facture_source > 0) {
+				$invoice_situation = new Facture($this->db);
+				$result = $invoice_situation->fetch($this->fk_facture_source);
+				if ($result > 0 && $invoice_situation->type == self::TYPE_SITUATION && $invoice_situation->situation_final == 1) {
+					$invoice_situation->situation_final = 0;
+					// Disable triggers because module can force situation_final to 1 by triggers (ex: SubTotal)
+					$result = $invoice_situation->setFinal($user, 1);
+				}
+				if ($result < 0) {
+					$this->error = $invoice_situation->error;
+					$this->errors = $invoice_situation->errors;
+					$error++;
 				}
 			}
 
@@ -3590,7 +3633,7 @@ class Facture extends CommonInvoice
 
 		global $mysoc, $conf, $langs;
 
-		dol_syslog(get_class($this)."::addline id=$this->id,desc=$desc,pu_ht=$pu_ht,qty=$qty,txtva=$txtva, txlocaltax1=$txlocaltax1, txlocaltax2=$txlocaltax2, fk_product=$fk_product,remise_percent=$remise_percent,date_start=$date_start,date_end=$date_end,ventil=$ventil,info_bits=$info_bits,fk_remise_except=$fk_remise_except,price_base_type=$price_base_type,pu_ttc=$pu_ttc,type=$type, fk_unit=$fk_unit", LOG_DEBUG);
+		dol_syslog(get_class($this)."::addline id=$this->id, pu_ht=$pu_ht, qty=$qty, txtva=$txtva, txlocaltax1=$txlocaltax1, txlocaltax2=$txlocaltax2, fk_product=$fk_product, remise_percent=$remise_percent, date_start=$date_start, date_end=$date_end, ventil=$ventil, info_bits=$info_bits, fk_remise_except=$fk_remise_except, price_base_type=$price_base_type, pu_ttc=$pu_ttc, type=$type, fk_unit=$fk_unit, desc=".dol_trunc($desc, 25), LOG_DEBUG);
 
 		if ($this->statut == self::STATUS_DRAFT) {
 			include_once DOL_DOCUMENT_ROOT.'/core/lib/price.lib.php';
@@ -4372,7 +4415,6 @@ class Facture extends CommonInvoice
 
 			$mybool = false;
 
-
 			$file = $addon.'.php';
 			$classname = $addon;
 
@@ -4410,7 +4452,9 @@ class Facture extends CommonInvoice
 			}
 
 			$obj = new $classname();
+
 			$numref = $obj->getNextValue($soc, $this, $mode);
+
 
 			/**
 			 * $numref can be empty in case we ask for the last value because if there is no invoice created with the
@@ -5271,7 +5315,7 @@ class Facture extends CommonInvoice
 
 	/**
 	 * @param	int			$rounding		Minimum number of decimal to show. If 0, no change, if -1, we use min($conf->global->MAIN_MAX_DECIMALS_UNIT,$conf->global->MAIN_MAX_DECIMALS_TOT)
-	 * @return number or -1 if not available
+	 * @return float or -1 if not available
 	 */
 	public function getRetainedWarrantyAmount($rounding = -1)
 	{
@@ -5438,14 +5482,13 @@ class Facture extends CommonInvoice
 
 		dol_syslog(__METHOD__, LOG_DEBUG);
 
-		$this->db->begin();
-
 		// Select all action comm reminder
 		$sql = "SELECT rowid as id FROM ".MAIN_DB_PREFIX."facture as f";
 		if (!empty($paymentmode) && $paymentmode != 'all') {
 			$sql .= ", ".MAIN_DB_PREFIX."c_paiement as cp";
 		}
 		$sql .= " WHERE f.paye = 0";
+		$sql .= " AND f.fk_statut = ".self::STATUS_VALIDATED;
 		$sql .= " AND f.date_lim_reglement = '".$this->db->idate($tmpidate, 'gmt')."'";
 		$sql .= " AND f.entity IN (".getEntity('facture').")";
 		if (!empty($paymentmode) && $paymentmode != 'all') {
@@ -5527,20 +5570,92 @@ class Facture extends CommonInvoice
 						}
 
 						if (!$error && $to) {
+							$this->db->begin();
+
 							// Errors Recipient
 							$errors_to = $conf->global->MAIN_MAIL_ERRORS_TO;
 
 							$trackid = 'inv'.$tmpinvoice->id;
+							$sendcontext = 'standard';
+
 							// Mail Creation
-							$cMailFile = new CMailFile($sendTopic, $to, $from, $sendContent, array(), array(), array(), '', "", 0, 1, $errors_to, '', $trackid, '', '', '');
+							$cMailFile = new CMailFile($sendTopic, $to, $from, $sendContent, array(), array(), array(), '', "", 0, 1, $errors_to, '', $trackid, '', $sendcontext, '');
 
 							// Sending Mail
 							if ($cMailFile->sendfile()) {
 								$nbMailSend++;
+
+								// Add a line into event table
+								require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
+
+								// Insert record of emails sent
+								$actioncomm = new ActionComm($this->db);
+
+								$actioncomm->type_code = 'AC_OTH_AUTO'; // Event insert into agenda automatically
+								$actioncomm->socid = $tmpinvoice->thirdparty->id; // To link to a company
+								$actioncomm->contact_id = 0;
+
+								$actioncomm->code = 'AC_EMAIL';
+								$actioncomm->label = 'sendEmailsRemindersOnInvoiceDueDateOK';
+								$actioncomm->note_private = $sendContent;
+								$actioncomm->fk_project = $tmpinvoice->fk_project;
+								$actioncomm->datep = dol_now();
+								$actioncomm->datef = $actioncomm->datep;
+								$actioncomm->percentage = -1; // Not applicable
+								$actioncomm->authorid = $user->id; // User saving action
+								$actioncomm->userownerid = $user->id; // Owner of action
+								// Fields when action is an email (content should be added into note)
+								$actioncomm->email_msgid = $cMailFile->msgid;
+								$actioncomm->email_from = $from;
+								$actioncomm->email_sender = '';
+								$actioncomm->email_to = $to;
+								//$actioncomm->email_tocc = $sendtocc;
+								//$actioncomm->email_tobcc = $sendtobcc;
+								//$actioncomm->email_subject = $subject;
+								$actioncomm->errors_to = $errors_to;
+
+								//$actioncomm->extraparams = $extraparams;
+
+								$actioncomm->create($user);
 							} else {
 								$errormesg = $cMailFile->error.' : '.$to;
 								$error++;
+
+								// Add a line into event table
+								require_once DOL_DOCUMENT_ROOT.'/comm/action/class/actioncomm.class.php';
+
+								// Insert record of emails sent
+								$actioncomm = new ActionComm($this->db);
+
+								$actioncomm->type_code = 'AC_OTH_AUTO'; // Event insert into agenda automatically
+								$actioncomm->socid = $tmpinvoice->thirdparty->id; // To link to a company
+								$actioncomm->contact_id = 0;
+
+								$actioncomm->code = 'AC_EMAIL';
+								$actioncomm->label = 'sendEmailsRemindersOnInvoiceDueDateKO';
+								$actioncomm->note_private = $errormesg;
+								$actioncomm->fk_project = $tmpinvoice->fk_project;
+								$actioncomm->datep = dol_now();
+								$actioncomm->datef = $actioncomm->datep;
+								$actioncomm->percentage = -1; // Not applicable
+								$actioncomm->authorid = $user->id; // User saving action
+								$actioncomm->userownerid = $user->id; // Owner of action
+								// Fields when action is an email (content should be added into note)
+								$actioncomm->email_msgid = $cMailFile->msgid;
+								$actioncomm->email_from = $from;
+								$actioncomm->email_sender = '';
+								$actioncomm->email_to = $to;
+								//$actioncomm->email_tocc = $sendtocc;
+								//$actioncomm->email_tobcc = $sendtobcc;
+								//$actioncomm->email_subject = $subject;
+								$actioncomm->errors_to = $errors_to;
+
+								//$actioncomm->extraparams = $extraparams;
+
+								$actioncomm->create($user);
 							}
+
+							$this->db->commit();	// We always commit
 						}
 
 						if ($errormesg) {
@@ -5558,10 +5673,8 @@ class Facture extends CommonInvoice
 
 		if (!$error) {
 			$this->output .= 'Nb of emails sent : '.$nbMailSend;
-			$this->db->commit();
 			return 0;
 		} else {
-			$this->db->commit(); // We commit also on error, to have the error message recorded.
 			$this->error = 'Nb of emails sent : '.$nbMailSend.', '.(!empty($errorsMsg)) ? join(', ', $errorsMsg) : $error;
 			return $error;
 		}
@@ -5569,8 +5682,9 @@ class Facture extends CommonInvoice
 
 	/**
 	 * See if current invoice date is posterior to the last invoice date among validated invoices of same type.
+	 *
 	 * @param 	boolean 	$allow_validated_drafts			return true if the invoice has been validated before returning to DRAFT state.
-	 * @return boolean
+	 * @return 	array										return array
 	 */
 	public function willBeLastOfSameType($allow_validated_drafts = false)
 	{
@@ -5594,10 +5708,10 @@ class Facture extends CommonInvoice
 					$is_last_of_same_type = $is_last_of_same_type || (!strpos($this->ref, 'PROV') && $this->status == self::STATUS_DRAFT);
 				}
 
-				return [$is_last_of_same_type, $last_date];
+				return array($is_last_of_same_type, $last_date);
 			} else {
 				// element is first of type to be validated
-				return [true];
+				return array(true);
 			}
 		} else {
 			dol_print_error($this->db);

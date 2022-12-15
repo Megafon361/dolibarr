@@ -316,7 +316,7 @@ $parameters = array();
 $reshook = $hookmanager->executeHooks('printFieldListWhere', $parameters, $object); // Note that $action and $object may have been modified by hook
 $sql .= $hookmanager->resPrint;
 // Add GroupBy from hooks
-$parameters = array('all' => $all, 'fieldstosearchall' => $fieldstosearchall);
+$parameters = array('search_all' => $sall, 'fieldstosearchall' => $fieldstosearchall);
 $reshook = $hookmanager->executeHooks('printFieldListGroupBy', $parameters, $object); // Note that $action and $object may have been modified by hook
 $sql .= $hookmanager->resPrint;
 
@@ -692,7 +692,7 @@ while ($i < $imaxinloop) {
 
 		print '<table class="nobordernopadding"><tr class="nocellnopadd">';
 		// Picto + Ref
-		print '<td class="nobordernopadding nowrap">';
+		print '<td class="nobordernopadding nowraponall">';
 		print $objectstatic->getNomUrl(1);
 		print '</td>';
 		// Warning
@@ -726,7 +726,7 @@ while ($i < $imaxinloop) {
 	if (!empty($arrayfields['f.ref_client']['checked'])) {
 		// Customer ref
 		print '<td class="nowrap tdoverflowmax200">';
-		print $obj->ref_client;
+		print dol_escape_htmltag($obj->ref_client);
 		print '</td>';
 		if (!$i) {
 			$totalarray['nbfield']++;
@@ -801,7 +801,7 @@ while ($i < $imaxinloop) {
 	// Note public
 	if (!empty($arrayfields['f.note_public']['checked'])) {
 		print '<td class="center">';
-		print dol_escape_htmltag($obj->note_public);
+		print dol_string_nohtmltag($obj->note_public);
 		print '</td>';
 		if (!$i) {
 			$totalarray['nbfield']++;
@@ -810,7 +810,7 @@ while ($i < $imaxinloop) {
 	// Note private
 	if (!empty($arrayfields['f.note_private']['checked'])) {
 		print '<td class="center">';
-		print dol_escape_htmltag($obj->note_private);
+		print dol_string_nohtmltag($obj->note_private);
 		print '</td>';
 		if (!$i) {
 			$totalarray['nbfield']++;

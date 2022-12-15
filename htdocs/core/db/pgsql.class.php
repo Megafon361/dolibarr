@@ -419,7 +419,11 @@ class DoliDBPgsql extends DoliDB
 		// try first Unix domain socket (local)
 		if ((!empty($host) && $host == "socket") && !defined('NOLOCALSOCKETPGCONNECT')) {
 			$con_string = "dbname='".$name."' user='".$login."' password='".$passwd."'"; // $name may be empty
-			$this->db = @pg_connect($con_string);
+			try {
+				$this->db = @pg_connect($con_string);
+			} catch (Exception $e) {
+				// No message
+			}
 		}
 
 		// if local connection failed or not requested, use TCP/IP
@@ -722,10 +726,22 @@ class DoliDBPgsql extends DoliDB
 	 *
 	 *	@param	string	$stringtoencode		String to escape
 	 *	@return	string						String escaped
+	 *  @deprecated
 	 */
 	public function escapeunderscore($stringtoencode)
 	{
-		return str_replace('_', '\_', $stringtoencode);
+		return str_replace('_', '\_', (string) $stringtoencode);
+	}
+
+	/**
+	 *	Escape a string to insert data into a like
+	 *
+	 *	@param	string	$stringtoencode		String to escape
+	 *	@return	string						String escaped
+	 */
+	public function escapeforlike($stringtoencode)
+	{
+		return str_replace(array('_', '\\', '%'), array('\_', '\\\\', '\%'), (string) $stringtoencode);
 	}
 
 	/**

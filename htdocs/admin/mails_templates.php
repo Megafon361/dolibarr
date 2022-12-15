@@ -54,10 +54,12 @@ if (!empty($conf->eventorganization->enabled)) {
 
 $langs->loadLangs($langsArray);
 
+$toselect = GETPOST('toselect', 'array');
 $action = GETPOST('action', 'aZ09') ?GETPOST('action', 'aZ09') : 'view';
 $massaction = GETPOST('massaction', 'alpha');
 $confirm = GETPOST('confirm', 'alpha'); // Result of a confirmation
 $mode = GETPOST('mode', 'aZ09');
+$optioncss = GETPOST('optioncss', 'alpha');
 
 $id = GETPOST('id', 'int');
 $rowid = GETPOST('rowid', 'alpha');
@@ -77,6 +79,7 @@ $actl[1] = img_picto($langs->trans("Activated"), 'switch_on', 'class="size15x"')
 $listoffset = GETPOST('listoffset', 'alpha');
 $listlimit = GETPOST('listlimit', 'alpha') > 0 ?GETPOST('listlimit', 'alpha') : 1000;
 
+$limit = GETPOST('limit', 'int') ? GETPOST('limit', 'int') : $conf->liste_limit;
 $sortfield = GETPOST('sortfield', 'aZ09comma');
 $sortorder = GETPOST('sortorder', 'aZ09comma');
 $page = GETPOSTISSET('pageplusone') ? (GETPOST('pageplusone') - 1) : GETPOST("page", 'int');
@@ -175,63 +178,63 @@ $elementList = array();
 
 $elementList['all'] = '-- '.dol_escape_htmltag($langs->trans("All")).' --';
 $elementList['none'] = '-- '.dol_escape_htmltag($langs->trans("None")).' --';
-$elementList['user'] = img_picto('', 'user', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToUser'));
+$elementList['user'] = img_picto('', 'user', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToUser'));
 if (!empty($conf->adherent->enabled) && !empty($user->rights->adherent->lire)) {
-	$elementList['member'] = img_picto('', 'object_member', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToMember'));
+	$elementList['member'] = img_picto('', 'object_member', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToMember'));
 }
 if (!empty($conf->recruitment->enabled) && !empty($user->rights->recruitment->recruitmentjobposition->read)) {
-	$elementList['recruitmentcandidature_send'] = img_picto('', 'recruitmentcandidature', 'class="paddingright"').dol_escape_htmltag($langs->trans('RecruitmentCandidatures'));
+	$elementList['recruitmentcandidature_send'] = img_picto('', 'recruitmentcandidature', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('RecruitmentCandidatures'));
 }
 if (!empty($conf->societe->enabled) && !empty($user->rights->societe->lire)) {
-	$elementList['thirdparty'] = img_picto('', 'company', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToThirdparty'));
+	$elementList['thirdparty'] = img_picto('', 'company', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToThirdparty'));
 }
 if (!empty($conf->project->enabled)) {
-	$elementList['project'] = img_picto('', 'project', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToProject'));
+	$elementList['project'] = img_picto('', 'project', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToProject'));
 }
 if (!empty($conf->propal->enabled) && !empty($user->rights->propal->lire)) {
-	$elementList['propal_send'] = img_picto('', 'propal', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendProposal'));
+	$elementList['propal_send'] = img_picto('', 'propal', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendProposal'));
 }
 if (!empty($conf->commande->enabled) && !empty($user->rights->commande->lire)) {
-	$elementList['order_send'] = img_picto('', 'order', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendOrder'));
+	$elementList['order_send'] = img_picto('', 'order', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendOrder'));
 }
 if (isModEnabled('facture') && !empty($user->rights->facture->lire)) {
-	$elementList['facture_send'] = img_picto('', 'bill', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendInvoice'));
+	$elementList['facture_send'] = img_picto('', 'bill', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendInvoice'));
 }
 if (!empty($conf->expedition->enabled)) {
-	$elementList['shipping_send'] = img_picto('', 'dolly', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendShipment'));
+	$elementList['shipping_send'] = img_picto('', 'dolly', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendShipment'));
 }
 if (!empty($conf->reception->enabled)) {
-	$elementList['reception_send'] = img_picto('', 'dollyrevert', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendReception'));
+	$elementList['reception_send'] = img_picto('', 'dollyrevert', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendReception'));
 }
 if (!empty($conf->ficheinter->enabled)) {
-	$elementList['fichinter_send'] = img_picto('', 'intervention', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendIntervention'));
+	$elementList['fichinter_send'] = img_picto('', 'intervention', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendIntervention'));
 }
 if (!empty($conf->supplier_proposal->enabled)) {
-	$elementList['supplier_proposal_send'] = img_picto('', 'propal', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendSupplierRequestForQuotation'));
+	$elementList['supplier_proposal_send'] = img_picto('', 'propal', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendSupplierRequestForQuotation'));
 }
 if ((!empty($conf->fournisseur->enabled) && !empty($user->rights->fournisseur->commande->lire) && empty($conf->global->MAIN_USE_NEW_SUPPLIERMOD)) || (!empty($conf->supplier_order->enabled) && !empty($user->rights->supplier_order->lire))) {
-	$elementList['order_supplier_send'] = img_picto('', 'order', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendSupplierOrder'));
+	$elementList['order_supplier_send'] = img_picto('', 'order', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendSupplierOrder'));
 }
 if ((!empty($conf->fournisseur->enabled) && !empty($user->rights->fournisseur->facture->lire) && empty($conf->global->MAIN_USE_NEW_SUPPLIERMOD)) || (!empty($conf->supplier_invoice->enabled) && !empty($user->rights->supplier_invoice->lire))) {
-	$elementList['invoice_supplier_send'] = img_picto('', 'bill', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendSupplierInvoice'));
+	$elementList['invoice_supplier_send'] = img_picto('', 'bill', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendSupplierInvoice'));
 }
 if (!empty($conf->contrat->enabled) && !empty($user->rights->contrat->lire)) {
-	$elementList['contract'] = img_picto('', 'contract', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendContract'));
+	$elementList['contract'] = img_picto('', 'contract', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendContract'));
 }
 if (!empty($conf->ticket->enabled) && !empty($user->rights->ticket->read)) {
-	$elementList['ticket_send'] = img_picto('', 'ticket', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToTicket'));
+	$elementList['ticket_send'] = img_picto('', 'ticket', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToTicket'));
 }
 if (!empty($conf->expensereport->enabled) && !empty($user->rights->expensereport->lire)) {
-	$elementList['expensereport_send'] = img_picto('', 'trip', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToTExpenseReport'));
+	$elementList['expensereport_send'] = img_picto('', 'trip', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToExpenseReport'));
 }
 if (isModEnabled('agenda')) {
-	$elementList['actioncomm_send'] = img_picto('', 'action', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendEventPush'));
+	$elementList['actioncomm_send'] = img_picto('', 'action', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendEventPush'));
 }
 if (!empty($conf->eventorganization->enabled) && !empty($user->rights->eventorganization->read)) {
-	$elementList['conferenceorbooth'] = img_picto('', 'action', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToSendEventOrganization'));
+	$elementList['conferenceorbooth'] = img_picto('', 'action', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToSendEventOrganization'));
 }
 if (!empty($conf->partnership->enabled) && !empty($user->rights->partnership->read)) {
-	$elementList['partnership_send'] = img_picto('', 'partnership', 'class="paddingright"').dol_escape_htmltag($langs->trans('MailToPartnership'));
+	$elementList['partnership_send'] = img_picto('', 'partnership', 'class="pictofixedwidth"').dol_escape_htmltag($langs->trans('MailToPartnership'));
 }
 
 $parameters = array('elementList'=>$elementList);
@@ -1057,21 +1060,57 @@ if ($num) {
 							print '<strong>'.$form->textwithpicto($langs->trans("FilesAttachedToEmail"), $tabhelp[$id][$tmpfieldlist], 1, 'help', '', 0, 2, $tmpfieldlist).'</strong> ';
 							print '<input type="text" class="flat maxwidth50" name="'.$tmpfieldlist.'-'.$rowid.'" value="'.(!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : '').'">';
 						}
+
+						// If $acceptlocallinktomedia is true, we can add link  media files int email templates (we already can do this into HTML editor of an email).
+						// Note that local link to a file into medias are replaced with a real link by email in CMailFile.class.php with value $urlwithroot defined like this:
+						// $urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+						// $urlwithroot = $urlwithouturlroot.DOL_URL_ROOT; // This is to use external domain name found into config file
+						$acceptlocallinktomedia = getDolGlobalInt('MAIN_DISALLOW_MEDIAS_IN_EMAIL_TEMPLATES') ? 0 : 1;
+						if ($acceptlocallinktomedia) {
+							global $dolibarr_main_url_root;
+							$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));
+
+							// Parse $newUrl
+							$newUrlArray = parse_url($urlwithouturlroot);
+							$hosttocheck = $newUrlArray['host'];
+							$hosttocheck = str_replace(array('[', ']'), '', $hosttocheck); // Remove brackets of IPv6
+
+							if (function_exists('gethostbyname')) {
+								$iptocheck = gethostbyname($hosttocheck);
+							} else {
+								$iptocheck = $hosttocheck;
+							}
+
+							//var_dump($iptocheck.' '.$acceptlocallinktomedia);
+							if (!filter_var($iptocheck, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+								// If ip of public url is an private network IP, we do not allow this.
+								$acceptlocallinktomedia = 0;
+								// TODO Show a warning
+							}
+
+							if (preg_match('/http:/i', $urlwithouturlroot)) {
+								// If public url is not a https, we do not allow to add medias link. It will generate security alerts when email will be sent.
+								$acceptlocallinktomedia = 0;
+								// TODO Show a warning
+							}
+						}
+
 						if ($tmpfieldlist == 'content') {
 							print $form->textwithpicto($langs->trans("Content"), $tabhelp[$id][$tmpfieldlist], 1, 'help', '', 0, 2, $tmpfieldlist).'<br>';
 							$okforextended = true;
 							if (empty($conf->global->FCKEDITOR_ENABLE_MAIL)) {
 								$okforextended = false;
 							}
-							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 500, 'dolibarr_mailings', 'In', 0, true, $okforextended, ROWS_6, '90%');
+							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (!empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 500, 'dolibarr_mailings', 'In', 0, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
 							print $doleditor->Create(1);
 						}
 						if ($tmpfieldlist == 'content_lines') {
 							print $form->textwithpicto($langs->trans("ContentForLines"), $tabhelp[$id][$tmpfieldlist], 1, 'help', '', 0, 2, $tmpfieldlist).'<br>';
 							$okforextended = true;
-							if (empty($conf->global->FCKEDITOR_ENABLE_MAIL))
+							if (empty($conf->global->FCKEDITOR_ENABLE_MAIL)) {
 								$okforextended = false;
-							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (! empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 140, 'dolibarr_mailings', 'In', 0, false, $okforextended, ROWS_6, '90%');
+							}
+							$doleditor = new DolEditor($tmpfieldlist.'-'.$rowid, (! empty($obj->{$tmpfieldlist}) ? $obj->{$tmpfieldlist} : ''), '', 140, 'dolibarr_mailings', 'In', 0, $acceptlocallinktomedia, $okforextended, ROWS_6, '90%');
 							print $doleditor->Create(1);
 						}
 						print '</td>';
@@ -1134,7 +1173,7 @@ if ($num) {
 							$class .= ' tdoverflowmax100';
 						}
 						if ($value == 'topic') {
-							$class .= 'tdoverflowmax200 small';
+							$class .= ' tdoverflowmax200 small';
 						}
 						if ($value == 'type_template') {
 							$valuetoshow = isset($elementList[$valuetoshow]) ? $elementList[$valuetoshow] : $valuetoshow;
@@ -1203,7 +1242,7 @@ if ($num) {
 				// Status / Active
 				print '<td class="center nowrap">';
 				if ($canbedisabled) {
-					print '<a href="'.$url.'&action='.$acts[$obj->active].'&token='.newToken().'">'.$actl[$obj->active].'</a>';
+					print '<a class="reposition" href="'.$url.'&action='.$acts[$obj->active].'&token='.newToken().'">'.$actl[$obj->active].'</a>';
 				} else {
 					print '<span class="opacitymedium">'.$actl[$obj->active].'</span>';
 				}

@@ -37,7 +37,7 @@ require_once DOL_DOCUMENT_ROOT.'/expedition/class/expedition.class.php'; // Ship
 require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.facture.class.php'; // supplier invoice
 require_once DOL_DOCUMENT_ROOT.'/fourn/class/fournisseur.commande.class.php'; // supplier order
 require_once DOL_DOCUMENT_ROOT.'/supplier_proposal/class/supplier_proposal.class.php'; // supplier proposal
-require_once DOL_DOCUMENT_ROOT."/reception/class/reception.class.php"; // reception
+require_once DOL_DOCUMENT_ROOT.'/reception/class/reception.class.php'; // reception
 include_once DOL_DOCUMENT_ROOT.'/emailcollector/lib/emailcollector.lib.php';
 //require_once DOL_DOCUMENT_ROOT.'/holiday/class/holiday.class.php'; // Holidays (leave request)
 //require_once DOL_DOCUMENT_ROOT.'/expensereport/class/expensereport.class.php'; // expernse report
@@ -111,7 +111,7 @@ class EmailCollector extends CommonObject
 	public $fields = array(
 		'rowid'         => array('type'=>'integer', 'label'=>'TechnicalID', 'visible'=>2, 'enabled'=>1, 'position'=>1, 'notnull'=>1, 'index'=>1),
 		'entity'        => array('type'=>'integer', 'label'=>'Entity', 'enabled'=>1, 'visible'=>0, 'default'=>1, 'notnull'=>1, 'index'=>1, 'position'=>20),
-		'ref'           => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>1, 'visible'=>1, 'notnull'=>1, 'showoncombobox'=>1, 'index'=>1, 'position'=>10, 'searchall'=>1, 'help'=>'Example: MyCollector1', 'csslist'=>'tdoverflowmax250'),
+		'ref'           => array('type'=>'varchar(128)', 'label'=>'Ref', 'enabled'=>1, 'visible'=>1, 'notnull'=>1, 'showoncombobox'=>1, 'index'=>1, 'position'=>10, 'searchall'=>1, 'help'=>'Example: MyCollector1', 'csslist'=>'tdoverflowmax150'),
 		'label'         => array('type'=>'varchar(255)', 'label'=>'Label', 'visible'=>1, 'enabled'=>1, 'position'=>30, 'notnull'=>-1, 'searchall'=>1, 'help'=>'Example: My Email collector', 'csslist'=>'tdoverflowmax150'),
 		'description'   => array('type'=>'text', 'label'=>'Description', 'visible'=>-1, 'enabled'=>1, 'position'=>60, 'notnull'=>-1, 'csslist'=>'small'),
 		'host'          => array('type'=>'varchar(255)', 'label'=>'EMailHost', 'visible'=>1, 'enabled'=>1, 'position'=>90, 'notnull'=>1, 'searchall'=>1, 'comment'=>"IMAP server", 'help'=>'Example: imap.gmail.com', 'csslist'=>'tdoverflow125'),
@@ -615,7 +615,7 @@ class EmailCollector extends CommonObject
 	 */
 	public function info($id)
 	{
-		$sql = 'SELECT rowid, date_creation as 	datec, tms as datem,';
+		$sql = 'SELECT rowid, date_creation as datec, tms as datem,';
 		$sql .= ' fk_user_creat, fk_user_modif';
 		$sql .= ' FROM '.MAIN_DB_PREFIX.$this->table_element.' as t';
 		$sql .= ' WHERE t.rowid = '.((int) $id);
@@ -624,27 +624,11 @@ class EmailCollector extends CommonObject
 			if ($this->db->num_rows($result)) {
 				$obj = $this->db->fetch_object($result);
 				$this->id = $obj->rowid;
-				if ($obj->fk_user_author) {
-					$cuser = new User($this->db);
-					$cuser->fetch($obj->fk_user_author);
-					$this->user_creation = $cuser;
-				}
 
-				if ($obj->fk_user_valid) {
-					$vuser = new User($this->db);
-					$vuser->fetch($obj->fk_user_valid);
-					$this->user_validation = $vuser;
-				}
-
-				if ($obj->fk_user_cloture) {
-					$cluser = new User($this->db);
-					$cluser->fetch($obj->fk_user_cloture);
-					$this->user_cloture = $cluser;
-				}
-
+				$this->user_creation_id = $obj->fk_user_creat;
+				$this->user_modification_id = $obj->fk_user_modif;
 				$this->date_creation     = $this->db->jdate($obj->datec);
-				$this->date_modification = $this->db->jdate($obj->datem);
-				$this->date_validation   = $this->db->jdate($obj->datev);
+				$this->date_modification = empty($obj->datem) ? '' : $this->db->jdate($obj->datem);
 			}
 
 			$this->db->free($result);
@@ -1252,22 +1236,38 @@ class EmailCollector extends CommonObject
 
 				$headers['Subject'] = $this->decodeSMTPSubject($headers['Subject']);
 
+				$emailto = $this->decodeSMTPSubject($overview[0]->to);
+
 
 				dol_syslog("** Process email ".$iforemailloop." References: ".$headers['References']." Subject: ".$headers['Subject']);
 				//print "Process mail ".$iforemailloop." Subject: ".dol_escape_htmltag($headers['Subject'])." References: ".dol_escape_htmltag($headers['References'])." In-Reply-To: ".dol_escape_htmltag($headers['In-Reply-To'])."<br>\n";
 
+				$trackidfoundintorecipienttype = '';
+				$trackidfoundintorecipientid = 0;
+				$reg = array();
+				// See also later list of all supported tags...
+				if (preg_match('/\+(thi|ctc|use|mem|sub|proj|tas|con|tic|job|pro|ord|inv|spro|sor|sin|leav|stockinv|job|surv|salary)([0-9]+)@/', $emailto, $reg)) {
+					$trackidfoundintorecipienttype = $reg[1];
+					$trackidfoundintorecipientid = $reg[2];
+				} elseif (preg_match('/\+emailing-(\w+)@/', $emailto, $reg)) {	// Can be 'emailing-test' or 'emailing-IdMailing-IdRecipient'
+					$trackidfoundintorecipienttype = 'emailing';
+					$trackidfoundintorecipientid = $reg[1];
+				}
+
 				// If there is a filter on trackid
 				if ($searchfilterdoltrackid > 0) {
-					if (empty($headers['References']) || !preg_match('/@'.preg_quote($host, '/').'/', $headers['References'])) {
-						$nbemailprocessed++;
-						dol_syslog(" Discarded - No header References found");
-						continue; // Exclude email
+					if (empty($trackidfoundintorecipienttype)) {
+						if (empty($headers['References']) || !preg_match('/@'.preg_quote($host, '/').'/', $headers['References'])) {
+							$nbemailprocessed++;
+							dol_syslog(" Discarded - No suffix in email recipient and no Header References found matching signature of application so with a trackid");
+							continue; // Exclude email
+						}
 					}
 				}
 				if ($searchfilternodoltrackid > 0) {
-					if (!empty($headers['References']) && preg_match('/@'.preg_quote($host, '/').'/', $headers['References'])) {
+					if (!empty($trackidfoundintorecipienttype) || (!empty($headers['References']) && preg_match('/@'.preg_quote($host, '/').'/', $headers['References']))) {
 						$nbemailprocessed++;
-						dol_syslog(" Discarded - Header References found and matching signature of application");
+						dol_syslog(" Discarded - Suffix found into email or Header References found and matching signature of application so with a trackid");
 						continue; // Exclude email
 					}
 				}
@@ -1447,13 +1447,19 @@ class EmailCollector extends CommonObject
 
 					foreach ($arrayofreferences as $reference) {
 						//print "Process mail ".$iforemailloop." email_msgid ".$msgid.", date ".dol_print_date($date, 'dayhour').", subject ".$subject.", reference ".dol_escape_htmltag($reference)."<br>\n";
-						$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote($host, '/').'/', $reference, $reg);
-						if (empty($resultsearchtrackid) && getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE')) {
-							$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote(getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE'), '/').'/', $reference, $reg);
+						if (!empty($trackidfoundintorecipienttype)) {
+							$resultsearchtrackid = -1;
+							$reg[1] = $trackidfoundintorecipienttype;
+							$reg[2] = $trackidfoundintorecipientid;
+						} else {
+							$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote($host, '/').'/', $reference, $reg);
+							if (empty($resultsearchtrackid) && getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE')) {
+								$resultsearchtrackid = preg_match('/dolibarr-([a-z]+)([0-9]+)@'.preg_quote(getDolGlobalString('EMAIL_ALTERNATIVE_HOST_SIGNATURE'), '/').'/', $reference, $reg);
+							}
 						}
 
-						if ($resultsearchtrackid) {
-							// This is a Dolibarr reference of the server
+						if (!empty($resultsearchtrackid)) {
+							// We found a tracker (in recipient email or into a Reference matching the Dolibarr server)
 							$trackid = $reg[1].$reg[2];
 
 							$objectid = $reg[2];

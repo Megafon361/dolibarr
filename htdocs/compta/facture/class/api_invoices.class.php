@@ -1408,7 +1408,7 @@ class Invoices extends DolibarrApi
 			throw new RestException(403, 'Access not allowed for login '.DolibarrApiAccess::$user->login);
 		}
 
-		if (!empty($conf->banque->enabled)) {
+		if (isModEnabled('banque')) {
 			if (empty($accountid)) {
 				throw new RestException(400, 'Account ID is mandatory');
 			}
@@ -1450,7 +1450,6 @@ class Invoices extends DolibarrApi
 			$multicurrency_amounts[$id] = $newvalue;
 		}
 
-
 		// Creation of payment line
 		$paymentobj = new Paiement($this->db);
 		$paymentobj->datepaye     = $datepaye;
@@ -1467,7 +1466,7 @@ class Invoices extends DolibarrApi
 			throw new RestException(400, 'Payment error : '.$paymentobj->error);
 		}
 
-		if (!empty($conf->banque->enabled)) {
+		if (isModEnabled('banque')) {
 			$label = '(CustomerInvoicePayment)';
 
 			if ($paymentobj->paiementcode == 'CHQ' && empty($chqemetteur)) {
@@ -1531,7 +1530,7 @@ class Invoices extends DolibarrApi
 			}
 		}
 
-		if (!empty($conf->banque->enabled)) {
+		if (isModEnabled('banque')) {
 			if (empty($accountid)) {
 				throw new RestException(400, 'Account ID is mandatory');
 			}
@@ -1615,7 +1614,7 @@ class Invoices extends DolibarrApi
 			$this->db->rollback();
 			throw new RestException(400, 'Payment error : '.$paymentobj->error);
 		}
-		if (!empty($conf->banque->enabled)) {
+		if (isModEnabled('banque')) {
 			$label = '(CustomerInvoicePayment)';
 			if ($paymentobj->paiementcode == 'CHQ' && empty($chqemetteur)) {
 				  throw new RestException(400, 'Emetteur is mandatory when payment code is '.$paymentobj->paiementcode);
