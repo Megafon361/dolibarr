@@ -3411,3 +3411,19 @@
 2022-12-16 11:28:21 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
 2022-12-16 11:28:25 NOTICE  ::1             --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/FacturaProv.php - action=confirm_validate, massaction=
 2022-12-16 11:28:25 WARNING ::1             Cotizacion::validate action abandonned: already validated
+2022-12-16 19:13:50 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:13:50 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:13:53 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-12-16 19:13:53 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:13:57 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-12-16 19:13:57 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:14:47 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_list.php - action=, massaction=
+2022-12-16 19:14:47 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:14:54 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=create, massaction=
+2022-12-16 19:14:54 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:18:43 NOTICE  127.0.0.1       --- Access to POST /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=add, massaction=
+2022-12-16 19:18:43 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/cotizacion_card.php - action=, massaction=
+2022-12-16 19:18:43 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/index.php - action=, massaction=
+2022-12-16 19:18:47 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=confirm_validate, massaction=
+2022-12-16 19:20:42 NOTICE  127.0.0.1       --- Access to GET /dolibarr/htdocs/custom/cotizaciones/myStuff/catcher.php - action=confirm_validate, massaction=
+2022-12-16 19:20:42 WARNING 127.0.0.1       Cotizacion::validate action abandonned: already validated
