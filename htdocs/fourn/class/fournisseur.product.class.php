@@ -419,7 +419,11 @@ class ProductFournisseur extends Product
 							$productfournisseurprice->array_options[$key] = $value;
 						}
 						$res = $productfournisseurprice->update($user);
-						if ($res < 0) $error++;
+						if ($res < 0) {
+							$this->error = $productfournisseurprice->error;
+							$this->errors = $productfournisseurprice->errors;
+							$error++;
+						}
 					}
 				}
 			}
@@ -506,6 +510,7 @@ class ProductFournisseur extends Product
 				if ($resql) {
 					$this->product_fourn_price_id = $this->db->last_insert_id(MAIN_DB_PREFIX."product_fournisseur_price");
 				} else {
+					$this->error = $this->db->lasterror();
 					$error++;
 				}
 
@@ -518,7 +523,11 @@ class ProductFournisseur extends Product
 								$productfournisseurprice->array_options[$key] = $value;
 							}
 							$res = $productfournisseurprice->update($user);
-							if ($res < 0) $error++;
+							if ($res < 0) {
+								$this->error = $productfournisseurprice->error;
+								$this->errors = $productfournisseurprice->errors;
+								$error++;
+							}
 						}
 					}
 				}
@@ -578,7 +587,7 @@ class ProductFournisseur extends Product
 		$sql .= " pfp.supplier_reputation, pfp.fk_user, pfp.datec,";
 		$sql .= " pfp.multicurrency_price, pfp.multicurrency_unitprice, pfp.multicurrency_tx, pfp.fk_multicurrency, pfp.multicurrency_code,";
 		$sql .= " pfp.barcode, pfp.fk_barcode_type, pfp.packaging,";
-		$sql .= " p.ref as product_ref";
+		$sql .= " p.ref as product_ref, p.tosell as status, p.tobuy as status_buy";
 		$sql .= " FROM ".MAIN_DB_PREFIX."product_fournisseur_price as pfp, ".MAIN_DB_PREFIX."product as p";
 		$sql .= " WHERE pfp.rowid = ".(int) $rowid;
 		$sql .= " AND pfp.fk_product = p.rowid";
@@ -594,7 +603,8 @@ class ProductFournisseur extends Product
 				$this->fk_product				= $obj->fk_product;
 				$this->product_id				= $obj->fk_product;
 				$this->product_ref				= $obj->product_ref;
-
+				$this->status					= $obj->status;
+				$this->status_buy				= $obj->status_buy;
 				$this->fourn_id					= $obj->fk_soc;
 				$this->fourn_ref				= $obj->ref_fourn; // deprecated
 				$this->ref_supplier             = $obj->ref_fourn;
@@ -670,7 +680,7 @@ class ProductFournisseur extends Product
 		// phpcs:enable
 		global $conf;
 
-		$sql = "SELECT s.nom as supplier_name, s.rowid as fourn_id, p.ref as product_ref,";
+		$sql = "SELECT s.nom as supplier_name, s.rowid as fourn_id, p.ref as product_ref, p.tosell as status, p.tobuy as status_buy, ";
 		$sql .= " pfp.rowid as product_fourn_pri_id, pfp.entity, pfp.ref_fourn, pfp.desc_fourn, pfp.fk_product as product_fourn_id, pfp.fk_supplier_price_expression,";
 		$sql .= " pfp.price, pfp.quantity, pfp.unitprice, pfp.remise_percent, pfp.remise, pfp.tva_tx, pfp.fk_availability, pfp.charges, pfp.info_bits, pfp.delivery_time_days, pfp.supplier_reputation,";
 		$sql .= " pfp.multicurrency_price, pfp.multicurrency_unitprice, pfp.multicurrency_tx, pfp.fk_multicurrency, pfp.multicurrency_code, pfp.datec, pfp.tms,";
@@ -699,6 +709,8 @@ class ProductFournisseur extends Product
 
 				$prodfourn->product_ref = $record["product_ref"];
 				$prodfourn->product_fourn_price_id = $record["product_fourn_pri_id"];
+				$prodfourn->status					= $record["status"];
+				$prodfourn->status_buy				= $record["status_buy"];
 				$prodfourn->product_fourn_id = $record["product_fourn_id"];
 				$prodfourn->product_fourn_entity = $record["entity"];
 				$prodfourn->ref_supplier			= $record["ref_fourn"];
@@ -808,7 +820,7 @@ class ProductFournisseur extends Product
 		$sql .= " ,pfp.multicurrency_price, pfp.multicurrency_unitprice, pfp.multicurrency_tx, pfp.fk_multicurrency, pfp.multicurrency_code";
 		$sql .= " FROM ".MAIN_DB_PREFIX."societe as s, ".MAIN_DB_PREFIX."product_fournisseur_price as pfp";
 		$sql .= " WHERE s.entity IN (".getEntity('societe').")";
-		$sql .= " AND pfp.entity = ".$conf->entity; // only current entity
+		$sql .= " AND pfp.entity IN (".getEntity('productsupplierprice').")";
 		$sql .= " AND pfp.fk_product = ".((int) $prodid);
 		$sql .= " AND pfp.fk_soc = s.rowid";
 		$sql .= " AND s.status = 1"; // only enabled society
@@ -960,7 +972,7 @@ class ProductFournisseur extends Product
 	public function display_price_product_fournisseur($showunitprice = 1, $showsuptitle = 1, $maxlen = 0, $notooltip = 0, $productFournList = array())
 	{
 		// phpcs:enable
-		global $langs;
+		global $conf, $langs;
 
 		$out = '';
 		$langs->load("suppliers");
@@ -978,7 +990,7 @@ class ProductFournisseur extends Product
 			}
 			$out .= '</table>';
 		} else {
-			$out = ($showunitprice ? price($this->fourn_unitprice * (1 - $this->fourn_remise_percent / 100) + $this->fourn_remise).' '.$langs->trans("HT").' &nbsp; <span class="opacitymedium">(</span>' : '');
+			$out = ($showunitprice ? price($this->fourn_unitprice * (1 - $this->fourn_remise_percent / 100) + $this->fourn_remise, 0, $langs, 1, -1, -1, $conf->currency).' '.$langs->trans("HT").' &nbsp; <span class="opacitymedium">(</span>' : '');
 			$out .= ($showsuptitle ? '<span class="opacitymedium">'.$langs->trans("Supplier").'</span>: ' : '').$this->getSocNomUrl(1, 'supplier', $maxlen, $notooltip).' / <span class="opacitymedium">'.$langs->trans("SupplierRef").'</span>: '.$this->ref_supplier;
 			$out .= ($showunitprice ? '<span class="opacitymedium">)</span>' : '');
 		}

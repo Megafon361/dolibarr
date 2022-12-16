@@ -93,7 +93,7 @@ if ($object->element == 'product') {
 	if (empty($ident) && !empty($conf->global->MAIN_DEFAULT_WAREHOUSE)) {
 		$ident = $conf->global->MAIN_DEFAULT_WAREHOUSE;
 	}
-	print img_picto('', 'stock').$formproduct->selectWarehouses($ident, 'id_entrepot', 'warehouseopen,warehouseinternal', 1, 0, 0, '', 0, 0, null, 'minwidth100');
+	print img_picto('', 'stock', 'class="pictofixedwidth"').$formproduct->selectWarehouses($ident, 'id_entrepot', 'warehouseopen,warehouseinternal', 1, 0, 0, '', 0, 0, null, 'minwidth100 maxwidth300 widthcentpercentminusx');
 	print '</td>';
 }
 if ($object->element == 'stock') {
@@ -106,7 +106,7 @@ if ($object->element == 'stock') {
 print '<td class="fieldrequired">'.$langs->trans("NumberOfUnit").'</td>';
 print '<td>';
 if ($object->element == 'product' || $object->element == 'stock') {
-	print '<select name="mouvement" id="mouvement" class="minwidth100 valignmiddle">';
+	print '<select name="mouvement" id="mouvement" class="minwidth125 valignmiddle">';
 	print '<option value="0">'.$langs->trans("Add").'</option>';
 	print '<option value="1"'.(GETPOST('mouvement') ? ' selected="selected"' : '').'>'.$langs->trans("Delete").'</option>';
 	print '</select>';
@@ -134,9 +134,10 @@ if (!empty($conf->productbatch->enabled) &&
 ) {
 	print '<tr>';
 	print '<td'.($object->element == 'stock' ? '' : ' class="fieldrequired"').'>'.$langs->trans("batch_number").'</td><td colspan="3">';
-	print '<input type="text" name="batch_number" size="40" value="'.GETPOST("batch_number").'">';
+	print img_picto('', 'barcode', 'class="pictofixedwidth"').'<input type="text" name="batch_number" class="minwidth300 maxwidth300 widthcentpercentminusx" value="'.GETPOST("batch_number").'">';
 	print '</td>';
 	print '</tr>';
+
 	print '<tr>';
 	if (empty($conf->global->PRODUCT_DISABLE_SELLBY)) {
 		print '<td>'.$langs->trans("SellByDate").'</td><td>';
@@ -161,7 +162,7 @@ if (!empty($conf->project->enabled)) {
 	print '<td>'.$langs->trans('Project').'</td>';
 	print '<td>';
 	print img_picto('', 'project');
-	$formproject->select_projects(-1, '', 'projectid', 0, 0, 1, 0, 0, 0, 0, '', 0, 0, 'maxwidth300');
+	$formproject->select_projects(-1, '', 'projectid', 0, 0, 1, 0, 0, 0, 0, '', 0, 0, 'maxwidth300 widthcentpercentminusx');
 	print '</td>';
 }
 print '</tr>';
@@ -171,16 +172,13 @@ $valformovementlabel = ((GETPOST("label") && (GETPOST('label') != $langs->trans(
 print '<tr>';
 print '<td>'.$langs->trans("MovementLabel").'</td>';
 print '<td>';
-print '<input type="text" name="label" class="minwidth300" value="'.$valformovementlabel.'">';
+print '<input type="text" name="label" class="minwidth400" value="'.dol_escape_htmltag($valformovementlabel).'">';
 print '</td>';
 print '<td>'.$langs->trans("InventoryCode").'</td>';
 print '<td>';
 print '<input class="maxwidth100onsmartphone" name="inventorycode" id="inventorycode" value="'.(GETPOSTISSET("inventorycode") ? GETPOST("inventorycode", 'alpha') : dol_print_date(dol_now(), '%Y%m%d%H%M%S')).'">';
 print '</td>';
 print '</tr>';
-
-// Extrafield template
-include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_add.tpl.php';
 
 print '</table>';
 

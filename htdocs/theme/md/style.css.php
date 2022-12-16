@@ -1001,6 +1001,12 @@ textarea.centpercent {
 .marginright2 {
 	margin-<?php print $right; ?>: 2px;
 }
+.nomarginleft {
+	margin-<?php print $left; ?>: unset;
+}
+.nomarginright {
+	margin-<?php print $right; ?>: unset;
+}
 .paddingtop {
 	padding-top: 4px;
 }
@@ -1020,8 +1026,14 @@ textarea.centpercent {
 .cursorpointer {
 	cursor: pointer;
 }
+.classfortooltiponclick .fa-question-circle {
+	cursor: pointer;
+}
 .cursormove {
 	cursor: move;
+}
+.cursorwait {
+	cursor: wait;
 }
 .cursornotallowed {
 	cursor: not-allowed;
@@ -1618,7 +1630,7 @@ tr.nobottom td {
 	.minwidth150 { min-width: 150px; }
 	.minwidth200 { min-width: 200px; }
 	.minwidth300 { min-width: 300px; }
-	.minwidth400 {  }
+	.minwidth400 { min-width: 400px; }
 	.minwidth500 { min-width: 500px; }
 	.minwidth50imp  { min-width: 50px !important; }
 	.minwidth75imp  { min-width: 75px !important; }
@@ -2336,7 +2348,7 @@ img.hideonsmartphone.pictoactionview {
 .pictofixedwidth {
 	text-align: <?php echo $left; ?>;
 	width: 20px;
-	padding-right: 0;
+	/* padding-right: 0; */
 }
 
 .colorthumb {
@@ -2399,6 +2411,10 @@ img.photoref, div.photoref {
 	height: 80px;
 	width: 80px;
 	object-fit: contain;
+}
+.difforspanimgright {
+	display: table-cell;
+	padding-right: 10px;
 }
 
 img.photokanban, div.photokanban {
@@ -2529,6 +2545,11 @@ a.tmenudisabled:link, a.tmenudisabled:visited, a.tmenudisabled:hover, a.tmenudis
 	white-space: nowrap;
 	color: #<?php echo $colortextbackhmenu; ?>;
 	text-decoration: none;
+	cursor: not-allowed;
+}
+span.mainmenuaspan.tmenudisabled {
+	color: var(--colortextbackhmenu);
+	opacity: 0.5;
 	cursor: not-allowed;
 }
 
@@ -2702,7 +2723,7 @@ div.mainmenu.menu {
 				print "/* A mainmenu entry was found but img file ".$val.".png not found (check /".$val."/img/".$val.".png), so we use a generic one */\n";
 				print 'div.mainmenu.'.$val.'::before {
 	                    content: "\f249";
-	                }';
+	                }'."\n";
 			} else {
 				print "/* A mainmenu entry was found but img file ".$val.".png not found (check /".$val."/img/".$val.".png), so we use a generic one. */\n";
 				print "/* Overwrite this definition in your own css with a different content to use your own font awesome icon. */\n";
@@ -2715,6 +2736,7 @@ div.mainmenu.menu {
 		} else {
 			print "div.mainmenu.".$val." {\n";
 			print "	background-image: url(".$url.");\n";
+			print " filter: saturate(0);\n";
 			print "}\n";
 		}
 	}
@@ -3055,6 +3077,7 @@ span.vsmenudisabled, font.vsmenudisabled {
 	text-align: <?php print $left; ?>;
 	font-weight: normal;
 	color: #aaa;
+	white-space: nowrap;
 }
 a.vsmenu:link, a.vsmenu:visited {
 	color: var(--colortextbackvmenu);
@@ -4661,8 +4684,13 @@ span.buttonpaymentsmall {
 #tablepublicpayment tr.liste_total td { border-top: none; }
 
 .divmainbodylarge { margin-left: 40px; margin-right: 40px; }
+.publicnewmemberform div.titre { font-size: 2em; }
 #divsubscribe { max-width: 900px; }
+#divsubscribe .eventlabel { font-size: 1.5em; }
 #tablesubscribe { width: 100%; }
+#tablesubscribe tr td { font-size: 1.15em; }
+#tablesubscribe .price-registration { font-size: 1.5em; }
+
 
 div#card-element {
 	border: 1px solid #ccc;
@@ -4724,9 +4752,8 @@ div#card-errors {
 .ui-dialog-content {
 	font-size: <?php print $fontsize; ?>px !important;
 }
-
-.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
-	z-index: 1002 !important;		/* Default 101 with jquery, top menu have a z-index of 1000 */
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable {
+	z-index: 1002 !important;		/* Default 101 with ui-jquery, top menu have a z-index of 1000 */
 }
 
 div#dialogforpopup {
@@ -4948,6 +4975,7 @@ tr.visible {
 .websiteformtoolbar {
 	position: sticky;
 	top: <?php echo empty($dol_hide_topmenu) ? ($disableimages ? '36px' : '50px') : '0'; ?>;
+	z-index: 1000;
 }
 
 .exampleapachesetup {
@@ -7021,9 +7049,11 @@ span.clipboardCPValueToPrint, div.clipboardCPValueToPrint {
 }
 span.clipboardCPValue.hidewithsize {
 	width: 0 !important;
-	display: inline-block;
+	display: inline-block;	/* this will be modifiy on the fly by the copy-paste js code in lib_foot.js.php to have copy feature working */
 	color: transparent;
 	white-space: nowrap;
+	overflow-x: hidden;
+	vertical-align: middle;
 }
 div.clipboardCPValue.hidewithsize {
 	width: 0 !important;
@@ -7291,22 +7321,26 @@ div.clipboardCPValue.hidewithsize {
 	.a-mesure, .a-mesure-disabled {
 		text-align: center;
 	}
-	
-		
+
+
 	.underbanner.underbanner-before-box {
 		border-bottom: none;
 	}
-	
+
 	div.divButAction {
 		margin-bottom: 0.5em;
 	}
-	
+
 	div#card-errors {
 		max-width: unset;
 	}
-	
+
 	#dolpaymenttable {
 		padding: 5px;
+	}
+
+	.lilevel1 span.paddingright {
+		padding-right: 3px;
 	}
 }
 

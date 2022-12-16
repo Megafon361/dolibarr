@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/javascript');
 echo '
 <script type="text/javascript">
 console.log("WOOOOOOOOOOOOOOOOW2!");
@@ -14,12 +15,12 @@ console.log("WOOOOOOOOOOOOOOOOW2!");
 	$("[tipo=\'Cant\']").attr("maxlength","2");
 	//
 
-//$("#C0Pr").addClass("Precio");
-//$("#C0Ca").addClass("Cant");
+$("#C0Pr").addClass("C0Pr");
+$("#C0Ca").addClass("C0Ca");
 $("#C1Pr").addClass("Precio");
 $("#C1Ca").addClass("Cant");
-//$("#C2Pr").addClass("Precio");
-//$("#C2Ca").addClass("Cant");
+$("#C2Pr").addClass("Precio");
+$("#C2Ca").addClass("Cant");
 $("#C3Pr").addClass("Precio");
 $("#C3Ca").addClass("Cant");
 $("#C4Pr").addClass("Precio");
@@ -85,66 +86,64 @@ $("#C9Pr").addClass("Precio");
 
 }); 
 
-
-
-function var_dump(array){
-
-	
-	
+function var_dump(array){	
 	};
 
 var gastos = 0
+
 function sumar() {
 
-	var suma =    0;
-	for (let i = 0; i < 10; i++)
+	var gastos =    0;
+	for (let i = 0; i < 9; i++)
 	 {
 	  var cantidad = document.getElementsByClassName("Cant")[i].value;
 	  var precio = document.getElementsByClassName("Precio")[i].value;
-	  console.log(cantidad);
-	  console.log(precio);
-	  if (isNaN(parseFloat(cantidad))) {
-		  
-		 
+	  //console.log(cantidad);
+	  //console.log(precio);
+
+	  if (isNaN(parseFloat(cantidad))) {  	 
 		  cantidad = 0;
-		} else {
-	
+		} else {	
 		  cantidad = parseFloat(cantidad);
-	
-		}      
+		}
+
 		if (isNaN(parseFloat(precio))) {
-			
-			precio = 0;
-  
-		} else {
-	
+		precio = 0;
+  		} else {
 		  precio = parseFloat(precio);
-	
 		}  
 
 
 
-	  suma += parseFloat(cantidad * precio);
+	  gastos += parseFloat(cantidad * precio);
+
+ 	 }
+	 
+	var Civa = 0.21;
+	var Cganancias = 0.15;
+	var Ciibb = 0.025;
+	var Cproduccion = 0.15;
+	var Cmegafon = 0.15;
+	var megafon;
+	var produccion;
+
+	megafon = gastos * Cmegafon;
+	produccion = gastos*(Cproduccion);
+	gastos += produccion;
+
+	 document.getElementById("gastos").value = gastos.toFixed(2);
 	
-
-	  
-
-	 }
-	 document.getElementById("gastos").value = suma.toFixed(2);
-	 megafon = suma * 0.15;
 	 document.getElementById("megafon").value = megafon.toFixed(2);
-	 subtotal = megafon + suma;
+	 subtotal = megafon + gastos;
 	 document.getElementById("subtotal").value = subtotal.toFixed(2);
 	 document.getElementById("subtotal2").value = subtotal.toFixed(2);
-	 var_dump(suma);
+	 var_dump(gastos);
 	  
-	  var iva = 0.21;
-	  var ganancias = 0.15;
-	  var iibb = 0.025
-
-	  var conIVA = iva + iibb + ganancias; 
-	  var sinIVA  = iibb + ganancias;
+	
+	  var conIVA = Civa + Ciibb + Cganancias; 
+	  var sinIVA  = Ciibb + Cganancias;
 	  var contado = 0;
+	  
 	  
 	  choco = document.getElementById("check1")[0];
 	  if(document.getElementById("check1").checked){
@@ -156,17 +155,18 @@ function sumar() {
 	  if(document.getElementById("check3").checked){
 		  var total =  subtotal ;
 	  }
-
+	  document.getElementById("total").value = total.toFixed(2);
+	  gastos =  0;
+ 
 
 	  document.getElementById("iva").value = (total - subtotal).toFixed(2);
+	  document.getElementById("C0Pr").value = produccion.toFixed(2);
 
-	  document.getElementById("total").value = total.toFixed(2);
-	  suma =  0;
- 
+	  
 };
 
 
- 
+
 
 
 </script>';

@@ -50,17 +50,11 @@ $show_files = GETPOST('show_files', 'int');
 $confirm = GETPOST('confirm', 'alpha');
 $toselect = GETPOST('toselect', 'array');
 $contextpage = GETPOST('contextpage', 'aZ') ?GETPOST('contextpage', 'aZ') : 'thirdpartylist';
-
+$optioncss = GETPOST('optioncss', 'alpha');
 if ($contextpage == 'poslist') {
-	$_GET['optioncss'] = 'print';
+	$optioncss = 'print';
 }
-
-// Security check
-$socid = GETPOST('socid', 'int');
-if ($user->socid) {
-	$socid = $user->socid;
-}
-$result = restrictedArea($user, 'societe', $socid, '');
+$mode = GETPOST("mode", 'alpha');
 
 $search_all = trim(GETPOST('search_all', 'alphanohtml') ?GETPOST('search_all', 'alphanohtml') : GETPOST('sall', 'alphanohtml'));
 $search_cti = preg_replace('/^0+/', '', preg_replace('/[^0-9]/', '', GETPOST('search_cti', 'alphanohtml'))); // Phone number without any special chars
@@ -105,8 +99,6 @@ $search_import_key  = trim(GETPOST("search_import_key", "alpha"));
 $search_parent_name = trim(GETPOST('search_parent_name', 'alpha'));
 
 $type = GETPOST('type', 'alpha');
-$optioncss = GETPOST('optioncss', 'alpha');
-$mode = GETPOST("mode", 'alpha');
 $place = GETPOST('place', 'aZ09') ? GETPOST('place', 'aZ09') : '0'; // $place is string id of table for Bar or Restaurant
 
 $diroutputmassaction = $conf->societe->dir_output.'/temp/massgeneration/'.$user->id;
@@ -267,6 +259,14 @@ include DOL_DOCUMENT_ROOT.'/core/tpl/extrafields_list_array_fields.tpl.php';
 
 $object->fields = dol_sort_array($object->fields, 'position');
 $arrayfields = dol_sort_array($arrayfields, 'position');
+
+// Security check
+$socid = GETPOST('socid', 'int');
+if ($user->socid) {
+	$socid = $user->socid;
+}
+$result = restrictedArea($user, 'societe', $socid, '');
+
 
 
 /*
@@ -873,7 +873,7 @@ $arrayofmassactions = array(
 	//'builddoc'=>img_picto('', 'pdf', 'class="pictofixedwidth"').$langs->trans("PDFMerge"),
 );
 //if($user->rights->societe->creer) $arrayofmassactions['createbills']=$langs->trans("CreateInvoiceForThisCustomer");
-if ($user->rights->societe->creer) {
+if (isModEnabled('category') && $user->rights->societe->creer) {
 	$arrayofmassactions['preaffecttag'] = img_picto('', 'category', 'class="pictofixedwidth"').$langs->trans("AffectTag");
 }
 if ($user->rights->societe->creer) {
@@ -1207,7 +1207,7 @@ if (!empty($arrayfields['customerorsupplier']['checked'])) {
 		print '<input type="hidden" name="type" value="'.$type.'">';
 	}
 	print $formcompany->selectProspectCustomerType($search_type, 'search_type', 'search_type', 'list');
-	print '</select></td>';
+	print '</td>';
 }
 // Prospect level
 if (!empty($arrayfields['s.fk_prospectlevel']['checked'])) {
@@ -1347,10 +1347,10 @@ if (!empty($arrayfields['s.idprof4']['checked'])) {
 	print_liste_field_titre($form->textwithpicto($langs->trans("ProfId4Short"), $textprofid[4], 1, 0), $_SERVER["PHP_SELF"], "s.idprof4", "", $param, '', $sortfield, $sortorder, 'nowrap ');
 }
 if (!empty($arrayfields['s.idprof5']['checked'])) {
-	print_liste_field_titre($form->textwithpicto($langs->trans("ProfId5Short"), $textprofid[4], 1, 0), $_SERVER["PHP_SELF"], "s.idprof5", "", $param, '', $sortfield, $sortorder, 'nowrap ');
+	print_liste_field_titre($form->textwithpicto($langs->trans("ProfId5Short"), $textprofid[5], 1, 0), $_SERVER["PHP_SELF"], "s.idprof5", "", $param, '', $sortfield, $sortorder, 'nowrap ');
 }
 if (!empty($arrayfields['s.idprof6']['checked'])) {
-	print_liste_field_titre($form->textwithpicto($langs->trans("ProfId6Short"), $textprofid[4], 1, 0), $_SERVER["PHP_SELF"], "s.idprof6", "", $param, '', $sortfield, $sortorder, 'nowrap ');
+	print_liste_field_titre($form->textwithpicto($langs->trans("ProfId6Short"), $textprofid[6], 1, 0), $_SERVER["PHP_SELF"], "s.idprof6", "", $param, '', $sortfield, $sortorder, 'nowrap ');
 }
 if (!empty($arrayfields['s.tva_intra']['checked'])) {
 	print_liste_field_titre($arrayfields['s.tva_intra']['label'], $_SERVER["PHP_SELF"], "s.tva_intra", "", $param, '', $sortfield, $sortorder, 'nowrap ');
@@ -1445,24 +1445,19 @@ while ($i < min($num, $limit)) {
 		}
 	}
 	if (!empty($arrayfields['s.nom']['checked'])) {
-		$savalias = $obj->name_alias;
-		if (!empty($arrayfields['s.name_alias']['checked'])) {
-			$companystatic->name_alias = '';
-		}
 		print '<td'.(empty($conf->global->MAIN_SOCIETE_SHOW_COMPLETE_NAME) ? ' class="tdoverflowmax200"' : '').' data-key="ref">';
 		if ($contextpage == 'poslist') {
-			print $obj->name;
+			print dol_escape_htmltag($obj->name);
 		} else {
-			print $companystatic->getNomUrl(1, '', 100, 0, 1);
+			print $companystatic->getNomUrl(1, '', 100, 0, 1, empty($arrayfields['s.name_alias']['checked']) ? 0 : 1);
 		}
 		print "</td>\n";
-		$companystatic->name_alias = $savalias;
 		if (!$i) {
 			$totalarray['nbfield']++;
 		}
 	}
 	if (!empty($arrayfields['s.name_alias']['checked'])) {
-		print '<td class="tdoverflowmax200">';
+		print '<td class="tdoverflowmax150" title="'.dol_escape_htmltag($companystatic->name_alias).'">';
 		print dol_escape_htmltag($companystatic->name_alias);
 		print "</td>\n";
 		if (!$i) {
@@ -1471,7 +1466,7 @@ while ($i < min($num, $limit)) {
 	}
 	// Barcode
 	if (!empty($arrayfields['s.barcode']['checked'])) {
-		print '<td>'.dol_escape_htmltag($obj->barcode).'</td>';
+		print '<td class="tdoverflowmax150" title="'.dol_escape_htmltag($obj->barcode).'">'.dol_escape_htmltag($obj->barcode).'</td>';
 		if (!$i) {
 			$totalarray['nbfield']++;
 		}
@@ -1583,7 +1578,7 @@ while ($i < min($num, $limit)) {
 		}
 	}
 	if (!empty($arrayfields['s.email']['checked'])) {
-		print '<td class="tdoverflowmax150">'.dol_print_email($obj->email, $obj->rowid, $obj->socid, 'AC_EMAIL', 0, 0, 1)."</td>\n";
+		print '<td class="tdoverflowmax150">'.dol_print_email($obj->email, $obj->rowid, $obj->rowid, 'AC_EMAIL', 0, 0, 1)."</td>\n";
 		if (!$i) {
 			$totalarray['nbfield']++;
 		}
@@ -1737,9 +1732,10 @@ while ($i < min($num, $limit)) {
 			$totalarray['nbfield']++;
 		}
 	}
+	// Import key
 	if (!empty($arrayfields['s.import_key']['checked'])) {
-		print '<td class="tdoverflowmax100">';
-		print $obj->import_key;
+		print '<td class="tdoverflowmax100" title="'.dol_escape_htmltag($obj->import_key).'">';
+		print dol_escape_htmltag($obj->import_key);
 		print "</td>\n";
 		if (!$i) {
 			$totalarray['nbfield']++;

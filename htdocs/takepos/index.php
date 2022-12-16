@@ -58,7 +58,7 @@ $setterminal = GETPOST('setterminal', 'int');
 $setcurrency = GETPOST('setcurrency', 'aZ09');
 
 if (empty($_SESSION["takeposterminal"])) {
-	if ($conf->global->TAKEPOS_NUM_TERMINALS == "1") {
+	if (getDolGlobalInt('TAKEPOS_NUM_TERMINALS') == 1) {
 		$_SESSION["takeposterminal"] = 1; // Use terminal 1 if there is only 1 terminal
 	} elseif (!empty($_COOKIE["takeposterminal"])) {
 		$_SESSION["takeposterminal"] = preg_replace('/[^a-zA-Z0-9_\-]/', '', $_COOKIE["takeposterminal"]); // Restore takeposterminal from previous session
@@ -581,11 +581,14 @@ function New() {
 /**
  * Search products
  *
- * @param   {int}			keyCodeForEnter     Key code for "enter"
- * return   {void}
+ * @param   string			keyCodeForEnter     Key code for "enter" or '' if not
+ * @param   int				moreorless          ??
+ * return   void
  */
 function Search2(keyCodeForEnter, moreorless) {
-	console.log("Search2 Call ajax search to replace products keyCodeForEnter="+keyCodeForEnter);
+	var eventKeyCode = window.event.keyCode;
+
+	console.log("Search2 Call ajax search to replace products keyCodeForEnter="+keyCodeForEnter+", eventKeyCode="+eventKeyCode);
 
 	var search_term  = $('#search').val();
 	var search_start = 0;
@@ -594,6 +597,8 @@ function Search2(keyCodeForEnter, moreorless) {
 		search_term = $('#search_pagination').val();
 		search_start = $('#search_start_'+moreorless).val();
 	}
+
+	console.log("search_term="+search_term);
 
 	if (search_term == '') {
 		$("[id^=prowatermark]").html("");
@@ -608,20 +613,19 @@ function Search2(keyCodeForEnter, moreorless) {
 	}
 
 	var search = false;
-	var eventKeyCode = window.event.keyCode;
 	if (keyCodeForEnter == '' || eventKeyCode == keyCodeForEnter) {
 		search = true;
 	}
 
 	if (search === true) {
-
-		// temporization time to give time to type
+		// if a timer has been already started (search2_timer is a global js variable), we cancel it now
+		// we click onto another key, we will restart another timer just after
 		if (search2_timer) {
 			clearTimeout(search2_timer);
 		}
 
+		// temporization time to give time to type
 		search2_timer = setTimeout(function(){
-
 			pageproducts = 0;
 			jQuery(".wrapper2 .catwatermark").hide();
 			var nbsearchresults = 0;
@@ -684,8 +688,8 @@ function Search2(keyCodeForEnter, moreorless) {
 						console.log("There is only 1 answer with barcode matching the search, so we change the thirdparty "+data[0]['rowid']);
 						ChangeThirdparty(data[0]['rowid']);
 					}
-					else if ('product' == data[0]['object']) {
-						console.log("There is only 1 answer matching the search, so we add the product in basket, qty="+data[0]['qty']);
+					else if ($('#search').val() == data[0]['barcode'] && 'product' == data[0]['object']) {
+						console.log("There is only 1 answer and we found search on a barcode, so we add the product in basket, qty="+data[0]['qty']);
 						ClickProduct(0, data[0]['qty']);
 					}
 				}
@@ -693,8 +697,8 @@ function Search2(keyCodeForEnter, moreorless) {
 					if (data.length == 0) {
 						$('#search').val('<?php
 						$langs->load('errors');
-						echo dol_escape_js($langs->trans("ErrorRecordNotFound"));
-						?>');
+						echo dol_escape_js($langs->transnoentitiesnoconv("ErrorRecordNotFoundShort"));
+						?> ('+search_term+')');
 						$('#search').select();
 					}
 					else ClearSearch();
@@ -967,7 +971,7 @@ if (empty($conf->global->TAKEPOS_HIDE_HEAD_BAR)) {
 				?>
 				</a>
 				<?php
-				if (!empty($conf->multicurrency->enabled)) {
+				if (isModEnabled('multicurrency')) {
 					print '<a class="valignmiddle tdoverflowmax100" id="multicurrency" onclick="ModalBox(\'ModalCurrency\');" title=""><span class="fas fa-coins paddingrightonly"></span>';
 					print '<span class="hideonsmartphone">'.$langs->trans("Currency").'</span>';
 					print '</a>';
@@ -981,7 +985,7 @@ if (empty($conf->global->TAKEPOS_HIDE_HEAD_BAR)) {
 				<!-- More info about customer -->
 				<div class="inline-block valignmiddle tdoverflowmax150onsmartphone" id="moreinfo"></div>
 				<?php
-				if (!empty($conf->stock->enabled)) {
+				if (isModEnabled('stock')) {
 					?>
 				<!-- More info about warehouse -->
 				<div class="inline-block valignmiddle tdoverflowmax150onsmartphone" id="infowarehouse"></div>
@@ -1031,7 +1035,7 @@ if (empty($conf->global->TAKEPOS_HIDE_HEAD_BAR)) {
 </div>
 
 <!-- Modal multicurrency box -->
-<?php if (!empty($conf->multicurrency->enabled)) { ?>
+<?php if (isModEnabled('multicurrency')) { ?>
 <div id="ModalCurrency" class="modal">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -1137,7 +1141,7 @@ if (isset($_SESSION["takeposterminal"]) && $_SESSION["takeposterminal"]) {
 		}
 	}
 
-	if (empty($paiementsModes) && !empty($conf->banque->enabled)) {
+	if (empty($paiementsModes) && isModEnabled('banque')) {
 		$langs->load('errors');
 		setEventMessages($langs->trans("ErrorModuleSetupNotComplete", $langs->transnoentitiesnoconv("TakePOS")), null, 'errors');
 		setEventMessages($langs->trans("ProblemIsInSetupOfTerminal", $_SESSION["takeposterminal"]), null, 'errors');

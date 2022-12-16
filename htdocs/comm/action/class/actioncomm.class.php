@@ -374,6 +374,16 @@ class ActionComm extends CommonObject
 	public $status;
 
 	/**
+	 * Properties to manage the recurring events
+	 */
+	public $recurid;
+	public $recurrule;
+	public $recurdateend;
+
+	public $calling_duration;
+
+
+	/**
 	 * Typical value for a event that is in a todo state
 	 */
 	const EVENT_TODO = 0;
@@ -1140,12 +1150,8 @@ class ActionComm extends CommonObject
 		$userownerid = ($this->userownerid ? $this->userownerid : 0);
 		$userdoneid = ($this->userdoneid ? $this->userdoneid : 0);
 
-		$this->db->begin();
-
-		$sql = "UPDATE ".MAIN_DB_PREFIX."actioncomm ";
-		$sql .= " SET percent = '".$this->db->escape($this->percentage)."'";
+		// If a type_id is set, we must also have the type_code set
 		if ($this->type_id > 0) {
-			$sql .= ", fk_action = ".(int) $this->type_id;
 			if (empty($this->type_code)) {
 				$cactioncomm = new CActionComm($this->db);
 				$result = $cactioncomm->fetch($this->type_id);
@@ -1154,7 +1160,18 @@ class ActionComm extends CommonObject
 				}
 			}
 		}
-		$sql .= ", code = " . (isset($this->type_code)? "'".$this->db->escape($this->type_code) . "'":"null");
+
+		$code = $this->code;
+		if (empty($code) || (!empty($this->oldcopy) && $this->oldcopy->type_code != $this->type_code)) {	// If code unknown or if change the type, we reset $code too
+			$code = $this->type_code;
+		}
+
+		$this->db->begin();
+
+		$sql = "UPDATE ".MAIN_DB_PREFIX."actioncomm ";
+		$sql .= " SET percent = '".$this->db->escape($this->percentage)."'";
+		$sql .= ", fk_action = ".(int) $this->type_id;
+		$sql .= ", code = " . ($code ? "'".$this->db->escape($code)."'" : "null");
 		$sql .= ", label = ".($this->label ? "'".$this->db->escape($this->label)."'" : "null");
 		$sql .= ", datep = ".(strval($this->datep) != '' ? "'".$this->db->idate($this->datep)."'" : 'null');
 		$sql .= ", datep2 = ".(strval($this->datef) != '' ? "'".$this->db->idate($this->datef)."'" : 'null');
@@ -1366,7 +1383,6 @@ class ActionComm extends CommonObject
 		if (empty($user->rights->agenda->allactions->read)) {
 			$sql .= " LEFT JOIN ".MAIN_DB_PREFIX."actioncomm_resources AS ar ON a.id = ar.fk_actioncomm AND ar.element_type ='user' AND ar.fk_element = ".((int) $user->id);
 		}
-		$sql .= " LEFT JOIN ".MAIN_DB_PREFIX."societe as s ON a.fk_soc = s.rowid";
 		$sql .= " WHERE 1 = 1";
 		if (empty($load_state_board)) {
 			$sql .= " AND a.percent >= 0 AND a.percent < 100";
@@ -1448,21 +1464,10 @@ class ActionComm extends CommonObject
 			if ($this->db->num_rows($result)) {
 				$obj = $this->db->fetch_object($result);
 				$this->id = $obj->id;
-				if ($obj->fk_user_author) {
-					$cuser = new User($this->db);
-					$cuser->fetch($obj->fk_user_author);
-					$this->user_creation = $cuser;
-				}
-				if ($obj->fk_user_mod) {
-					$muser = new User($this->db);
-					$muser->fetch($obj->fk_user_mod);
-					$this->user_modification = $muser;
-				}
-
-				$this->date_creation = $this->db->jdate($obj->datec);
-				if (!empty($obj->fk_user_mod)) {
-					$this->date_modification = $this->db->jdate($obj->datem);
-				}
+				$this->user_creation_id = $obj->fk_user_author;
+				$this->user_modification_id = $obj->fk_user_mod;
+				$this->date_creation     = $this->db->jdate($obj->datec);
+				$this->date_modification = empty($obj->datem) ? '' : $this->db->jdate($obj->datem);
 			}
 			$this->db->free($result);
 		} else {
@@ -2094,8 +2099,8 @@ class ActionComm extends CommonObject
 						}
 
 						if (!empty($conf->global->AGENDA_EXPORT_FIX_TZ)) {
-							$timestampStart = - ($conf->global->AGENDA_EXPORT_FIX_TZ * 3600);
-							$timestampEnd   = - ($conf->global->AGENDA_EXPORT_FIX_TZ * 3600);
+							$timestampStart = $timestampStart - ($conf->global->AGENDA_EXPORT_FIX_TZ * 3600);
+							$timestampEnd   = $timestampEnd - ($conf->global->AGENDA_EXPORT_FIX_TZ * 3600);
 						}
 
 						$urlwithouturlroot = preg_replace('/'.preg_quote(DOL_URL_ROOT, '/').'$/i', '', trim($dolibarr_main_url_root));

@@ -60,6 +60,7 @@ global $dolibarr_main_url_root;
 
 // Init vars
 $errmsg = '';
+$errors = array();
 $error = 0;
 $backtopage = GETPOST('backtopage', 'alpha');
 $action = GETPOST('action', 'aZ09');
@@ -90,6 +91,7 @@ if ($type == 'conf') {
 	if ($resultproject < 0) {
 		$error++;
 		$errmsg .= $project->error;
+		$errors = array_merge($errors, $project->errors);
 	}
 }
 
@@ -99,15 +101,18 @@ if ($type == 'global') {
 	if ($resultproject < 0) {
 		$error++;
 		$errmsg .= $project->error;
+		$errors = array_merge($errors, $project->errors);
 	} else {
-		$sql = "SELECT COUNT(*) as nb FROM ".MAIN_DB_PREFIX."projet";
-		$sql .= " WHERE ".MAIN_DB_PREFIX."eventorganization_conferenceorboothattendee = ".((int) $project->id);
+		$sql = "SELECT COUNT(*) as nb FROM ".MAIN_DB_PREFIX."eventorganization_conferenceorboothattendee";
+		$sql .= " WHERE fk_project = ".((int) $project->id);
 
-		$resql = $db->query($resql);
+		$resql = $db->query($sql);
 		if ($resql) {
 			$obj = $db->fetch_object($resql);
 			if ($obj) {
 				$currentnbofattendees = $obj->nb;
+			} else {
+				dol_print_error($db);
 			}
 		}
 	}
@@ -279,6 +284,7 @@ if (empty($reshook) && $action == 'add' && (!empty($conference->id) && $conferen
 			if ($resultconfattendee < 0) {
 				$error++;
 				$errmsg .= $confattendee->error;
+				$errors = array_merge($errors, $confattendee->errors);
 			}
 		}
 
@@ -403,6 +409,7 @@ if (empty($reshook) && $action == 'add' && (!empty($conference->id) && $conferen
 			// If an error was found
 			$error++;
 			$errmsg .= $thirdparty->error;
+			$errors = array_merge($errors, $thirdparty->errors);
 		} elseif ($resultfetchthirdparty == 0) {	// No thirdparty found + a payment is expected
 			// Creation of a new thirdparty
 			if (!empty($societe)) {
@@ -441,6 +448,7 @@ if (empty($reshook) && $action == 'add' && (!empty($conference->id) && $conferen
 			if ($readythirdparty < 0) {
 				$error++;
 				$errmsg .= $thirdparty->error;
+				$errors = array_merge($errors, $thirdparty->errors);
 			} else {
 				$thirdparty->country_code = getCountry($thirdparty->country_id, 2, $db, $langs);
 				$thirdparty->country      = getCountry($thirdparty->country_code, 0, $db, $langs);
@@ -468,10 +476,11 @@ if (empty($reshook) && $action == 'add' && (!empty($conference->id) && $conferen
 				$resultprod = $productforinvoicerow->fetch($conf->global->SERVICE_CONFERENCE_ATTENDEE_SUBSCRIPTION);
 			}
 
-			// Create invoice
+			// Create the draft invoice for the payment
 			if ($resultprod < 0) {
 				$error++;
 				$errmsg .= $productforinvoicerow->error;
+				$errors = array_merge($errors, $productforinvoicerow->errors);
 			} else {
 				$facture = new Facture($db);
 				if (empty($confattendee->fk_invoice)) {
@@ -521,7 +530,11 @@ if (empty($reshook) && $action == 'add' && (!empty($conference->id) && $conferen
 
 				// If there is no lines yet, we add one
 				if (empty($facture->lines)) {
-					$result = $facture->addline($labelforproduct, floatval($project->price_registration), 1, $vattouse, 0, 0, $productforinvoicerow->id, 0, $date_start, $date_end, 0, 0, '', 'HT', 0, 1);
+					$pu_ttc = floatval($project->price_registration);
+					$pu_ht = 0;
+					$price_base_type = 'TTC';
+
+					$result = $facture->addline($labelforproduct, $pu_ht, 1, $vattouse, 0, 0, $productforinvoicerow->id, 0, $date_start, $date_end, 0, 0, '', $price_base_type, $pu_ttc, 1);
 					if ($result <= 0) {
 						$confattendee->error = $facture->error;
 						$confattendee->errors = $facture->errors;
@@ -634,28 +647,32 @@ print load_fiche_titre($langs->trans("NewRegistration"), '', '', 0, 0, 'center')
 
 print '<div align="center">';
 print '<div id="divsubscribe">';
-print '<div class="center subscriptionformhelptext justify">';
+print '<div class="center subscriptionformhelptext">';
 
 // Welcome message
 
-print $langs->trans("EvntOrgWelcomeMessage", $project->title . ' '. $conference->label);
+print $langs->trans("EvntOrgWelcomeMessage");
+print '<br>';
+print '<span class="eventlabel">'.$project->title . ' '. $conference->label.'</span>';
 print '<br>';
 $maxattendees = 0;
-if ($conference->id) {
+if ($conference->id > 0) {
+	/* date of project is not  date of event so commented
 	print $langs->trans("Date").': ';
 	print dol_print_date($conference->datep);
 	if ($conference->date_end) {
 		print ' - ';
 		print dol_print_date($conference->datef);
-	}
+	}*/
 } else {
+	/* date of project is not  date of event so commented
 	print $langs->trans("Date").': ';
 	print dol_print_date($project->date_start);
 	if ($project->date_end) {
 		print ' - ';
 		print dol_print_date($project->date_end);
-	}
-	$maxattendees = $project->max_attendees;
+	}*/
+	$maxattendees = $project->max_attendees;	// Max attendeed for the project/event
 }
 print '</div>';
 
@@ -666,9 +683,8 @@ if ($maxattendees && $currentnbofattendees >= $maxattendees) {
 }
 
 
-print '<br>';
 
-dol_htmloutput_errors($errmsg);
+dol_htmloutput_errors($errmsg, $errors);
 
 if ((!empty($conference->id) && $conference->status == ConferenceOrBooth::STATUS_CONFIRMED) || (!empty($project->id) && $project->status == Project::STATUS_VALIDATED)) {
 	if (empty($maxattendees) || $currentnbofattendees < $maxattendees) {
@@ -718,7 +734,7 @@ if ((!empty($conference->id) && $conference->status == ConferenceOrBooth::STATUS
 
 		// Email company for invoice
 		if ($project->price_registration) {
-			print '<tr><td>' . $langs->trans("EmailCompanyForInvoice") . '</td><td>';
+			print '<tr><td>' . $form->textwithpicto($langs->trans("EmailCompany"), $langs->trans("EmailCompanyForInvoice")) . '</td><td>';
 			print img_picto('', 'email', 'class="pictofixedwidth"');
 			print '<input type="text" name="emailcompany" maxlength="255" class="minwidth200 widthcentpercentminusx maxwidth300" value="' . dol_escape_htmltag(GETPOST('emailcompany')) . '"></td></tr>' . "\n";
 		}
@@ -769,7 +785,7 @@ if ((!empty($conference->id) && $conference->status == ConferenceOrBooth::STATUS
 
 		if ($project->price_registration) {
 			print '<tr><td>' . $langs->trans('Price') . '</td><td>';
-			print price($project->price_registration, 1, $langs, 1, -1, -1, $conf->currency);
+			print '<span class="amount price-registration">'.price($project->price_registration, 1, $langs, 1, -1, -1, $conf->currency).'</span>';
 			print '</td></tr>';
 		}
 

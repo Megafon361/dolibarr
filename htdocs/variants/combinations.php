@@ -69,7 +69,7 @@ if ($id > 0 || $ref) {
 	$object->fetch($id, $ref);
 }
 
-$selectedvariant = !empty($_SESSION['addvariant_'.$object->id]) ? $_SESSION['addvariant_'.$object->id] : 0;
+$selectedvariant = !empty($_SESSION['addvariant_'.$object->id]) ? $_SESSION['addvariant_'.$object->id] : array();
 
 // Security check
 if (empty($conf->variants->enabled)) {
@@ -492,7 +492,7 @@ if (!empty($id) || !empty($ref)) {
 		}
 
 		if ($action == 'add') {
-			$prodattr_all = $prodattr->fetchAll();
+			$prodattr_all = $prodattr->fetchAll(1);
 
 			if (!$selected) {
 				$selected = $prodattr_all[key($prodattr_all)]->id;
@@ -503,7 +503,6 @@ if (!empty($id) || !empty($ref)) {
 			foreach ($prodattr_all as $each) {
 				$prodattr_alljson[$each->id] = $each;
 			}
-
 			?>
 
 		<script type="text/javascript">

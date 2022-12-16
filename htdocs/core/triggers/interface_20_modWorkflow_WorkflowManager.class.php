@@ -2,6 +2,7 @@
 /* Copyright (C) 2010      Regis Houssin       <regis.houssin@inodbox.com>
  * Copyright (C) 2011-2017 Laurent Destailleur <eldy@users.sourceforge.net>
  * Copyright (C) 2014      Marcos García       <marcosgdf@gmail.com>
+ * Copyright (C) 2022      Ferran Marcet       <fmarcet@2byte.es>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -72,19 +73,25 @@ class InterfaceWorkflowManager extends DolibarrTriggers
 		if ($action == 'PROPAL_CLOSE_SIGNED') {
 			dol_syslog("Trigger '".$this->name."' for action '$action' launched by ".__FILE__.". id=".$object->id);
 			if (!empty($conf->commande->enabled) && !empty($conf->global->WORKFLOW_PROPAL_AUTOCREATE_ORDER)) {
-				include_once DOL_DOCUMENT_ROOT.'/commande/class/commande.class.php';
-				$newobject = new Commande($this->db);
+				$object->fetchObjectLinked();
+				if (!empty($object->linkedObjectsIds['commande'])) {
+					setEventMessages($langs->trans("OrderExists"), null, 'warnings');
+					return $ret;
+				} else {
+					include_once DOL_DOCUMENT_ROOT.'/commande/class/commande.class.php';
+					$newobject = new Commande($this->db);
 
-				$newobject->context['createfrompropal'] = 'createfrompropal';
-				$newobject->context['origin'] = $object->element;
-				$newobject->context['origin_id'] = $object->id;
+					$newobject->context['createfrompropal'] = 'createfrompropal';
+					$newobject->context['origin'] = $object->element;
+					$newobject->context['origin_id'] = $object->id;
 
-				$ret = $newobject->createFromProposal($object, $user);
-				if ($ret < 0) {
-					$this->error = $newobject->error;
-					$this->errors[] = $newobject->error;
+					$ret = $newobject->createFromProposal($object, $user);
+					if ($ret < 0) {
+						$this->error = $newobject->error;
+						$this->errors[] = $newobject->error;
+					}
+					return $ret;
 				}
-				return $ret;
 			}
 		}
 
@@ -439,8 +446,9 @@ class InterfaceWorkflowManager extends DolibarrTriggers
 					if (is_array($list) && !empty($list)) {
 						$number_contracts_found = count($list);
 						if ($number_contracts_found == 1) {
-							$contractid = $list[0]->id;
-							$object->setContract($contractid);
+							foreach ($list as $linked_contract) {
+								$object->setContract($linked_contract->id);
+							}
 							break;
 						} elseif ($number_contracts_found > 1) {
 							foreach ($list as $linked_contract) {

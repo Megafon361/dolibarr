@@ -51,7 +51,7 @@ class Conf
 	public $use_javascript_ajax;
 	//! To store if javascript/ajax is enabked
 	public $disable_compute;
-	//! Used to store current currency (ISO code like 'USD', 'EUR', ...)
+	//! Used to store current currency (ISO code like 'USD', 'EUR', ...). To get the currency symbol: $langs->getCurrencySymbol($this->currency)
 	public $currency;
 
 	//! Used to store current css (from theme)
@@ -1013,7 +1013,9 @@ class Conf
 					}
 
 					if (empty($handler_file_found)) {
-						throw new Exception('Missing log handler file '.$handler.'.php');
+						// If log handler has been removed of is badly setup, we must be able to continue code.
+						//throw new Exception('Missing log handler file '.$handler.'.php');
+						continue;
 					}
 
 					require_once $handler_file_found;
@@ -1033,11 +1035,14 @@ class Conf
 		if (!empty($this->file->mailing_limit_sendbyweb)) {
 			$this->global->MAILING_LIMIT_SENDBYWEB = $this->file->mailing_limit_sendbyweb;
 		}
-		if (empty($this->global->MAILING_LIMIT_SENDBYWEB)) {
+		if (empty($this->global->MAILING_LIMIT_SENDBYWEB)) {	// Limit by web can't be 0
 			$this->global->MAILING_LIMIT_SENDBYWEB = 25;
 		}
 		if (!empty($this->file->mailing_limit_sendbycli)) {
 			$this->global->MAILING_LIMIT_SENDBYCLI = $this->file->mailing_limit_sendbycli;
+		}
+		if (!empty($this->file->mailing_limit_sendbyday)) {
+			$this->global->MAILING_LIMIT_SENDBYDAY = $this->file->mailing_limit_sendbyday;
 		}
 
 		return 0;
