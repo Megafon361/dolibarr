@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/javascript');
 echo '
 <script type="text/javascript">
 console.log("WOOOOOOOOOOOOOOOOW2!");
@@ -14,8 +15,8 @@ console.log("WOOOOOOOOOOOOOOOOW2!");
 	$("[tipo=\'Cant\']").attr("maxlength","2");
 	//
 
-//$("#C0Pr").addClass("Precio");
-//$("#C0Ca").addClass("Cant");
+$("#C0Pr").addClass("C0Pr");
+$("#C0Ca").addClass("C0Ca");
 $("#C1Pr").addClass("Precio");
 $("#C1Ca").addClass("Cant");
 $("#C2Pr").addClass("Precio");
@@ -118,14 +119,20 @@ function sumar() {
 
  	 }
 	 
-	  var Civa = 0.21;
-	  var Cganancias = 0.15;
-	  var Ciibb = 0.025;
-	  var Cproduccion = 0.15;
-	  var Cmegafon = 0.15;
+	var Civa = 0.21;
+	var Cganancias = 0.15;
+	var Ciibb = 0.025;
+	var Cproduccion = 0.15;
+	var Cmegafon = 0.15;
+	var megafon;
+	var produccion;
+
+	megafon = gastos * Cmegafon;
+	produccion = gastos*(Cproduccion);
+	gastos += produccion;
 
 	 document.getElementById("gastos").value = gastos.toFixed(2);
-	 megafon = gastos * Cmegafon;
+	
 	 document.getElementById("megafon").value = megafon.toFixed(2);
 	 subtotal = megafon + gastos;
 	 document.getElementById("subtotal").value = subtotal.toFixed(2);
@@ -136,7 +143,7 @@ function sumar() {
 	  var conIVA = Civa + Ciibb + Cganancias; 
 	  var sinIVA  = Ciibb + Cganancias;
 	  var contado = 0;
-	  var produccion = 
+	  
 	  
 	  choco = document.getElementById("check1")[0];
 	  if(document.getElementById("check1").checked){
@@ -148,14 +155,16 @@ function sumar() {
 	  if(document.getElementById("check3").checked){
 		  var total =  subtotal ;
 	  }
-
-
-	  document.getElementById("iva").value = (total - subtotal).toFixed(2);
-
 	  document.getElementById("total").value = total.toFixed(2);
 	  gastos =  0;
  
+
+	  document.getElementById("iva").value = (total - subtotal).toFixed(2);
+	  document.getElementById("C0Pr").value = produccion.toFixed(2);
+
+	  
 };
+
 
 
 
