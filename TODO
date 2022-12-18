@@ -1,0 +1,33 @@
+En terceros  filtrar solo clientes
+
+EN crear cotizacion 
+#acomodar diseño 
+#Third party cambiar por Cliente
+third party  revisar  select que tenga solo clientes y clientes potenciales
+#roles verificar que esten  todos
+#asign verificar que esten todos los select
+# agregar hints
+#agregar precompletados
+#Entrega  poner calendario
+
+
+EN FACTURAR A PROOVEV
+Cambiar el estado cuando se preciona
+si el proovedor ya agrego una linea.. no crear otra factura, sino que agregar lineas 
+
+
+
+Due date = now + 15 dias
+
+
+en cotiz.commonfields add tpl 
+
+// planilla ingreso 
+en inputs agregar  sugerencias 
+formatear textos
+·en entrega sugerir fechas 1 semana etc 
+en cantidad autocompletar 1 cuando se empieza a escribir en el campo precio
+
+EN AGREGAR COTIZACION
+AGREGAR GRAFICOS
+IF ESTAN VACIOS / NO AGREGAR  oo... crear funcion para tomar los datos y crear un array
