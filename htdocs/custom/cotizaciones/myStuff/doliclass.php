@@ -341,7 +341,7 @@ function addLinesProv($FacturaCreada, $pu, $desc, $qty="1",$iva="0.00", $note_pr
 			$tag = 'div';
 		}
 		if(isset($notas)){$print = '<-- '.$notas.'-->';}
-			if (isset($content){$print .= '<'.$tag.'>'.$content;}
+			if (isset($content)){$print .= '<'.$tag.'>'.$content;}
 		}
 	
 ?>

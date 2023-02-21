@@ -332,6 +332,7 @@ class Categorie extends CommonObject
 
 		// Check parameters
 		if (empty($id) && empty($label) && empty($ref_ext)) {
+			$this->error = "No category to search for";
 			return -1;
 		}
 		if (!is_null($type) && !is_numeric($type)) {
@@ -371,6 +372,8 @@ class Categorie extends CommonObject
 				$this->entity = (int) $res['entity'];
 				$this->date_creation = $this->db->jdate($res['date_creation']);
 				$this->date_modification = $this->db->jdate($res['tms']);
+				$this->user_creation_id = (int) $res['fk_user_creat'];
+				$this->user_modification_id = (int) $res['fk_user_modif'];
 				$this->user_creation = (int) $res['fk_user_creat'];
 				$this->user_modification = (int) $res['fk_user_modif'];
 
@@ -387,6 +390,7 @@ class Categorie extends CommonObject
 
 				return 1;
 			} else {
+				$this->error = "No category found";
 				return 0;
 			}
 		} else {
@@ -632,23 +636,30 @@ class Categorie extends CommonObject
 		}
 
 		$arraydelete = array(
-			'categorie_product' => 'fk_categorie',
-			'categorie_fournisseur' => 'fk_categorie',
-			'categorie_societe' => 'fk_categorie',
-			'categorie_member' => 'fk_categorie',
-			'categorie_contact' => 'fk_categorie',
-			'categorie_user' => 'fk_categorie',
-			'categorie_project' => 'fk_categorie',
 			'categorie_account' => 'fk_categorie',
-			'categorie_website_page' => 'fk_categorie',
-			'categorie_warehouse' => 'fk_categorie',
 			'categorie_actioncomm' => 'fk_categorie',
-			'categorie_ticket' => 'fk_categorie',
+			'categorie_contact' => 'fk_categorie',
+			'categorie_fournisseur' => 'fk_categorie',
+			'categorie_knowledgemanagement' => array('field' => 'fk_categorie', 'enabled' => isModEnabled('knowledgemanagement')),
+			'categorie_member' => 'fk_categorie',
+			'categorie_user' => 'fk_categorie',
+			'categorie_product' => 'fk_categorie',
+			'categorie_project' => 'fk_categorie',
+			'categorie_societe' => 'fk_categorie',
+			'categorie_ticket' => array('field' => 'fk_categorie', 'enabled' => isModEnabled('ticket')),
+			'categorie_warehouse' => 'fk_categorie',
+			'categorie_website_page' => array('field' => 'fk_categorie', 'enabled' => isModEnabled('website')),
 			'bank_class' => 'fk_categ',
 			'categorie_lang' => 'fk_category',
 			'categorie' => 'rowid',
 		);
 		foreach ($arraydelete as $key => $value) {
+			if (is_array($value)) {
+				if (empty($value['enabled'])) {
+					continue;
+				}
+				$value = $value['field'];
+			}
 			$sql  = "DELETE FROM ".MAIN_DB_PREFIX.$key;
 			$sql .= " WHERE ".$value." = ".((int) $this->id);
 			if (!$this->db->query($sql)) {
@@ -825,7 +836,7 @@ class Categorie extends CommonObject
 	/**
 	 * Return list of fetched instance of elements having this category
 	 *
-	 * @param   string     	$type       Type of category ('customer', 'supplier', 'contact', 'product', 'member', 'knowledge_management' ...)
+	 * @param   string     	$type       Type of category ('customer', 'supplier', 'contact', 'product', 'member', 'knowledge_management', ...)
 	 * @param   int        	$onlyids    Return only ids of objects (consume less memory)
 	 * @param	int			$limit		Limit
 	 * @param	int			$offset		Offset
@@ -1213,9 +1224,10 @@ class Categorie extends CommonObject
 		while ((empty($protection) || $i < $protection) && !empty($this->motherof[$cursor_categ])) {
 			//print '&nbsp; cursor_categ='.$cursor_categ.' i='.$i.' '.$this->motherof[$cursor_categ].'<br>'."\n";
 			$this->cats[$id_categ]['fullpath'] = '_'.$this->motherof[$cursor_categ].$this->cats[$id_categ]['fullpath'];
-			$this->cats[$id_categ]['fulllabel'] = $this->cats[$this->motherof[$cursor_categ]]['label'].' >> '.$this->cats[$id_categ]['fulllabel'];
+			$this->cats[$id_categ]['fulllabel'] = (empty($this->cats[$this->motherof[$cursor_categ]]) ? 'NotFound' : $this->cats[$this->motherof[$cursor_categ]]['label']).' >> '.$this->cats[$id_categ]['fulllabel'];
 			//print '&nbsp; Result for id_categ='.$id_categ.' : '.$this->cats[$id_categ]['fullpath'].' '.$this->cats[$id_categ]['fulllabel'].'<br>'."\n";
-			$i++; $cursor_categ = $this->motherof[$cursor_categ];
+			$i++;
+			$cursor_categ = $this->motherof[$cursor_categ];
 		}
 		//print 'Result for id_categ='.$id_categ.' : '.$this->cats[$id_categ]['fullpath'].'<br>'."\n";
 

@@ -1,7 +1,7 @@
 <?php
 /* Copyright (C) 2013-2017  Olivier Geffroy         <jeff@jeffinfo.com>
  * Copyright (C) 2013-2017  Florian Henry           <florian.henry@open-concept.pro>
- * Copyright (C) 2013-2021  Alexandre Spangaro      <aspangaro@open-dsi.fr>
+ * Copyright (C) 2013-2022  Alexandre Spangaro      <aspangaro@open-dsi.fr>
  * Copyright (C) 2017       Laurent Destailleur     <eldy@users.sourceforge.net>
  * Copyright (C) 2018-2020  Frédéric France         <frederic.france@netlogic.fr>
  *
@@ -79,7 +79,7 @@ if (!empty($update)) {
 $object = new BookKeeping($db);
 
 // Security check
-if (empty($conf->accounting->enabled)) {
+if (!isModEnabled('accounting')) {
 	accessforbidden();
 }
 if ($user->socid > 0) {
@@ -540,21 +540,24 @@ if ($action == 'create') {
 		print '</td>';
 		print '</tr>';
 
-		// Date document export
-		print '<tr>';
-		print '<td class="titlefield">'.$langs->trans("DateExport").'</td>';
-		print '<td>';
-		print $object->date_export ? dol_print_date($object->date_export, 'dayhour') : '&nbsp;';
-		print '</td>';
-		print '</tr>';
+		// Don't show in tmp mode, inevitably empty
+		if ($mode != "_tmp") {
+			// Date document export
+			print '<tr>';
+			print '<td class="titlefield">' . $langs->trans("DateExport") . '</td>';
+			print '<td>';
+			print $object->date_export ? dol_print_date($object->date_export, 'dayhour') : '&nbsp;';
+			print '</td>';
+			print '</tr>';
 
-		// Date document validation
-		print '<tr>';
-		print '<td class="titlefield">'.$langs->trans("DateValidation").'</td>';
-		print '<td>';
-		print $object->date_validation ? dol_print_date($object->date_validation, 'dayhour') : '&nbsp;';
-		print '</td>';
-		print '</tr>';
+			// Date document validation
+			print '<tr>';
+			print '<td class="titlefield">' . $langs->trans("DateValidation") . '</td>';
+			print '<td>';
+			print $object->date_validation ? dol_print_date($object->date_validation, 'dayhour') : '&nbsp;';
+			print '</td>';
+			print '</tr>';
+		}
 
 		// Validate
 		/*
@@ -641,7 +644,7 @@ if ($action == 'create') {
 				print_liste_field_titre("Debit", "", "", "", "", 'class="right"');
 				print_liste_field_titre("Credit", "", "", "", "", 'class="right"');
 				if (empty($object->date_validation)) {
-					print_liste_field_titre("Action", "", "", "", "", 'width="60" class="center"');
+					print_liste_field_titre("Action", "", "", "", "", 'width="60"', "", "", 'center ');
 				} else {
 					print_liste_field_titre("");
 				}
@@ -708,9 +711,7 @@ if ($action == 'create') {
 							print '<td><input type="text" class="minwidth200" name="label_operation" value="' . $label_operation . '"/></td>';
 							print '<td class="right"><input type="text" size="6" class="right" name="debit" value=""/></td>';
 							print '<td class="right"><input type="text" size="6" class="right" name="credit" value=""/></td>';
-							print '<td>';
-							print '<input type="submit" class="button" name="save" value="' . $langs->trans("Add") . '">';
-							print '</td>';
+							print '<td class="center"><input type="submit" class="button" name="save" value="' . $langs->trans("Add") . '"></td>';
 						}
 					} else {
 						print '<!-- td columns in display mode -->';

@@ -1066,6 +1066,7 @@ class FormMail extends Form
 				// multiselect array convert html entities into options tags, even if we dont want this, so we encode them a second time
 				$tmparray = $this->withto;
 				foreach ($tmparray as $key => $val) {
+					$tmparray[$key] = str_replace(array('<', '>'), array('(', ')'), $tmparray[$key]);
 					$tmparray[$key] = dol_htmlentities($tmparray[$key], null, 'UTF-8', true);
 				}
 
@@ -1074,6 +1075,7 @@ class FormMail extends Form
 				if (empty($withtoselected) && count($tmparray) == 1 && GETPOST('action', 'aZ09') == 'presend') {
 					$withtoselected = array_keys($tmparray);
 				}
+
 				$out .= $form->multiselectarray("receiver", $tmparray, $withtoselected, null, null, 'inline-block minwidth500', null, "");
 			}
 		}
@@ -1101,6 +1103,7 @@ class FormMail extends Form
 				// multiselect array convert html entities into options tags, even if we dont want this, so we encode them a second time
 				$tmparray = $this->withtocc;
 				foreach ($tmparray as $key => $val) {
+					$tmparray[$key] = str_replace(array('<', '>'), array('(', ')'), $tmparray[$key]);
 					$tmparray[$key] = dol_htmlentities($tmparray[$key], null, 'UTF-8', true);
 				}
 				$withtoccselected = GETPOST("receivercc", 'array'); // Array of selected value
@@ -1274,7 +1277,7 @@ class FormMail extends Form
 	 *  @param	int			$id				Id of template to get, or -1 for first found with position 0, or 0 for first found whatever is position (priority order depends on lang provided or not) or -2 for exact match with label (no answer if not found)
 	 *  @param  int         $active         1=Only active template, 0=Only disabled, -1=All
 	 *  @param	string		$label			Label of template to get
-	 *  @return ModelMail|integer			One instance of ModelMail or -1 if error
+	 *  @return ModelMail|integer			One instance of ModelMail or < 0 if error
 	 */
 	public function getEMailTemplate($dbs, $type_template, $user, $outputlangs, $id = 0, $active = 1, $label = '')
 	{
@@ -1504,7 +1507,7 @@ class FormMail extends Form
 
 
 	/**
-	 * Set substit array from object. This is call when suggesting the email template into forms before sending email.
+	 * Set ->substit (and ->substit_line) array from object. This is call when suggesting the email template into forms before sending email.
 	 *
 	 * @param	CommonObject	$object		   Object to use
 	 * @param   Translate  		$outputlangs   Object lang
@@ -1551,7 +1554,7 @@ class FormMail extends Form
 
 					if (!empty($extrafields->attributes[$product->table_element]['label']) && is_array($extrafields->attributes[$product->table_element]['label']) && count($extrafields->attributes[$product->table_element]['label']) > 0) {
 						foreach ($extrafields->attributes[$product->table_element]['label'] as $key => $label) {
-							$substit_line['__PRODUCT_EXTRAFIELD_'.strtoupper($key).'__'] = $product->array_options['options_'.$key];
+							$substit_line['__PRODUCT_EXTRAFIELD_'.strtoupper($key).'__'] = isset($product->array_options['options_'.$key]) ? $product->array_options['options_'.$key] : '';
 						}
 					}
 				}

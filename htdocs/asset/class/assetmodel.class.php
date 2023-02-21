@@ -67,7 +67,6 @@ class AssetModel extends CommonObject
 	const STATUS_DRAFT = 0;
 	const STATUS_VALIDATED = 1;
 	const STATUS_CANCELED = 9;
-	const STATUS_FacturadoProv = 3;
 
 
 	/**
@@ -515,29 +514,6 @@ class AssetModel extends CommonObject
 		return $this->setStatusCommon($user, self::STATUS_DRAFT, $notrigger, 'ASSETMODEL_UNVALIDATE');
 	}
 
-
-
-		/**
-	 *	Set STATUS_Facturado_Prov = 3;  status
-	 *
-	 *	@param	User	$user			Object user that modify
-	 *  @param	int		$notrigger		1=Does not execute triggers, 0=Execute triggers
-	 *	@return	int						<0 if KO, >0 if OK
-	 */
-	public function setFacturadoProv($user, $notrigger = 0)
-	{
-		// Protection
-		if ($this->status <= self::STATUS_FacturadoProv) {
-			return 0;
-		}
-
-		return $this->setStatusCommon($user, self::STATUS_FacturadoProv, $notrigger, 'Facturadoapro');
-	}
-
-
-
-
-
 	/**
 	 *	Set cancel status
 	 *
@@ -758,27 +734,11 @@ class AssetModel extends CommonObject
 			if ($this->db->num_rows($result)) {
 				$obj = $this->db->fetch_object($result);
 				$this->id = $obj->rowid;
-				if ($obj->fk_user_author) {
-					$cuser = new User($this->db);
-					$cuser->fetch($obj->fk_user_author);
-					$this->user_creation = $cuser;
-				}
 
-				if ($obj->fk_user_valid) {
-					$vuser = new User($this->db);
-					$vuser->fetch($obj->fk_user_valid);
-					$this->user_validation = $vuser;
-				}
-
-				if ($obj->fk_user_cloture) {
-					$cluser = new User($this->db);
-					$cluser->fetch($obj->fk_user_cloture);
-					$this->user_cloture = $cluser;
-				}
-
+				$this->user_creation_id = $obj->fk_user_creat;
+				$this->user_modification_id = $obj->fk_user_modif;
 				$this->date_creation     = $this->db->jdate($obj->datec);
 				$this->date_modification = $this->db->jdate($obj->datem);
-				$this->date_validation   = $this->db->jdate($obj->datev);
 			}
 
 			$this->db->free($result);
