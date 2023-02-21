@@ -107,9 +107,9 @@ foreach ($object->fields as $key => $val) {
 			break;
 		#tabla
 		case 'C0Ro':
-			#print'<div class="ui inverted violet segment">';
+			print'<div class="ui inverted violet segment">';
 			#print'<div class="ui segment">';
-			#print'<table class="ui celled collapsing single line table" >';
+			#print'<table class="ui celled collapsing single line table" style="width:800px;height:300px;overflow-x: scroll;">';
 			print'<table class="ui celled single line table" >';
 			print '
 			<thead>
@@ -262,7 +262,7 @@ foreach ($object->fields as $key => $val) {
 			#ORANGE/Yellow
 			//print'<div class="ui inverted orange segment">';		
 			//print ''
-			//echo str_repeat('&nbsp;', 2);
+			echo str_repeat('&nbsp;', 2);
 			#ABRO COLUMNA
 			#print '<div class="column">';
 
@@ -302,6 +302,7 @@ foreach ($object->fields as $key => $val) {
 
 
 	$tipo=' onkeyup="sumar();" tipo="'.$val['label'].'" ';      
+	//$tipo='';
 
 
 	//print '<div class="valuefieldcreate">';
@@ -335,8 +336,26 @@ foreach ($object->fields as $key => $val) {
 			print img_picto('', 'language', 'class="pictofixedwidth"');
 			print $formadmin->select_language($value, $key, 0, null, 1, 0, 0, 'minwidth50', 2);
 		} else {
-		
+			
+			
+			if ($key == 'C0As') {
+				
+				 // array
+				
+			}
 			print $object->showInputField($val, $key, $value, $tipo, '', '', 0);
+			
+			if ($key == 'C0As') {
+
+				//var_dump($val); //array(6) { ["type"]=> string(112) "integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)" ["label"]=> string(4) "Asi0" ["enabled"]=> string(1) "1" ["position"]=> int(116) ["notnull"]=> int(0) ["visible"]=> int(3) }
+				//var_dump($key); //string(4) "C0As"
+				//var_dump($value); //String 0
+				//var_dump($tipo); //string(32) " onkeyup="sumar();" tipo="Asi0" " 
+				//''
+				//''
+				//0
+			}
+
 		}
 	}
 	switch ($key) {
@@ -466,6 +485,7 @@ foreach ($object->fields as $key => $val) {
 				</tr>
 			</tfoot>
 		  	</table>
+			  </div>
 			</div>
 			</div>
 			</div>';

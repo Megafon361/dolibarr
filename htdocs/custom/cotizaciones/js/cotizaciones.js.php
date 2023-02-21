@@ -87,6 +87,21 @@ if (empty($dolibarr_nocache)) {
 
 echo '
 console.log("custom cotiza!");
+$(\'[label="Cant"] > input\').attr(\'style\' , "width: 20px")
+$(\'[label="Cant"] > input\').removeClass( "minwidth400" )
+
+
+$(\'[label="C0As"] > span\').removeAttr(\'style\');
+$(\'[label="C1As"] > span\').removeAttr(\'style\');
+$(\'[label="C2As"] > span\').removeAttr(\'style\');
+$(\'[label="C3As"] > span\').removeAttr(\'style\');
+$(\'[label="C4As"] > span\').removeAttr(\'style\');
+$(\'[label="C5As"] > span\').removeAttr(\'style\');
+$(\'[label="C6As"] > span\').removeAttr(\'style\');
+$(\'[label="C7As"] > span\').removeAttr(\'style\');
+$(\'[label="C8As"] > span\').removeAttr(\'style\');
+$(\'[label="C9As"] > span\').removeAttr(\'style\');
+console.log("custom cotiza1212121!");
 
 
 

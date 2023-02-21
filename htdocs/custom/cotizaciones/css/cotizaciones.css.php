@@ -146,9 +146,9 @@ td.Pago {
 
 }
 
-
-
-#C0Pr {max-width: 80px;}
+console.log('css inyectada cotizaciones/css/cotizaciones.css.php ')
+[label="Asi0"] {max-width: 10px;}
+#Precio {max-width: 80px;}
 #C1Pr {max-width: 80px;}
 #C2Pr {max-width: 80px;}
 #C3Pr {max-width: 80px;}

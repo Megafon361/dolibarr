@@ -108,47 +108,72 @@ div.mainmenu.cotizaciones {
 
 
 
-.Precio input{
-	background-color: #03fccf;
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 10px;    
-}
-
-.Asi0 select, .Asi1 select, .Asi2 select, .Asi3 select, .Asi4 select {
-	/* background-color: #03fccf; */
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
-}
-
 .Cant input{
-	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
+
+ background-color: aqua;  
+ max-width: "6";
 }
+td.Cant {
+	background-color: blueviolet;
+	max-width: "6";
+}
+
+.total{
+	font-weight: bolder;
+}
+
+
+
+
+
+
+
 .Rol select {
 	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
+  
 }
-.Pago input {
+
+
+
+
+
+#fk_soc {max-width: 150px;}
+td {
 	
-    font-weight: bold;
-    min-width: 0; 
-	max-width: 1;    
+
+}
+td.Pago {
+
 }
 
+console.log('css inyectada cotizaciones/css/cotizaciones.css.php ')
+[label="C0Pr"] {max-width: 10px;}
+#Precio {max-width: 80px;}
+#C1Pr {max-width: 80px;}
+#C2Pr {max-width: 80px;}
+#C3Pr {max-width: 80px;}
+#C4Pr {max-width: 80px;}
+#C5Pr {max-width: 80px;}
+#C6Pr {max-width: 80px;}
+#C7Pr {max-width: 80px;}
+#C8Pr {max-width: 80px;}
+#C9Pr {max-width: 80px;}
 
-#C0Pr {max-width: 1;}
-#C0Ca {max-width: min-content; max-length: 2;}
+#C0Ca {max-width: 40px;}
+#C1Ca {max-width: 40px;}
+#C2Ca {max-width: 40px;}
+#C3Ca {max-width: 50px;}
+#C4Ca {max-width: 40px;}
+#C5Ca {max-width: 40px;}
+#C6Ca {max-width: 40px;}
+#C7Ca {max-width: 40px;}
+#C8Ca {max-width: 50px;}
+#C9Ca {max-width: 40px;}
 
-#fk_soc {max-width: 100px;}
+#subtotal2 {max-width: 40px;}
 
 
-[tipo="Cant"] {
-  background-color: #30c959;
+td {
+
+
 }
-

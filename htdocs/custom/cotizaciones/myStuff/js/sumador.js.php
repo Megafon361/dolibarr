@@ -1,18 +1,18 @@
 <?php
 echo '
 <script type="text/javascript">
-console.log("WOOOOOOOOOOOOOOOOW!");
+console.log("Sumador.js.php!");
 
 
 
 //alert("total");
 
   $( document ).ready(function() {
-    console.log( "ready! cotizacard.css.php" );
+    console.log( "ready! cotizaciones.js.ph.back" );
 
-	$("*[tipo=\'Precio\']").removeClass();
-	$("[tipo=\'Cant\']").attr("maxlength","2");
-	//
+	//$("*[tipo=\'Precio\']").removeClass();
+	//$("[tipo=\'Cant\']").attr("maxlength","2");
+	
 
 $("#C0Pr").addClass("Precio");
 $("#C0Ca").addClass("Cant");
@@ -35,16 +35,23 @@ $("#C8Ca").addClass("Cant");
 $("#C9Pr").addClass("Precio");
 $("#C9Ca").addClass("Cant");
 
-$("#C5Ca").addClass("Cant");
-$("#C5Pr").addClass("Precio");
-$("#C6Ca").addClass("Cant");
-$("#C6Pr").addClass("Precio");
-$("#C7Ca").addClass("Cant");
-$("#C7Pr").addClass("Precio");
-$("#C8Ca").addClass("Cant");
-$("#C8Pr").addClass("Precio");
-$("#C9Ca").addClass("Cant");
-$("#C9Pr").addClass("Precio");
+/* 
+$(\'[label="Asi0"] > span\').removeAttr("style");
+$(\'[label="Asi1"] > span\').removeAttr("style");
+$(\'[label="Asi2"] > span\').removeAttr("style");
+$(\'[label="Asi3"] > span\').removeAttr("style");
+$(\'[label="Asi4"] > span\').removeAttr("style");
+$(\'[label="Asi5"] > span\').removeAttr("style");
+$(\'[label="Asi6"] > span\').removeAttr("style");
+$(\'[label="Asi7"] > span\').removeAttr("style");
+$(\'[label="Asi8"] > span\').removeAttr("style");
+$(\'[label="Asi9"] > span\').removeAttr("style");
+console.log(\'custom cotiza1212121!\');
+
+
+
+$(\'[label="Cant"] > input\').attr(\'style\' , "width: 20px")
+$(\'[label="Cant"] > input\').removeClass( "minwidth400" ) */
 
 
 //$("#C0Pr").removeClass();
@@ -87,11 +94,7 @@ $("#C9Pr").addClass("Precio");
 
 
 
-function var_dump(array){
 
-	
-	
-	};
 
 var gastos = 0
 function sumar() {
@@ -101,8 +104,8 @@ function sumar() {
 	 {
 	  var cantidad = document.getElementsByClassName("Cant")[i].value;
 	  var precio = document.getElementsByClassName("Precio")[i].value;
-	  console.log(cantidad);
-	  console.log(precio);
+	  //console.log(cantidad);
+	  //console.log(precio);
 	  if (isNaN(parseFloat(cantidad))) {
 		  
 		 
@@ -136,7 +139,7 @@ function sumar() {
 	 subtotal = megafon + suma;
 	 document.getElementById("subtotal").value = subtotal.toFixed(2);
 	 document.getElementById("subtotal2").value = subtotal.toFixed(2);
-	 var_dump(suma);
+	 //var_dump(suma);
 	  
 	  var iva = 0.21;
 	  var ganancias = 0.15;

@@ -6653,6 +6653,22 @@ abstract class CommonObject
 	 * @param  int			$nonewbutton   Force to not show the new button on field that are links to object
 	 * @return string
 	 */
+
+/*
+
+
+
+<span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" data-select2-id="7" style="width: 127.672px;">
+
+				//var_dump($val); //array(6) { ["type"]=> string(112) "integer:Societe:societe/class/societe.class.php:1:status=1 AND fournisseur=1 AND entity IN (__SHARED_ENTITIES__)" ["label"]=> string(4) "Asi0" ["enabled"]=> string(1) "1" ["position"]=> int(116) ["notnull"]=> int(0) ["visible"]=> int(3) }
+				//var_dump($key); //string(4) "C0As"
+				//var_dump($value); //String 0
+				//var_dump($tipo); //string(32) " onkeyup="sumar();" tipo="Asi0" " 
+				//''
+				//''
+				//0
+
+				0 */
 	public function showInputField($val, $key, $value, $moreparam = '', $keysuffix = '', $keyprefix = '', $morecss = 0, $nonewbutton = 0)
 	{
 		global $conf, $langs, $form;
@@ -6845,6 +6861,19 @@ abstract class CommonObject
 			if (!empty($conf->use_javascript_ajax) && empty($conf->global->MAIN_EXTRAFIELDS_DISABLE_SELECT2)) {
 				include_once DOL_DOCUMENT_ROOT.'/core/lib/ajax.lib.php';
 				$out .= ajax_combobox($keyprefix.$key.$keysuffix, array(), 0);
+				
+
+
+				//echo "<script>console.log('{$out}' );</script>";
+
+				//$js_code = 'console.log(' . json_encode($out, JSON_HEX_TAG).');';			
+				//$js_code = '<script>' . $js_code . '</script>';
+				
+					//echo $js_code;
+				
+
+
+
 			}
 
 			$out .= '<select class="flat '.$morecss.' maxwidthonsmartphone" name="'.$keyprefix.$key.$keysuffix.'" id="'.$keyprefix.$key.$keysuffix.'" '.($moreparam ? $moreparam : '').'>';
