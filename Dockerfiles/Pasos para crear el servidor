@@ -1,0 +1,11 @@
+ Pasos para crear el servidor
+ /todavia no implementado crear la red 
+ /docker network create dolibarr_network   
+
+levantar el contenedor 
+ docker-compose up -d
+
+ Ingresar a phpmyadmin y restaurar la base de datos
+ en el siguiente orden
+ c1481397_doliba.struct
+ c1481397_doliba.data
