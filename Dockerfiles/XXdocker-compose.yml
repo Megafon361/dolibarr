@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dolibarr
+    networks:
+      - dolibarr_network
+
+  my-own-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PHP_INI_UPLOAD_MAX_FILESIZE: 10M
+      PHP_INI_POST_MAX_SIZE: 10M
+      UPLOAD_LIMIT: 10M
+    ports:
+      - "8081:80"
+    networks:
+      - dolibarr_network
+    depends_on:
+      - mariadb
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DOLI_ADMIN_LOGIN: root
+      DOLI_ADMIN_PASSWORD: root
+      DOLI_DB_HOST: mariadb
+      DOLI_DB_USER: root
+      DOLI_DB_PASSWORD: root
+      DOLI_DB_NAME: dolibarr
+      DOLI_URL_ROOT: 'http://0.0.0.0'
+      PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
+      PHP_INI_UPLOAD_MAX_FILESIZE: 10M
+      PHP_INI_POST_MAX_SIZE: 10M
+    ports:
+      - "80:80"
+    networks:
+      - dolibarr_network
+    volumes:
+      - /Users/nicolasbranca/dev/PluginDolibarr:/var/www/html/custom
+    depends_on:
+      - mariadb
+
+networks:
+  dolibarr_network:
