@@ -2,7 +2,7 @@
 
 ## Features
 
-Description of the module...
+Modulo para calcular cotizaciones, le falta mucho por hacer
 
 <!--
 ![Screenshot cotizaciones](img/screenshot_cotizaciones.png?raw=true "Cotizaciones"){imgmd}

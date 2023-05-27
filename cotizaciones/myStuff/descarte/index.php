@@ -12,7 +12,7 @@
     <div >
       <form action="Cargar.html" method="post" accept-charset="utf-8" >
         <button type="submit" id="input_3"  class="ui button" >
-          Cargar Cotizacion
+          Cargar Cotizacionslskdjlasj
         </button>
      
       </form>

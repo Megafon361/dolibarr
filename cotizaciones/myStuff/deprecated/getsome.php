@@ -1,8 +1,8 @@
 <?php
 
-$httpheader =  ['DOLAPIKEY: mAgnV8S8vehYX2Pm3NQ56o46bgXPQu47'];
+$httpheader =  ['DOLAPIKEY: 92FpJYTWQk1E74pjfHgOn39c9P7Vyg3n'];
 //$Root = "http://localhost/dolibarr/api/index.php/";
-$Root = "http://fontv.ar/htdocs/api/index.php/";
+$Root = "http://localhost/api/index.php/";
 $curl = curl_init();
 $url = $Root."cotizacionesapi/cotizacions";
 

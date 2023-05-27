@@ -247,36 +247,8 @@ llxHeader('', $title, $help_url);
 
 
 
-echo '<!-- You MUST include jQuery before Fomantic -->
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
-<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>';
-
-
-
-#
-#
-#
-####
-#
-####
-#
-#
-#
-#
-#
-####
-#
-####
-#
-#
-#
-#
-#
-####
-#
-####
 #
 #
 
@@ -619,8 +591,8 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 			
 			#####################//Crear Factura a Proovedores
 			if ($object->status == $object::STATUS_VALIDATED) {
-				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default',  $Rooo.'myStuff/FacturaProv.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
-																//								"http://localhost/dolibarr/htdocs/myStuff/FacturaProv.php
+				print dolGetButtonAction($langs->trans('Facturar a proovedores'), '', 'default',  $Rooo.'myStuff/FacturaAProvedores.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+																//								"http://localhost/dolibarr/htdocs/myStuff/FacturaAProvedores.php
 			}
 
 
@@ -635,7 +607,7 @@ if ($object->id > 0 && (empty($action) || ($action != 'edit' && $action != 'crea
 				//	print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $_SERVER['PHP_SELF'].'?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 				if (empty($object->table_element_line) || (is_array($object->lines) && count($object->lines) > 0)) {
-					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $Rooo.'myStuff/catcher.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
+					print dolGetButtonAction($langs->trans('Crear Presupuesto'), '', 'default', $Rooo.'myStuff/CrearPresupuesto.php?id='.$object->id.'&action=confirm_validate&confirm=yes&token='.newToken(), '', $permissiontoadd);
 				
 			
 	
